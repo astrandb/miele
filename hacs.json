@@ -1,0 +1,14 @@
+{
+  "name": "hass_template",
+  "domains": [
+    "climate",
+    "sensor",
+    "binary_sensor"
+  ],
+  "homeassistant": "2021.12.0",
+  "iot_class": [
+    "Cloud Poll"
+  ],
+  "zip_release": true,
+  "filename": "hass_template.zip"
+}

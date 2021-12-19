@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release_zip_file:
+    name: Prepare release asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      #- name: Get version
+      #  id: version
+      #  uses: home-assistant/actions/helpers/version@master
+
+      #- name: "Set version number"
+      #  run: |
+      #    sed -i "/MINIMUM_HA_VERSION = /c\MINIMUM_HA_VERSION = \"$(jq .homeassistant -r ${{ github.workspace }}/hacs.json)\"" ${{ github.workspace }}/custom_components/hacs/const.py
+      #    python3 ${{ github.workspace }}/manage/update_manifest.py --version ${{ steps.version.outputs.version }}
+
+      # Pack the hass_template dir as a zip and upload to the release
+      - name: ZIP hass_template Dir
+        run: |
+          cd ${{ github.workspace }}/custom_components/hass_template
+          zip hass_template.zip -r ./
+      - name: Upload zip to release
+        uses: svenstaro/upload-release-action@v1-release
+
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ github.workspace }}/custom_components/hass_template/hass_template.zip
+          asset_name: hass_template.zip
+          tag: ${{ github.ref }}
+          overwrite: true
