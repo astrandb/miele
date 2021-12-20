@@ -10,5 +10,6 @@
     "Cloud Poll"
   ],
   "zip_release": true,
-  "filename": "hass_template.zip"
+  "filename": "hass_template.zip",
+  "render_readme": true
 }
