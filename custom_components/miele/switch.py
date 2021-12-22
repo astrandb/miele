@@ -1,17 +1,11 @@
-"""Platform for Miele sensor integration."""
+"""Platform for Miele switch integration."""
 from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from typing import Any, Callable, Final
+from typing import Any, Final
 
-from homeassistant.components.sensor import (
-    SensorDeviceClass,
-    SensorEntity,
-    SensorEntityDescription,
-    SensorStateClass,
-)
-from homeassistant.const import TEMP_CELSIUS
+from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -23,38 +17,34 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import DOMAIN
+from .devcap import LIVE_ACTION_CAPABILITIES
 
 _LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
-class MieleSensorDescription(SensorEntityDescription):
-    """Class describing Weatherlink sensor entities."""
+class MieleSwitchDescription(SwitchEntityDescription):
+    """Class describing Miele switch entities."""
 
     data_tag: str | None = None
     type_key: str | None = None
-    convert: Callable[[Any], Any] | None = None
-    decimals: int = 1
+    on_value: int = 0
 
 
-SENSOR_TYPES: Final[tuple[MieleSensorDescription, ...]] = (
-    MieleSensorDescription(
-        key="temperature",
-        data_tag="state|temperature|0|value_raw",
+SWITCH_TYPES: Final[tuple[MieleSwitchDescription, ...]] = (
+    MieleSwitchDescription(
+        key="supercooling",
+        data_tag="state|status|value_raw",
+        on_value=14,
         type_key="ident|type|value_localized",
-        device_class=SensorDeviceClass.TEMPERATURE,
-        name="Temperature",
-        native_unit_of_measurement=TEMP_CELSIUS,
-        state_class=SensorStateClass.MEASUREMENT,
+        name="Supercooling",
     ),
-    MieleSensorDescription(
-        key="targetTemperature",
-        data_tag="state|targetTemperature|0|value_raw",
+    MieleSwitchDescription(
+        key="superfreezing",
+        data_tag="state|status|value_raw",
+        on_value=13,
         type_key="ident|type|value_localized",
-        device_class=SensorDeviceClass.TEMPERATURE,
-        name="Target Temperature",
-        native_unit_of_measurement=TEMP_CELSIUS,
-        state_class=SensorStateClass.MEASUREMENT,
+        name="Superfreezing",
     ),
 )
 
@@ -70,28 +60,28 @@ async def async_setup_entry(
     async_add_entities(
         MieleSensor(coordinator, idx, ent, description)
         for idx, ent in enumerate(coordinator.data)
-        for description in SENSOR_TYPES
+        for description in SWITCH_TYPES
     )
 
 
-class MieleSensor(CoordinatorEntity, SensorEntity):
+class MieleSensor(CoordinatorEntity, SwitchEntity):
     """Representation of a Sensor."""
 
-    entity_description: MieleSensorDescription
+    entity_description: MieleSwitchDescription
 
     def __init__(
         self,
         coordinator: DataUpdateCoordinator,
         idx,
         ent,
-        description: MieleSensorDescription,
+        description: MieleSwitchDescription,
     ):
         """Initialize the sensor."""
         super().__init__(coordinator)
         self._idx = idx
         self._ent = ent
         self.entity_description = description
-        _LOGGER.debug("init sensor %s", ent)
+        _LOGGER.debug("init switch %s", ent)
         self._attr_name = f"{self.coordinator.data[self._ent][self.entity_description.type_key]} {self.entity_description.name}"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
@@ -102,9 +92,15 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         )
 
     @property
-    def native_value(self):
+    def is_on(self):
         """Return the state of the sensor."""
-        return round(
-            self.coordinator.data[self._ent][self.entity_description.data_tag] / 100,
-            1,
+        return (
+            self.coordinator.data[self._ent][self.entity_description.data_tag]
+            == self.entity_description.on_value
         )
+
+    async def async_turn_on(self, **kwargs):
+        """Turn the entity on."""
+
+    async def async_turn_off(self, **kwargs):
+        """Turn the entity off."""
