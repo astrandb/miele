@@ -127,7 +127,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Status",
             icon="mdi:state-machine",
             entity_category=EntityCategory.DIAGNOSTIC,
-            convert=lambda x: STATE_STATUS.get(x, x)
+            convert=lambda x: STATE_STATUS.get(x, x),
         ),
     ),
 )

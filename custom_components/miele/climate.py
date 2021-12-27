@@ -10,7 +10,7 @@ from homeassistant.components.climate.const import (
     HVAC_MODE_COOL,
     SUPPORT_TARGET_TEMPERATURE,
 )
-from homeassistant.const import TEMP_CELSIUS
+from homeassistant.const import ATTR_TEMPERATURE, TEMP_CELSIUS
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -85,7 +85,7 @@ async def async_setup_entry(
         for definition in CLIMATE_TYPES:
             if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
                 entities.append(
-                    MieleClimate(coordinator, idx, ent, definition.description)
+                    MieleClimate(coordinator, idx, ent, definition.description, hass, config_entry)
                 )
 
     async_add_entities(entities)
@@ -102,9 +102,13 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         idx,
         ent,
         description: MieleClimateDescription,
+        hass,
+        entry,
     ):
         """Initialize the sensor."""
         super().__init__(coordinator)
+        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+
         self._idx = idx
         self._ent = ent
         self.entity_description = description
@@ -154,5 +158,12 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             1,
         )
 
-    async def async_set_temperature(self, **kwargs):
+    async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""
+        _LOGGER.debug("kwargs: %s", kwargs)
+        if (temperature := kwargs.get(ATTR_TEMPERATURE)) is None:
+            return
+        await self._api.set_target_temperature(
+            self._ent, temperature
+        )
+        await self.coordinator.async_request_refresh()
