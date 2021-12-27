@@ -2,12 +2,11 @@
 from __future__ import annotations
 
 import logging
-import flatdict
 from datetime import timedelta
 
 import async_timeout
+import flatdict
 import voluptuous as vol
-from aiohttp.client_exceptions import ClientResponseError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.core import HomeAssistant
@@ -36,7 +35,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-PLATFORMS = ["sensor", "binary_sensor"]
+PLATFORMS = ["sensor", "binary_sensor", "climate", "switch"]
 
 
 class MieleLocalOAuth2Implementation(LocalOAuth2Implementation):

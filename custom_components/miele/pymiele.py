@@ -10,7 +10,7 @@ from abc import ABC, abstractmethod
 import async_timeout
 from aiohttp import ClientResponse, ClientSession
 
-CONTENT_TYPE = "application/json-patch+json"
+CONTENT_TYPE = "application/json"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -47,20 +47,23 @@ class AbstractAuth(ABC):
             headers=headers,
         )
 
-    async def set_target_temperature(self, serial: str, temperature: int):
+    async def set_target_temperature(
+        self, serial: str, temperature: float, zone: int = 1
+    ):
         """Set target temperature"""
-
+        temp = round(temperature)
         async with async_timeout.timeout(10):
-            data = {"serialNumber": serial, "temperature": temperature}
+            data = {"targetTemperature": [{"zone": zone, "value": temp}]}
             res = await self.request(
                 "PUT",
-                "/Mode/manual",
+                f"/devices/{serial}/actions",
                 data=json.dumps(data),
                 headers={
                     "Content-Type": CONTENT_TYPE,
                     "Accept": "application/json",
                 },
             )
+        _LOGGER.debug("set_target res: %s", res)
         return res
 
     async def set_mode_auto(self, serial: str):
