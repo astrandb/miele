@@ -26,6 +26,26 @@ from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
+STATE_STATUS = {
+    0: "Reserved",
+    1: "Off",
+    2: "On",
+    3: "Programmed",
+    4: "Programmed Waiting to start",
+    5: "Running",
+    6: "Pause",
+    7: "End Programmed",
+    8: "Failure",
+    9: "Programme interrupted",
+    10: "Idle",
+    11: "Rinse hold",
+    13: "Superfreezing",
+    14: "Supercooling",
+    15: "Superheating",
+    146: "Suppercooling/Superfreezing",
+    255: "Not connected",
+}
+
 
 @dataclass
 class MieleSensorDescription(SensorEntityDescription):
@@ -56,6 +76,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
+            convert=lambda x: x / 100.0,
         ),
     ),
     MieleSensorDefinition(
@@ -69,6 +90,44 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: x / 100.0,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            1,
+            2,
+            7,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            27,
+            31,
+            32,
+            33,
+            34,
+            45,
+            67,
+            68,
+        ],
+        description=MieleSensorDescription(
+            key="stateStatus",
+            data_tag="state|status|value_raw",
+            type_key="ident|type|value_localized",
+            name="Status",
+            icon="mdi:state-machine",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: STATE_STATUS.get(x, x)
         ),
     ),
 )
@@ -123,7 +182,9 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self):
         """Return the state of the sensor."""
-        return round(
-            self.coordinator.data[self._ent][self.entity_description.data_tag] / 100,
-            1,
-        )
+        if self.entity_description.convert is None:
+            return self.coordinator.data[self._ent][self.entity_description.data_tag]
+        else:
+            return self.entity_description.convert(
+                self.coordinator.data[self._ent][self.entity_description.data_tag]
+            )
