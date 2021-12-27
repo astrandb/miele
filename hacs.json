@@ -1,5 +1,5 @@
 {
-  "name": "hass_template",
+  "name": "miele",
   "domains": [
     "climate",
     "sensor",
@@ -10,6 +10,6 @@
     "Cloud Poll"
   ],
   "zip_release": true,
-  "filename": "hass_template.zip",
+  "filename": "miele.zip",
   "render_readme": true
 }
