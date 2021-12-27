@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from typing import Any, Final
+from typing import Final
 
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.core import HomeAssistant
@@ -17,7 +17,6 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import DOMAIN
-from .devcap import LIVE_ACTION_CAPABILITIES
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -31,20 +30,34 @@ class MieleSwitchDescription(SwitchEntityDescription):
     on_value: int = 0
 
 
-SWITCH_TYPES: Final[tuple[MieleSwitchDescription, ...]] = (
-    MieleSwitchDescription(
-        key="supercooling",
-        data_tag="state|status|value_raw",
-        on_value=14,
-        type_key="ident|type|value_localized",
-        name="Supercooling",
+@dataclass
+class MieleSwitchDefinition:
+    """Class for defining switch entities."""
+
+    types: tuple[int, ...]
+    description: MieleSwitchDescription = None
+
+
+SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
+    MieleSwitchDefinition(
+        types=[19, 21],
+        description=MieleSwitchDescription(
+            key="supercooling",
+            data_tag="state|status|value_raw",
+            on_value=14,
+            type_key="ident|type|value_localized",
+            name="Supercooling",
+        ),
     ),
-    MieleSwitchDescription(
-        key="superfreezing",
-        data_tag="state|status|value_raw",
-        on_value=13,
-        type_key="ident|type|value_localized",
-        name="Superfreezing",
+    MieleSwitchDefinition(
+        types=[20, 21, 68],
+        description=MieleSwitchDescription(
+            key="superfreezing",
+            data_tag="state|status|value_raw",
+            on_value=13,
+            type_key="ident|type|value_localized",
+            name="Superfreezing",
+        ),
     ),
 )
 
@@ -54,17 +67,21 @@ async def async_setup_entry(
     config_entry: ConfigType,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the sensor platform."""
+    """Set up the switch platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    async_add_entities(
-        MieleSensor(coordinator, idx, ent, description)
-        for idx, ent in enumerate(coordinator.data)
-        for description in SWITCH_TYPES
-    )
+    entities = []
+    for idx, ent in enumerate(coordinator.data):
+        for definition in SWITCH_TYPES:
+            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+                entities.append(
+                    MieleSwitch(coordinator, idx, ent, definition.description)
+                )
+
+    async_add_entities(entities)
 
 
-class MieleSensor(CoordinatorEntity, SwitchEntity):
+class MieleSwitch(CoordinatorEntity, SwitchEntity):
     """Representation of a Sensor."""
 
     entity_description: MieleSwitchDescription

@@ -7,7 +7,6 @@ from datetime import timedelta
 import async_timeout
 import flatdict
 import voluptuous as vol
-from aiohttp.client_exceptions import ClientResponseError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.core import HomeAssistant

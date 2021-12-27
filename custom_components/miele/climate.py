@@ -45,20 +45,29 @@ class MieleClimateDescription(ClimateEntityDescription):
     supported_features: int = 0
 
 
-CLIMATE_TYPES: Final[tuple[MieleClimateDescription, ...]] = (
-    MieleClimateDescription(
-        key="thermostat",
-        currentTemperature_tag="state|temperature|0|value_raw",
-        targetTemperature_tag="state|targetTemperature|0|value_raw",
-        type_key="ident|type|value_localized",
-        name="Zone 1",
-        temperature_unit=TEMP_CELSIUS,
-        precision=1.0,
-        # max_temp=8.0,
-        # min_temp=-26.0,
-        target_temperature_step=1.0,
-        hvac_modes=[HVAC_MODE_COOL],
-        supported_features=SUPPORT_TARGET_TEMPERATURE,
+@dataclass
+class MieleClimateDefinition:
+    """Class for defining switch entities."""
+
+    types: tuple[int, ...]
+    description: MieleClimateDescription = None
+
+
+CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
+    MieleClimateDefinition(
+        types=[19, 20, 21, 32, 33, 34, 68],
+        description=MieleClimateDescription(
+            key="thermostat",
+            currentTemperature_tag="state|temperature|0|value_raw",
+            targetTemperature_tag="state|targetTemperature|0|value_raw",
+            type_key="ident|type|value_localized",
+            name="Zone 1",
+            temperature_unit=TEMP_CELSIUS,
+            precision=1.0,
+            target_temperature_step=1.0,
+            hvac_modes=[HVAC_MODE_COOL],
+            supported_features=SUPPORT_TARGET_TEMPERATURE,
+        ),
     ),
 )
 
@@ -71,11 +80,15 @@ async def async_setup_entry(
     """Set up the sensor platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    async_add_entities(
-        MieleClimate(coordinator, idx, ent, description)
-        for idx, ent in enumerate(coordinator.data)
-        for description in CLIMATE_TYPES
-    )
+    entities = []
+    for idx, ent in enumerate(coordinator.data):
+        for definition in CLIMATE_TYPES:
+            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+                entities.append(
+                    MieleClimate(coordinator, idx, ent, definition.description)
+                )
+
+    async_add_entities(entities)
 
 
 class MieleClimate(CoordinatorEntity, ClimateEntity):

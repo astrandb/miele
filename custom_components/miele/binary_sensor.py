@@ -11,7 +11,7 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntityDescription,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
@@ -34,27 +34,94 @@ class MieleBinarySensorDescription(BinarySensorEntityDescription):
     convert: Callable[[Any], Any] | None = None
 
 
-BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDescription, ...]] = (
-    MieleBinarySensorDescription(
-        key="door",
-        data_tag="state|signalDoor",
-        type_key="ident|type|value_localized",
-        device_class=BinarySensorDeviceClass.DOOR,
-        name="Door",
+@dataclass
+class MieleBinarySensorDefinition:
+    """Class for defining binary sensor entities."""
+
+    types: tuple[int, ...]
+    description: MieleBinarySensorDescription = None
+
+
+BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
+    MieleBinarySensorDefinition(
+        types=[12, 13, 15, 16, 19, 20, 21, 31, 32, 33, 34, 45, 67],
+        description=MieleBinarySensorDescription(
+            key="door",
+            data_tag="state|signalDoor",
+            type_key="ident|type|value_localized",
+            device_class=BinarySensorDeviceClass.DOOR,
+            name="Door",
+        ),
     ),
-    MieleBinarySensorDescription(
-        key="info",
-        data_tag="state|signalInfo",
-        type_key="ident|type|value_localized",
-        device_class=BinarySensorDeviceClass.PROBLEM,
-        name="Info",
+    MieleBinarySensorDefinition(
+        types=[
+            1,
+            2,
+            7,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            31,
+            32,
+            33,
+            34,
+            45,
+            67,
+            68,
+        ],
+        description=MieleBinarySensorDescription(
+            key="info",
+            data_tag="state|signalInfo",
+            type_key="ident|type|value_localized",
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            name="Info",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
     ),
-    MieleBinarySensorDescription(
-        key="failure",
-        data_tag="state|signalFailure",
-        type_key="ident|type|value_localized",
-        device_class=BinarySensorDeviceClass.PROBLEM,
-        name="Failure",
+    MieleBinarySensorDefinition(
+        types=[
+            1,
+            2,
+            7,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            27,
+            31,
+            32,
+            33,
+            34,
+            45,
+            67,
+            68,
+        ],
+        description=MieleBinarySensorDescription(
+            key="failure",
+            data_tag="state|signalFailure",
+            type_key="ident|type|value_localized",
+            device_class=BinarySensorDeviceClass.PROBLEM,
+            name="Failure",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
     ),
 )
 
@@ -67,11 +134,15 @@ async def async_setup_entry(
     """Set up the sensor platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    async_add_entities(
-        MieleBinarySensor(coordinator, idx, ent, description)
-        for idx, ent in enumerate(coordinator.data)
-        for description in BINARY_SENSOR_TYPES
-    )
+    entities = []
+    for idx, ent in enumerate(coordinator.data):
+        for definition in BINARY_SENSOR_TYPES:
+            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+                entities.append(
+                    MieleBinarySensor(coordinator, idx, ent, definition.description)
+                )
+
+    async_add_entities(entities)
 
 
 class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
