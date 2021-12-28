@@ -3,10 +3,12 @@ from __future__ import annotations
 
 import logging
 from datetime import timedelta
+from http import HTTPStatus
 
 import async_timeout
 import flatdict
 import voluptuous as vol
+from aiohttp import ClientResponseError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.core import HomeAssistant
@@ -14,12 +16,17 @@ from homeassistant.helpers import aiohttp_client, config_entry_oauth2_flow
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.config_entry_oauth2_flow import LocalOAuth2Implementation
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.helpers.update_coordinator import (
+    ConfigEntryAuthFailed,
+    ConfigEntryNotReady,
+    DataUpdateCoordinator,
+)
 
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
-from .pymiele import MieleAuthException
+
+# from .pymiele import MieleAuthException
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -93,6 +100,18 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     )
 
     session = config_entry_oauth2_flow.OAuth2Session(hass, entry, implementation)
+    try:
+        await session.async_ensure_token_valid()
+    except ClientResponseError as ex:
+        _LOGGER.debug("API error: %s (%s)", ex.code, ex.message)
+        if ex.code in (
+            HTTPStatus.BAD_REQUEST,
+            HTTPStatus.UNAUTHORIZED,
+            HTTPStatus.FORBIDDEN,
+        ):
+            raise ConfigEntryAuthFailed("Token not valid, trigger renewal") from ex
+        raise ConfigEntryNotReady from ex
+
     hass.data[DOMAIN][entry.entry_id] = {}
     hass.data[DOMAIN][entry.entry_id]["api"] = AsyncConfigEntryAuth(
         aiohttp_client.async_get_clientsession(hass), session
@@ -129,7 +148,8 @@ async def get_coordinator(
             res = await miele_api.request("GET", "/devices")
             # _LOGGER.debug("Data: %s", await res.json())
         if res.status == 401:
-            raise MieleAuthException("Authentication failure when fetching data")
+            # raise MieleAuthException("Authentication failure when fetching data")
+            raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         flat_result: dict = {}
         for idx, ent in enumerate(result):

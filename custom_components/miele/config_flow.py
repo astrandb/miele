@@ -36,9 +36,11 @@ class OAuth2FlowHandler(
         self, entry: dict[str, Any] | None = None
     ) -> FlowResult:
         """Perform reauth upon an API authentication error."""
+        self.entry = entry
+        # self.logger.debug("reauth_entry: %s", entry)
         persistent_notification.async_create(
             self.hass,
-            f"Miele integration for account {entry['id']} needs to be re-authenticated. Please go to the integrations page to re-configure it.",
+            f"Miele integration for account {entry['auth_implementation']} needs to be re-authenticated. Please go to the integrations page to re-configure it.",
             "Miele re-authentication",
             "miele_reauth",
         )
@@ -48,13 +50,25 @@ class OAuth2FlowHandler(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Dialog that informs the user that reauth is required."""
+        # self.logger.debug("reauth_confirm_entry: %s", self.entry)
         if user_input is None:
             return self.async_show_form(
                 step_id="reauth_confirm",
-                description_placeholders={"account": self.entry["id"]},
+                description_placeholders={"account": self.entry["auth_implementation"]},
                 data_schema=vol.Schema({}),
                 errors={},
             )
 
         persistent_notification.async_dismiss(self.hass, "miele_reauth")
         return await self.async_step_user()
+
+    async def async_oauth_create_entry(self, data: dict) -> dict:
+        """Create an oauth config entry or update existing entry for reauth."""
+        # TODO: This example supports only a single config entry. Consider
+        # any special handling needed for multiple config entries.
+        existing_entry = await self.async_set_unique_id(DOMAIN)
+        if existing_entry:
+            self.hass.config_entries.async_update_entry(existing_entry, data=data)
+            await self.hass.config_entries.async_reload(existing_entry.entry_id)
+            return self.async_abort(reason="reauth_successful")
+        return await super().async_oauth_create_entry(data)
