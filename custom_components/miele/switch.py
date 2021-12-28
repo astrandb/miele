@@ -117,7 +117,9 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         )
 
     async def async_turn_on(self, **kwargs):
+        _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
         """Turn the entity on."""
 
     async def async_turn_off(self, **kwargs):
+        _LOGGER.debug("turn_off -> kwargs: %s", kwargs)
         """Turn the entity off."""

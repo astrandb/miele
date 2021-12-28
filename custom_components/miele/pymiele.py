@@ -50,7 +50,7 @@ class AbstractAuth(ABC):
     async def set_target_temperature(
         self, serial: str, temperature: float, zone: int = 1
     ):
-        """Set target temperature"""
+        """Set target temperature."""
         temp = round(temperature)
         async with async_timeout.timeout(10):
             data = {"targetTemperature": [{"zone": zone, "value": temp}]}
@@ -66,14 +66,14 @@ class AbstractAuth(ABC):
         _LOGGER.debug("set_target res: %s", res)
         return res
 
-    async def set_mode_auto(self, serial: str):
-        """Set auto mode"""
+    async def set_process_action(self, serial: str, action: int):
+        """Set process action."""
 
         async with async_timeout.timeout(10):
-            data = {"serialNumber": serial}
+            data = {"processAction": action}
             res = await self.request(
                 "PUT",
-                "/Mode/auto",
+                "/devices/{serial}/actions",
                 data=json.dumps(data),
                 headers={
                     "Content-Type": CONTENT_TYPE,
@@ -83,7 +83,7 @@ class AbstractAuth(ABC):
         return res
 
     async def set_mode_manual(self, serial: str):
-        """Set heat/manual mode"""
+        """Set heat/manual mode."""
 
         async with async_timeout.timeout(10):
             data = {"serialNumber": serial}
@@ -99,7 +99,7 @@ class AbstractAuth(ABC):
         return res
 
     async def set_mode_hold(self, serial: str, temperature: int, hold_until: str):
-        """Set hold mode"""
+        """Set hold mode."""
 
         async with async_timeout.timeout(10):
             data = {

@@ -85,7 +85,14 @@ async def async_setup_entry(
         for definition in CLIMATE_TYPES:
             if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
                 entities.append(
-                    MieleClimate(coordinator, idx, ent, definition.description, hass, config_entry)
+                    MieleClimate(
+                        coordinator,
+                        idx,
+                        ent,
+                        definition.description,
+                        hass,
+                        config_entry,
+                    )
                 )
 
     async_add_entities(entities)
@@ -163,7 +170,5 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         _LOGGER.debug("kwargs: %s", kwargs)
         if (temperature := kwargs.get(ATTR_TEMPERATURE)) is None:
             return
-        await self._api.set_target_temperature(
-            self._ent, temperature
-        )
+        await self._api.set_target_temperature(self._ent, temperature)
         await self.coordinator.async_request_refresh()
