@@ -21,5 +21,12 @@
               "description": "The Miele integration needs to re-authenticate your account: {account}"
             }
         }
+    }    ,
+    "system_health": {
+      "info": {
+        "reach_miele_cloud": "Reach Miele Cloud",
+        "component_version": "Version",
+        "connected2stream": "Connected to signalr"
+      }
     }
-}
+  }
