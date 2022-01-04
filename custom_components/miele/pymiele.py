@@ -2,13 +2,18 @@
 
 # TODO
 # Should be moved to pypi.org when reasonably stable
+from __future__ import annotations
 
+import asyncio
 import json
+from json.decoder import JSONDecodeError
 import logging
 from abc import ABC, abstractmethod
+from typing import Any, Callable, Coroutine
 
 import async_timeout
-from aiohttp import ClientResponse, ClientSession
+from aiohttp import ClientError, ClientResponse, ClientSession, ClientTimeout
+from .const import MIELE_API
 
 CONTENT_TYPE = "application/json"
 
@@ -63,78 +68,76 @@ class AbstractAuth(ABC):
                     "Accept": "application/json",
                 },
             )
-        _LOGGER.debug("set_target res: %s", res)
+        _LOGGER.debug("set_target res: %s", res.status)
         return res
 
-    async def set_process_action(self, serial: str, action: int):
-        """Set process action."""
+    async def send_action(self, serial: str, data):
+        """Send action command."""
 
+        _LOGGER.debug("send_action serial: %s, data: %s", serial, data)
         async with async_timeout.timeout(10):
-            data = {"processAction": action}
             res = await self.request(
                 "PUT",
-                "/devices/{serial}/actions",
+                f"/devices/{serial}/actions",
                 data=json.dumps(data),
                 headers={
                     "Content-Type": CONTENT_TYPE,
                     "Accept": "application/json",
                 },
             )
+            res.raise_for_status()
+        _LOGGER.debug("send-action res: %s", res.status)
         return res
 
-    async def set_mode_manual(self, serial: str):
-        """Set heat/manual mode."""
+    async def listen_events(
+        self,
+        data_callback: Callable[[dict[str, Any]], Any] | None = None,
+        actions_callback: Callable[[dict[str, Any]], Any] | None = None,
+    ) -> Callable[[], Coroutine[Any, Any, None]]:
+        """Listen to events, apply changes to object and call callback with event."""
+        while True:
+            try:
+                access_token = await self.async_get_access_token()
+                async with self.websession.get(
+                    f"{MIELE_API}/devices/all/events",
+                    timeout=ClientTimeout(total=None, sock_connect=5, sock_read=None),
+                    headers={
+                        "Accept": "text/event-stream; char-set=utf-8",
+                        "Authorization": f"Bearer {access_token}",
+                    },
+                ) as resp:
+                    # _LOGGER.debug("Response: %s", resp.status)
+                    while True:
+                        id_line = await resp.content.readline()
+                        data_line = await resp.content.readline()
+                        await resp.content.readline()  # Empty line
+                        if resp.closed:
+                            return
+                        event_type = bytearray(id_line).decode().strip()
+                        if event_type == "event: devices":
+                            data = json.loads(data_line[6:])
+                            if data_callback is not None:
+                                asyncio.create_task(data_callback(data))
+                        elif event_type == "event: actions":
+                            data = json.loads(data_line[6:])
+                            if actions_callback is not None:
+                                asyncio.create_task(actions_callback(data))
+                        elif event_type == "event: ping":
+                            pass
+                        else:
+                            _LOGGER.error("Unknown event type: %s", event_type)
 
-        async with async_timeout.timeout(10):
-            data = {"serialNumber": serial}
-            res = await self.request(
-                "PUT",
-                "/Mode/manual",
-                data=json.dumps(data),
-                headers={
-                    "Content-Type": CONTENT_TYPE,
-                    "Accept": "application/json",
-                },
-            )
-        return res
-
-    async def set_mode_hold(self, serial: str, temperature: int, hold_until: str):
-        """Set hold mode."""
-
-        async with async_timeout.timeout(10):
-            data = {
-                "serialNumber": serial,
-                "temperature": temperature,
-                "holdUntil": hold_until,
-            }
-            res = await self.request(
-                "PUT",
-                "/Mode/hold",
-                data=json.dumps(data),
-                headers={
-                    "Content-Type": CONTENT_TYPE,
-                    "Accept": "application/json",
-                },
-            )
-        return res
-
-    async def set_mode_off(self, serial: str):
-        """Set mode to off/standby."""
-        """The API does not support off mode so we simulate it by setting temp to 5C."""
-
-        async with async_timeout.timeout(10):
-            data = {"serialNumber": serial, "temperature": 500}
-            res = await self.request(
-                "PUT",
-                "/Mode/manual",
-                data=json.dumps(data),
-                headers={
-                    "Content-Type": CONTENT_TYPE,
-                    "Accept": "application/json",
-                },
-            )
-        return res
-
+            except ClientError as ex:
+                _LOGGER.error("SSE: %s - %s", ex.status, ex.message)
+                await asyncio.sleep(5)
+            except JSONDecodeError as ex:
+                _LOGGER.error(
+                    "JSON decode error: %s, Pos: %s, Doc: %s", ex.msg, ex.pos, ex.doc
+                )
+                await asyncio.sleep(5)
+            except ex:
+                _LOGGER.error("Listen_event: %s - %s", ex.status, ex.message)
+                await asyncio.sleep(5)
 
 class MieleException(Exception):
     """Generic miele exception."""

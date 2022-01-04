@@ -1,6 +1,7 @@
 """The Miele integration."""
 from __future__ import annotations
 
+import asyncio
 import logging
 from datetime import timedelta
 from http import HTTPStatus
@@ -113,6 +114,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         raise ConfigEntryNotReady from ex
 
     hass.data[DOMAIN][entry.entry_id] = {}
+    hass.data[DOMAIN][entry.entry_id]["listener"] = None
     hass.data[DOMAIN][entry.entry_id]["api"] = AsyncConfigEntryAuth(
         aiohttp_client.async_get_clientsession(hass), session
     )
@@ -121,6 +123,20 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     _LOGGER.debug("First data - flat: %s", coordinator.data)
+
+    async def _callback_update_data(data) -> None:
+        # _LOGGER.debug("Callback data: %s", data)
+        flat_result: dict = {}
+        for idx, ent in enumerate(data):
+            flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
+        coordinator.async_set_updated_data(flat_result)
+
+    hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
+        hass.data[DOMAIN][entry.entry_id]["api"].listen_events(
+            data_callback=_callback_update_data,
+            # effects_callback=_callback_update_light_state,
+        )
+    )
 
     hass.config_entries.async_setup_platforms(entry, PLATFORMS)
     return True
@@ -131,6 +147,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
+    hass.data[DOMAIN][entry.entry_id]["listener"].cancel()
     return unload_ok
 
 

@@ -3,8 +3,9 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from typing import Final
+from typing import Any, Final
 
+import aiohttp
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
@@ -28,6 +29,8 @@ class MieleSwitchDescription(SwitchEntityDescription):
     data_tag: str | None = None
     type_key: str | None = None
     on_value: int = 0
+    on_data: dict[str, Any] | None = None
+    off_data: dict[str, Any] | None = None
 
 
 @dataclass
@@ -47,6 +50,8 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             on_value=14,
             type_key="ident|type|value_localized",
             name="Supercooling",
+            on_data={"processAction": 6},
+            off_data={"processAction": 7},
         ),
     ),
     MieleSwitchDefinition(
@@ -57,6 +62,8 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             on_value=13,
             type_key="ident|type|value_localized",
             name="Superfreezing",
+            on_data={"processAction": 4},
+            off_data={"processAction": 5},
         ),
     ),
 )
@@ -75,7 +82,14 @@ async def async_setup_entry(
         for definition in SWITCH_TYPES:
             if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
                 entities.append(
-                    MieleSwitch(coordinator, idx, ent, definition.description)
+                    MieleSwitch(
+                        coordinator,
+                        idx,
+                        ent,
+                        definition.description,
+                        hass,
+                        config_entry,
+                    )
                 )
 
     async_add_entities(entities)
@@ -92,9 +106,13 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         idx,
         ent,
         description: MieleSwitchDescription,
+        hass,
+        entry,
     ):
         """Initialize the sensor."""
         super().__init__(coordinator)
+        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+
         self._idx = idx
         self._ent = ent
         self.entity_description = description
@@ -120,6 +138,24 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
         """Turn the entity on."""
 
+        try:
+            await self._api.send_action(self._ent, self.entity_description.on_data)
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
+
+        # await self.coordinator.async_request_refresh()
+
     async def async_turn_off(self, **kwargs):
         _LOGGER.debug("turn_off -> kwargs: %s", kwargs)
         """Turn the entity off."""
+        try:
+            await self._api.send_action(self._ent, self.entity_description.off_data)
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+
+        # await self.coordinator.async_request_refresh()
+
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255

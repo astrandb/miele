@@ -176,3 +176,8 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
     def is_on(self):
         """Return the state of the sensor."""
         return self.coordinator.data[self._ent][self.entity_description.data_tag]
+
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255

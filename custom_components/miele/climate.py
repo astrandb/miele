@@ -172,3 +172,8 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             return
         await self._api.set_target_temperature(self._ent, temperature)
         await self.coordinator.async_request_refresh()
+
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
