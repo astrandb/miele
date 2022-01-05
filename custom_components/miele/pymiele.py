@@ -6,13 +6,14 @@ from __future__ import annotations
 
 import asyncio
 import json
-from json.decoder import JSONDecodeError
 import logging
 from abc import ABC, abstractmethod
+from json.decoder import JSONDecodeError
 from typing import Any, Callable, Coroutine
 
 import async_timeout
 from aiohttp import ClientError, ClientResponse, ClientSession, ClientTimeout
+
 from .const import MIELE_API
 
 CONTENT_TYPE = "application/json"
@@ -135,9 +136,10 @@ class AbstractAuth(ABC):
                     "JSON decode error: %s, Pos: %s, Doc: %s", ex.msg, ex.pos, ex.doc
                 )
                 await asyncio.sleep(5)
-            except ex:
+            except Exception as ex:
                 _LOGGER.error("Listen_event: %s - %s", ex.status, ex.message)
                 await asyncio.sleep(5)
+
 
 class MieleException(Exception):
     """Generic miele exception."""
