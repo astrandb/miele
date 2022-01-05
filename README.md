@@ -8,9 +8,9 @@ This is a first release / Proof of Concept
 
 The capabilities are based on Miele API version 1.0.5
 
-All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers and refridgerators will have a more complete support. The status is read from the cloud every 30 seconds.
+All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers and refridgerators will have a more complete support. Changes on the appliances will be pushed to HA and displayed immediately. As a backup the status is read from the cloud every 60 seconds.
 
-In an upcoming release there will be support for more appliance types and later on even real-time updates from the cloud service.
+In an upcoming release there will be support for more appliance types.
 
 
 Known limitations: There is only limited error and exception handling in this pre-release.
