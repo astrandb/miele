@@ -188,3 +188,10 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             return self.entity_description.convert(
                 self.coordinator.data[self._ent][self.entity_description.data_tag]
             )
+
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+        if self.entity_description.key == "stateStatus":
+            return True
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255

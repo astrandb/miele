@@ -6,7 +6,8 @@
             "authorize_url_timeout": "Timeout generating authorize URL.",
             "missing_configuration": "The component is not configured. Please follow the documentation.",
             "no_url_available": "No URL available. For information about this error, [check the help section]({docs_url})",
-            "oauth_error": "Received invalid token data."
+            "oauth_error": "Received invalid token data.",
+            "reauth_successful": "Re-authentication was successful"
         },
         "create_entry": {
             "default": "Successfully authenticated"
@@ -14,7 +15,18 @@
         "step": {
             "pick_implementation": {
                 "title": "Pick Authentication Method"
+            },
+            "reauth_confirm": {
+              "title": "Reauthenticate Integration",
+              "description": "The Miele integration needs to re-authenticate your account: {account}"
             }
         }
+    }    ,
+    "system_health": {
+      "info": {
+        "reach_miele_cloud": "Reach Miele Cloud",
+        "component_version": "Version",
+        "connected2stream": "Connected to signalr"
+      }
     }
-}
+  }
