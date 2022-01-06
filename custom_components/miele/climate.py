@@ -69,6 +69,36 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             supported_features=SUPPORT_TARGET_TEMPERATURE,
         ),
     ),
+    MieleClimateDefinition(
+        types=[19, 20, 21, 32, 33, 34, 68],
+        description=MieleClimateDescription(
+            key="thermostat_z2",
+            currentTemperature_tag="state|temperature|1|value_raw",
+            targetTemperature_tag="state|targetTemperature|1|value_raw",
+            type_key="ident|type|value_localized",
+            name="Zone 2",
+            temperature_unit=TEMP_CELSIUS,
+            precision=1.0,
+            target_temperature_step=1.0,
+            hvac_modes=[HVAC_MODE_COOL],
+            supported_features=SUPPORT_TARGET_TEMPERATURE,
+        ),
+    ),
+    MieleClimateDefinition(
+        types=[19, 20, 21, 32, 33, 34, 68],
+        description=MieleClimateDescription(
+            key="thermostat_z3",
+            currentTemperature_tag="state|temperature|2|value_raw",
+            targetTemperature_tag="state|targetTemperature|2|value_raw",
+            type_key="ident|type|value_localized",
+            name="Zone 3",
+            temperature_unit=TEMP_CELSIUS,
+            precision=1.0,
+            target_temperature_step=1.0,
+            hvac_modes=[HVAC_MODE_COOL],
+            supported_features=SUPPORT_TARGET_TEMPERATURE,
+        ),
+    ),
 )
 
 
@@ -80,10 +110,27 @@ async def async_setup_entry(
     """Set up the sensor platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
+    def _skip_temp_zone(key: str):
+        if (
+            key == "thermostat_z2"
+            and coordinator.data[ent].get("state|temperature|1|value_raw", -32768)
+            == -32768
+        ):
+            return True
+        if (
+            key == "thermostat_z3"
+            and coordinator.data[ent].get("state|temperature|2|value_raw", -32768)
+            == -32768
+        ):
+            return True
+        return False
+
     entities = []
     for idx, ent in enumerate(coordinator.data):
         for definition in CLIMATE_TYPES:
             if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+                if _skip_temp_zone(definition.description.key):
+                    continue
                 entities.append(
                     MieleClimate(
                         coordinator,
