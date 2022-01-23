@@ -22,29 +22,9 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import DOMAIN
+from .const import DOMAIN, STATE_STATUS
 
 _LOGGER = logging.getLogger(__name__)
-
-STATE_STATUS = {
-    0: "Reserved",
-    1: "Off",
-    2: "On",
-    3: "Programmed",
-    4: "Programmed Waiting to start",
-    5: "Running",
-    6: "Pause",
-    7: "End Programmed",
-    8: "Failure",
-    9: "Programme interrupted",
-    10: "Idle",
-    11: "Rinse hold",
-    13: "Superfreezing",
-    14: "Supercooling",
-    15: "Superheating",
-    146: "Suppercooling/Superfreezing",
-    255: "Not connected",
-}
 
 
 @dataclass
@@ -125,6 +105,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|status|value_raw",
             type_key="ident|type|value_localized",
             name="Status",
+            device_class="miele__state_status",
             icon="mdi:state-machine",
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_STATUS.get(x, x),

@@ -1,0 +1,23 @@
+{
+    "state": {
+      "miele__state_status": {
+        "off": "Off",
+        "on": "On",
+        "programmed": "Programmed",
+        "programmed_waiting_to_start": "Programmed Waiting to start",
+        "running": "Running",
+        "pause": "Pause",
+        "end_programmed": "End Programmed",
+        "failure": "Failure",
+        "programme_interrupted": "Programme Interrupted",
+        "idle": "Idle",
+        "rinse_hold": "Rinse Hold",
+        "service": "Service",
+        "superfreezing": "Superfreezing",
+        "supercooling": "Supercooling",
+        "superheating": "Superheating",
+        "supercooling_superfreezing": "Supercooling/Superfreezing",
+        "not_connected": "Not connected"
+      }
+   }
+  }
