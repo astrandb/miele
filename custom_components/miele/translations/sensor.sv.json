@@ -1,0 +1,23 @@
+{
+    "state": {
+      "miele__state_status": {
+        "off": "Från",
+        "on": "Till",
+        "programmed": "Programmerad",
+        "programmed_waiting_to_start": "Programmerad Väntar på start",
+        "running": "Igång",
+        "pause": "Pause",
+        "end_programmed": "Program slut",
+        "failure": "Misslyckades",
+        "programme_interrupted": "Program Avbrutet",
+        "idle": "Vänteläge",
+        "rinse_hold": "Sköljstopp",
+        "service": "Service",
+        "superfreezing": "SuperFrost",
+        "supercooling": "SuperCool",
+        "superheating": "SuperVärme",
+        "supercooling_superfreezing": "SuperCool/SuperFrost",
+        "not_connected": "Ej ansluten"
+      }
+   }
+  }

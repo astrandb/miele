@@ -1,0 +1,32 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Kontot är redan autentiserat",
+            "already_in_progress": "Configuration flow is already in progress",
+            "authorize_url_timeout": "Timeout vid generering av URL för autentisering",
+            "missing_configuration": "Komponenten kunde inte konfigureras. Vänligen följ dokumentationen",
+            "no_url_available": "Ingen URL tillgänglig. För information om detta fel, [se hjälpavsnittet]({docs_url})",
+            "oauth_error": "Tog emot ogiltiga token-data",
+            "reauth_successful": "Re-autentisering lyckades"
+        },
+        "create_entry": {
+            "default": "Autentisering lyckades"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Välj metod för autentisering"
+            },
+            "reauth_confirm": {
+              "title": "Förnya autentisering",
+              "description": "Miele-integrationen behöver förnyad autentisering för kontot: {account}"
+            }
+        }
+    }    ,
+    "system_health": {
+      "info": {
+        "reach_miele_cloud": "Kan nå Miele cloud",
+        "component_version": "Version",
+        "connected2stream": "Ansluten till signalr"
+      }
+    }
+  }
