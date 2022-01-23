@@ -26,3 +26,22 @@ STATE_STATUS = {
     146: "supercooling_superfreezing",
     255: "not_connected",
 }
+
+STATE_PROGRAM_TYPE = {
+    0: "normal_operation_mode",
+    1: "own_program",
+    2: "automatic_program",
+    3: "cleaning_care_program",
+}
+
+STATE_PROGRAM_ID = {
+    1: "cottons",
+    3: "minimum_iron",
+    38: "quick_power_wash",
+}
+
+STATE_PROGRAM_PHASE = {
+    256: "no_phase",
+    260: "main_wash",
+    1799: "drying",
+}
