@@ -6,11 +6,11 @@ _Work in progress_
 
 This is a first release / Proof of Concept
 
-The capabilities are based on Miele API version 1.0.5
+The capabilities are based on Miele API version 1.0.5. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some device lack support and some devices support features that are not marked.
 
-All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers and refridgerators will have a more complete support. Changes on the appliances will be pushed to HA and displayed immediately. As a backup the status is read from the cloud every 60 seconds.
+All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers, refridgerators, dishwashers and washer/dryers will have a more complete support. Changes on the appliances will be pushed to HA and displayed immediately. As a backup the status is read from the cloud every 60 seconds.
 
-In an upcoming release there will be support for more appliance types.
+In upcoming releases there will be support for more appliance types and more complete support for existing appliances.
 
 
 Known limitations: There is only limited error and exception handling in this pre-release.
