@@ -25,13 +25,13 @@
         "automatic_program": "Automatic program",
         "cleaning_care_program": "Cleaning/Care program"
       },
-      "miele_state__program_id": {
+      "miele__state_program_id": {
         "cottons": "Cottons",
         "minimum_iron": "Minimum iron",
         "quick_power_wash": "Quick powerwash"
       },
       "miele__state_program_phase": {
-        "no_phase": "No phase",
+        "not_running": "Not running",
         "main_wash": "Main wash",
         "drying": "Drying"
       }

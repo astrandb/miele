@@ -26,6 +26,7 @@ from homeassistant.helpers.update_coordinator import (
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
+from .devcap import TEST_DATA_7, TEST_DATA_24
 
 # from .pymiele import MieleAuthException
 
@@ -126,6 +127,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
+        data["1223007"] = TEST_DATA_7
+        data["1223024"] = TEST_DATA_24
         flat_result: dict = {}
         for idx, ent in enumerate(data):
             flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
@@ -144,10 +147,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
+    hass.data[DOMAIN][entry.entry_id]["listener"].cancel()
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id)
-    hass.data[DOMAIN][entry.entry_id]["listener"].cancel()
     return unload_ok
 
 
@@ -169,6 +172,9 @@ async def get_coordinator(
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         flat_result: dict = {}
+        result["1223007"] = TEST_DATA_7
+        result["1223024"] = TEST_DATA_24
+
         for idx, ent in enumerate(result):
             flat_result[ent] = dict(flatdict.FlatterDict(result[ent], delimiter="|"))
         # _LOGGER.debug("Data: %s", flat_result)
