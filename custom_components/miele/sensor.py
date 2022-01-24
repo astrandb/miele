@@ -22,29 +22,39 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import DOMAIN
+from .const import (
+    COFFEE_SYSTEM,
+    DIALOG_OVEN,
+    DISH_WARMER,
+    DISHWASHER,
+    DOMAIN,
+    FREEZER,
+    FRIDGE,
+    FRIDGE_FREEZER,
+    HOB_HIGHLIGHT,
+    HOB_INDUCTION,
+    HOOD,
+    MICROWAVE,
+    OVEN,
+    OVEN_MICROWAVE,
+    ROBOT_VACUUM_CLEANER,
+    STATE_PROGRAM_ID,
+    STATE_PROGRAM_PHASE,
+    STATE_PROGRAM_TYPE,
+    STATE_STATUS,
+    STEAM_OVEN,
+    STEAM_OVEN_COMBI,
+    STEAM_OVEN_MICRO,
+    TUMBLE_DRYER,
+    WASHER_DRYER,
+    WASHING_MACHINE,
+    WINE_CABINET,
+    WINE_CABINET_FREEZER,
+    WINE_CONDITIONING_UNIT,
+    WINE_STORAGE_CONDITIONING_UNIT,
+)
 
 _LOGGER = logging.getLogger(__name__)
-
-STATE_STATUS = {
-    0: "Reserved",
-    1: "Off",
-    2: "On",
-    3: "Programmed",
-    4: "Programmed Waiting to start",
-    5: "Running",
-    6: "Pause",
-    7: "End Programmed",
-    8: "Failure",
-    9: "Programme interrupted",
-    10: "Idle",
-    11: "Rinse hold",
-    13: "Superfreezing",
-    14: "Supercooling",
-    15: "Superheating",
-    146: "Suppercooling/Superfreezing",
-    255: "Not connected",
-}
 
 
 @dataclass
@@ -52,6 +62,7 @@ class MieleSensorDescription(SensorEntityDescription):
     """Class describing Weatherlink sensor entities."""
 
     data_tag: str | None = None
+    data_tag1: str | None = None
     type_key: str | None = None
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
@@ -67,7 +78,22 @@ class MieleSensorDefinition:
 
 SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
-        types=[12, 13, 15, 16, 19, 20, 21, 31, 32, 33, 34, 45, 67, 68],
+        types=[
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+            WINE_CABINET_FREEZER,
+        ],
         description=MieleSensorDescription(
             key="temperature",
             data_tag="state|temperature|0|value_raw",
@@ -80,7 +106,24 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         ),
     ),
     MieleSensorDefinition(
-        types=[12, 13, 15, 16, 19, 20, 21, 31, 32, 33, 34, 45, 67, 68],
+        types=[
+            WASHING_MACHINE,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+            WINE_CABINET_FREEZER,
+        ],
         description=MieleSensorDescription(
             key="targetTemperature",
             data_tag="state|targetTemperature|0|value_raw",
@@ -95,39 +138,184 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     ),
     MieleSensorDefinition(
         types=[
-            1,
-            2,
-            7,
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            20,
-            21,
-            23,
-            24,
-            25,
-            27,
-            31,
-            32,
-            33,
-            34,
-            45,
-            67,
-            68,
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            HOB_HIGHLIGHT,
+            STEAM_OVEN,
+            MICROWAVE,
+            COFFEE_SYSTEM,
+            HOOD,
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            ROBOT_VACUUM_CLEANER,
+            WASHER_DRYER,
+            DISH_WARMER,
+            HOB_INDUCTION,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+            WINE_CABINET_FREEZER,
         ],
         description=MieleSensorDescription(
             key="stateStatus",
             data_tag="state|status|value_raw",
             type_key="ident|type|value_localized",
             name="Status",
+            device_class="miele__state_status",
             icon="mdi:state-machine",
-            entity_category=EntityCategory.DIAGNOSTIC,
+            # entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_STATUS.get(x, x),
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            COFFEE_SYSTEM,
+            ROBOT_VACUUM_CLEANER,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateProgramId",
+            data_tag="state|ProgramID|value_raw",
+            type_key="ident|type|value_localized",
+            name="Program Id",
+            device_class="miele__state_program_id",
+            icon="mdi:state-machine",
+            # entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: STATE_PROGRAM_ID.get(x, x),
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            ROBOT_VACUUM_CLEANER,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateProgramType",
+            data_tag="state|programType|value_raw",
+            type_key="ident|type|value_localized",
+            name="Program Type",
+            device_class="miele__state_program_type",
+            icon="mdi:state-machine",
+            # entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: STATE_PROGRAM_TYPE.get(x, x),
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            COFFEE_SYSTEM,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateProgramPhase",
+            data_tag="state|programPhase|value_raw",
+            type_key="ident|type|value_localized",
+            name="Program Phase",
+            device_class="miele__state_program_phase",
+            icon="mdi:state-machine",
+            # entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: STATE_PROGRAM_PHASE.get(x, x),
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateSpinningSpeed",
+            data_tag="state|spinningSpeed|value_raw",
+            type_key="ident|type|value_localized",
+            name="Spin Speed",
+            icon="mdi:sync",
+            native_unit_of_measurement="rpm",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateRemainingTime",
+            data_tag="state|remainingTime|0",
+            data_tag1="state|remainingTime|1",
+            type_key="ident|type|value_localized",
+            name="Remaining time",
+            icon="mdi:clock-end",
+            native_unit_of_measurement="min",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateElapsedTime",
+            data_tag="state|elapsedTime|0",
+            data_tag1="state|elapsedTime|1",
+            type_key="ident|type|value_localized",
+            name="Elapsed time",
+            icon="mdi:timer-outline",
+            native_unit_of_measurement="min",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
 )
@@ -177,11 +365,24 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             name=self.coordinator.data[self._ent][self.entity_description.type_key],
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
+            hw_version=self.coordinator.data[self._ent]["ident|xkmIdentLabel|techType"],
+            sw_version=self.coordinator.data[self._ent][
+                "ident|xkmIdentLabel|releaseVersion"
+            ],
         )
 
     @property
     def native_value(self):
         """Return the state of the sensor."""
+        if self.entity_description.key in [
+            "stateRemainingTime",
+            "stateStartTime",
+            "stateElapsedTime",
+        ]:
+            return (
+                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
+                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
+            )
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
         else:

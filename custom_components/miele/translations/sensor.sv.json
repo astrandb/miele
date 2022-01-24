@@ -1,0 +1,39 @@
+{
+    "state": {
+      "miele__state_status": {
+        "off": "Från",
+        "on": "Till",
+        "programmed": "Programmerad",
+        "programmed_waiting_to_start": "Programmerad Väntar på start",
+        "running": "Igång",
+        "pause": "Pause",
+        "end_programmed": "Program slut",
+        "failure": "Misslyckades",
+        "programme_interrupted": "Program Avbrutet",
+        "idle": "Vänteläge",
+        "rinse_hold": "Sköljstopp",
+        "service": "Service",
+        "superfreezing": "SuperFrost",
+        "supercooling": "SuperCool",
+        "superheating": "SuperVärme",
+        "supercooling_superfreezing": "SuperCool/SuperFrost",
+        "not_connected": "Ej ansluten"
+      },
+      "miele__state_program_type": {
+        "normal_operation_mode": "Normalläge",
+        "own_program": "Eget program",
+        "automatic_program": "Automatiskt program",
+        "cleaning_care_program": "Rengöringsprogram"
+      },
+      "miele__state_program_id": {
+        "cottons": "Bomull",
+        "minimum_iron": "Minimum strykning",
+        "quick_power_wash": "Snabb powertvätt"
+      },
+      "miele__state_program_phase": {
+        "not_running": "Kör ej",
+        "main_wash": "Huvudtvätt",
+        "drying": "Torkar"
+      }
+   }
+  }
