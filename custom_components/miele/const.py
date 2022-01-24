@@ -37,7 +37,21 @@ STATE_PROGRAM_TYPE = {
 STATE_PROGRAM_ID = {
     1: "cottons",
     3: "minimum_iron",
+    4: "delicates",
+    8: "wool",
+    9: "silk",
+    21: "empty_spin",
+    23: "dress_shirts",
+    27: "impregnate",
+    29: "sportswear",
+    31: "automatic_plus",
+    37: "outdoor",
     38: "quick_power_wash",
+    48: "rinse_fluff",
+    50: "dark wash",
+    52: "rinse_only_starch",
+    122: "express_20",
+    123: "dark_jeans",
 }
 
 STATE_PROGRAM_PHASE = {
