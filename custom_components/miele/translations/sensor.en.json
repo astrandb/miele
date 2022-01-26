@@ -1,39 +1,72 @@
 {
-    "state": {
-      "miele__state_status": {
-        "off": "Off",
-        "on": "On",
-        "programmed": "Programmed",
-        "programmed_waiting_to_start": "Programmed Waiting to start",
-        "running": "Running",
-        "pause": "Pause",
-        "end_programmed": "End Programmed",
-        "failure": "Failure",
-        "programme_interrupted": "Programme Interrupted",
-        "idle": "Idle",
-        "rinse_hold": "Rinse Hold",
-        "service": "Service",
-        "superfreezing": "Superfreezing",
-        "supercooling": "Supercooling",
-        "superheating": "Superheating",
-        "supercooling_superfreezing": "Supercooling/Superfreezing",
-        "not_connected": "Not connected"
-      },
-      "miele__state_program_type": {
-        "normal_operation_mode": "Normal operation mode",
-        "own_program": "Own program",
-        "automatic_program": "Automatic program",
-        "cleaning_care_program": "Cleaning/Care program"
-      },
-      "miele__state_program_id": {
-        "cottons": "Cottons",
-        "minimum_iron": "Minimum iron",
-        "quick_power_wash": "Quick powerwash"
-      },
-      "miele__state_program_phase": {
-        "not_running": "Not running",
-        "main_wash": "Main wash",
-        "drying": "Drying"
-      }
-   }
+  "state": {
+    "miele__state_status": {
+      "off": "Off",
+      "on": "On",
+      "programmed": "Programmed",
+      "programmed_waiting_to_start": "Programmed Waiting to start",
+      "running": "Running",
+      "pause": "Pause",
+      "end_programmed": "End Programmed",
+      "failure": "Failure",
+      "programme_interrupted": "Programme Interrupted",
+      "idle": "Idle",
+      "rinse_hold": "Rinse Hold",
+      "service": "Service",
+      "superfreezing": "Superfreezing",
+      "supercooling": "Supercooling",
+      "superheating": "Superheating",
+      "supercooling_superfreezing": "Supercooling/Superfreezing",
+      "not_connected": "Not connected"
+    },
+    "miele__state_program_type": {
+      "normal_operation_mode": "Normal operation mode",
+      "own_program": "Own program",
+      "automatic_program": "Automatic program",
+      "cleaning_care_program": "Cleaning/Care program"
+    },
+    "miele__state_program_id": {
+      "cottons": "Cottons",
+      "minimum_iron": "Minimum iron",
+      "quick_power_wash": "Quick powerwash"
+    },
+    "miele__state_program_phase": {
+      "not_running": "Not running",
+      "main_wash": "Main wash",
+      "drying": "Drying",
+      "pre_wash": "Pre-wash",
+      "soak": "Soak",
+      "rinse": "Rinse",
+      "rinse_hold": "Rinse hold",
+      "cooling_down": "Cooling down",
+      "drain": "Drain",
+      "spin": "Spin",
+      "anti_crease": "Anti-crease",
+      "finished": "Finished",
+      "venting": "Venting",
+      "starch_stop": "Starch stop",
+      "freshen_up_and_moisten": "Freshen up & Moisten",
+      "steam_smoothing": "Steam smoothing",
+      "hygiene": "Hygiene",
+      "disinfecting": "Disinfecting",
+      "program_running": "Program running",
+      "machine_iron": "Machine iron",
+      "hand_iron": "Hand iron",
+      "normal": "Normal",
+      "normal_plus": "Normal plus",
+      "extra_dry": "Extra dry",
+      "moisten": "Moisten",
+      "timed_drying": "Timed drying",
+      "warm_air": "Warm air",
+      "comfort_cooling": "Comfort cooling",
+      "rinse_out_lint": "Rinse out lint",
+      "rinses": "Rinses",
+      "smoothing": "Smootnig",
+      "slightly_dry": "Slightly dry",
+      "safety_cooling": "Safety cooling",
+      "reactivating": "Reactivating",
+      "interim_rinse": "Interim rinse",
+      "final_rinse": "Final rinse"
+    }
+  }
 }
