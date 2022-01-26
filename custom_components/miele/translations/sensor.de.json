@@ -1,0 +1,72 @@
+{
+    "state": {
+      "miele__state_status": {
+        "off": "Aus",
+        "on": "Ein",
+        "programmed": "Programmiert",
+        "programmed_waiting_to_start": "Start verzögert",
+        "running": "In Betrieb",
+        "pause": "Pause",
+        "end_programmed": "Ende",
+        "failure": "Fehler",
+        "programme_interrupted": "Programm unterbrochen",
+        "idle": "Untätig",
+        "rinse_hold": "Spülstop",
+        "service": "Service",
+        "superfreezing": "SuperFrost",
+        "supercooling": "SuperKühlen",
+        "superheating": "Schnellaufheizen",
+        "supercooling_superfreezing": "SuperKühlen/SuperFrost",
+        "not_connected": "Nicht verbunden"
+      },
+      "miele__state_program_type": {
+        "normal_operation_mode": "Normalbetrieb",
+        "own_program": "Eigenes Programm",
+        "automatic_program": "Automatik-Programm",
+        "cleaning_care_program": "Reinigungs-/Pflege-Programm"
+      },
+      "miele__state_program_id": {
+        "cottons": "Baumwolle",
+        "minimum_iron": "Vorbügeln",
+        "quick_power_wash": "QuickPowerWash"
+      },
+      "miele__state_program_phase": {
+        "not_running": "Nicht in Betrieb",
+        "main_wash": "Hauptwaschgang",
+        "drying": "Trocknen",
+        "pre_wash": "Vorwäsche",
+        "soak": "Einweichen",
+        "rinse": "Spülen",
+        "rinse_hold": "Spülstop",
+        "cooling_down": "Abkühlen",
+        "drain": "Ablaufen",
+        "spin": "Schleudern",
+        "anti_crease": "Knitterschutz",
+        "finished": "Fertig",
+        "venting": "Entlüften",
+        "starch_stop": "Stärkestop",
+        "freshen_up_and_moisten": "Auffrischen + Befeuchten",
+        "steam_smoothing": "Dampfglätten",
+        "hygiene": "Hygiene",
+        "disinfecting": "Desinfektion",
+        "program_running": "Programm läuft",
+        "machine_iron": "Mangelfeucht",
+        "hand_iron": "Bügelfeucht",
+        "normal": "Schranktrocken",
+        "normal_plus": "Schranktrocken+",
+        "extra_dry": "Extratrocken",
+        "moisten": "Befeuchten",
+        "timed_drying": "Zeitgesteuertes Trocknen",
+        "warm_air": "Warme Luft",
+        "comfort_cooling": "Komfortkühlung",
+        "rinse_out_lint": "Flusen ausspülen",
+        "rinses": "Spülgänge",
+        "smoothing": "Glätten",
+        "slightly_dry": "Leichttrocken",
+        "safety_cooling": "Sicherheitskühlung",
+        "reactivating": "Reaktivieren",
+        "interim_rinse": "Zwischenspülen",
+        "final_rinse": "Abschließender Spülgang"
+      }
+   }
+}
