@@ -135,10 +135,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
         coordinator.async_set_updated_data(flat_result)
 
+    async def _callback_update_actions(data) -> None:
+        hass.data[DOMAIN][entry.entry_id]["actions"] = data
+
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
         hass.data[DOMAIN][entry.entry_id]["api"].listen_events(
             data_callback=_callback_update_data,
-            # effects_callback=_callback_update_light_state,
+            actions_callback=_callback_update_actions,
         )
     )
 
