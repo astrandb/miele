@@ -191,7 +191,7 @@ async def get_coordinator(
         logging.getLogger(__name__),
         name=DOMAIN,
         update_method=async_fetch,
-        update_interval=timedelta(seconds=30),
+        update_interval=timedelta(seconds=60),
     )
     await hass.data[DOMAIN][entry.entry_id]["coordinator"].async_refresh()
     return hass.data[DOMAIN][entry.entry_id]["coordinator"]
