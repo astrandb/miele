@@ -14,7 +14,7 @@ from .const import DOMAIN, PROCESS_ACTIONS
 
 SERVICE_PROCESS_ACTION = cv.make_entity_service_schema(
     {
-        vol.Required("action"): cv.string,
+        vol.Required("action"): vol.In(PROCESS_ACTIONS),
     },
 )
 
