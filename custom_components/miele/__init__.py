@@ -27,6 +27,7 @@ from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 from .devcap import TEST_DATA_7, TEST_DATA_24
+from .services import async_setup_services
 
 # from .pymiele import MieleAuthException
 
@@ -142,6 +143,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     )
 
     hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    await async_setup_services(hass)
+
     return True
 
 
