@@ -65,6 +65,8 @@
         "slightly_dry": "Leichttrocken",
         "safety_cooling": "Sicherheitskühlung",
         "reactivating": "Reaktivieren",
+        "pre_dishwash": "Vorspülen",
+        "main_dishwash": "Reinigen",
         "interim_rinse": "Zwischenspülen",
         "final_rinse": "Abschließender Spülgang"
       }

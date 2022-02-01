@@ -65,6 +65,8 @@
       "slightly_dry": "Slightly dry",
       "safety_cooling": "Safety cooling",
       "reactivating": "Reactivating",
+      "pre_dishwash": "Pre-cleaning",
+      "main_dishwash": "Cleaning",
       "interim_rinse": "Interim rinse",
       "final_rinse": "Final rinse"
     }

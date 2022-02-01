@@ -90,14 +90,14 @@ STATE_PROGRAM_PHASE = {
     # Dishwasher
     1792: "not_running",
     1793: "reactivating",
-    1794: "pre_wash",
-    1795: "main_wash",
+    1794: "pre_dishwash",
+    1795: "main_dishwash",
     1796: "rinse",
     1797: "interim_rinse",
     1798: "final_rinse",
     1799: "drying",
     1800: "finished",
-    1801: "pre_wash",
+    1801: "pre_dishwash",
 }
 
 WASHING_MACHINE = 1
