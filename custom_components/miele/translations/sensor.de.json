@@ -27,12 +27,12 @@
       },
       "miele__state_program_id": {
         "cottons": "Baumwolle",
-        "minimum_iron": "Vorbügeln",
+        "minimum_iron": "Pflegeleicht",
         "quick_power_wash": "QuickPowerWash"
       },
       "miele__state_program_phase": {
         "not_running": "Nicht in Betrieb",
-        "main_wash": "Hauptwaschgang",
+        "main_wash": "Waschen",
         "drying": "Trocknen",
         "pre_wash": "Vorwäsche",
         "soak": "Einweichen",
@@ -48,7 +48,7 @@
         "freshen_up_and_moisten": "Auffrischen + Befeuchten",
         "steam_smoothing": "Dampfglätten",
         "hygiene": "Hygiene",
-        "disinfecting": "Desinfektion",
+        "disinfecting": "Desinfizieren",
         "program_running": "Programm läuft",
         "machine_iron": "Mangelfeucht",
         "hand_iron": "Bügelfeucht",
@@ -59,17 +59,17 @@
         "thermo_spin": "Thermoschleudern",
         "timed_drying": "Zeitgesteuertes Trocknen",
         "warm_air": "Warme Luft",
-        "comfort_cooling": "Komfortkühlung",
+        "comfort_cooling": "Komfortkühlen",
         "rinse_out_lint": "Flusen ausspülen",
         "rinses": "Spülgänge",
         "smoothing": "Glätten",
         "slightly_dry": "Leichttrocken",
-        "safety_cooling": "Sicherheitskühlung",
+        "safety_cooling": "Sicherheitskühlen",
         "reactivating": "Reaktivieren",
         "pre_dishwash": "Vorspülen",
         "main_dishwash": "Reinigen",
         "interim_rinse": "Zwischenspülen",
-        "final_rinse": "Abschließender Spülgang"
+        "final_rinse": "Klarspülen"
       }
    }
 }
