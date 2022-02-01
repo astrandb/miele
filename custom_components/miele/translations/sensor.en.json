@@ -28,7 +28,21 @@
     "miele__state_program_id": {
       "cottons": "Cottons",
       "minimum_iron": "Minimum iron",
-      "quick_power_wash": "Quick powerwash"
+      "delicates": "Delicates",
+      "woollens": "Woolens",
+      "silk": "Silk",
+      "pump_spin": "Pump/Spin",
+      "shirts": "Shirts",
+      "proofing": "Proofing",
+      "sportswear": "Sportswear",
+      "automatic_plus": "Automatic Plus",
+      "outerwear": "Outerwear",
+      "quick_power_wash": "Quick powerwash",
+      "rinse_out_lint": "Rinse out lint",
+      "dark_garments": "Dark garments",
+      "only_rinse_starch": "Only rinse/starch",
+      "express": "Express",
+      "denim": "Denim"
     },
     "miele__state_program_phase": {
       "not_running": "Not running",

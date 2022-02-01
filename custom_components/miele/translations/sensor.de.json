@@ -28,7 +28,21 @@
       "miele__state_program_id": {
         "cottons": "Baumwolle",
         "minimum_iron": "Pflegeleicht",
-        "quick_power_wash": "QuickPowerWash"
+        "delicates": "Feinwäsche",
+        "woollens": "Wolle",
+        "silk": "Seide",
+        "pump_spin": "Pumpen/Schleudern",
+        "shirts": "Oberhemden",
+        "proofing": "Imprägnieren",
+        "sportswear": "Sportwäsche",
+        "automatic_plus": "Automatic Plus",
+        "outerwear": "Outdoor",
+        "quick_power_wash": "QuickPowerWash",
+        "rinse_out_lint": "Flusen ausspülen",
+        "dark_garments": "Dunkle Wäsche",
+        "only_rinse_starch": "Nur Spülen/Stärken",
+        "express": "Express",
+        "denim": "Jeans"
       },
       "miele__state_program_phase": {
         "not_running": "Nicht in Betrieb",
