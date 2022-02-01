@@ -78,6 +78,7 @@ STATE_PROGRAM_PHASE = {
     523: "extra_dry",
     524: "hand_iron",
     526: "moisten",
+    527: "thermo_spin",
     528: "timed_drying",
     529: "warm_air",
     530: "steam_smoothing",
