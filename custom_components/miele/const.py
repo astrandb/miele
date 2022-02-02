@@ -20,6 +20,7 @@ STATE_STATUS = {
     9: "programme interrupted",
     10: "idle",
     11: "rinse hold",
+    12: "service",
     13: "superfreezing",
     14: "supercooling",
     15: "superheating",
@@ -37,7 +38,21 @@ STATE_PROGRAM_TYPE = {
 STATE_PROGRAM_ID = {
     1: "cottons",
     3: "minimum_iron",
+    4: "delicates",
+    8: "woollens",
+    9: "silk",
+    21: "pump_spin",
+    23: "shirts",
+    27: "proofing",
+    29: "sportswear",
+    31: "automatic_plus",
+    37: "outerwear",
     38: "quick_power_wash",
+    48: "rinse_out_lint",
+    50: "dark_garments",
+    52: "only_rinse_starch",
+    122: "express",
+    123: "denim",
 }
 
 STATE_PROGRAM_PHASE = {
@@ -78,6 +93,7 @@ STATE_PROGRAM_PHASE = {
     523: "extra_dry",
     524: "hand_iron",
     526: "moisten",
+    527: "thermo_spin",
     528: "timed_drying",
     529: "warm_air",
     530: "steam_smoothing",
@@ -90,14 +106,14 @@ STATE_PROGRAM_PHASE = {
     # Dishwasher
     1792: "not_running",
     1793: "reactivating",
-    1794: "pre_wash",
-    1795: "main_wash",
+    1794: "pre_dishwash",
+    1795: "main_dishwash",
     1796: "rinse",
     1797: "interim_rinse",
     1798: "final_rinse",
     1799: "drying",
     1800: "finished",
-    1801: "pre_wash",
+    1801: "pre_dishwash",
 }
 
 WASHING_MACHINE = 1
