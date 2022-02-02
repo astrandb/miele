@@ -167,3 +167,13 @@ APPLIANCE_TYPES = {
     DIALOG_OVEN: "dialog_oven",
     WINE_CABINET_FREEZER: "wine_cabinet_freezer",
 }
+
+PROCESS_ACTIONS = {
+    "start": 1,
+    "stop": 2,
+    "pause": 3,
+    "start_superfreezing": 4,
+    "stop_superfreezing": 5,
+    "start_supercooling": 6,
+    "stop_supercooling": 7,
+}

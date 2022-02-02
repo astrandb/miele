@@ -27,6 +27,7 @@ from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 from .devcap import TEST_DATA_7, TEST_DATA_24
+from .services import async_setup_services
 
 # from .pymiele import MieleAuthException
 
@@ -134,14 +135,19 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
         coordinator.async_set_updated_data(flat_result)
 
+    async def _callback_update_actions(data) -> None:
+        hass.data[DOMAIN][entry.entry_id]["actions"] = data
+
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
         hass.data[DOMAIN][entry.entry_id]["api"].listen_events(
             data_callback=_callback_update_data,
-            # effects_callback=_callback_update_light_state,
+            actions_callback=_callback_update_actions,
         )
     )
 
     hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    await async_setup_services(hass)
+
     return True
 
 
@@ -185,7 +191,7 @@ async def get_coordinator(
         logging.getLogger(__name__),
         name=DOMAIN,
         update_method=async_fetch,
-        update_interval=timedelta(seconds=30),
+        update_interval=timedelta(seconds=60),
     )
     await hass.data[DOMAIN][entry.entry_id]["coordinator"].async_refresh()
     return hass.data[DOMAIN][entry.entry_id]["coordinator"]
