@@ -66,6 +66,7 @@ class MieleSensorDescription(SensorEntityDescription):
     type_key: str | None = None
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
+    extra_attributes: dict[str, Any] | None = None
 
 
 @dataclass
@@ -103,6 +104,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x: x / 100.0,
+            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -197,8 +199,8 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program Id",
             device_class="miele__state_program_id",
             icon="mdi:state-machine",
-            # entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_PROGRAM_ID.get(x, x),
+            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -223,8 +225,8 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program Type",
             device_class="miele__state_program_type",
             icon="mdi:state-machine",
-            # entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_PROGRAM_TYPE.get(x, x),
+            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -249,8 +251,8 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program Phase",
             device_class="miele__state_program_phase",
             icon="mdi:state-machine",
-            # entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_PROGRAM_PHASE.get(x, x),
+            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -370,6 +372,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
+        self._attr_extra_state_attributes = self.entity_description.extra_attributes
 
     @property
     def native_value(self):
@@ -383,6 +386,15 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
                 + self.coordinator.data[self._ent][self.entity_description.data_tag1]
             )
+
+        if (
+            self.entity_description.extra_attributes is not None
+            and "Raw value" in self.entity_description.extra_attributes
+        ):
+            self._attr_extra_state_attributes["Raw value"] = self.coordinator.data[
+                self._ent
+            ][self.entity_description.data_tag]
+
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
         else:
