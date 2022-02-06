@@ -2,9 +2,7 @@
 
 # Miele Integration for Home Assistant
 
-_Work in progress_
-
-This is a first release / Proof of Concept
+_Work in progress - not feature complete_ 
 
 The capabilities are based on Miele API version 1.0.5. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some device lack support and some devices support features that are not marked.
 
@@ -19,7 +17,7 @@ Known limitations: There is only limited error and exception handling in this pr
 
 ## Installation
 
-Make sure you have the credentials available for your account with Miele cloud.
+Make sure you have the credentials available for your account with Miele cloud. You have to register on https://www.miele.com/developer/
 
 ### Preferred download method
 
