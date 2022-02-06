@@ -21,12 +21,12 @@ body:
       value: |
         ## Environment
   - type: input
-    id: version_hass_template
+    id: version_miele
     validations:
       required: true
     attributes:
       label: What version of the integration are you using?
-      placeholder: hass_template-
+      placeholder: miele-
       description: >
         Can be found in the Configuration panel -> Info.
   - type: textarea
