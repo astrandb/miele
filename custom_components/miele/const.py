@@ -1,7 +1,7 @@
 """Constants for the Miele integration."""
 
 DOMAIN = "miele"
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 
 MIELE_API = "https://api.mcs3.miele.com/v1"
 OAUTH2_AUTHORIZE = "https://api.mcs3.miele.com/thirdparty/login"
