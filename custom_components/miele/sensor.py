@@ -142,6 +142,70 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             WASHING_MACHINE,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+            WINE_CABINET_FREEZER,
+        ],
+        description=MieleSensorDescription(
+            key="targetTemperature2",
+            data_tag="state|targetTemperature|1|value_raw",
+            type_key="ident|type|value_localized",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            name="Target Temperature Zone2",
+            native_unit_of_measurement=TEMP_CELSIUS,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: x / 100.0,
+            entity_registry_enabled_default=False,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+            WINE_CABINET_FREEZER,
+        ],
+        description=MieleSensorDescription(
+            key="targetTemperature3",
+            data_tag="state|targetTemperature|2|value_raw",
+            type_key="ident|type|value_localized",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            name="Target Temperature Zone3",
+            native_unit_of_measurement=TEMP_CELSIUS,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            convert=lambda x: x / 100.0,
+            entity_registry_enabled_default=False,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
             TUMBLE_DRYER,
             DISHWASHER,
             OVEN,
@@ -424,6 +488,13 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                         ],
                     }
                 )
+
+        if (
+            self.coordinator.data[self._ent][self.entity_description.data_tag] is None
+            or self.coordinator.data[self._ent][self.entity_description.data_tag]
+            == -32768
+        ):
+            return None
 
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
