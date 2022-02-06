@@ -129,8 +129,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
-        data["1223007"] = TEST_DATA_7
-        data["1223024"] = TEST_DATA_24
+        # data["1223007"] = TEST_DATA_7
+        # data["1223024"] = TEST_DATA_24
         flat_result: dict = {}
         for idx, ent in enumerate(data):
             flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
@@ -179,8 +179,8 @@ async def get_coordinator(
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         flat_result: dict = {}
-        result["1223007"] = TEST_DATA_7
-        result["1223024"] = TEST_DATA_24
+        # result["1223007"] = TEST_DATA_7
+        # result["1223024"] = TEST_DATA_24
 
         for idx, ent in enumerate(result):
             flat_result[ent] = dict(flatdict.FlatterDict(result[ent], delimiter="|"))
