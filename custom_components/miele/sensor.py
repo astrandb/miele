@@ -63,6 +63,7 @@ class MieleSensorDescription(SensorEntityDescription):
 
     data_tag: str | None = None
     data_tag1: str | None = None
+    data_tag_loc: str | None = None
     type_key: str | None = None
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
@@ -195,6 +196,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateProgramId",
             data_tag="state|ProgramID|value_raw",
+            data_tag_loc="state|ProgramID|value_localized",
             type_key="ident|type|value_localized",
             name="Program",
             device_class="miele__state_program_id",
@@ -221,6 +223,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateProgramType",
             data_tag="state|programType|value_raw",
+            data_tag_loc="state|ProgramID|value_localized",
             type_key="ident|type|value_localized",
             name="Program Type",
             device_class="miele__state_program_type",
@@ -247,6 +250,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateProgramPhase",
             data_tag="state|programPhase|value_raw",
+            data_tag_loc="state|ProgramID|value_localized",
             type_key="ident|type|value_localized",
             name="Program Phase",
             device_class="miele__state_program_phase",
@@ -394,6 +398,32 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             self._attr_extra_state_attributes["Raw value"] = self.coordinator.data[
                 self._ent
             ][self.entity_description.data_tag]
+
+        # Log raw and localized values for programID etc
+        # Active if logger.level is DEBUG or INFO
+        if _LOGGER.getEffectiveLevel() <= logging.INFO:
+            if self.entity_description.key in {
+                "stateProgramPhase",
+                "stateProgramID",
+                "state_ProgramType",
+            }:
+                while len(self.hass.data[DOMAIN]["id_log"]) >= 500:
+                    self.hass.data[DOMAIN]["id_log"].pop()
+
+                self.hass.data[DOMAIN]["id_log"].append(
+                    {
+                        "appliance": self.coordinator.data[self._ent][
+                            self.entity_description.type_key
+                        ],
+                        "key": self.entity_description.key,
+                        "raw": self.coordinator.data[self._ent][
+                            self.entity_description.data_tag
+                        ],
+                        "localized": self.coordinator.data[self._ent][
+                            self.entity_description.data_tag_loc
+                        ],
+                    }
+                )
 
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
