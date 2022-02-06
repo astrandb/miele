@@ -44,6 +44,7 @@ async def async_get_config_entry_diagnostics(
         "info": async_redact_data(config_entry.data, TO_REDACT),
         "data": async_redact_data(device_data, TO_REDACT),
         "actions": async_redact_data(action_data, TO_REDACT),
+        "id_log": hass.data[DOMAIN]["id_log"],
     }
 
     return diagnostics_data
@@ -67,12 +68,15 @@ async def async_get_device_diagnostics(
         if ("miele", key) in device.identifiers:
             device_data = coordinator.data[key]
             if "actions" in hass.data[DOMAIN][config_entry.entry_id]:
-                action_data = hass.data[DOMAIN][config_entry.entry_id]["actions"][key]
+                action_data = hass.data[DOMAIN][config_entry.entry_id]["actions"].get(
+                    key, {}
+                )
 
     diagnostics_data = {
         "info": async_redact_data(info, TO_REDACT),
         "data": async_redact_data(device_data, TO_REDACT),
         "actions": async_redact_data(action_data, TO_REDACT),
+        "id_log": hass.data[DOMAIN]["id_log"],
     }
 
     return diagnostics_data
