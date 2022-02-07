@@ -177,3 +177,15 @@ PROCESS_ACTIONS = {
     "start_supercooling": 6,
     "stop_supercooling": 7,
 }
+
+AMBIENT_COLORS = {
+    "white",
+    "blue",
+    "red",
+    "yellow",
+    "orange",
+    "green",
+    "pink",
+    "purple",
+    "turquoise",
+}

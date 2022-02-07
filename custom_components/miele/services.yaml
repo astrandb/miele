@@ -34,3 +34,55 @@ process_action:
             - "stop_superfreezing"
             - "start_supercooling"
             - "stop_supercooling"
+
+generic_action:
+  name: Execute generic action
+  description: Executes service with limited validation of commands and parameters. Only send one parameter per service call.
+  target:
+    device:
+      integration: "miele"
+  fields:
+    processAction:
+      example: 1
+      description: Set processAction
+    light:
+      description: Set light on or off
+      example: 1
+    startTime:
+      description: Set start time
+      example: "[1, 30]"
+    ventilationStep:
+      description: Select ventilation step
+      example: 1
+    programId:
+      description: Set program
+      example: 24
+    targetTemperature:
+      description: Set target temperature
+      example: '[{ "zone": 1, "value": 5 }]'
+    deviceName:
+      description: Rename device
+      example: "A new name"
+    powerOn:
+      description: Power on appliance
+      example: true
+    powerOff:
+      description: Power off appliance
+      example: true
+    colors:
+      example: "blue"
+      description: Set color of ambient light
+    modes:
+      description: Set mode
+      example: 1
+
+raw:
+  name: Execute raw action
+  description: Execute service with minmal validation.
+  fields:
+    serialno:
+      description: The serial number of the appliance
+      example: "123456"
+    extra:
+      description: A dictionary with parameters
+      example: '{ "targetTemperature": [{"zone": 1, "value": -18 }] }'
