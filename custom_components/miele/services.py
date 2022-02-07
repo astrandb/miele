@@ -111,9 +111,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         try:
             await _api.send_action(call.data["serialno"], call.data["extra"])
         except aiohttp.ClientResponseError as ex:
-            raise HomeAssistantError(
-                f"Service raw: {ex.status} {ex.message}"
-            )
+            raise HomeAssistantError(f"Service raw: {ex.status} {ex.message}")
         return
 
     hass.services.async_register(
@@ -122,7 +120,5 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     hass.services.async_register(
         DOMAIN, "generic_action", send_generic_action, SERVICE_GENERIC_ACTION
     )
-    hass.services.async_register(
-        DOMAIN, "raw", send_raw, SERVICE_RAW
-    )
+    hass.services.async_register(DOMAIN, "raw", send_raw, SERVICE_RAW)
     return
