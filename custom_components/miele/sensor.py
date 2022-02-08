@@ -105,7 +105,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x: x / 100.0,
-            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -134,7 +133,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x: x / 100.0,
-            extra_attributes={"Raw value": 0},
             entity_registry_enabled_default=False,
         ),
     ),
@@ -164,7 +162,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x: x / 100.0,
-            extra_attributes={"Raw value": 0},
             entity_registry_enabled_default=False,
         ),
     ),
@@ -297,8 +294,8 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Status",
             device_class="miele__state_status",
             icon="mdi:state-machine",
-            # entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x: STATE_STATUS.get(x, x),
+            extra_attributes={"Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
