@@ -19,7 +19,7 @@ STATE_STATUS = {
     8: "failure",
     9: "program_interrupted",
     10: "idle",
-    11: "rinse hold",
+    11: "rinse_hold",
     12: "service",
     13: "superfreezing",
     14: "supercooling",
