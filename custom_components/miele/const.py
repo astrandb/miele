@@ -17,7 +17,7 @@ STATE_STATUS = {
     6: "pause",
     7: "end_programmed",
     8: "failure",
-    9: "programme interrupted",
+    9: "program_interrupted",
     10: "idle",
     11: "rinse hold",
     12: "service",
