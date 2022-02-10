@@ -41,7 +41,7 @@ STATE_PROGRAM_ID = {
     4: "delicates",
     8: "woollens",
     9: "silk",
-    21: "pump_spin",
+    21: "drain_spin",
     23: "shirts",
     27: "proofing",
     29: "sportswear",
