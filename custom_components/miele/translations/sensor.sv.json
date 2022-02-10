@@ -7,7 +7,7 @@
       "programmed_waiting_to_start": "Programmerad Väntar på start",
       "running": "Igång",
       "pause": "Pause",
-      "end_programmed": "Program slut",
+      "program_ended": "Program slut",
       "failure": "Misslyckades",
       "program_interrupted": "Program Avbrutet",
       "idle": "Vänteläge",

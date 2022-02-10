@@ -7,7 +7,7 @@
         "programmed_waiting_to_start": "Start verzögert",
         "running": "In Betrieb",
         "pause": "Pause",
-        "end_programmed": "Ende",
+        "program_ended": "Ende",
         "failure": "Fehler",
         "program_interrupted": "Programm unterbrochen",
         "idle": "Untätig",

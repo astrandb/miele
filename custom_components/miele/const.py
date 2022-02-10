@@ -15,7 +15,7 @@ STATE_STATUS = {
     4: "programmed_waiting_to_start",
     5: "running",
     6: "pause",
-    7: "end_programmed",
+    7: "program_ended",
     8: "failure",
     9: "program_interrupted",
     10: "idle",
