@@ -22,7 +22,6 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import DOMAIN
-from .devcap import LIVE_ACTION_CAPABILITIES
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -124,12 +123,12 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_temperature_unit = self.entity_description.temperature_unit
         self._attr_precision = self.entity_description.precision
-        self._attr_max_temp = LIVE_ACTION_CAPABILITIES[self._ent]["targetTemperature"][
-            0
-        ]["max"]
-        self._attr_min_temp = LIVE_ACTION_CAPABILITIES[self._ent]["targetTemperature"][
-            0
-        ]["min"]
+        self._attr_max_temp = hass.data[DOMAIN][entry.entry_id]["actions"][self._ent][
+            "targetTemperature"
+        ][0]["max"]
+        self._attr_min_temp = hass.data[DOMAIN][entry.entry_id]["actions"][self._ent][
+            "targetTemperature"
+        ][0]["min"]
         self._attr_target_temperature_step = (
             self.entity_description.target_temperature_step
         )

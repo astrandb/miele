@@ -122,9 +122,23 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         aiohttp_client.async_get_clientsession(hass), session
     )
 
+    if "actions" not in hass.data[DOMAIN][entry.entry_id]:
+        hass.data[DOMAIN][entry.entry_id]["actions"] = {}
     coordinator = await get_coordinator(hass, entry)
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
+    serialnumbers = list(coordinator.data.keys())
+    _LOGGER.debug("Serial numbers: %s", serialnumbers)
+    for serial in serialnumbers:
+        miele_api = hass.data[DOMAIN][entry.entry_id]["api"]
+        async with async_timeout.timeout(10):
+            res = await miele_api.request("GET", f"/devices/{serial}/actions")
+            _LOGGER.debug("Actions for %s: %s", serial, await res.json())
+        if res.status == 401:
+            raise ConfigEntryAuthFailed("Authentication failure when fetching data")
+        result = await res.json()
+        hass.data[DOMAIN][entry.entry_id]["actions"][serial] = result
+
     _LOGGER.debug("First data - flat: %s", coordinator.data)
 
     async def _callback_update_data(data) -> None:
