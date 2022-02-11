@@ -15,11 +15,11 @@ STATE_STATUS = {
     4: "programmed_waiting_to_start",
     5: "running",
     6: "pause",
-    7: "end_programmed",
+    7: "program_ended",
     8: "failure",
-    9: "programme interrupted",
+    9: "program_interrupted",
     10: "idle",
-    11: "rinse hold",
+    11: "rinse_hold",
     12: "service",
     13: "superfreezing",
     14: "supercooling",
@@ -41,7 +41,7 @@ STATE_PROGRAM_ID = {
     4: "delicates",
     8: "woollens",
     9: "silk",
-    21: "pump_spin",
+    21: "drain_spin",
     23: "shirts",
     27: "proofing",
     29: "sportswear",
@@ -57,6 +57,7 @@ STATE_PROGRAM_ID = {
 
 STATE_PROGRAM_PHASE = {
     # Washing Machine
+    0: "not_running",  # Returned by the API when the machine is switched off entirely.
     256: "not_running",
     257: "pre_wash",
     258: "soak",
