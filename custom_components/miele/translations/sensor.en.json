@@ -7,7 +7,7 @@
       "programmed_waiting_to_start": "Programmed waiting to start",
       "running": "Running",
       "pause": "Pause",
-      "end_programmed": "Program ended",
+      "program_ended": "Program ended",
       "failure": "Failure",
       "program_interrupted": "Program interrupted",
       "idle": "Idle",
