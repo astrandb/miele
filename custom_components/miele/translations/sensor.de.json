@@ -4,7 +4,7 @@
         "off": "Aus",
         "on": "Ein",
         "programmed": "Programmiert",
-        "programmed_waiting_to_start": "Start verzögert",
+        "waiting_to_start": "Start verzögert",
         "running": "In Betrieb",
         "pause": "Pause",
         "program_ended": "Ende",

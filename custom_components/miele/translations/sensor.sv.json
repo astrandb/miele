@@ -4,7 +4,7 @@
       "off": "Från",
       "on": "Till",
       "programmed": "Programmerad",
-      "programmed_waiting_to_start": "Programmerad väntar på start",
+      "waiting_to_start": "Programmerad väntar på start",
       "running": "Igång",
       "pause": "Pause",
       "program_ended": "Program slut",
