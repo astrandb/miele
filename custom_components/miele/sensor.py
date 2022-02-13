@@ -344,7 +344,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateProgramType",
             data_tag="state|programType|value_raw",
-            data_tag_loc="state|ProgramID|value_localized",
+            data_tag_loc="state|programType|value_localized",
             type_key="ident|type|value_localized",
             name="Program Type",
             device_class="miele__state_program_type",
@@ -371,7 +371,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateProgramPhase",
             data_tag="state|programPhase|value_raw",
-            data_tag_loc="state|ProgramID|value_localized",
+            data_tag_loc="state|programPhase|value_localized",
             type_key="ident|type|value_localized",
             name="Program Phase",
             device_class="miele__state_program_phase",
@@ -551,7 +551,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             if self.entity_description.key in {
                 "stateProgramPhase",
                 "stateProgramID",
-                "state_ProgramType",
+                "stateProgramType",
             }:
                 while len(self.hass.data[DOMAIN]["id_log"]) >= 500:
                     self.hass.data[DOMAIN]["id_log"].pop()
