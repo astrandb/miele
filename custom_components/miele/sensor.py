@@ -104,7 +104,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
         ),
     ),
     MieleSensorDefinition(
@@ -132,7 +132,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Temperature Zone 2",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
         ),
     ),
@@ -161,7 +161,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Temperature Zone 3",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
         ),
     ),
@@ -193,7 +193,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
         ),
     ),
     MieleSensorDefinition(
@@ -224,7 +224,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
         ),
     ),
@@ -256,7 +256,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
-            convert=lambda x: x / 100.0,
+            convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
         ),
     ),
@@ -294,7 +294,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Status",
             device_class="miele__state_status",
             icon="mdi:state-machine",
-            convert=lambda x: STATE_STATUS.get(x, x),
+            convert=lambda x, t: STATE_STATUS.get(x, x),
             extra_attributes={"Raw value": 0},
         ),
     ),
@@ -322,7 +322,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program",
             device_class="miele__state_program_id",
             icon="mdi:state-machine",
-            convert=lambda x: STATE_PROGRAM_ID.get(x, x),
+            convert=lambda x, t: STATE_PROGRAM_ID.get(t, {}).get(x, x),
             extra_attributes={"Raw value": 0},
         ),
     ),
@@ -349,7 +349,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program Type",
             device_class="miele__state_program_type",
             icon="mdi:state-machine",
-            convert=lambda x: STATE_PROGRAM_TYPE.get(x, x),
+            convert=lambda x, t: STATE_PROGRAM_TYPE.get(x, x),
             extra_attributes={"Raw value": 0},
         ),
     ),
@@ -376,7 +376,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Program Phase",
             device_class="miele__state_program_phase",
             icon="mdi:state-machine",
-            convert=lambda x: STATE_PROGRAM_PHASE.get(x, x),
+            convert=lambda x, t: STATE_PROGRAM_PHASE.get(x, x),
             extra_attributes={"Raw value": 0},
         ),
     ),
@@ -582,7 +582,8 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
         else:
             return self.entity_description.convert(
-                self.coordinator.data[self._ent][self.entity_description.data_tag]
+                self.coordinator.data[self._ent][self.entity_description.data_tag],
+                self.coordinator.data[self._ent]["ident|type|value_raw"]
             )
 
     @property
