@@ -12,7 +12,7 @@ STATE_STATUS = {
     1: "off",
     2: "on",
     3: "programmed",
-    4: "programmed_waiting_to_start",
+    4: "waiting_to_start",
     5: "running",
     6: "pause",
     7: "program_ended",

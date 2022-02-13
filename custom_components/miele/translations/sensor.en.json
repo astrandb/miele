@@ -4,7 +4,7 @@
       "off": "Off",
       "on": "On",
       "programmed": "Programmed",
-      "programmed_waiting_to_start": "Programmed waiting to start",
+      "waiting_to_start": "Waiting to start",
       "running": "Running",
       "pause": "Pause",
       "program_ended": "Program ended",
