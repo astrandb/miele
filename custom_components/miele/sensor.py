@@ -551,7 +551,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             if self.entity_description.key in {
                 "stateProgramPhase",
                 "stateProgramID",
-                "state_ProgramType",
+                "stateProgramType",
             }:
                 while len(self.hass.data[DOMAIN]["id_log"]) >= 500:
                     self.hass.data[DOMAIN]["id_log"].pop()
