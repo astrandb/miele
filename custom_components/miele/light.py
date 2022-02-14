@@ -121,7 +121,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
         hass,
         entry,
     ):
-        """Initialize the sensor."""
+        """Initialize the light."""
         super().__init__(coordinator)
         self._eid = hass.data[DOMAIN][entry.entry_id]
         self._api = self._eid["api"]

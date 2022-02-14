@@ -1,9 +1,12 @@
 {
   "name": "Miele",
   "domains": [
+    "binary_sensor",
     "climate",
+    "fan",
+    "light",
     "sensor",
-    "binary_sensor"
+    "switch"
   ],
   "homeassistant": "2021.12.0",
   "iot_class": [

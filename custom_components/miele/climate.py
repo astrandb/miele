@@ -1,4 +1,4 @@
-"""Platform for Miele sensor integration."""
+"""Platform for Miele integration."""
 from __future__ import annotations
 
 import logging
@@ -28,7 +28,7 @@ _LOGGER = logging.getLogger(__name__)
 
 @dataclass
 class MieleClimateDescription(ClimateEntityDescription):
-    """Class describing Weatherlink sensor entities."""
+    """Class describing Miele climate entities."""
 
     currentTemperature_tag: str | None = None
     targetTemperature_tag: str | None = None
@@ -47,7 +47,7 @@ class MieleClimateDescription(ClimateEntityDescription):
 
 @dataclass
 class MieleClimateDefinition:
-    """Class for defining switch entities."""
+    """Class for defining climate entities."""
 
     types: tuple[int, ...]
     description: MieleClimateDescription = None
@@ -110,7 +110,7 @@ async def async_setup_entry(
     config_entry: ConfigType,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the sensor platform."""
+    """Set up the climate platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
     entities = []
@@ -136,7 +136,7 @@ async def async_setup_entry(
 
 
 class MieleClimate(CoordinatorEntity, ClimateEntity):
-    """Representation of a Sensor."""
+    """Representation of a climate entity."""
 
     entity_description: MieleClimateDescription
 
@@ -149,7 +149,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         hass,
         entry,
     ):
-        """Initialize the sensor."""
+        """Initialize the climate entity."""
         super().__init__(coordinator)
         self._eid = hass.data[DOMAIN][entry.entry_id]
         self._api = self._eid["api"]
@@ -157,7 +157,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._idx = idx
         self._ent = ent
         self._ed = description
-        _LOGGER.debug("init sensor %s", ent)
+        _LOGGER.debug("init climate %s", ent)
         self._attr_name = (
             f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
         )
@@ -183,7 +183,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
 
     @property
     def current_temperature(self):
-        """Return the state of the sensor."""
+        """Return the current temperature."""
         return round(
             self.coordinator.data[self._ent][self._ed.currentTemperature_tag] / 100,
             1,
@@ -191,7 +191,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
 
     @property
     def target_temperature(self):
-        """Return the state of the sensor."""
+        """Return the target temperature."""
         return round(
             self.coordinator.data[self._ent][self._ed.targetTemperature_tag] / 100,
             1,

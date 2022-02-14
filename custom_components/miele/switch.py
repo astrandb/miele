@@ -96,7 +96,7 @@ async def async_setup_entry(
 
 
 class MieleSwitch(CoordinatorEntity, SwitchEntity):
-    """Representation of a Sensor."""
+    """Representation of a Switch."""
 
     entity_description: MieleSwitchDescription
 
@@ -109,7 +109,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         hass,
         entry,
     ):
-        """Initialize the sensor."""
+        """Initialize the switch."""
         super().__init__(coordinator)
         self._api = hass.data[DOMAIN][entry.entry_id]["api"]
 
@@ -128,16 +128,15 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
 
     @property
     def is_on(self):
-        """Return the state of the sensor."""
+        """Return the state of the switch."""
         return (
             self.coordinator.data[self._ent][self.entity_description.data_tag]
             == self.entity_description.on_value
         )
 
     async def async_turn_on(self, **kwargs):
+        """Turn on the device."""
         _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
-        """Turn the entity on."""
-
         try:
             await self._api.send_action(self._ent, self.entity_description.on_data)
         except aiohttp.ClientResponseError as ex:
@@ -146,8 +145,8 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         # await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
+        """Turn off the device."""
         _LOGGER.debug("turn_off -> kwargs: %s", kwargs)
-        """Turn the entity off."""
         try:
             await self._api.send_action(self._ent, self.entity_description.off_data)
         except aiohttp.ClientResponseError as ex:
