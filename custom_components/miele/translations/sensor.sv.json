@@ -41,6 +41,7 @@
       "automatic_plus": "Automatic Plus",
       "outerwear": "Ytterkläder",
 			"pillows": "Kuddar",
+      "warm_air": "Varm luft",
 			"rinse_out_lint": "Spola ut ludd",
 			"dark_garments": "Mörka plagg",
 			"separate_rinse_starch": "Separat sköljning/stärkning",
@@ -69,7 +70,6 @@
 
 			"gentle_minimum_iron": "Skonsamt lättstruket",
 			"woollens_handcare": "Ylle handtvätt",
-			"warm_air": "Varm luft",
 			"cool_air": "Kall luft",
 			"gentle_smoothing": "Skonsam utslätning",
 			"gentle_denim": "Skonsamt jeans",

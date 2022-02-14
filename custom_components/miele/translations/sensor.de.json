@@ -42,6 +42,7 @@
 			"automatic_plus": "Automatic plus",
 			"outerwear": "Outdoor",
 			"pillows": "Kopfkissen",
+			"warm_air": "Lüften warm",
 			"rinse_out_lint": "Flusen ausspülen",
 			"dark_garments": "Dunkle Wäsche",
 			"separate_rinse_starch": "Nur Spülen/Stärken",
@@ -70,7 +71,6 @@
 
 			"gentle_minimum_iron": "Pflegeleicht fein",
 			"woollens_handcare": "Finish Wolle",
-			"warm_air": "Lüften warm",
 			"cool_air": "Lüften kalt",
 			"gentle_smoothing": "Glätten fein",
 			"gentle_denim": "Jeans fein",

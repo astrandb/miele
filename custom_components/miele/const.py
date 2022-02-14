@@ -169,6 +169,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     31: "automatic_plus",
     37: "outerwear",
     39: "pillows",
+    46: "warm_air",  # washer-dryer
     48: "rinse_out_lint",  # washer-dryer
     50: "dark_garments",
     52: "separate_rinse_starch",
