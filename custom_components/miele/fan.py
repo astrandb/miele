@@ -1,6 +1,7 @@
 """Platform for Miele fan entity."""
 from __future__ import annotations
 
+import aiohttp
 import logging
 from dataclasses import dataclass
 from typing import Any, Callable, Final, Optional
@@ -150,6 +151,11 @@ class MieleFan(CoordinatorEntity, FanEntity):
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode of the fan."""
 
+        try:
+            await self._api.send_action(self._ent, {"ventilationStep": preset_mode})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+
     async def async_turn_on(
         self,
         speed: Optional[str] = None,
@@ -158,6 +164,14 @@ class MieleFan(CoordinatorEntity, FanEntity):
         **kwargs: Any,
     ) -> None:
         """Turn on the fan."""
+        try:
+            await self._api.send_action(self._ent, {"powerOn": True})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the fan off."""
+        try:
+            await self._api.send_action(self._ent, {"powerOff": True})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
