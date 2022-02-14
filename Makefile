@@ -1,4 +1,4 @@
-__VERSION__ = "0.0.11"
+__VERSION__ = "0.0.12"
 
 bump:
 	bump2version --allow-dirty --current-version $(__VERSION__) patch Makefile custom_components/miele/const.py custom_components/miele/manifest.json

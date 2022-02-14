@@ -583,7 +583,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         else:
             return self.entity_description.convert(
                 self.coordinator.data[self._ent][self.entity_description.data_tag],
-                self.coordinator.data[self._ent]["ident|type|value_raw"]
+                self.coordinator.data[self._ent]["ident|type|value_raw"],
             )
 
     @property
