@@ -135,9 +135,8 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         )
 
     async def async_turn_on(self, **kwargs):
+        """Turn on the device."""
         _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
-        """Turn the entity on."""
-
         try:
             await self._api.send_action(self._ent, self.entity_description.on_data)
         except aiohttp.ClientResponseError as ex:
@@ -146,8 +145,8 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         # await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
+        """Turn off the device."""
         _LOGGER.debug("turn_off -> kwargs: %s", kwargs)
-        """Turn the entity off."""
         try:
             await self._api.send_action(self._ent, self.entity_description.off_data)
         except aiohttp.ClientResponseError as ex:

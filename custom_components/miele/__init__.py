@@ -57,6 +57,8 @@ PLATFORMS = [
 
 
 class MieleLocalOAuth2Implementation(LocalOAuth2Implementation):
+    """Local OAuth2 implemenation."""
+
     def __init__(
         self,
         hass: HomeAssistant,
@@ -67,6 +69,8 @@ class MieleLocalOAuth2Implementation(LocalOAuth2Implementation):
         token_url: str,
         name: str,
     ) -> None:
+        """Set up the Local OAuth2 class."""
+
         super().__init__(
             hass, domain, client_id, client_secret, authorize_url, token_url
         )
@@ -74,7 +78,7 @@ class MieleLocalOAuth2Implementation(LocalOAuth2Implementation):
 
     @property
     def name(self) -> str:
-        """Name of the implementation"""
+        """Name of the implementation."""
         return self._name
 
 

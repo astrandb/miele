@@ -45,6 +45,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_services(hass: HomeAssistant) -> None:
+    """Set up services."""
     async def extract_our_config_entry_ids(service_call: ServiceCall):
         return [
             entry_id
