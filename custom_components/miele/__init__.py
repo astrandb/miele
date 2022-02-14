@@ -11,7 +11,7 @@ import flatdict
 import voluptuous as vol
 from aiohttp import ClientResponseError
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
+from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import aiohttp_client, config_entry_oauth2_flow
 from homeassistant.helpers import config_validation as cv
@@ -26,7 +26,7 @@ from homeassistant.helpers.update_coordinator import (
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
-from .devcap import TEST_DATA_7, TEST_DATA_24
+from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24
 from .services import async_setup_services
 
 # from .pymiele import MieleAuthException
@@ -45,7 +45,13 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-PLATFORMS = ["sensor", "binary_sensor", "climate", "switch"]
+PLATFORMS = [
+    Platform.SENSOR,
+    Platform.BINARY_SENSOR,
+    Platform.CLIMATE,
+    Platform.FAN,
+    Platform.SWITCH,
+]
 
 
 class MieleLocalOAuth2Implementation(LocalOAuth2Implementation):
@@ -144,6 +150,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
         # data["1223007"] = TEST_DATA_7
+        data["1223018"] = TEST_DATA_18
         # data["1223024"] = TEST_DATA_24
         flat_result: dict = {}
         for idx, ent in enumerate(data):
@@ -194,6 +201,7 @@ async def get_coordinator(
         result = await res.json()
         flat_result: dict = {}
         # result["1223007"] = TEST_DATA_7
+        result["1223018"] = TEST_DATA_18
         # result["1223024"] = TEST_DATA_24
 
         for idx, ent in enumerate(result):
