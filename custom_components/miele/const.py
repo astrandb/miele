@@ -7,6 +7,61 @@ MIELE_API = "https://api.mcs3.miele.com/v1"
 OAUTH2_AUTHORIZE = "https://api.mcs3.miele.com/thirdparty/login"
 OAUTH2_TOKEN = "https://api.mcs3.miele.com/thirdparty/token"
 
+
+# Define appliance types
+WASHING_MACHINE = 1
+TUMBLE_DRYER = 2
+DISHWASHER = 7
+OVEN = 12
+OVEN_MICROWAVE = 13
+HOB_HIGHLIGHT = 14
+STEAM_OVEN = 15
+MICROWAVE = 16
+COFFEE_SYSTEM = 17
+HOOD = 18
+FRIDGE = 19
+FREEZER = 20
+FRIDGE_FREEZER = 21
+ROBOT_VACUUM_CLEANER = 23
+WASHER_DRYER = 24
+DISH_WARMER = 25
+HOB_INDUCTION = 27
+STEAM_OVEN_COMBI = 31
+WINE_CABINET = 32
+WINE_CONDITIONING_UNIT = 33
+WINE_STORAGE_CONDITIONING_UNIT = 34
+STEAM_OVEN_MICRO = 45
+DIALOG_OVEN = 67
+WINE_CABINET_FREEZER = 68
+
+APPLIANCE_TYPES = {
+    WASHING_MACHINE: "washing_machine",
+    TUMBLE_DRYER: "tumble_dryer",
+    DISHWASHER: "dishwasher",
+    OVEN: "oven",
+    OVEN_MICROWAVE: "oven_microwave",
+    HOB_HIGHLIGHT: "hob_highlight",
+    STEAM_OVEN: "steam_oven",
+    MICROWAVE: "microwave",
+    COFFEE_SYSTEM: "coffee_system",
+    HOOD: "hood",
+    FRIDGE: "fridge",
+    FREEZER: "freezer",
+    FRIDGE_FREEZER: "fridge_freezer",
+    ROBOT_VACUUM_CLEANER: "robot_vacuum_cleaner",
+    WASHER_DRYER: "washer_dryer",
+    DISH_WARMER: "dish_warmer",
+    HOB_INDUCTION: "hob_induction",
+    STEAM_OVEN_COMBI: "steam_oven_combi",
+    WINE_CABINET: "wine_cabinet",
+    WINE_CONDITIONING_UNIT: "wine_conditioning_unit",
+    WINE_STORAGE_CONDITIONING_UNIT: "wine_storage_conditioning_unit",
+    STEAM_OVEN_MICRO: "steam_oven_micro",
+    DIALOG_OVEN: "dialog_oven",
+    WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+}
+
+# Define various states
 STATE_STATUS = {
     0: "reserved",
     1: "off",
@@ -33,26 +88,6 @@ STATE_PROGRAM_TYPE = {
     1: "own_program",
     2: "automatic_program",
     3: "cleaning_care_program",
-}
-
-STATE_PROGRAM_ID = {
-    1: "cottons",
-    3: "minimum_iron",
-    4: "delicates",
-    8: "woollens",
-    9: "silk",
-    21: "drain_spin",
-    23: "shirts",
-    27: "proofing",
-    29: "sportswear",
-    31: "automatic_plus",
-    37: "outerwear",
-    38: "quick_power_wash",
-    48: "rinse_out_lint",
-    50: "dark_garments",
-    52: "only_rinse_starch",
-    122: "express",
-    123: "denim",
 }
 
 STATE_PROGRAM_PHASE = {
@@ -117,58 +152,98 @@ STATE_PROGRAM_PHASE = {
     1801: "pre_dishwash",
 }
 
-WASHING_MACHINE = 1
-TUMBLE_DRYER = 2
-DISHWASHER = 7
-OVEN = 12
-OVEN_MICROWAVE = 13
-HOB_HIGHLIGHT = 14
-STEAM_OVEN = 15
-MICROWAVE = 16
-COFFEE_SYSTEM = 17
-HOOD = 18
-FRIDGE = 19
-FREEZER = 20
-FRIDGE_FREEZER = 21
-ROBOT_VACUUM_CLEANER = 23
-WASHER_DRYER = 24
-DISH_WARMER = 25
-HOB_INDUCTION = 27
-STEAM_OVEN_COMBI = 31
-WINE_CABINET = 32
-WINE_CONDITIONING_UNIT = 33
-WINE_STORAGE_CONDITIONING_UNIT = 34
-STEAM_OVEN_MICRO = 45
-DIALOG_OVEN = 67
-WINE_CABINET_FREEZER = 68
-
-APPLIANCE_TYPES = {
-    WASHING_MACHINE: "washing_machine",
-    TUMBLE_DRYER: "tumble_dryer",
-    DISHWASHER: "dishwasher",
-    OVEN: "oven",
-    OVEN_MICROWAVE: "oven_microwave",
-    HOB_HIGHLIGHT: "hob_highlight",
-    STEAM_OVEN: "steam_oven",
-    MICROWAVE: "microwave",
-    COFFEE_SYSTEM: "coffee_system",
-    HOOD: "hood",
-    FRIDGE: "fridge",
-    FREEZER: "freezer",
-    FRIDGE_FREEZER: "fridge_freezer",
-    ROBOT_VACUUM_CLEANER: "robot_vacuum_cleaner",
-    WASHER_DRYER: "washer_dryer",
-    DISH_WARMER: "dish_warmer",
-    HOB_INDUCTION: "hob_induction",
-    STEAM_OVEN_COMBI: "steam_oven_combi",
-    WINE_CABINET: "wine_cabinet",
-    WINE_CONDITIONING_UNIT: "wine_conditioning_unit",
-    WINE_STORAGE_CONDITIONING_UNIT: "wine_storage_conditioning_unit",
-    STEAM_OVEN_MICRO: "steam_oven_micro",
-    DIALOG_OVEN: "dialog_oven",
-    WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+WASHING_MACHINE_PROGRAM_ID = {
+    1: "cottons",
+    3: "minimum_iron",
+    4: "delicates",
+    8: "woollens",
+    9: "silks",
+    17: "starch",
+    18: "rinse",
+    21: "drain_spin",
+    22: "curtains",
+    23: "shirts",
+    24: "denim",
+    27: "proofing",
+    29: "sportswear",
+    31: "automatic_plus",
+    37: "outerwear",
+    39: "pillows",
+    48: "rinse_out_lint",  # washer-dryer
+    50: "dark_garments",
+    52: "separate_rinse_starch",
+    53: "first_wash",
+    69: "cottons_hygiene",
+    75: "steam_care",  # washer-dryer
+    76: "freshen_up",  # washer-dryer
+    77: "trainers",
+    91: "clean_machine",
+    95: "down_duvets",
+    122: "express_20",
+    123: "denim",
+    129: "down_filled_items",
+    133: "cottons_eco",
+    146: "quick_power_wash",
+}
+DISHWASHER_PROGRAM_ID = {
+    26: "intensive",
+    27: "maintenance",  # or maintenance_program?
+    28: "eco",
+    30: "normal",
+    31: "automatic",
+    32: "automatic",  # sources disagree on ID
+    34: "solar_save",
+    35: "gentle",
+    36: "extra_quiet",
+    37: "hygiene",
+    38: "quick_power_wash",
+    42: "tall_items",
+}
+TUMBLE_DRYER_PROGRAM_ID = {
+    10: "automatic_plus",
+    20: "cottons",
+    23: "cottons_hygiene",
+    30: "minimum_iron",
+    31: "gentle_minimum_iron",
+    40: "woollens_handcare",
+    50: "delicates",
+    60: "warm_air",
+    70: "cool_air",
+    80: "express_20",
+    90: "cottons",
+    100: "gentle_smoothing",
+    120: "proofing",
+    130: "denim",
+    131: "gentle_denim",
+    150: "sportswear",
+    160: "outerwear",
+    170: "silks_handcare",
+    190: "standard_pillows",
+    220: "basket_program",
+    240: "smoothing",
+}
+OVEN_PROGRAM_ID = {
+    6: "eco_fan_heat",
+    7: "auto_roast",
+    10: "full_grill",
+    11: "economy_grill",
+    13: "fan_plus",
+    14: "intensive_bake",
+    24: "conventional_heat",
+    25: "top_heat",
+    29: "fan_grill",
+    31: "bottom_heat",
 }
 
+STATE_PROGRAM_ID = {
+    WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
+    TUMBLE_DRYER: TUMBLE_DRYER_PROGRAM_ID,
+    DISHWASHER: DISHWASHER_PROGRAM_ID,
+    OVEN: OVEN_PROGRAM_ID,
+    WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
+}
+
+# Possible actions
 PROCESS_ACTIONS = {
     "start": 1,
     "stop": 2,
