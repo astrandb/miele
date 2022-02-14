@@ -96,7 +96,7 @@ async def async_setup_entry(
 
 
 class MieleSwitch(CoordinatorEntity, SwitchEntity):
-    """Representation of a Sensor."""
+    """Representation of a Switch."""
 
     entity_description: MieleSwitchDescription
 
@@ -109,7 +109,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         hass,
         entry,
     ):
-        """Initialize the sensor."""
+        """Initialize the switch."""
         super().__init__(coordinator)
         self._api = hass.data[DOMAIN][entry.entry_id]["api"]
 
@@ -128,7 +128,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
 
     @property
     def is_on(self):
-        """Return the state of the sensor."""
+        """Return the state of the switch."""
         return (
             self.coordinator.data[self._ent][self.entity_description.data_tag]
             == self.entity_description.on_value

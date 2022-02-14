@@ -28,7 +28,7 @@ _LOGGER = logging.getLogger(__name__)
 
 @dataclass
 class MieleClimateDescription(ClimateEntityDescription):
-    """Class describing Miele sensor entities."""
+    """Class describing Miele climate entities."""
 
     currentTemperature_tag: str | None = None
     targetTemperature_tag: str | None = None
@@ -149,7 +149,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         hass,
         entry,
     ):
-        """Initialize the sensor."""
+        """Initialize the climate entity."""
         super().__init__(coordinator)
         self._eid = hass.data[DOMAIN][entry.entry_id]
         self._api = self._eid["api"]
@@ -157,7 +157,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._idx = idx
         self._ent = ent
         self._ed = description
-        _LOGGER.debug("init sensor %s", ent)
+        _LOGGER.debug("init climate %s", ent)
         self._attr_name = (
             f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
         )
