@@ -88,6 +88,7 @@ STATE_PROGRAM_TYPE = {
     1: "own_program",
     2: "automatic_program",
     3: "cleaning_care_program",
+    4: "cleaning_care_program",  # used by washer-dryer
 }
 
 STATE_PROGRAM_PHASE = {
