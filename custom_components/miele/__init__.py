@@ -26,7 +26,8 @@ from homeassistant.helpers.update_coordinator import (
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
-from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24
+
+# from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24
 from .services import async_setup_services
 
 # from .pymiele import MieleAuthException
@@ -50,6 +51,7 @@ PLATFORMS = [
     Platform.BINARY_SENSOR,
     Platform.CLIMATE,
     Platform.FAN,
+    Platform.LIGHT,
     Platform.SWITCH,
 ]
 
@@ -150,7 +152,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
         # data["1223007"] = TEST_DATA_7
-        data["1223018"] = TEST_DATA_18
+        # data["1223018"] = TEST_DATA_18
         # data["1223024"] = TEST_DATA_24
         flat_result: dict = {}
         for idx, ent in enumerate(data):
@@ -201,7 +203,7 @@ async def get_coordinator(
         result = await res.json()
         flat_result: dict = {}
         # result["1223007"] = TEST_DATA_7
-        result["1223018"] = TEST_DATA_18
+        # result["1223018"] = TEST_DATA_18
         # result["1223024"] = TEST_DATA_24
 
         for idx, ent in enumerate(result):

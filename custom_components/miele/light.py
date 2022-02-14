@@ -1,4 +1,4 @@
-"""Platform for Miele fan entity."""
+"""Platform for Miele light entity."""
 from __future__ import annotations
 
 import logging
@@ -6,11 +6,7 @@ from dataclasses import dataclass
 from typing import Any, Callable, Final, Optional
 
 import aiohttp
-from homeassistant.components.fan import (
-    SUPPORT_PRESET_MODE,
-    FanEntity,
-    FanEntityDescription,
-)
+from homeassistant.components.light import LightEntity, LightEntityDescription
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -19,24 +15,32 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
     DataUpdateCoordinator,
 )
-from homeassistant.util.percentage import (  # percentage_to_ranged_value
-    int_states_in_range,
-    ranged_value_to_percentage,
-)
 
 from . import get_coordinator
-from .const import DOMAIN, HOOD
+from .const import (
+    COFFEE_SYSTEM,
+    DOMAIN,
+    HOOD,
+    MICROWAVE,
+    OVEN,
+    OVEN_MICROWAVE,
+    STEAM_OVEN,
+    STEAM_OVEN_COMBI,
+    STEAM_OVEN_MICRO,
+    WINE_CABINET,
+    WINE_CABINET_FREEZER,
+    WINE_CONDITIONING_UNIT,
+    WINE_STORAGE_CONDITIONING_UNIT,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
-SPEED_RANGE = (1, 4)
-
 
 @dataclass
-class MieleFanDescription(FanEntityDescription):
-    """Class describing Miele fan entities."""
+class MieleLightDescription(LightEntityDescription):
+    """Class describing Miele light entities."""
 
-    ventilationStep_tag: str | None = None
+    light_tag: str | None = None
     type_key: str | None = None
     convert: Callable[[Any], Any] | None = None
     preset_modes: list | None = None
@@ -44,25 +48,34 @@ class MieleFanDescription(FanEntityDescription):
 
 
 @dataclass
-class MieleFanDefinition:
-    """Class for defining fan entities."""
+class MieleLightDefinition:
+    """Class for defining light entities."""
 
     types: tuple[int, ...]
-    description: MieleFanDescription = None
+    description: MieleLightDescription = None
 
 
-FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
-    MieleFanDefinition(
+LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
+    MieleLightDefinition(
         types=[
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            COFFEE_SYSTEM,
             HOOD,
+            STEAM_OVEN_COMBI,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            STEAM_OVEN_MICRO,
+            WINE_CABINET_FREEZER,
         ],
-        description=MieleFanDescription(
-            key="fan",
-            ventilationStep_tag="state|ventilationStep|value_raw",
+        description=MieleLightDescription(
+            key="light",
+            light_tag="state|light",
             type_key="ident|type|value_localized",
-            name="Fan",
-            preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
-            supported_features=SUPPORT_PRESET_MODE,
+            name="Light",
         ),
     ),
 )
@@ -73,15 +86,15 @@ async def async_setup_entry(
     config_entry: ConfigType,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the fan platform."""
+    """Set up the light platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
     entities = []
     for idx, ent in enumerate(coordinator.data):
-        for definition in FAN_TYPES:
+        for definition in LIGHT_TYPES:
             if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
                 entities.append(
-                    MieleFan(
+                    MieleLight(
                         coordinator,
                         idx,
                         ent,
@@ -94,17 +107,17 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleFan(CoordinatorEntity, FanEntity):
-    """Representation of a Fan."""
+class MieleLight(CoordinatorEntity, LightEntity):
+    """Representation of a Light."""
 
-    entity_description: MieleFanDescription
+    entity_description: MieleLightDescription
 
     def __init__(
         self,
         coordinator: DataUpdateCoordinator,
         idx,
         ent,
-        description: MieleFanDescription,
+        description: MieleLightDescription,
         hass,
         entry,
     ):
@@ -116,13 +129,11 @@ class MieleFan(CoordinatorEntity, FanEntity):
         self._idx = idx
         self._ent = ent
         self._ed = description
-        _LOGGER.debug("Init fan %s", ent)
+        _LOGGER.debug("Init light %s", ent)
         self._attr_name = (
             f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
         )
         self._attr_unique_id = f"{self._ed.key}-{self._ent}"
-        self._attr_preset_modes = self._ed.preset_modes
-        self._attr_preset_mode = None
         self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
@@ -134,32 +145,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return True
-
-    @property
-    def preset_mode(self) -> str:
-        """Return the current preset_mode of the fan."""
-        return self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
-
-    @property
-    def speed_count(self) -> int:
-        """Return the number of speeds the fan supports."""
-        return int_states_in_range(SPEED_RANGE)
-
-    @property
-    def percentage(self) -> Optional[int]:
-        """Return the current speed percentage."""
-        return ranged_value_to_percentage(
-            SPEED_RANGE, self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
-        )
-
-    async def async_set_preset_mode(self, preset_mode: str) -> None:
-        """Set the preset mode of the fan."""
-
-        try:
-            await self._api.send_action(self._ent, {"ventilationStep": preset_mode})
-        except aiohttp.ClientResponseError as ex:
-            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+        return self.coordinator.data[self._ent][self._ed.light_tag] == 2
 
     async def async_turn_on(
         self,
@@ -168,15 +154,15 @@ class MieleFan(CoordinatorEntity, FanEntity):
         preset_mode: Optional[str] = None,
         **kwargs: Any,
     ) -> None:
-        """Turn on the fan."""
+        """Turn on the light."""
         try:
-            await self._api.send_action(self._ent, {"powerOn": True})
+            await self._api.send_action(self._ent, {"light": 2})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
-        """Turn the fan off."""
+        """Turn the light off."""
         try:
-            await self._api.send_action(self._ent, {"powerOff": True})
+            await self._api.send_action(self._ent, {"light": 1})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
