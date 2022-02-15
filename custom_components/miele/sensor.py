@@ -351,6 +351,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             icon="mdi:state-machine",
             convert=lambda x, t: STATE_PROGRAM_TYPE.get(x, x),
             extra_attributes={"Raw value": 0},
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
     MieleSensorDefinition(
