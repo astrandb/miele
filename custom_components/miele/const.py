@@ -188,6 +188,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     146: "quick_power_wash",
 }
 DISHWASHER_PROGRAM_ID = {
+    0: "not_running",  # Returned by the API when the machine is switched off entirely.
     26: "intensive",
     27: "maintenance",  # or maintenance_program?
     28: "eco",
