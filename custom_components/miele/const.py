@@ -88,6 +88,7 @@ STATE_PROGRAM_TYPE = {
     1: "own_program",
     2: "automatic_program",
     3: "cleaning_care_program",
+    4: "cleaning_care_program",  # used by washer-dryer
 }
 
 STATE_PROGRAM_PHASE = {
@@ -169,6 +170,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     31: "automatic_plus",
     37: "outerwear",
     39: "pillows",
+    46: "warm_air",  # washer-dryer
     48: "rinse_out_lint",  # washer-dryer
     50: "dark_garments",
     52: "separate_rinse_starch",
@@ -186,6 +188,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     146: "quick_power_wash",
 }
 DISHWASHER_PROGRAM_ID = {
+    0: "not_running",  # Returned by the API when the machine is switched off entirely.
     26: "intensive",
     27: "maintenance",  # or maintenance_program?
     28: "eco",
