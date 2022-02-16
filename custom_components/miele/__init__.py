@@ -22,15 +22,14 @@ from homeassistant.helpers.update_coordinator import (
     ConfigEntryNotReady,
     DataUpdateCoordinator,
 )
+from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 
 from . import config_flow
 from .api import AsyncConfigEntryAuth
-from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
+from .const import DOMAIN
 
 # from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24
 from .services import async_setup_services
-
-# from .pymiele import MieleAuthException
 
 _LOGGER = logging.getLogger(__name__)
 

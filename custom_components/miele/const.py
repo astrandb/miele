@@ -3,10 +3,6 @@
 DOMAIN = "miele"
 VERSION = "0.0.12"
 
-MIELE_API = "https://api.mcs3.miele.com/v1"
-OAUTH2_AUTHORIZE = "https://api.mcs3.miele.com/thirdparty/login"
-OAUTH2_TOKEN = "https://api.mcs3.miele.com/thirdparty/token"
-
 
 # Define appliance types
 WASHING_MACHINE = 1
