@@ -323,4 +323,8 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
     @property
     def available(self):
         """Return the availability of the entity."""
+
+        if not self.coordinator.last_update_success:
+            return False
+
         return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
