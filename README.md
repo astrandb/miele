@@ -2,7 +2,7 @@
 
 # Miele Integration for Home Assistant
 
-_Work in progress - not feature complete_ 
+_Work in progress - not feature complete_
 
 The capabilities are based on Miele API version 1.0.5. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some device lack support and some devices support features that are not marked.
 
@@ -10,10 +10,7 @@ All supported appliances will show a status sensor, some appliances will show mo
 
 In upcoming releases there will be support for more appliance types and more complete support for existing appliances.
 
-
-Known limitations: There is only limited error and exception handling in this pre-release.
-
-
+Known limitations: There is only limited error and exception handling in this release.
 
 ## Installation
 
@@ -43,6 +40,27 @@ miele:
 Goto Integrations->Add and select Miele
 
 Follow instructions to authenticate with Miele cloud server. Allow full access for Home Assistant client.
+
+## Development
+
+There are many ways to setup a development environment.
+Following procedure works fine in the hands of the maintainer developing with VS Code on WSL2/Windows.
+
+- Make sure you have python3.9 installed on your WSL.
+- Create a fork on github
+
+```
+$ git clone https://github.com/{your_user}/miele
+$ cd miele
+$ make install_dev
+```
+
+Home Assistant has defined a code style. Run `make lint` before pushing your changes to align with the peferred style.
+
+There are many ways to test the integration, two examples are:
+
+- copy all files in `custom_comonents/miele` to ´custom_components/miele` in your HA configuration directory
+- mount `custom_components/miele` into a HA development container
 
 ## Disclaimer
 

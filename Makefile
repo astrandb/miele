@@ -1,12 +1,25 @@
-__VERSION__ = "0.0.13"
+src_dir := custom_components/miele
 
 bump:
-	bump2version --allow-dirty --current-version $(__VERSION__) patch Makefile custom_components/miele/const.py custom_components/miele/manifest.json
+	bump2version --allow-dirty patch $(src_dir)/const.py $(src_dir)/manifest.json
+
+bump_minor:
+	bump2version --allow-dirty minor $(src_dir)/const.py $(src_dir)/manifest.json
+
+bump_major:
+	bump2version --allow-dirty major $(src_dir)/const.py $(src_dir)/manifest.json
 
 lint:
-	isort custom_components
-	black custom_components
-	flake8 custom_components
+	isort $(src_dir)
+	black $(src_dir)
+	flake8 $(src_dir)
 
-install_dev:
-	pip install -r requirements-dev.txt
+.venv:
+	python3.9 -m venv .venv
+
+install_dev: | .venv
+	(. .venv/bin/activate; \
+	pip install -Ur requirements-dev.txt )
+
+clean:
+	rm -rf .venv $(src_dir)/__pycache__
