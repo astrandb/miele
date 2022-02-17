@@ -523,7 +523,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
-        self._attr_extra_state_attributes = self.entity_description.extra_attributes
 
     @property
     def native_value(self):
@@ -537,14 +536,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
                 + self.coordinator.data[self._ent][self.entity_description.data_tag1]
             )
-
-        if (
-            self.entity_description.extra_attributes is not None
-            and "Raw value" in self.entity_description.extra_attributes
-        ):
-            self._attr_extra_state_attributes["Raw value"] = self.coordinator.data[
-                self._ent
-            ][self.entity_description.data_tag]
 
         # Log raw and localized values for programID etc
         # Active if logger.level is DEBUG or INFO
@@ -590,6 +581,25 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
     @property
     def available(self):
         """Return the availability of the entity."""
+
         if self.entity_description.key == "stateStatus":
             return True
+
+        if not self.coordinator.last_update_success:
+            return False
+
         return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
+
+    @property
+    def extra_state_attributes(self):
+        if self.entity_description.extra_attributes is None:
+            return
+        attr = self.entity_description.extra_attributes
+        if "Raw value" in self.entity_description.extra_attributes:
+            attr["Raw value"] = self.coordinator.data[self._ent][
+                self.entity_description.data_tag
+            ]
+            attr["Localized"] = self.coordinator.data[self._ent][
+                self.entity_description.data_tag.replace("_raw", "_localized")
+            ]
+        return attr

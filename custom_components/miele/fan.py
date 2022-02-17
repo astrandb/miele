@@ -153,6 +153,15 @@ class MieleFan(CoordinatorEntity, FanEntity):
             SPEED_RANGE, self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
         )
 
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+
+        if not self.coordinator.last_update_success:
+            return False
+
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
+
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode of the fan."""
 

@@ -134,6 +134,15 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
             == self.entity_description.on_value
         )
 
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+
+        if not self.coordinator.last_update_success:
+            return False
+
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
+
     async def async_turn_on(self, **kwargs):
         """Turn on the device."""
         _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
@@ -153,8 +162,3 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
         # await self.coordinator.async_request_refresh()
-
-    @property
-    def available(self):
-        """Return the availability of the entity."""
-        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255

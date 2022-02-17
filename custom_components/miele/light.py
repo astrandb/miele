@@ -147,6 +147,15 @@ class MieleLight(CoordinatorEntity, LightEntity):
         """Return current on/off state."""
         return self.coordinator.data[self._ent][self._ed.light_tag] == 2
 
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+
+        if not self.coordinator.last_update_success:
+            return False
+
+        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
+
     async def async_turn_on(
         self,
         speed: Optional[str] = None,
