@@ -59,7 +59,7 @@ Home Assistant has defined a code style. Run `make lint` before pushing your cha
 
 There are many ways to test the integration, two examples are:
 
-- copy all files in `custom_comonents/miele` to ´custom_components/miele` in your HA configuration directory
+- copy all files in `custom_comonents/miele` to `custom_components/miele` in your HA configuration directory
 - mount `custom_components/miele` into a HA development container
 
 ## Disclaimer
