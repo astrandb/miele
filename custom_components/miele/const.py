@@ -182,6 +182,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     129: "down_filled_items",
     133: "cottons_eco",
     146: "quick_power_wash",
+    190: "eco_40_60"
 }
 DISHWASHER_PROGRAM_ID = {
     0: "not_running",  # Returned by the API when the machine is switched off entirely.
