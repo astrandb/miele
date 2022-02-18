@@ -150,6 +150,7 @@ STATE_PROGRAM_PHASE = {
 }
 
 WASHING_MACHINE_PROGRAM_ID = {
+    0: "no_program",  # Returned by the API when no program is selected.
     1: "cottons",
     3: "minimum_iron",
     4: "delicates",
@@ -166,6 +167,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     31: "automatic_plus",
     37: "outerwear",
     39: "pillows",
+    45: "cool_air",  # washer-dryer
     46: "warm_air",  # washer-dryer
     48: "rinse_out_lint",  # washer-dryer
     50: "dark_garments",
@@ -182,6 +184,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     129: "down_filled_items",
     133: "cottons_eco",
     146: "quick_power_wash",
+    190: "eco_40_60"
 }
 DISHWASHER_PROGRAM_ID = {
     0: "not_running",  # Returned by the API when the machine is switched off entirely.

@@ -26,6 +26,7 @@
       "cleaning_care_program": "Cleaning/care program"
     },
     "miele__state_program_id": {
+      "no_program": "No program",
       "cottons": "Cottons",
       "minimum_iron": "Minimum iron",
       "delicates": "Delicates",
@@ -42,6 +43,7 @@
       "automatic_plus": "Automatic Plus",
       "outerwear": "Outerwear",
       "pillows": "Pillows",
+      "cool_air": "Cool air",
       "warm_air": "Warm air",
       "rinse_out_lint": "Rinse out lint",
       "dark_garments": "Dark garments",
@@ -57,6 +59,7 @@
       "down_filled_items": "Down-filled items",
       "cottons_eco": "Cottons ECO",
       "quick_power_wash": "QuickPowerWash",
+      "eco_40_60": "ECO 40-60",
 
       "intensive": "Intensive",
       "maintenance": "Maintenance program",
@@ -71,7 +74,6 @@
 
       "gentle_minimum_iron": "Gentle minimum iron",
       "woollens_handcare": "Woollens handcare",
-      "cool_air": "Cool air",
       "gentle_smoothing": "Gentle smoothing",
       "gentle_denim": "Gentle denim",
       "silks_handcare": "Silks handcare",

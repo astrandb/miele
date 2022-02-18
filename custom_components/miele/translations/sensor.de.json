@@ -26,6 +26,7 @@
       "cleaning_care_program": "Reinigungs-/Pflege-Programm"
     },
     "miele__state_program_id": {
+      "no_program": "Kein Programm",
       "cottons": "Baumwolle",
       "minimum_iron": "Pflegeleicht",
       "delicates": "Feinwäsche",
@@ -42,6 +43,7 @@
       "automatic_plus": "Automatic plus",
       "outerwear": "Outdoor",
       "pillows": "Kopfkissen",
+      "cool_air": "Lüften kalt",
       "warm_air": "Lüften warm",
       "rinse_out_lint": "Flusen ausspülen",
       "dark_garments": "Dunkle Wäsche",
@@ -57,6 +59,7 @@
       "down_filled_items": "Daunen",
       "cottons_eco": "Baumwolle ECO",
       "quick_power_wash": "QuickPowerWash",
+      "eco_40_60": "ECO 40-60",
 
       "intensive": "Intensiv",
       "maintenance": "Gerätepflege",
@@ -71,7 +74,6 @@
 
       "gentle_minimum_iron": "Pflegeleicht fein",
       "woollens_handcare": "Finish Wolle",
-      "cool_air": "Lüften kalt",
       "gentle_smoothing": "Glätten fein",
       "gentle_denim": "Jeans fein",
       "silks_handcare": "Silks handcare",
