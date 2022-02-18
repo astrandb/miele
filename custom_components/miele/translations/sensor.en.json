@@ -26,6 +26,7 @@
       "cleaning_care_program": "Cleaning/care program"
     },
     "miele__state_program_id": {
+      "no_program": "No program",
       "cottons": "Cottons",
       "minimum_iron": "Minimum iron",
       "delicates": "Delicates",

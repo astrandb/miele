@@ -150,6 +150,7 @@ STATE_PROGRAM_PHASE = {
 }
 
 WASHING_MACHINE_PROGRAM_ID = {
+    0: "no_program",  # Returned by the API when no program is selected.
     1: "cottons",
     3: "minimum_iron",
     4: "delicates",

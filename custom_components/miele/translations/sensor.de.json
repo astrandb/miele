@@ -26,6 +26,7 @@
       "cleaning_care_program": "Reinigungs-/Pflege-Programm"
     },
     "miele__state_program_id": {
+      "no_program": "Kein Programm",
       "cottons": "Baumwolle",
       "minimum_iron": "Pflegeleicht",
       "delicates": "Feinwäsche",
