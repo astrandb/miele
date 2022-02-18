@@ -41,7 +41,7 @@ Goto Integrations->Add and select Miele
 
 Follow instructions to authenticate with Miele cloud server. Allow full access for Home Assistant client.
 
-## Development
+### Development
 
 There are many ways to setup a development environment.
 Following procedure works fine in the hands of the maintainer developing with VS Code on WSL2/Windows.
@@ -61,6 +61,15 @@ There are many ways to test the integration, two examples are:
 
 - copy all files in `custom_comonents/miele` to `custom_components/miele` in your HA configuration directory
 - mount `custom_components/miele` into a HA development container
+
+### Debugging and filing issues
+
+If you find bugs or other issues please download diagnostic information from the Miele integration card or from the device page and attach the file to your issue report.
+One recurring issue is the translation of Program name and phases. This is due to sparse, if any, documentation from Miele. One way to assist with the fact collection is to install a blueprint automation that will log states from the selected sensor with some additional information to the Home Assistant log.
+
+The blueprint can be found here https://gist.github.com/astrandb/2F5ec47d6979b590639d23144142ae3100
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fastrandb%2F5ec47d6979b590639d23144142ae3100)
 
 ## Disclaimer
 
