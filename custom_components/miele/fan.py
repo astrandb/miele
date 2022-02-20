@@ -105,13 +105,12 @@ class MieleFan(CoordinatorEntity, FanEntity):
         idx,
         ent,
         description: MieleFanDescription,
-        hass,
-        entry,
+        hass: HomeAssistant,
+        entry: ConfigType,
     ):
         """Initialize the fan."""
         super().__init__(coordinator)
-        self._eid = hass.data[DOMAIN][entry.entry_id]
-        self._api = self._eid["api"]
+        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
 
         self._idx = idx
         self._ent = ent

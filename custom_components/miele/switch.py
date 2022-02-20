@@ -106,8 +106,8 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         idx,
         ent,
         description: MieleSwitchDescription,
-        hass,
-        entry,
+        hass: HomeAssistant,
+        entry: ConfigType,
     ):
         """Initialize the switch."""
         super().__init__(coordinator)
