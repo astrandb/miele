@@ -15,6 +15,7 @@ Known limitations: There is only limited error and exception handling in this re
 ## Installation
 
 Make sure you have the credentials available for your account with Miele cloud. You have to register on https://www.miele.com/developer/
+If you have an existing integration with the name "miele" you are recommended to remove it before attemping to install this one.
 
 ### Preferred download method
 
