@@ -65,7 +65,7 @@ There are many ways to test the integration, two examples are:
 ### Debugging and filing issues
 
 If you find bugs or other issues please download diagnostic information from the Miele integration card or from the device page and attach the file to your issue report.
-One recurring issue is the translation of Program name and phases. This is due to sparse, if any, documentation from Miele. One way to assist with the fact collection is to install a blueprint automation that will log states from the selected sensor with some additional information to the Home Assistant log.
+One recurring issue is the translation of Program name and phases. This is due to sparse, if any, documentation from Miele. One way to assist with the fact collection is to install a blueprint automation that will log states from the selected sensor with some additional information to the Home Assistant log. Create one automation for each sensor you want to monitor
 
 The blueprint can be found here https://gist.github.com/astrandb/5ec47d6979b590639d23144142ae3100
 
