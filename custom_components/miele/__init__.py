@@ -27,11 +27,13 @@ from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import DOMAIN
-
-# from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24
+from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24  # noqa: F401
 from .services import async_setup_services
 
 _LOGGER = logging.getLogger(__name__)
+
+CONF_LANG = "lang"
+CONF_LANGUAGE = "language"
 
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -39,6 +41,9 @@ CONFIG_SCHEMA = vol.Schema(
             {
                 vol.Required(CONF_CLIENT_ID): cv.string,
                 vol.Required(CONF_CLIENT_SECRET): cv.string,
+                # For compatibility with other integration
+                vol.Optional(CONF_LANG): cv.string,
+                vol.Optional(CONF_LANGUAGE): cv.string,
             }
         )
     },
