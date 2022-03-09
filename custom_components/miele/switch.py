@@ -17,7 +17,25 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import DOMAIN
+from .const import (
+    COFFEE_SYSTEM,
+    DIALOG_OVEN,
+    DISHWASHER,
+    DOMAIN,
+    FREEZER,
+    FRIDGE,
+    FRIDGE_FREEZER,
+    HOOD,
+    MICROWAVE,
+    OVEN,
+    OVEN_MICROWAVE,
+    STEAM_OVEN,
+    STEAM_OVEN_COMBI,
+    STEAM_OVEN_MICRO,
+    TUMBLE_DRYER,
+    WASHING_MACHINE,
+    WINE_CABINET_FREEZER,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -29,6 +47,7 @@ class MieleSwitchDescription(SwitchEntityDescription):
     data_tag: str | None = None
     type_key: str | None = None
     on_value: int = 0
+    off_value: int = 0
     on_data: dict[str, Any] | None = None
     off_data: dict[str, Any] | None = None
 
@@ -43,7 +62,7 @@ class MieleSwitchDefinition:
 
 SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
     MieleSwitchDefinition(
-        types=[19, 21],
+        types=[FRIDGE, FRIDGE_FREEZER],
         description=MieleSwitchDescription(
             key="supercooling",
             data_tag="state|status|value_raw",
@@ -55,7 +74,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
         ),
     ),
     MieleSwitchDefinition(
-        types=[20, 21, 68],
+        types=[FREEZER, FRIDGE_FREEZER, WINE_CABINET_FREEZER],
         description=MieleSwitchDescription(
             key="superfreezing",
             data_tag="state|status|value_raw",
@@ -64,6 +83,31 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             name="Superfreezing",
             on_data={"processAction": 4},
             off_data={"processAction": 5},
+        ),
+    ),
+    MieleSwitchDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            COFFEE_SYSTEM,
+            HOOD,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSwitchDescription(
+            key="poweronoff",
+            data_tag="state|status|value_raw",
+            off_value=1,
+            type_key="ident|type|value_localized",
+            name="Power on",
+            on_data={"powerOn": True},
+            off_data={"powerOff": True},
         ),
     ),
 )
@@ -129,10 +173,17 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
     @property
     def is_on(self):
         """Return the state of the switch."""
-        return (
-            self.coordinator.data[self._ent][self.entity_description.data_tag]
-            == self.entity_description.on_value
-        )
+        if self.entity_description.off_value == 0:
+            retval = (
+                self.coordinator.data[self._ent][self.entity_description.data_tag]
+                == self.entity_description.on_value
+            )
+        else:
+            retval = (
+                self.coordinator.data[self._ent][self.entity_description.data_tag]
+                != self.entity_description.off_value
+            )
+        return retval
 
     @property
     def available(self):
