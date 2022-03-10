@@ -86,3 +86,15 @@ raw:
     extra:
       description: A dictionary with parameters
       example: '{ "targetTemperature": [{"zone": 1, "value": -18 }] }'
+
+set_program:
+  name: Set program
+  description: Set and start program with optional parameters.
+  target:
+    device:
+      integration: "miele"
+  fields:
+    programId:
+      description: Set program Id
+      example: 24
+

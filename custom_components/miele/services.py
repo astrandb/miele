@@ -40,6 +40,13 @@ SERVICE_RAW = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+SERVICE_PROGRAM = cv.make_entity_service_schema(
+    {
+        vol.Required("programId"): cv.positive_int,
+    },
+    extra=vol.ALLOW_EXTRA,
+)
+
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -122,6 +129,39 @@ async def async_setup_services(hass: HomeAssistant) -> None:
             raise HomeAssistantError(f"Service raw: {ex.status} {ex.message}")
         return
 
+    async def set_program(call: ServiceCall):
+        _LOGGER.debug("Call: %s", call)
+        if not (our_entry_ids := await extract_our_config_entry_ids(call)):
+            raise HomeAssistantError(
+                "Failed to call service 'set_program'. Config entry for target not found."
+            )
+        if "device_id" not in call.data.keys():
+            raise HomeAssistantError(
+                "Cannot call set_program on entity. Only on device."
+            )
+        _LOGGER.debug("Entries: %s", our_entry_ids)
+        device_reg = device_registry.async_get(hass)
+        for ent in call.data["device_id"]:
+            device_entry = device_reg.async_get(ent)
+            for ident in device_entry.identifiers:
+                for val in ident:
+                    if val != DOMAIN:
+                        serno = val
+
+            _api = hass.data[DOMAIN][our_entry_ids[0]]["api"]
+            data = call.data.copy()
+            if "entity_id" in data.keys():
+                data.pop("entity_id")
+            if "device_id" in data.keys():
+                data.pop("device_id")
+            try:
+                await _api.set_program(serno, data)
+            except aiohttp.ClientResponseError as ex:
+                raise HomeAssistantError(
+                    f"Service set_program: {ex.status} {ex.message}"
+                )
+        return
+
     hass.services.async_register(
         DOMAIN, "process_action", send_process_action, SERVICE_PROCESS_ACTION
     )
@@ -129,4 +169,5 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         DOMAIN, "generic_action", send_generic_action, SERVICE_GENERIC_ACTION
     )
     hass.services.async_register(DOMAIN, "raw", send_raw, SERVICE_RAW)
+    hass.services.async_register(DOMAIN, "set_program", set_program, SERVICE_PROGRAM)
     return
