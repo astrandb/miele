@@ -96,7 +96,8 @@ async def async_setup_services(hass: HomeAssistant) -> None:
                         serno = val
 
             _api = hass.data[DOMAIN][our_entry_ids[0]]["api"]
-            data = copy(call.data)
+#            data = copy(call.data)
+            data = call.data.copy()
             data = data.pop("entity_id")
             try:
                 await _api.send_action(serno, data)
