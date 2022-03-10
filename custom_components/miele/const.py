@@ -188,6 +188,15 @@ WASHING_MACHINE_PROGRAM_ID = {
 }
 DISHWASHER_PROGRAM_ID = {
     0: "no_program",  # Returned by the API when the machine is switched off entirely.
+    1: "intensive",
+    2: "maintenance",
+    3: "eco",
+    6: "automatic",
+    9: "solar_save",
+    10: "gentle",
+    11: "extra_quiet",
+    12: "hygiene",
+    13: "quick_power_wash",
     26: "intensive",
     27: "maintenance",  # or maintenance_program?
     28: "eco",
@@ -200,6 +209,7 @@ DISHWASHER_PROGRAM_ID = {
     37: "hygiene",
     38: "quick_power_wash",
     42: "tall_items",
+    44: "glasses_warm",
 }
 TUMBLE_DRYER_PROGRAM_ID = {
     0: "no_program",  # Extrapolated from other device types
