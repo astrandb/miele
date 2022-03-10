@@ -10,8 +10,6 @@ All supported appliances will show a status sensor, some appliances will show mo
 
 In upcoming releases there will be support for more appliance types and more complete support for existing appliances.
 
-Known limitations: There is only limited error and exception handling in this release.
-
 ## Installation
 
 Make sure you have the credentials available for your account with Miele cloud. You have to register on https://www.miele.com/developer/
