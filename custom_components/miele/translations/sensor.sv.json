@@ -26,6 +26,7 @@
       "cleaning_care_program": "Rengöringsprogram"
     },
     "miele__state_program_id": {
+      "no_program": "Inget program",
       "cottons": "Bomull",
       "minimum_iron": "Minimum strykning",
       "delicates": "Fintvätt",
@@ -34,6 +35,7 @@
       "starch": "Stärkning",
       "rinse": "Sköljning",
       "drain_spin": "Tömning/centrifugering",
+      "curtains": "Gardiner",
       "shirts": "Skjortor",
       "proofing": "Proofing",
       "denim": "Jeans",
@@ -58,7 +60,6 @@
       "cottons_eco": "Bomull ECO",
       "quick_power_wash": "Snabb powertvätt",
       "eco_40_60": "ECO 40-60",
-
       "intensive": "Intensiv",
       "maintenance": "Underhållsprogram",
       "eco": "ECO",
@@ -69,7 +70,7 @@
       "extra_quiet": "Extra tyst",
       "hygiene": "Hygien",
       "tall_items": "Stora föremål",
-
+      "glasses_warm": "Glas",
       "gentle_minimum_iron": "Skonsamt lättstruket",
       "woollens_handcare": "Ylle handtvätt",
       "gentle_smoothing": "Skonsam utslätning",
@@ -78,7 +79,6 @@
       "standard_pillows": "Standardkuddar",
       "basket_program": "Korgprogram",
       "smoothing": "Utslätning",
-
       "eco_fan_heat": "Eco varmluft",
       "auto_roast": "Auto stekning",
       "full_grill": "Full grill",
