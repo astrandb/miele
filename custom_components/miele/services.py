@@ -1,6 +1,5 @@
 """Services for Miele integration."""
 
-import copy
 import logging
 
 import aiohttp
@@ -86,6 +85,10 @@ async def async_setup_services(hass: HomeAssistant) -> None:
             raise HomeAssistantError(
                 "Failed to call service 'generic_action'. Config entry for target not found"
             )
+        if "device_id" not in call.data.keys():
+            raise HomeAssistantError(
+                "Cannot call generic_action on entity. Only on device"
+            )
         _LOGGER.debug("Entries: %s", our_entry_ids)
         device_reg = device_registry.async_get(hass)
         for ent in call.data["device_id"]:
@@ -96,9 +99,14 @@ async def async_setup_services(hass: HomeAssistant) -> None:
                         serno = val
 
             _api = hass.data[DOMAIN][our_entry_ids[0]]["api"]
-#            data = copy(call.data)
             data = call.data.copy()
-            data = data.pop("entity_id")
+            _LOGGER.debug("data1: %s", data)
+            if "entity_id" in data.keys():
+                data.pop("entity_id")
+            _LOGGER.debug("data2: %s", data)
+            if "device_id" in data.keys():
+                data.pop("device_id")
+            _LOGGER.debug("data3: %s", data)
             try:
                 await _api.send_action(serno, data)
             except aiohttp.ClientResponseError as ex:
