@@ -37,7 +37,7 @@ process_action:
 
 generic_action:
   name: Execute generic action
-  description: Executes service with limited validation of commands and parameters. Only send one parameter per service call.
+  description: EXPERIMENTAL -> Executes service with limited validation of commands and parameters. Only send one parameter per service call.
   target:
     device:
       integration: "miele"
