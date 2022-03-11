@@ -1,7 +1,7 @@
 """Constants for the Miele integration."""
 
 DOMAIN = "miele"
-VERSION = "0.0.16"
+VERSION = "0.0.17"
 
 
 # Define appliance types
