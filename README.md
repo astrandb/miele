@@ -40,6 +40,10 @@ Goto Integrations->Add and select Miele
 
 Follow instructions to authenticate with Miele cloud server. Allow full access for Home Assistant client.
 
+### Wiki - Documentation
+
+Documentation (at least some...) can be found in the [wiki](https://github.com/astrandb/miele/wiki)
+
 ### Development
 
 There are many ways to setup a development environment.
