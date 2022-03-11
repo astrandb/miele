@@ -18,19 +18,39 @@ SERVICE_PROCESS_ACTION = cv.make_entity_service_schema(
     },
 )
 
-SERVICE_GENERIC_ACTION = cv.make_entity_service_schema(
-    {
-        vol.Optional("processAction"): vol.All(int, vol.Range(min=1, max=10)),
-        vol.Optional("light"): vol.All(int, vol.Range(min=1, max=2)),
-        vol.Optional("startTime"): list,
-        vol.Optional("programId"): cv.positive_int,
-        vol.Optional("targetTemperature"): dict,
-        vol.Optional("deviceName"): cv.string,
-        vol.Optional("powerOn"): cv.boolean,
-        vol.Optional("powerOff"): cv.boolean,
-        vol.Optional("colors"): vol.In(AMBIENT_COLORS),
-        vol.Optional("modes"): cv.positive_int,
-    },
+MSG1 = "Only one parameter allowed"
+
+SERVICE_GENERIC_ACTION = vol.All(
+    cv.make_entity_service_schema(
+        {
+            vol.Exclusive("processAction", "sga", msg=MSG1): vol.All(
+                int, vol.Range(min=1, max=10)
+            ),
+            vol.Exclusive("light", "sga", msg=MSG1): vol.All(int, vol.Range(min=1, max=2)),
+            vol.Exclusive("startTime", "sga", msg=MSG1): list,
+            vol.Exclusive("programId", "sga", msg=MSG1): cv.positive_int,
+            vol.Exclusive("ventilationStep", "sga", msg=MSG1): vol.All(int, vol.Range(min=1, max=4)),
+            vol.Exclusive("targetTemperature", "sga", msg=MSG1): dict,
+            vol.Exclusive("deviceName", "sga", msg=MSG1): cv.string,
+            vol.Exclusive("powerOn", "sga", msg=MSG1): cv.boolean,
+            vol.Exclusive("powerOff", "sga", msg=MSG1): cv.boolean,
+            vol.Exclusive("colors", "sga", msg=MSG1): vol.In(AMBIENT_COLORS),
+            vol.Exclusive("modes", "sga", msg=MSG1): cv.positive_int,
+        },
+    ),
+    cv.has_at_least_one_key(
+        "processAction",
+        "light",
+        "startTime",
+        "programId",
+        "ventilationStep"
+        "targetTemperature",
+        "deviceName",
+        "powerOn",
+        "powerOff",
+        "colors",
+        "modes",
+    ),
 )
 
 SERVICE_RAW = vol.Schema(
