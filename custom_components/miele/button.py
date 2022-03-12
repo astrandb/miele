@@ -103,7 +103,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             press_data={"processAction": 2},
         ),
     ),
-    MieleButtonDefinition(
+    MieleButtonDefinition(  # For test
         types=[
             FREEZER,
         ],
@@ -114,7 +114,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             press_data={"processAction": 5},
         ),
     ),
-    MieleButtonDefinition(
+    MieleButtonDefinition(   # For test
         types=[
             FREEZER,
         ],
@@ -123,6 +123,28 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             type_key="ident|type|value_localized",
             name="Start Superfreezing",
             press_data={"processAction": 4},
+        ),
+    ),
+    MieleButtonDefinition(   # For test
+        types=[
+            FREEZER, FRIDGE, WASHING_MACHINE, TUMBLE_DRYER, DISHWASHER, WASHER_DRYER,
+        ],
+        description=MieleButtonDescription(
+            key="testPowerOn",
+            type_key="ident|type|value_localized",
+            name="Power On",
+            press_data={"powerOn": True},
+        ),
+    ),
+    MieleButtonDefinition(   # For test
+        types=[
+            FREEZER, FRIDGE, WASHING_MACHINE, TUMBLE_DRYER, DISHWASHER, WASHER_DRYER,
+        ],
+        description=MieleButtonDescription(
+            key="testPowerOff",
+            type_key="ident|type|value_localized",
+            name="Power Off",
+            press_data={"powerOff": True},
         ),
     ),
 )
@@ -197,6 +219,22 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
                 .get("processAction", {})
             )
             return value in action_data
+
+        elif "powerOn" in action:
+            action_data = (
+                self._api_data.get("actions", {})
+                .get(self._ent, {})
+                .get("powerOn", False)
+            )
+            return action_data
+
+        elif "powerOff" in action:
+            action_data = (
+                self._api_data.get("actions", {})
+                .get(self._ent, {})
+                .get("powerOff", False)
+            )
+            return action_data
 
         _LOGGER.debug("Action not found: %s", action)
         return False
