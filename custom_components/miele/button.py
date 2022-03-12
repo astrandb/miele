@@ -77,6 +77,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ],
         description=MieleButtonDescription(
             key="start",
+            type_key="ident|type|value_localized",
             name="Start",
             press_data={"processAction": 1},
         ),
