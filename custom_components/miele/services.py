@@ -26,10 +26,14 @@ SERVICE_GENERIC_ACTION = vol.All(
             vol.Exclusive("processAction", "sga", msg=MSG1): vol.All(
                 int, vol.Range(min=1, max=10)
             ),
-            vol.Exclusive("light", "sga", msg=MSG1): vol.All(int, vol.Range(min=1, max=2)),
+            vol.Exclusive("light", "sga", msg=MSG1): vol.All(
+                int, vol.Range(min=1, max=2)
+            ),
             vol.Exclusive("startTime", "sga", msg=MSG1): list,
             vol.Exclusive("programId", "sga", msg=MSG1): cv.positive_int,
-            vol.Exclusive("ventilationStep", "sga", msg=MSG1): vol.All(int, vol.Range(min=1, max=4)),
+            vol.Exclusive("ventilationStep", "sga", msg=MSG1): vol.All(
+                int, vol.Range(min=1, max=4)
+            ),
             vol.Exclusive("targetTemperature", "sga", msg=MSG1): dict,
             vol.Exclusive("deviceName", "sga", msg=MSG1): cv.string,
             vol.Exclusive("powerOn", "sga", msg=MSG1): cv.boolean,
@@ -43,7 +47,7 @@ SERVICE_GENERIC_ACTION = vol.All(
         "light",
         "startTime",
         "programId",
-        "ventilationStep"
+        "ventilationStep",
         "targetTemperature",
         "deviceName",
         "powerOn",
