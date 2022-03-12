@@ -51,11 +51,12 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 PLATFORMS = [
-    Platform.SENSOR,
     Platform.BINARY_SENSOR,
+    Platform.BUTTON,
     Platform.CLIMATE,
     Platform.FAN,
     Platform.LIGHT,
+    Platform.SENSOR,
     Platform.SWITCH,
 ]
 
