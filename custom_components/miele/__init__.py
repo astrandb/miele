@@ -51,11 +51,12 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 PLATFORMS = [
-    Platform.SENSOR,
     Platform.BINARY_SENSOR,
+    Platform.BUTTON,
     Platform.CLIMATE,
     Platform.FAN,
     Platform.LIGHT,
+    Platform.SENSOR,
     Platform.SWITCH,
 ]
 
@@ -155,7 +156,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         result = await res.json()
         hass.data[DOMAIN][entry.entry_id]["actions"][serial] = result
 
-    _LOGGER.debug("First data - flat: %s", coordinator.data)
+    # _LOGGER.debug("First data - flat: %s", coordinator.data)
+    # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id]["actions"])
 
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
@@ -169,6 +171,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_actions(data) -> None:
         hass.data[DOMAIN][entry.entry_id]["actions"] = data
+        # Force update of UI
+        coordinator.async_set_updated_data(coordinator.data)
+        # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id]["actions"])
 
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
         hass.data[DOMAIN][entry.entry_id]["api"].listen_events(
