@@ -18,13 +18,11 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
-    COFFEE_SYSTEM,
     DIALOG_OVEN,
     DISHWASHER,
     DOMAIN,
     FREEZER,
     FRIDGE,
-    FRIDGE_FREEZER,
     HOOD,
     MICROWAVE,
     OVEN,
@@ -35,7 +33,6 @@ from .const import (
     TUMBLE_DRYER,
     WASHER_DRYER,
     WASHING_MACHINE,
-    WINE_CABINET_FREEZER,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -45,10 +42,7 @@ _LOGGER = logging.getLogger(__name__)
 class MieleButtonDescription(ButtonEntityDescription):
     """Class describing Miele button entities."""
 
-    data_tag: str | None = None
     type_key: str | None = None
-    on_value: int = 0
-    off_value: int = 0
     press_data: dict[str, Any] | None = None
 
 
@@ -106,29 +100,10 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
     ),
     MieleButtonDefinition(  # For test
         types=[
-            FREEZER,
-        ],
-        description=MieleButtonDescription(
-            key="stopSuperfreezing",
-            type_key="ident|type|value_localized",
-            name="Stop Superfreezing",
-            press_data={"processAction": 5},
-        ),
-    ),
-    MieleButtonDefinition(   # For test
-        types=[
-            FREEZER,
-        ],
-        description=MieleButtonDescription(
-            key="startSuperfreezing",
-            type_key="ident|type|value_localized",
-            name="Start Superfreezing",
-            press_data={"processAction": 4},
-        ),
-    ),
-    MieleButtonDefinition(   # For test
-        types=[
-            FREEZER, FRIDGE, WASHING_MACHINE, TUMBLE_DRYER, DISHWASHER, WASHER_DRYER,
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            WASHER_DRYER,
         ],
         description=MieleButtonDescription(
             key="testPowerOn",
@@ -137,9 +112,12 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             press_data={"powerOn": True},
         ),
     ),
-    MieleButtonDefinition(   # For test
+    MieleButtonDefinition(  # For test
         types=[
-            FREEZER, FRIDGE, WASHING_MACHINE, TUMBLE_DRYER, DISHWASHER, WASHER_DRYER,
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            WASHER_DRYER,
         ],
         description=MieleButtonDescription(
             key="testPowerOff",
