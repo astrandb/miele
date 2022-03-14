@@ -33,6 +33,7 @@ from .const import (
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
     TUMBLE_DRYER,
+    WASHER_DRYER,
     WASHING_MACHINE,
     WINE_CABINET_FREEZER,
 )
@@ -98,6 +99,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             MICROWAVE,
             COFFEE_SYSTEM,
             HOOD,
+            WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
@@ -159,6 +161,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         """Initialize the switch."""
         super().__init__(coordinator)
         self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+        self._api_data = hass.data[DOMAIN][entry.entry_id]
 
         self._idx = idx
         self._ent = ent
@@ -176,17 +179,21 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
     @property
     def is_on(self):
         """Return the state of the switch."""
-        if self.entity_description.off_value == 0:
-            retval = (
+        if self.entity_description.key in {"supercooling", "superfreezing"}:
+            return (
                 self.coordinator.data[self._ent][self.entity_description.data_tag]
                 == self.entity_description.on_value
             )
-        else:
-            retval = (
-                self.coordinator.data[self._ent][self.entity_description.data_tag]
-                != self.entity_description.off_value
+
+        elif self.entity_description.key in {"poweronoff"}:
+            power_data = (
+                self._api_data.get("actions", {})
+                .get(self._ent, {})
+                .get("powerOff", True)
             )
-        return retval
+            return power_data
+
+        return False
 
     @property
     def available(self):
@@ -194,6 +201,18 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
 
         if not self.coordinator.last_update_success:
             return False
+
+        if self.entity_description.key in {"poweronoff"}:
+            power_data = (
+                self._api_data.get("actions", {})
+                .get(self._ent, {})
+                .get("powerOff", False)
+            ) or (
+                self._api_data.get("actions", {})
+                .get(self._ent, {})
+                .get("powerOn", False)
+            )
+            return power_data
 
         return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
 

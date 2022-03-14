@@ -295,7 +295,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             device_class="miele__state_status",
             icon="mdi:state-machine",
             convert=lambda x, t: STATE_STATUS.get(x, x),
-            extra_attributes={"Raw value": 0},
+            extra_attributes={"Serial no": 0, "Raw value": 0},
         ),
     ),
     MieleSensorDefinition(
@@ -602,4 +602,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             attr["Localized"] = self.coordinator.data[self._ent][
                 self.entity_description.data_tag.replace("_raw", "_localized")
             ]
+        if "Serial no" in self.entity_description.extra_attributes:
+            attr["Serial no"] = self._ent
+
         return attr
