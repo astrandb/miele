@@ -18,6 +18,12 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
+    ACT_START_SUPERCOOL,
+    ACT_START_SUPERFREEZE,
+    ACT_STOP_SUPERCOOL,
+    ACT_STOP_SUPERFREEZE,
+    ACTIONS,
+    API,
     COFFEE_SYSTEM,
     DIALOG_OVEN,
     DISHWASHER,
@@ -29,6 +35,9 @@ from .const import (
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
+    POWER_OFF,
+    POWER_ON,
+    PROCESS_ACTION,
     STEAM_OVEN,
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
@@ -71,8 +80,8 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             type_key="ident|type|value_localized",
             icon="mdi:snowflake",
             name="Supercooling",
-            on_data={"processAction": 6},
-            off_data={"processAction": 7},
+            on_data={PROCESS_ACTION: ACT_START_SUPERCOOL},
+            off_data={PROCESS_ACTION: ACT_STOP_SUPERCOOL},
         ),
     ),
     MieleSwitchDefinition(
@@ -84,8 +93,8 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             type_key="ident|type|value_localized",
             icon="mdi:snowflake",
             name="Superfreezing",
-            on_data={"processAction": 4},
-            off_data={"processAction": 5},
+            on_data={PROCESS_ACTION: ACT_START_SUPERFREEZE},
+            off_data={PROCESS_ACTION: ACT_STOP_SUPERFREEZE},
         ),
     ),
     MieleSwitchDefinition(
@@ -111,8 +120,8 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             type_key="ident|type|value_localized",
             icon="mdi:power",
             name="Power on",
-            on_data={"powerOn": True},
-            off_data={"powerOff": True},
+            on_data={POWER_ON: True},
+            off_data={POWER_OFF: True},
         ),
     ),
 )
@@ -160,7 +169,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
     ):
         """Initialize the switch."""
         super().__init__(coordinator)
-        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+        self._api = hass.data[DOMAIN][entry.entry_id][API]
         self._api_data = hass.data[DOMAIN][entry.entry_id]
 
         self._idx = idx
@@ -187,9 +196,7 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
 
         elif self.entity_description.key in {"poweronoff"}:
             power_data = (
-                self._api_data.get("actions", {})
-                .get(self._ent, {})
-                .get("powerOff", True)
+                self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_OFF, True)
             )
             return power_data
 
@@ -204,13 +211,9 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
 
         if self.entity_description.key in {"poweronoff"}:
             power_data = (
-                self._api_data.get("actions", {})
-                .get(self._ent, {})
-                .get("powerOff", False)
+                self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_OFF, False)
             ) or (
-                self._api_data.get("actions", {})
-                .get(self._ent, {})
-                .get("powerOn", False)
+                self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_ON, False)
             )
             return power_data
 

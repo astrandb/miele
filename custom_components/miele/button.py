@@ -18,15 +18,20 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
+    ACT_START,
+    ACT_STOP,
+    ACTIONS,
+    API,
     DIALOG_OVEN,
     DISHWASHER,
     DOMAIN,
-    FREEZER,
-    FRIDGE,
     HOOD,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
+    POWER_OFF,
+    POWER_ON,
+    PROCESS_ACTION,
     STEAM_OVEN,
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
@@ -73,7 +78,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             key="start",
             type_key="ident|type|value_localized",
             name="Start",
-            press_data={"processAction": 1},
+            press_data={PROCESS_ACTION: ACT_START},
         ),
     ),
     MieleButtonDefinition(
@@ -95,7 +100,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             key="stop",
             type_key="ident|type|value_localized",
             name="Stop",
-            press_data={"processAction": 2},
+            press_data={PROCESS_ACTION: ACT_STOP},
         ),
     ),
 )
@@ -143,7 +148,7 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
     ):
         """Initialize the button."""
         super().__init__(coordinator)
-        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+        self._api = hass.data[DOMAIN][entry.entry_id][API]
         self._api_data = hass.data[DOMAIN][entry.entry_id]
 
         self._idx = idx
@@ -162,28 +167,24 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
     def _action_available(self, action) -> bool:
         """Check if action is available according to API."""
         # _LOGGER.debug("%s _action_available: %s", self.entity_description.name, action)
-        if "processAction" in action:
-            value = action.get("processAction")
+        if PROCESS_ACTION in action:
+            value = action.get(PROCESS_ACTION)
             action_data = (
-                self._api_data.get("actions", {})
+                self._api_data.get(ACTIONS, {})
                 .get(self._ent, {})
-                .get("processAction", {})
+                .get(PROCESS_ACTION, {})
             )
             return value in action_data
 
-        elif "powerOn" in action:
+        elif POWER_ON in action:
             action_data = (
-                self._api_data.get("actions", {})
-                .get(self._ent, {})
-                .get("powerOn", False)
+                self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_ON, False)
             )
             return action_data
 
-        elif "powerOff" in action:
+        elif POWER_OFF in action:
             action_data = (
-                self._api_data.get("actions", {})
-                .get(self._ent, {})
-                .get("powerOff", False)
+                self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_OFF, False)
             )
             return action_data
 
@@ -211,7 +212,7 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
                 )
             except aiohttp.ClientResponseError as ex:
                 _LOGGER.error("Press: %s - %s", ex.status, ex.message)
-            # TODO Consider removing accepted action from ["actions"] to block
+            # TODO Consider removing accepted action from [ACTIONS] to block
             #      further calls of async_press util API update arrives
         else:
             _LOGGER.warning(
