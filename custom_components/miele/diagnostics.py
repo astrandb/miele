@@ -12,7 +12,7 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from .const import DOMAIN
+from .const import ACTIONS, API, DOMAIN
 
 TO_REDACT = {
     CONF_PASSWORD,
@@ -37,9 +37,9 @@ async def async_get_config_entry_diagnostics(
     for val, key in enumerate(coordinator.data):
         ino += 1
         device_data[f"Appliance_{ino}"] = coordinator.data[key]
-        if "actions" in hass.data[DOMAIN][config_entry.entry_id]:
+        if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
             action_data[f"Appliance_{ino}"] = hass.data[DOMAIN][config_entry.entry_id][
-                "actions"
+                ACTIONS
             ][key]
 
     diagnostics_data = {
@@ -71,11 +71,11 @@ async def async_get_device_diagnostics(
     for val, key in enumerate(coordinator.data):
         if ("miele", key) in device.identifiers:
             device_data = coordinator.data[key]
-            if "actions" in hass.data[DOMAIN][config_entry.entry_id]:
-                action_data = hass.data[DOMAIN][config_entry.entry_id]["actions"].get(
+            if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
+                action_data = hass.data[DOMAIN][config_entry.entry_id][ACTIONS].get(
                     key, {}
                 )
-            miele_api = hass.data[DOMAIN][config_entry.entry_id]["api"]
+            miele_api = hass.data[DOMAIN][config_entry.entry_id][API]
             async with async_timeout.timeout(10):
                 res = await miele_api.request("GET", f"/devices/{key}/programs")
             if res.status >= 300:

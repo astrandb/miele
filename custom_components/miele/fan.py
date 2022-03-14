@@ -25,7 +25,7 @@ from homeassistant.util.percentage import (  # percentage_to_ranged_value
 )
 
 from . import get_coordinator
-from .const import DOMAIN, HOOD
+from .const import API, DOMAIN, HOOD, POWER_OFF, POWER_ON, VENTILATION_STEP
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -110,7 +110,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
     ):
         """Initialize the fan."""
         super().__init__(coordinator)
-        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+        self._api = hass.data[DOMAIN][entry.entry_id][API]
 
         self._idx = idx
         self._ent = ent
@@ -165,7 +165,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         """Set the preset mode of the fan."""
 
         try:
-            await self._api.send_action(self._ent, {"ventilationStep": preset_mode})
+            await self._api.send_action(self._ent, {VENTILATION_STEP: preset_mode})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
@@ -178,13 +178,13 @@ class MieleFan(CoordinatorEntity, FanEntity):
     ) -> None:
         """Turn on the fan."""
         try:
-            await self._api.send_action(self._ent, {"powerOn": True})
+            await self._api.send_action(self._ent, {POWER_ON: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the fan off."""
         try:
-            await self._api.send_action(self._ent, {"powerOff": True})
+            await self._api.send_action(self._ent, {POWER_OFF: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
