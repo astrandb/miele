@@ -19,17 +19,12 @@ from homeassistant.helpers.update_coordinator import (
 from . import get_coordinator
 from .const import (
     ACT_START,
-    ACT_START_SUPERFREEZE,
     ACT_STOP,
-    ACT_STOP_SUPERFREEZE,
     ACTIONS,
     API,
-    COFFEE_SYSTEM,
     DIALOG_OVEN,
     DISHWASHER,
     DOMAIN,
-    FREEZER,
-    FRIDGE,
     HOOD,
     MICROWAVE,
     OVEN,
