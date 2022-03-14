@@ -98,34 +98,6 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             press_data={"processAction": 2},
         ),
     ),
-    MieleButtonDefinition(  # For test
-        types=[
-            WASHING_MACHINE,
-            TUMBLE_DRYER,
-            DISHWASHER,
-            WASHER_DRYER,
-        ],
-        description=MieleButtonDescription(
-            key="testPowerOn",
-            type_key="ident|type|value_localized",
-            name="Power On",
-            press_data={"powerOn": True},
-        ),
-    ),
-    MieleButtonDefinition(  # For test
-        types=[
-            WASHING_MACHINE,
-            TUMBLE_DRYER,
-            DISHWASHER,
-            WASHER_DRYER,
-        ],
-        description=MieleButtonDescription(
-            key="testPowerOff",
-            type_key="ident|type|value_localized",
-            name="Power Off",
-            press_data={"powerOff": True},
-        ),
-    ),
 )
 
 

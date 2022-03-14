@@ -90,7 +90,6 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
     ),
     MieleSwitchDefinition(
         types=[
-            FRIDGE,  # Testing
             WASHING_MACHINE,
             TUMBLE_DRYER,
             DISHWASHER,
