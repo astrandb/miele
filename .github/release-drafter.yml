@@ -28,7 +28,7 @@ template: |
 
   ### Don't forget to run `make lint` and `make bump` before releasing new version
 
-  ## Changes
+  ## Notable Changes
 
   $CHANGES
 
