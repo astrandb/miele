@@ -257,15 +257,37 @@ STATE_PROGRAM_ID = {
     WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
 }
 
+COLORS = "colors"
+DEVICE_NAME = "deviceName"
+LIGHT = "light"
+LIGHT_ON = 2
+LIGHT_OFF = 1
+MODES = "modes"
+POWER_ON = "powerOn"
+POWER_OFF = "powerOff"
+PROCESS_ACTION = "processAction"
+PROGRAM_ID = "programId"
+START_TIME = "startTime"
+TARGET_TEMPERATURE = "targetTemperature"
+VENTILATION_STEP = "ventilationStep"
+
+ACT_START = 1
+ACT_STOP = 2
+ACT_PAUSE = 3
+ACT_START_SUPERFREEZE = 4
+ACT_STOP_SUPERFREEZE = 5
+ACT_START_SUPERCOOL = 6
+ACT_STOP_SUPERCOOL = 7
+
 # Possible actions
 PROCESS_ACTIONS = {
-    "start": 1,
-    "stop": 2,
-    "pause": 3,
-    "start_superfreezing": 4,
-    "stop_superfreezing": 5,
-    "start_supercooling": 6,
-    "stop_supercooling": 7,
+    "start": ACT_START,
+    "stop": ACT_STOP,
+    "pause": ACT_PAUSE,
+    "start_superfreezing": ACT_START_SUPERFREEZE,
+    "stop_superfreezing": ACT_STOP_SUPERFREEZE,
+    "start_supercooling": ACT_START_SUPERCOOL,
+    "stop_supercooling": ACT_STOP_SUPERCOOL,
 }
 
 AMBIENT_COLORS = {
@@ -279,3 +301,6 @@ AMBIENT_COLORS = {
     "purple",
     "turquoise",
 }
+
+ACTIONS = "actions"
+API = "api"

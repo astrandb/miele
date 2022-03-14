@@ -26,7 +26,7 @@ from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 
 from . import config_flow
 from .api import AsyncConfigEntryAuth
-from .const import DOMAIN
+from .const import ACTIONS, API, DOMAIN
 from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24  # noqa: F401
 from .services import async_setup_services
 
@@ -135,29 +135,29 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id] = {}
     hass.data[DOMAIN]["id_log"] = []
     hass.data[DOMAIN][entry.entry_id]["listener"] = None
-    hass.data[DOMAIN][entry.entry_id]["api"] = AsyncConfigEntryAuth(
+    hass.data[DOMAIN][entry.entry_id][API] = AsyncConfigEntryAuth(
         aiohttp_client.async_get_clientsession(hass), session
     )
 
-    if "actions" not in hass.data[DOMAIN][entry.entry_id]:
-        hass.data[DOMAIN][entry.entry_id]["actions"] = {}
+    if ACTIONS not in hass.data[DOMAIN][entry.entry_id]:
+        hass.data[DOMAIN][entry.entry_id][ACTIONS] = {}
     coordinator = await get_coordinator(hass, entry)
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     serialnumbers = list(coordinator.data.keys())
     _LOGGER.debug("Serial numbers: %s", serialnumbers)
     for serial in serialnumbers:
-        miele_api = hass.data[DOMAIN][entry.entry_id]["api"]
+        miele_api = hass.data[DOMAIN][entry.entry_id][API]
         async with async_timeout.timeout(10):
             res = await miele_api.request("GET", f"/devices/{serial}/actions")
             _LOGGER.debug("Actions for %s: %s", serial, await res.json())
         if res.status == 401:
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
-        hass.data[DOMAIN][entry.entry_id]["actions"][serial] = result
+        hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
 
     # _LOGGER.debug("First data - flat: %s", coordinator.data)
-    # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id]["actions"])
+    # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
@@ -170,13 +170,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         coordinator.async_set_updated_data(flat_result)
 
     async def _callback_update_actions(data) -> None:
-        hass.data[DOMAIN][entry.entry_id]["actions"] = data
+        hass.data[DOMAIN][entry.entry_id][ACTIONS] = data
         # Force update of UI
         coordinator.async_set_updated_data(coordinator.data)
-        # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id]["actions"])
+        # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
-        hass.data[DOMAIN][entry.entry_id]["api"].listen_events(
+        hass.data[DOMAIN][entry.entry_id][API].listen_events(
             data_callback=_callback_update_data,
             actions_callback=_callback_update_actions,
         )
@@ -206,7 +206,7 @@ async def get_coordinator(
         return hass.data[DOMAIN][entry.entry_id]["coordinator"]
 
     async def async_fetch():
-        miele_api = hass.data[DOMAIN][entry.entry_id]["api"]
+        miele_api = hass.data[DOMAIN][entry.entry_id][API]
         async with async_timeout.timeout(10):
             res = await miele_api.request("GET", "/devices")
             # _LOGGER.debug("Data: %s", await res.json())

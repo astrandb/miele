@@ -18,9 +18,13 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
+    API,
     COFFEE_SYSTEM,
     DOMAIN,
     HOOD,
+    LIGHT,
+    LIGHT_OFF,
+    LIGHT_ON,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -123,7 +127,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
     ):
         """Initialize the light."""
         super().__init__(coordinator)
-        self._api = hass.data[DOMAIN][entry.entry_id]["api"]
+        self._api = hass.data[DOMAIN][entry.entry_id][API]
 
         self._idx = idx
         self._ent = ent
@@ -144,7 +148,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return self.coordinator.data[self._ent][self._ed.light_tag] == 2
+        return self.coordinator.data[self._ent][self._ed.light_tag] == LIGHT_ON
 
     @property
     def available(self):
@@ -164,13 +168,13 @@ class MieleLight(CoordinatorEntity, LightEntity):
     ) -> None:
         """Turn on the light."""
         try:
-            await self._api.send_action(self._ent, {"light": 2})
+            await self._api.send_action(self._ent, {LIGHT: LIGHT_ON})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
         try:
-            await self._api.send_action(self._ent, {"light": 1})
+            await self._api.send_action(self._ent, {LIGHT: LIGHT_OFF})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)

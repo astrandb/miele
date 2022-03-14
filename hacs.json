@@ -2,6 +2,7 @@
   "name": "Miele",
   "domains": [
     "binary_sensor",
+    "button",
     "climate",
     "fan",
     "light",
