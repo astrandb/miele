@@ -153,7 +153,18 @@ TEST_DATA_7 = {
             "key_localized": "Fan level",
         },
         "plateStep": [],
-        "ecoFeedback": None,
+        "ecoFeedback": {
+            "currentWaterConsumption": {
+                "unit": "l",
+                "value": 12,
+            },
+            "currentEnergyConsumption": {
+                "unit": "kWh",
+                "value": 1.4,
+            },
+            "waterForecast": 0.2,
+            "energyForecast": 0.1,
+        },
         "batteryLevel": None,
     },
 }
