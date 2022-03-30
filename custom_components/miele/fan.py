@@ -135,7 +135,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         """Return current on/off state."""
         return (
             self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
-            in self.coordinator.data[self._ent][self._ed.preset_modes]
+            in self._ed.preset_modes
         )
 
     @property
