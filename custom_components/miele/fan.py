@@ -133,7 +133,10 @@ class MieleFan(CoordinatorEntity, FanEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return self.coordinator.data[self._ent][self._ed.ventilationStep_tag] != 0
+        return (
+            self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+            in self.coordinator.data[self._ent][self._ed.preset_modes]
+        )
 
     @property
     def preset_mode(self) -> str:
