@@ -133,7 +133,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return True
+        return self.coordinator.data[self._ent][self._ed.ventilationStep_tag] != 0
 
     @property
     def preset_mode(self) -> str:
@@ -167,7 +167,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         try:
             await self._api.send_action(self._ent, {VENTILATION_STEP: preset_mode})
         except aiohttp.ClientResponseError as ex:
-            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+            _LOGGER.error("Set_preset_mode: %s - %s", ex.status, ex.message)
 
     async def async_turn_on(
         self,
@@ -180,7 +180,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         try:
             await self._api.send_action(self._ent, {POWER_ON: True})
         except aiohttp.ClientResponseError as ex:
-            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+            _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the fan off."""

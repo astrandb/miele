@@ -163,7 +163,7 @@ TEST_DATA_18 = {
         "type": {
             "key_localized": "Device type",
             "value_raw": 18,
-            "value_localized": "Hood",
+            "value_localized": "Cooker Hood",
         },
         "deviceName": "",
         "protocolVersion": 2,
@@ -183,8 +183,8 @@ TEST_DATA_18 = {
     },
     "state": {
         "ProgramID": {
-            "value_raw": 0,
-            "value_localized": "",
+            "value_raw": 1,
+            "value_localized": "Off",
             "key_localized": "Program name",
         },
         "status": {
@@ -194,11 +194,11 @@ TEST_DATA_18 = {
         },
         "programType": {
             "value_raw": 0,
-            "value_localized": "",
+            "value_localized": "Program",
             "key_localized": "Program type",
         },
         "programPhase": {
-            "value_raw": 0,
+            "value_raw": 4608,
             "value_localized": "",
             "key_localized": "Program phase",
         },
@@ -220,9 +220,9 @@ TEST_DATA_18 = {
             "smartGrid": False,
             "mobileStart": False,
         },
-        "ambientLight": "blue",
-        "light": None,
-        "elapsedTime": [0, 0],
+        "ambientLight": 2,
+        "light": 2,
+        "elapsedTime": {},
         "spinningSpeed": {
             "unit": "rpm",
             "value_raw": None,
@@ -235,8 +235,8 @@ TEST_DATA_18 = {
             "key_localized": "Drying level",
         },
         "ventilationStep": {
-            "value_raw": 1,
-            "value_localized": "Step1",
+            "value_raw": 0,
+            "value_localized": "0",
             "key_localized": "Fan level",
         },
         "plateStep": [],
