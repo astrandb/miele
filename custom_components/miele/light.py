@@ -170,7 +170,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
         try:
             await self._api.send_action(self._ent, {LIGHT: LIGHT_ON})
         except aiohttp.ClientResponseError as ex:
-            _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+            _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
