@@ -11,7 +11,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import TEMP_CELSIUS
+from homeassistant.const import PERCENTAGE, TEMP_CELSIUS
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -471,6 +471,78 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            DISHWASHER,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateCurrentWaterConsumption",
+            data_tag="state|ecoFeedback|currentWaterConsumption|value",
+            type_key="ident|type|value_localized",
+            name="Water Consumption",
+            icon="mdi:water-outline",
+            state_class=SensorStateClass.TOTAL_INCREASING,
+            native_unit_of_measurement="l",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            DISHWASHER,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateCurrentEnergyConsumption",
+            data_tag="state|ecoFeedback|currentEnergyConsumption|value",
+            type_key="ident|type|value_localized",
+            name="Energy Consumption",
+            device_class=SensorDeviceClass.ENERGY,
+            state_class=SensorStateClass.TOTAL_INCREASING,
+            native_unit_of_measurement="kWh",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            DISHWASHER,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateWaterForecast",
+            data_tag="state|ecoFeedback|waterForecast",
+            type_key="ident|type|value_localized",
+            name="Water Forecast",
+            icon="mdi:water-percent",
+            native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+            convert=lambda x, t: x * 100.0,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            DISHWASHER,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateEnergyForecast",
+            data_tag="state|ecoFeedback|energyForecast",
+            type_key="ident|type|value_localized",
+            name="Energy Forecast",
+            icon="mdi:label-percent-outline",
+            native_unit_of_measurement=PERCENTAGE,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
+            convert=lambda x, t: x * 100.0,
+        ),
+    ),
 )
 
 
@@ -564,7 +636,8 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 )
 
         if (
-            self.coordinator.data[self._ent][self.entity_description.data_tag] is None
+            self.coordinator.data[self._ent].get(self.entity_description.data_tag)
+            is None
             or self.coordinator.data[self._ent][self.entity_description.data_tag]
             == -32768
         ):
