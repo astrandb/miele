@@ -3,11 +3,13 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
+import math
 from typing import Any, Callable, Final, Optional
 
 import aiohttp
 from homeassistant.components.fan import (
-    SUPPORT_PRESET_MODE,
+    # SUPPORT_PRESET_MODE,
+    SUPPORT_SET_SPEED,
     FanEntity,
     FanEntityDescription,
 )
@@ -19,8 +21,9 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
     DataUpdateCoordinator,
 )
-from homeassistant.util.percentage import (  # percentage_to_ranged_value
+from homeassistant.util.percentage import (
     int_states_in_range,
+    percentage_to_ranged_value,
     ranged_value_to_percentage,
 )
 
@@ -62,7 +65,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
             type_key="ident|type|value_localized",
             name="Fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
-            supported_features=SUPPORT_PRESET_MODE,
+            supported_features=SUPPORT_SET_SPEED,
         ),
     ),
 )
@@ -120,8 +123,8 @@ class MieleFan(CoordinatorEntity, FanEntity):
             f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
         )
         self._attr_unique_id = f"{self._ed.key}-{self._ent}"
-        self._attr_preset_modes = self._ed.preset_modes
-        self._attr_preset_mode = None
+        # self._attr_preset_modes = self._ed.preset_modes
+        # self._attr_preset_mode = None
         self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
@@ -139,9 +142,10 @@ class MieleFan(CoordinatorEntity, FanEntity):
         )
 
     @property
-    def preset_mode(self) -> str:
+    def preset_mode(self) -> str | None:
         """Return the current preset_mode of the fan."""
-        return self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+        pmode = self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+        return None if pmode == 0 else pmode
 
     @property
     def speed_count(self) -> int:
@@ -152,7 +156,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
     def percentage(self) -> Optional[int]:
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
-            SPEED_RANGE, self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+            SPEED_RANGE, (self.coordinator.data[self._ent][self._ed.ventilationStep_tag] or 0)
         )
 
     @property
@@ -166,11 +170,28 @@ class MieleFan(CoordinatorEntity, FanEntity):
 
     async def async_set_preset_mode(self, preset_mode: str) -> None:
         """Set the preset mode of the fan."""
-
+        if preset_mode is None or preset_mode == 0:
+            return
+        if self._ed.preset_modes is None or preset_mode not in self._ed.preset_modes:
+            raise ValueError(
+                f"{preset_mode} is not a valid preset_mode: {self._ed.preset_modes}"
+            )
         try:
             await self._api.send_action(self._ent, {VENTILATION_STEP: preset_mode})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Set_preset_mode: %s - %s", ex.status, ex.message)
+
+    async def async_set_percentage(self, percentage: int) -> None:
+        """Set the speed percentage of the fan."""
+        _LOGGER.debug("Set_percentage: %s", percentage)
+        preset_mode = math.ceil(percentage_to_ranged_value(SPEED_RANGE, percentage))
+        _LOGGER.debug("Calc preset_mode: %s", preset_mode)
+        if preset_mode == 0:
+            await self.async_turn_off()
+        else:
+            self.coordinator.data[self._ent][self._ed.ventilationStep_tag] = preset_mode
+            await self.async_set_preset_mode(preset_mode)
+            self.async_write_ha_state()
 
     async def async_turn_on(
         self,
@@ -180,14 +201,23 @@ class MieleFan(CoordinatorEntity, FanEntity):
         **kwargs: Any,
     ) -> None:
         """Turn on the fan."""
+        _LOGGER.debug("Turn_on -> percentage: %s, preset_mode: %s", percentage, preset_mode)
         try:
             await self._api.send_action(self._ent, {POWER_ON: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
+        if percentage is not None:
+            await self.async_set_percentage(percentage)
+            return
+        if preset_mode is not None:
+            await self.async_set_preset_mode(preset_mode)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the fan off."""
+        _LOGGER.debug("Turn_off:")
         try:
             await self._api.send_action(self._ent, {POWER_OFF: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
+        self.coordinator.data[self._ent][self._ed.ventilationStep_tag] = None
+        self.async_write_ha_state()
