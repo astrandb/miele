@@ -159,16 +159,30 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._ed = description
         _LOGGER.debug("init climate %s", ent)
         # _LOGGER.debug("Type: %s, Zone: %s", self.coordinator.data[self._ent]["ident|type|value_raw"], self._ed.zone)
-        if self.coordinator.data[self._ent]["ident|type|value_raw"] == 21 and self._ed.zone == 0:
+        if (
+            self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
+            and self._ed.zone == 0
+        ):
             name = "Fridge"
-        elif self.coordinator.data[self._ent]["ident|type|value_raw"] == 21 and self._ed.zone == 1:
+        elif (
+            self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
+            and self._ed.zone == 1
+        ):
             name = "Freezer"
-        elif self.coordinator.data[self._ent]["ident|type|value_raw"] == 19 and self._ed.zone == 0:
+        elif (
+            self.coordinator.data[self._ent]["ident|type|value_raw"] == 19
+            and self._ed.zone == 0
+        ):
             name = "Fridge"
-        elif self.coordinator.data[self._ent]["ident|type|value_raw"] == 20 and self._ed.zone == 0:
+        elif (
+            self.coordinator.data[self._ent]["ident|type|value_raw"] == 20
+            and self._ed.zone == 0
+        ):
             name = "Freezer"
         else:
-            name = f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
+            name = (
+                f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
+            )
         self._attr_name = name
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"

@@ -325,17 +325,17 @@ TEST_DATA_21 = {
             "unit": "rpm",
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Spin speed"
+            "key_localized": "Spin speed",
         },
         "dryingStep": {
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Drying level"
+            "key_localized": "Drying level",
         },
         "ventlilationStep": {
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Fan level"
+            "key_localized": "Fan level",
         },
         "plateStep": [],
         "ecoFeedback": None,
@@ -496,17 +496,17 @@ TEST_DATA_TEMPLATE = {
             "unit": "rpm",
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Spin speed"
+            "key_localized": "Spin speed",
         },
         "dryingStep": {
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Drying level"
+            "key_localized": "Drying level",
         },
         "ventlilationStep": {
             "valueRaw": None,
             "value_localized": "",
-            "key_localized": "Fan level"
+            "key_localized": "Fan level",
         },
         "plateStep": [],
         "ecoFeedback": None,
@@ -515,26 +515,15 @@ TEST_DATA_TEMPLATE = {
 }
 
 TEST_ACTION_21 = {
-    "processAction": [
-        4,
-        6
-    ],
+    "processAction": [4, 6],
     "light": [],
     "ambientLight": [],
     "startTime": [],
     "ventilationStep": [],
     "programId": [],
     "targetTemperature": [
-        {
-            "zone": 1,
-            "min": 1,
-            "max": 9
-        },
-        {
-            "zone": 2,
-            "min": -26,
-            "max": -16
-        }
+        {"zone": 1, "min": 1, "max": 9},
+        {"zone": 2, "min": -26, "max": -16},
     ],
     "deviceName": True,
     "powerOn": False,
