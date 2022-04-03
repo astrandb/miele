@@ -161,7 +161,8 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._attr_name = (
             f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
         )
-        self._attr_unique_id = f"{self._ed.key}-{self._ent}"
+        zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"
+        self._attr_unique_id = f"{self._ed.key}-{zone}{self._ent}"
         self._attr_temperature_unit = self._ed.temperature_unit
         self._attr_precision = self._ed.precision
         self._attr_max_temp = self._eid[ACTIONS][self._ent][TARGET_TEMPERATURE][
