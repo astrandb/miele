@@ -27,7 +27,8 @@ from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import ACTIONS, API, DOMAIN
-from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_24  # noqa: F401
+from .devcap import TEST_DATA_7, TEST_DATA_18, TEST_DATA_21, TEST_DATA_24  # noqa: F401
+from .devcap import TEST_ACTION_21  # noqa: F401
 from .services import async_setup_services
 
 _LOGGER = logging.getLogger(__name__)
@@ -155,6 +156,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
+    # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223021"] = TEST_ACTION_21
 
     # _LOGGER.debug("First data - flat: %s", coordinator.data)
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
@@ -163,6 +165,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # _LOGGER.debug("Callback data: %s", data)
         # data["1223007"] = TEST_DATA_7
         # data["1223018"] = TEST_DATA_18
+        # data["1223021"] = TEST_DATA_21
         # data["1223024"] = TEST_DATA_24
         flat_result: dict = {}
         for idx, ent in enumerate(data):
@@ -172,6 +175,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def _callback_update_actions(data) -> None:
         hass.data[DOMAIN][entry.entry_id][ACTIONS] = data
         # Force update of UI
+        # data["1223021"] = TEST_ACTION_21
         coordinator.async_set_updated_data(coordinator.data)
         # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
@@ -217,6 +221,7 @@ async def get_coordinator(
         flat_result: dict = {}
         # result["1223007"] = TEST_DATA_7
         # result["1223018"] = TEST_DATA_18
+        # result["1223021"] = TEST_DATA_21
         # result["1223024"] = TEST_DATA_24
 
         for idx, ent in enumerate(result):
