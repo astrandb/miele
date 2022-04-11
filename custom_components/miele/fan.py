@@ -2,13 +2,12 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
 import math
+from dataclasses import dataclass
 from typing import Any, Callable, Final, Optional
 
 import aiohttp
 from homeassistant.components.fan import (
-    # SUPPORT_PRESET_MODE,
     SUPPORT_SET_SPEED,
     FanEntity,
     FanEntityDescription,
@@ -156,7 +155,8 @@ class MieleFan(CoordinatorEntity, FanEntity):
     def percentage(self) -> Optional[int]:
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
-            SPEED_RANGE, (self.coordinator.data[self._ent][self._ed.ventilationStep_tag] or 0)
+            SPEED_RANGE,
+            (self.coordinator.data[self._ent][self._ed.ventilationStep_tag] or 0),
         )
 
     @property
@@ -201,7 +201,9 @@ class MieleFan(CoordinatorEntity, FanEntity):
         **kwargs: Any,
     ) -> None:
         """Turn on the fan."""
-        _LOGGER.debug("Turn_on -> percentage: %s, preset_mode: %s", percentage, preset_mode)
+        _LOGGER.debug(
+            "Turn_on -> percentage: %s, preset_mode: %s", percentage, preset_mode
+        )
         try:
             await self._api.send_action(self._ent, {POWER_ON: True})
         except aiohttp.ClientResponseError as ex:
