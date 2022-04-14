@@ -147,9 +147,13 @@ STATE_PROGRAM_PHASE = {
     1799: "drying",
     1800: "finished",
     1801: "pre_dishwash",
+
+    # Error conditions/API quirks.
+    65535: "not_running"  # Seems to be an API error/default value.
 }
 
 WASHING_MACHINE_PROGRAM_ID = {
+    -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Returned by the API when no program is selected.
     1: "cottons",
     3: "minimum_iron",
@@ -187,6 +191,7 @@ WASHING_MACHINE_PROGRAM_ID = {
     190: "eco_40_60",
 }
 DISHWASHER_PROGRAM_ID = {
+    -1: "no_program",  # Sometimes returned by the API when the machine is switched off entirely, in conjunection with program phase 65535.
     0: "no_program",  # Returned by the API when the machine is switched off entirely.
     1: "intensive",
     2: "maintenance",
@@ -212,6 +217,7 @@ DISHWASHER_PROGRAM_ID = {
     44: "glasses_warm",
 }
 TUMBLE_DRYER_PROGRAM_ID = {
+    -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Extrapolated from other device types
     10: "automatic_plus",
     20: "cottons",
@@ -236,6 +242,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
     240: "smoothing",
 }
 OVEN_PROGRAM_ID = {
+    -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Extrapolated from other device types
     6: "eco_fan_heat",
     7: "auto_roast",
