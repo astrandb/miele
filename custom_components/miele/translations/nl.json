@@ -1,0 +1,32 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Account is al geconfigureerd",
+            "already_in_progress": "Er is al een configuratie bezig",
+            "authorize_url_timeout": "Timeout bij het genereren van een authorisatie URL.",
+            "missing_configuration": "Het component is niet correct geconfigureerd. Raadpleeg de documentatie.",
+            "no_url_available": "Geen URL beschikbaar. Voor meer informatie over deze error, [raadpleeg de hulp sectie]({docs_url}).",
+            "oauth_error": "Ongeldige token data ontvangen.",
+            "reauth_successful": "Her-authenticatie was succesvol"
+        },
+        "create_entry": {
+            "default": "Authenticatie succesvol"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Kies een authenticatie methode"
+            },
+            "reauth_confirm": {
+              "title": "Her-authenticatie Integratie",
+              "description": "De Miele integratie moet uw account {account} opnieuw authenticeren."
+            }
+        }
+    }    ,
+    "system_health": {
+      "info": {
+        "reach_miele_cloud": "Bereikbaarheid Miele Cloud",
+        "component_version": "Versie",
+        "connected2stream": "Verbonden met signalr"
+      }
+    }
+  }
