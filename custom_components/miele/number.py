@@ -26,6 +26,7 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATE_MAP = {
     0: 0,
+    110: 0.5,
     1: 1,
     2: 1.5,
     3: 2,
