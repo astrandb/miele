@@ -30,6 +30,7 @@ from .const import (
     FRIDGE,
     FRIDGE_FREEZER,
     HOB_HIGHLIGHT,
+    HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
     MICROWAVE,
@@ -56,7 +57,7 @@ class MieleBinarySensorDescription(BinarySensorEntityDescription):
     """Class describing Miele binary sensor entities."""
 
     data_tag: str | None = None
-    type_key: str | None = None
+    type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
 
 
@@ -90,7 +91,6 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="door",
             data_tag="state|signalDoor",
-            type_key="ident|type|value_localized",
             device_class=BinarySensorDeviceClass.DOOR,
             name="Door",
         ),
@@ -119,11 +119,11 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="info",
             data_tag="state|signalInfo",
-            type_key="ident|type|value_localized",
             device_class=BinarySensorDeviceClass.PROBLEM,
             name="Info",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -155,11 +155,11 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="failure",
             data_tag="state|signalFailure",
-            type_key="ident|type|value_localized",
             device_class=BinarySensorDeviceClass.PROBLEM,
             name="Failure",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -188,11 +188,11 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="remoteEnable",
             data_tag="state|remoteEnable|fullRemoteControl",
-            type_key="ident|type|value_localized",
             name="Remote control",
             icon="mdi:remote",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -221,11 +221,11 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="smartGrid",
             data_tag="state|remoteEnable|smartGrid",
-            type_key="ident|type|value_localized",
             name="Smart grid",
             icon="mdi:view-grid-plus-outline",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -255,11 +255,11 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="mobileStart",
             data_tag="state|remoteEnable|mobileStart",
-            type_key="ident|type|value_localized",
             name="Mobile Start",
             icon="mdi:cellphone-wireless",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -306,11 +306,14 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
         self._ent = ent
         self.entity_description = description
         _LOGGER.debug("init sensor %s", ent)
-        self._attr_name = f"{self.coordinator.data[self._ent]['ident|type|value_localized']} {self.entity_description.name}"
+        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
+        if appl_type == "":
+            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+        self._attr_name = f"{appl_type} {self.entity_description.name}"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
-            name=self.coordinator.data[self._ent][self.entity_description.type_key],
+            name=appl_type,
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )

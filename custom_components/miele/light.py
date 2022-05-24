@@ -45,7 +45,7 @@ class MieleLightDescription(LightEntityDescription):
     """Class describing Miele light entities."""
 
     light_tag: str | None = None
-    type_key: str | None = None
+    type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     preset_modes: list | None = None
     supported_features: int = 0
@@ -78,7 +78,6 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
         description=MieleLightDescription(
             key="light",
             light_tag="state|light",
-            type_key="ident|type|value_localized",
             name="Light",
         ),
     ),
@@ -133,14 +132,15 @@ class MieleLight(CoordinatorEntity, LightEntity):
         self._ent = ent
         self._ed = description
         _LOGGER.debug("Init light %s", ent)
-        self._attr_name = (
-            f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
-        )
+        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
+        if appl_type == "":
+            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+        self._attr_name = f"{appl_type} {self._ed.name}"
         self._attr_unique_id = f"{self._ed.key}-{self._ent}"
         self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
-            name=self.coordinator.data[self._ent][self._ed.type_key],
+            name=appl_type,
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )

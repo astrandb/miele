@@ -55,7 +55,7 @@ class MieleSwitchDescription(SwitchEntityDescription):
     """Class describing Miele switch entities."""
 
     data_tag: str | None = None
-    type_key: str | None = None
+    type_key: str = "ident|type|value_localized"
     on_value: int = 0
     off_value: int = 0
     on_data: dict[str, Any] | None = None
@@ -77,7 +77,6 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="supercooling",
             data_tag="state|status|value_raw",
             on_value=14,
-            type_key="ident|type|value_localized",
             icon="mdi:snowflake",
             name="Supercooling",
             on_data={PROCESS_ACTION: ACT_START_SUPERCOOL},
@@ -90,7 +89,6 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="superfreezing",
             data_tag="state|status|value_raw",
             on_value=13,
-            type_key="ident|type|value_localized",
             icon="mdi:snowflake",
             name="Superfreezing",
             on_data={PROCESS_ACTION: ACT_START_SUPERFREEZE},
@@ -117,7 +115,6 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             key="poweronoff",
             data_tag="state|status|value_raw",
             off_value=1,
-            type_key="ident|type|value_localized",
             icon="mdi:power",
             name="Power on",
             on_data={POWER_ON: True},
@@ -176,11 +173,14 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         self._ent = ent
         self.entity_description = description
         _LOGGER.debug("init switch %s", ent)
-        self._attr_name = f"{self.coordinator.data[self._ent][self.entity_description.type_key]} {self.entity_description.name}"
+        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
+        if appl_type == "":
+            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+        self._attr_name = f"{appl_type} {self.entity_description.name}"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
-            name=self.coordinator.data[self._ent][self.entity_description.type_key],
+            name=appl_type,
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )

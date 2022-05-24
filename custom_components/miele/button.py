@@ -47,7 +47,7 @@ _LOGGER = logging.getLogger(__name__)
 class MieleButtonDescription(ButtonEntityDescription):
     """Class describing Miele button entities."""
 
-    type_key: str | None = None
+    type_key: str = "ident|type|value_localized"
     press_data: dict[str, Any] | None = None
 
 
@@ -76,7 +76,6 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ],
         description=MieleButtonDescription(
             key="start",
-            type_key="ident|type|value_localized",
             name="Start",
             press_data={PROCESS_ACTION: ACT_START},
         ),
@@ -98,7 +97,6 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ],
         description=MieleButtonDescription(
             key="stop",
-            type_key="ident|type|value_localized",
             name="Stop",
             press_data={PROCESS_ACTION: ACT_STOP},
         ),
@@ -155,11 +153,14 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
         self._ent = ent
         self.entity_description = description
         _LOGGER.debug("init button %s", ent)
-        self._attr_name = f"{self.coordinator.data[self._ent][self.entity_description.type_key]} {self.entity_description.name}"
+        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
+        if appl_type == "":
+            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+        self._attr_name = f"{appl_type} {self.entity_description.name}"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
-            name=self.coordinator.data[self._ent][self.entity_description.type_key],
+            name=appl_type,
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
