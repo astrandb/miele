@@ -29,6 +29,7 @@ WINE_STORAGE_CONDITIONING_UNIT = 34
 STEAM_OVEN_MICRO = 45
 DIALOG_OVEN = 67
 WINE_CABINET_FREEZER = 68
+HOB_INDUCTION_FAN =74
 
 APPLIANCE_TYPES = {
     WASHING_MACHINE: "washing_machine",
@@ -55,6 +56,7 @@ APPLIANCE_TYPES = {
     STEAM_OVEN_MICRO: "steam_oven_micro",
     DIALOG_OVEN: "dialog_oven",
     WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+    HOB_INDUCTION_FAN: "hob_induction_with_fan",
 }
 
 # Define various states

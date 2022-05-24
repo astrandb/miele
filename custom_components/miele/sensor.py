@@ -52,6 +52,7 @@ from .const import (
     WINE_CABINET_FREEZER,
     WINE_CONDITIONING_UNIT,
     WINE_STORAGE_CONDITIONING_UNIT,
+    HOB_INDUCTION_FAN,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -286,6 +287,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCTION_FAN,
         ],
         description=MieleSensorDescription(
             key="stateStatus",

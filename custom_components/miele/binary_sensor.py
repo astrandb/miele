@@ -31,6 +31,7 @@ from .const import (
     FRIDGE_FREEZER,
     HOB_HIGHLIGHT,
     HOB_INDUCTION,
+    HOB_INDUCTION_FAN,
     HOOD,
     MICROWAVE,
     OVEN,
@@ -46,6 +47,7 @@ from .const import (
     WINE_CABINET_FREEZER,
     WINE_CONDITIONING_UNIT,
     WINE_STORAGE_CONDITIONING_UNIT,
+    HOB_INDUCTION_FAN,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -155,6 +157,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
+            HOB_INDUCTION_FAN,
         ],
         description=MieleBinarySensorDescription(
             key="failure",
