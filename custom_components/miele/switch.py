@@ -175,7 +175,9 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         _LOGGER.debug("init switch %s", ent)
         appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
         if appl_type == "":
-            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+            appl_type = self.coordinator.data[self._ent][
+                "ident|deviceIdentLabel|techType"
+            ]
         self._attr_name = f"{appl_type} {self.entity_description.name}"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
