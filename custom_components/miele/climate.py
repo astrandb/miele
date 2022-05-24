@@ -159,7 +159,9 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         # _LOGGER.debug("Type: %s, Zone: %s", self.coordinator.data[self._ent]["ident|type|value_raw"], self._ed.zone)
         appl_type = self.coordinator.data[self._ent][self._ed.type_key]
         if appl_type == "":
-            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+            appl_type = self.coordinator.data[self._ent][
+                "ident|deviceIdentLabel|techType"
+            ]
 
         if (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
@@ -182,9 +184,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         ):
             name = "Freezer"
         else:
-            name = (
-                f"{appl_type} {self._ed.name}"
-            )
+            name = f"{appl_type} {self._ed.name}"
         self._attr_name = name
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"

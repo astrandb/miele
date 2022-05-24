@@ -38,7 +38,7 @@ class MieleNumberDescriptionMixin:
 class MieleNumberDescription(NumberEntityDescription, MieleNumberDescriptionMixin):
     """Class describing Miele number entities."""
 
-    type_key: str ="ident|type|value_localized"
+    type_key: str = "ident|type|value_localized"
 
     convert: Callable[[Any], Any] | None = None
     zone: int = 0
@@ -182,7 +182,9 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
         _LOGGER.debug("Init number %s", ent)
         appl_type = self.coordinator.data[self._ent][self._ed.type_key]
         if appl_type == "":
-            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+            appl_type = self.coordinator.data[self._ent][
+                "ident|deviceIdentLabel|techType"
+            ]
         self._attr_name = f"{appl_type} {self._ed.name}"
         self._attr_unique_id = f"{self._ed.key}-{self._ed.zone}{self._ent}"
         # _LOGGER.debug("icon: %s | %s", self._ed.icon, self._ed.icon)
