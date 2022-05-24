@@ -71,6 +71,8 @@ class MieleBinarySensorDefinition:
 BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
     MieleBinarySensorDefinition(
         types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
