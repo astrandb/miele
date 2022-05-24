@@ -27,7 +27,7 @@ from homeassistant.util.percentage import (
 )
 
 from . import get_coordinator
-from .const import API, DOMAIN, HOOD, POWER_OFF, POWER_ON, VENTILATION_STEP
+from .const import API, DOMAIN, HOOD, POWER_OFF, POWER_ON, VENTILATION_STEP, HOB_INDUCTION_FAN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,6 +57,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
     MieleFanDefinition(
         types=[
             HOOD,
+            HOB_INDUCTION_FAN,
         ],
         description=MieleFanDescription(
             key="fan",
