@@ -5,11 +5,12 @@ import logging
 from dataclasses import dataclass
 from typing import Any, Callable, Final
 
-from homeassistant.components.climate import ClimateEntity, ClimateEntityDescription
-from homeassistant.components.climate.const import (
-    HVAC_MODE_COOL,
-    SUPPORT_TARGET_TEMPERATURE,
+from homeassistant.components.climate import (
+    ClimateEntity,
+    ClimateEntityDescription,
+    ClimateEntityFeature,
 )
+from homeassistant.components.climate.const import HVACMode
 from homeassistant.const import ATTR_TEMPERATURE, TEMP_CELSIUS
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
@@ -32,7 +33,7 @@ class MieleClimateDescription(ClimateEntityDescription):
 
     currentTemperature_tag: str | None = None
     targetTemperature_tag: str | None = None
-    type_key: str | None = None
+    type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
     temperature_unit: str = None
@@ -60,14 +61,13 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             key="thermostat",
             currentTemperature_tag="state|temperature|0|value_raw",
             targetTemperature_tag="state|targetTemperature|0|value_raw",
-            type_key="ident|type|value_localized",
             name="Zone 1",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
-            hvac_modes=[HVAC_MODE_COOL],
+            hvac_modes=[HVACMode.COOL],
             zone=0,
-            supported_features=SUPPORT_TARGET_TEMPERATURE,
+            supported_features=ClimateEntityFeature.TARGET_TEMPERATURE,
         ),
     ),
     MieleClimateDefinition(
@@ -76,14 +76,13 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             key="thermostat",
             currentTemperature_tag="state|temperature|1|value_raw",
             targetTemperature_tag="state|targetTemperature|1|value_raw",
-            type_key="ident|type|value_localized",
             name="Zone 2",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
-            hvac_modes=[HVAC_MODE_COOL],
+            hvac_modes=[HVACMode.COOL],
             zone=1,
-            supported_features=SUPPORT_TARGET_TEMPERATURE,
+            supported_features=ClimateEntityFeature.TARGET_TEMPERATURE,
         ),
     ),
     MieleClimateDefinition(
@@ -92,14 +91,13 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             key="thermostat",
             currentTemperature_tag="state|temperature|2|value_raw",
             targetTemperature_tag="state|targetTemperature|2|value_raw",
-            type_key="ident|type|value_localized",
             name="Zone 3",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
-            hvac_modes=[HVAC_MODE_COOL],
+            hvac_modes=[HVACMode.COOL],
             zone=2,
-            supported_features=SUPPORT_TARGET_TEMPERATURE,
+            supported_features=ClimateEntityFeature.TARGET_TEMPERATURE,
         ),
     ),
 )
@@ -159,6 +157,10 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._ed = description
         _LOGGER.debug("init climate %s", ent)
         # _LOGGER.debug("Type: %s, Zone: %s", self.coordinator.data[self._ent]["ident|type|value_raw"], self._ed.zone)
+        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
+        if appl_type == "":
+            appl_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
+
         if (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
             and self._ed.zone == 0
@@ -181,7 +183,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             name = "Freezer"
         else:
             name = (
-                f"{self.coordinator.data[self._ent][self._ed.type_key]} {self._ed.name}"
+                f"{appl_type} {self._ed.name}"
             )
         self._attr_name = name
 
@@ -197,11 +199,11 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         ]["min"]
         self._attr_target_temperature_step = self._ed.target_temperature_step
         self._attr_hvac_modes = self._ed.hvac_modes
-        self._attr_hvac_mode = HVAC_MODE_COOL
+        self._attr_hvac_mode = HVACMode.COOL
         self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
-            name=self.coordinator.data[self._ent][self._ed.type_key],
+            name=appl_type,
             manufacturer="Miele",
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )

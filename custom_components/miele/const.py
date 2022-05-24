@@ -29,6 +29,7 @@ WINE_STORAGE_CONDITIONING_UNIT = 34
 STEAM_OVEN_MICRO = 45
 DIALOG_OVEN = 67
 WINE_CABINET_FREEZER = 68
+HOB_INDUCT_EXTR = 74
 
 APPLIANCE_TYPES = {
     WASHING_MACHINE: "washing_machine",
@@ -55,6 +56,7 @@ APPLIANCE_TYPES = {
     STEAM_OVEN_MICRO: "steam_oven_micro",
     DIALOG_OVEN: "dialog_oven",
     WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+    HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 
 # Define various states
@@ -147,9 +149,8 @@ STATE_PROGRAM_PHASE = {
     1799: "drying",
     1800: "finished",
     1801: "pre_dishwash",
-
     # Error conditions/API quirks.
-    65535: "not_running"  # Seems to be an API error/default value.
+    65535: "not_running",  # Seems to be an API error/default value.
 }
 
 WASHING_MACHINE_PROGRAM_ID = {
