@@ -24,7 +24,27 @@ from .const import API, DOMAIN, HOB_INDUCT_EXTR
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATE_MAP = {0: 0, 1: 1, 3: 2, 5: 3, 7: 4, 9: 5, 11: 6, 13: 7, 15: 8, 17: 9, 117: 10}
+PLATE_MAP = {
+    0: 0,
+    1: 1,
+    2: 1.5,
+    3: 2,
+    4: 2.5,
+    5: 3,
+    6: 3.5,
+    7: 4,
+    8: 4.5,
+    9: 5,
+    10: 5.5,
+    11: 6,
+    12: 6.5,
+    13: 7,
+    14: 7.5,
+    15: 8,
+    16: 8.5,
+    17: 9,
+    117: 10,
+}
 
 
 @dataclass
@@ -65,7 +85,7 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             zone=0,
             min_value=0.0,
             max_value=10.0,
-            step=1.0,
+            step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -80,7 +100,7 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             zone=1,
             min_value=0.0,
             max_value=10.0,
-            step=1.0,
+            step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -95,7 +115,7 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             zone=2,
             min_value=0.0,
             max_value=10.0,
-            step=1.0,
+            step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -110,7 +130,7 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             zone=3,
             min_value=0.0,
             max_value=10.0,
-            step=1.0,
+            step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -125,7 +145,7 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             zone=4,
             min_value=0.0,
             max_value=10.0,
-            step=1.0,
+            step=0.5,
         ),
     ),
 )
