@@ -479,6 +479,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             WASHING_MACHINE,
+            TUMBLE_DRYER,
             DISHWASHER,
             WASHER_DRYER,
         ],
@@ -513,6 +514,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             WASHING_MACHINE,
+            TUMBLE_DRYER,
             DISHWASHER,
             WASHER_DRYER,
         ],
