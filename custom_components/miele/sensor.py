@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
+from datetime import timedelta
 from typing import Any, Callable, Final
 
 from homeassistant.components.sensor import (
@@ -20,6 +21,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
     DataUpdateCoordinator,
 )
+from homeassistant.util import dt as dt_util
 
 from . import get_coordinator
 from .const import (
@@ -426,6 +428,29 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             DIALOG_OVEN,
         ],
         description=MieleSensorDescription(
+            key="stateRemainingTimeAbs",
+            data_tag="state|remainingTime|0",
+            data_tag1="state|remainingTime|1",
+            name="Finish at",
+            icon="mdi:clock-end",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
             key="stateStartTime",
             data_tag="state|startTime|0",
             data_tag1="state|startTime|1",
@@ -450,12 +475,58 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             DIALOG_OVEN,
         ],
         description=MieleSensorDescription(
+            key="stateStartTimeAbs",
+            data_tag="state|startTime|0",
+            data_tag1="state|startTime|1",
+            name="Start at",
+            icon="mdi:clock-start",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
             key="stateElapsedTime",
             data_tag="state|elapsedTime|0",
             data_tag1="state|elapsedTime|1",
             name="Elapsed time",
             icon="mdi:timer-outline",
             native_unit_of_measurement="min",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHING_MACHINE,
+            TUMBLE_DRYER,
+            DISHWASHER,
+            OVEN,
+            OVEN_MICROWAVE,
+            STEAM_OVEN,
+            MICROWAVE,
+            WASHER_DRYER,
+            STEAM_OVEN_COMBI,
+            STEAM_OVEN_MICRO,
+            DIALOG_OVEN,
+        ],
+        description=MieleSensorDescription(
+            key="stateElapsedTimeAbs",
+            data_tag="state|elapsedTime|0",
+            data_tag1="state|elapsedTime|1",
+            name="Started at",
+            icon="mdi:timer-outline",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -599,6 +670,31 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
                 + self.coordinator.data[self._ent][self.entity_description.data_tag1]
             )
+
+        if self.entity_description.key in [
+            "stateRemainingTimeAbs",
+            "stateStartTimeAbs",
+        ]:
+            now = dt_util.now()
+            mins = (
+                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
+                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
+            )
+            if mins == 0:
+                return None
+            return (now + timedelta(minutes=mins)).strftime("%H:%M")
+
+        if self.entity_description.key in [
+            "stateElapsedTimeAbs",
+        ]:
+            now = dt_util.now()
+            mins = (
+                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
+                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
+            )
+            if mins == 0:
+                return None
+            return (now - timedelta(minutes=mins)).strftime("%H:%M")
 
         # Log raw and localized values for programID etc
         # Active if logger.level is DEBUG or INFO
