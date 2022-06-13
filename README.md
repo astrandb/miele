@@ -35,7 +35,7 @@ miele:
   client_secret: your_client_secret
 ```
 
-Goto Integrations->Add and select Miele
+Goto Integrations->Add and select Miele. Sometimes you must refresh the browser cache to find the integration.
 
 Follow instructions to authenticate with Miele cloud server. Allow full access for Home Assistant client.
 
