@@ -84,9 +84,9 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             icon="mdi:stove",
             name="Plate 0",
             zone=0,
-            min_value=0.0,
-            max_value=10.0,
-            step=0.5,
+            native_min_value=0.0,
+            native_max_value=10.0,
+            native_step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -99,9 +99,9 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             icon="mdi:stove",
             name="Plate 1",
             zone=1,
-            min_value=0.0,
-            max_value=10.0,
-            step=0.5,
+            native_min_value=0.0,
+            native_max_value=10.0,
+            native_step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -114,9 +114,9 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             icon="mdi:stove",
             name="Plate 2",
             zone=2,
-            min_value=0.0,
-            max_value=10.0,
-            step=0.5,
+            native_min_value=0.0,
+            native_max_value=10.0,
+            native_step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -129,9 +129,9 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             icon="mdi:stove",
             name="Plate 3",
             zone=3,
-            min_value=0.0,
-            max_value=10.0,
-            step=0.5,
+            native_min_value=0.0,
+            native_max_value=10.0,
+            native_step=0.5,
         ),
     ),
     MieleNumberDefinition(
@@ -144,9 +144,9 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             icon="mdi:stove",
             name="Plate 4",
             zone=4,
-            min_value=0.0,
-            max_value=10.0,
-            step=0.5,
+            native_min_value=0.0,
+            native_max_value=10.0,
+            native_step=0.5,
         ),
     ),
 )
@@ -223,7 +223,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
         )
 
     @property
-    def value(self):
+    def native_value(self):
         return PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
 
     @property
@@ -235,7 +235,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
 
         return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
 
-    async def async_set_value(self, value: float) -> None:
+    async def async_set_native_value(self, value: float) -> None:
         """Update the current value."""
 
         self.async_write_ha_state()
