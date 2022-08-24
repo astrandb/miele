@@ -6,7 +6,7 @@
       "authorize_url_timeout": "Timeout ved generering av URL for autentisering",
       "missing_configuration": "Komponenten kunne ikke konfigureres. Vennligdst følg dokumentasjonen",
       "no_url_available": "Ingen URL tillgjengelig. For informasjon om denne felen, [se hjelpavsnittet]({docs_url})",
-      "oauth_error": "Mottok ugydige token-data",
+      "oauth_error": "Mottok ugyldige token-data",
       "reauth_successful": "Re-autentisering vellykket"
     },
     "create_entry": {

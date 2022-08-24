@@ -14,9 +14,9 @@
       "rinse_hold": "Skyllestopp",
       "service": "Service",
       "superfreezing": "Hurtiginnfrysing",
-      "supercooling": "Hyrtigkjøling",
+      "supercooling": "Hurtigkjøling",
       "superheating": "Hurtigoppvarming",
-      "supercooling_superfreezing": "Hyrtigkjøling/hurtiginnfrysing",
+      "supercooling_superfreezing": "Hurtigkjøling/hurtiginnfrysing",
       "not_connected": "Ikke tilkoblet"
     },
     "miele__state_program_type": {
@@ -91,8 +91,8 @@
       "bottom_heat": "Undervarme"
     },
     "miele__state_program_phase": {
-      "not_running": "kjører ikke",
-      "main_wash": "HuvudHovedvasktvätt",
+      "not_running": "Kjører ikke",
+      "main_wash": "Hovedvask",
       "drying": "Tørker",
       "pre_wash": "Forvask",
       "soak": "Bløtlegging",
