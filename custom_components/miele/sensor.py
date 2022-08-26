@@ -359,6 +359,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN,
             MICROWAVE,
             COFFEE_SYSTEM,
+            ROBOT_VACUUM_CLEANER,
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
@@ -598,6 +599,19 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             convert=lambda x, t: x * 100.0,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            ROBOT_VACUUM_CLEANER,
+        ],
+        description=MieleSensorDescription(
+            key="batteryLevel",
+            data_tag="state|batteryLevel",
+            name="Battery",
+            device_class=SensorDeviceClass.BATTERY,
+            native_unit_of_measurement="%",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
 )

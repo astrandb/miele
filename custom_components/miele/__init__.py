@@ -27,11 +27,13 @@ from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import ACTIONS, API, DOMAIN
-from .devcap import TEST_ACTION_21  # noqa: F401
 from .devcap import (  # noqa: F401
+    TEST_ACTION_21,
+    TEST_ACTION_23,
     TEST_DATA_7,
     TEST_DATA_18,
     TEST_DATA_21,
+    TEST_DATA_23,
     TEST_DATA_24,
     TEST_DATA_74,
 )
@@ -66,6 +68,7 @@ PLATFORMS = [
     Platform.NUMBER,
     Platform.SENSOR,
     Platform.SWITCH,
+    Platform.VACUUM,
 ]
 
 
@@ -163,7 +166,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
-    # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223021"] = TEST_ACTION_21
+
+    # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223023"] = TEST_ACTION_23
 
     # _LOGGER.debug("First data - flat: %s", coordinator.data)
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
@@ -173,6 +177,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223007"] = TEST_DATA_7
         # data["1223018"] = TEST_DATA_18
         # data["1223021"] = TEST_DATA_21
+        # data["1223023"] = TEST_DATA_23
         # data["1223024"] = TEST_DATA_24
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
@@ -230,6 +235,7 @@ async def get_coordinator(
         # result["1223007"] = TEST_DATA_7
         # result["1223018"] = TEST_DATA_18
         # result["1223021"] = TEST_DATA_21
+        # result["1223023"] = TEST_DATA_23
         # result["1223024"] = TEST_DATA_24
         # result["1223074"] = TEST_DATA_74
 
