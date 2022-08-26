@@ -184,8 +184,9 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         ):
             name = "Freezer"
         else:
-            name = f"{appl_type} {self._ed.name}"
+            name = self._ed.name
         self._attr_name = name
+        self._attr_has_entity_name = True
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"
         self._attr_unique_id = f"{self._ed.key}-{zone}{self._ent}"

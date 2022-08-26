@@ -137,7 +137,8 @@ class MieleLight(CoordinatorEntity, LightEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = f"{appl_type} {self._ed.name}"
+        self._attr_name = self._ed.name
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self._ed.key}-{self._ent}"
         self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(

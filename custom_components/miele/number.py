@@ -206,7 +206,8 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = f"{appl_type} {self._ed.name}"
+        self._attr_name = self._ed.name
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self._ed.key}-{self._ed.zone}{self._ent}"
         # _LOGGER.debug("icon: %s | %s", self._ed.icon, self._ed.icon)
         # self._attr_icon = self._ed.icon

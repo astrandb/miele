@@ -262,7 +262,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="mobileStart",
             data_tag="state|remoteEnable|mobileStart",
-            name="Mobile Start",
+            name="Mobile start",
             icon="mdi:cellphone-wireless",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -313,7 +313,8 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = f"{appl_type} {self.entity_description.name}"
+        self._attr_name = self.entity_description.name
+        self._attr_has_emtity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
