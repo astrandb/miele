@@ -137,7 +137,8 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             | VacuumEntityFeature.PAUSE
             | VacuumEntityFeature.CLEAN_SPOT
         )
-        self._attr_name = f"{appl_type} {self.entity_description.name}"
+        self._attr_name = None
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
@@ -148,13 +149,13 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def state(self):
-        if self.coordinator.data[self._ent]["state|status|value_raw"] == "2":  # On
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == 2:  # On
             if (
                 self.coordinator.data[self._ent]["state|programPhase|value_raw"]
-                == "5904"
+                == 5904
             ):  # in the base station
                 return STATE_DOCKED
-        if self.coordinator.data[self._ent]["state|status|value_raw"] == "6":  # pause
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:  # pause
             return STATE_PAUSED
         return STATE_ERROR
 
