@@ -148,6 +148,14 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def state(self):
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == "2":  # On
+            if (
+                self.coordinator.data[self._ent]["state|programPhase|value_raw"]
+                == "5904"
+            ):  # in the base station
+                return STATE_DOCKED
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == "6":  # pause
+            return STATE_PAUSED
         return STATE_ERROR
 
     @property
