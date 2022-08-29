@@ -79,8 +79,9 @@ async def async_get_device_diagnostics(
             async with async_timeout.timeout(10):
                 res = await miele_api.request("GET", f"/devices/{key}/programs")
             if res.status >= 300:
-                raise HomeAssistantError("Failed to get list of supported programs")
-            program_data = await res.json()
+                program_data = {"httpStatus": res.status}
+            else:
+                program_data = await res.json()
 
     diagnostics_data = {
         "info": async_redact_data(info, TO_REDACT),
