@@ -150,6 +150,8 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Robot vacuum cleaner
+    5889: "cleaning",
+    5890: "returning",
     5904: "docked",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.

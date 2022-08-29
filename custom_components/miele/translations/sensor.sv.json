@@ -134,7 +134,9 @@
       "main_dishwash": "Diskar",
       "interim_rinse": "Mellansköljning",
       "final_rinse": "Slutsköljning",
-      "docked": "Dockad"
+      "docked": "Dockad",
+      "cleaning": "Städar",
+      "returning": "Återvänder"
     }
   }
 }

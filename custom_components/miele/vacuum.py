@@ -52,6 +52,7 @@ PROG_SILENT = 4
 
 PPROGRAM_MAP = {"normal": PROG_AUTO, "turbo": PROG_TURBO, "silent": PROG_SILENT}
 
+
 @dataclass
 class MieleVacuumDescription(VacuumEntityDescription):
     """Class describing Miele vacuum entities."""
@@ -167,6 +168,18 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
                 self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5904
             ):  # in the base station
                 return STATE_DOCKED
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == 5:  # On
+            if self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5889:
+                return STATE_CLEANING
+            elif (
+                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5890
+            ):
+                return STATE_RETURNING
+            elif (
+                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5910
+            ):
+                return None
+            return
         if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:  # pause
             return STATE_PAUSED
         return STATE_ERROR
@@ -261,9 +274,17 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     async def async_start(self, **kwargs):
         _LOGGER.debug("start -> kwargs: %s", kwargs)
+        try:
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_START})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_stop(self, **kwargs):
         _LOGGER.debug("stop -> kwargs: %s", kwargs)
+        try:
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_STOP})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_pause(self, **kwargs):
         _LOGGER.debug("pause -> kwargs: %s", kwargs)
@@ -275,6 +296,8 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     async def async_set_fan_speed(self, **kwargs):
         _LOGGER.debug("set_fan_speed -> kwargs: %s", kwargs)
         try:
-            await self._api.send_action(self._ent, {PROGRAM_ID: PPROGRAM_MAP[kwargs["fan_speed"]]})
+            await self._api.send_action(
+                self._ent, {PROGRAM_ID: PPROGRAM_MAP[kwargs["fan_speed"]]}
+            )
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Set fan speed: %s - %s", ex.status, ex.message)

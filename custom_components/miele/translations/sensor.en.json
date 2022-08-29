@@ -134,7 +134,9 @@
       "main_dishwash": "Cleaning",
       "interim_rinse": "Interim rinse",
       "final_rinse": "Final rinse",
-      "docked": "Docked"
+      "docked": "Docked",
+      "cleaning": "Cleaning",
+      "returning": "Returning"
     }
   }
 }
