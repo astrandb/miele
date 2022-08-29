@@ -29,17 +29,28 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
+    ACT_PAUSE,
+    ACT_START,
+    ACT_STOP,
     ACTIONS,
     API,
     DOMAIN,
     POWER_OFF,
     POWER_ON,
     PROCESS_ACTION,
+    PROGRAM_ID,
     ROBOT_VACUUM_CLEANER,
 )
 
 _LOGGER = logging.getLogger(__name__)
 
+FAN_SPEEDS = ["normal", "turbo", "silent"]
+PROG_AUTO = 1
+PROG_SPOT = 2
+PROG_TURBO = 3
+PROG_SILENT = 4
+
+PPROGRAM_MAP = {"normal": PROG_AUTO, "turbo": PROG_TURBO, "silent": PROG_SILENT}
 
 @dataclass
 class MieleVacuumDescription(VacuumEntityDescription):
@@ -132,11 +143,13 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             | VacuumEntityFeature.STATUS
             | VacuumEntityFeature.STATE
             | VacuumEntityFeature.BATTERY
+            | VacuumEntityFeature.FAN_SPEED
             | VacuumEntityFeature.START
             | VacuumEntityFeature.STOP
             | VacuumEntityFeature.PAUSE
             | VacuumEntityFeature.CLEAN_SPOT
         )
+        self._attr_fan_speed_list = FAN_SPEEDS
         self._attr_name = None
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
@@ -151,8 +164,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     def state(self):
         if self.coordinator.data[self._ent]["state|status|value_raw"] == 2:  # On
             if (
-                self.coordinator.data[self._ent]["state|programPhase|value_raw"]
-                == 5904
+                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5904
             ):  # in the base station
                 return STATE_DOCKED
         if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:  # pause
@@ -166,6 +178,22 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     @property
     def battery_level(self):
         return self.coordinator.data[self._ent]["state|batteryLevel"]
+
+    @property
+    def fan_speed(self):
+        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
+            return "normal"
+        elif self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SPOT:
+            return "normal"
+        elif (
+            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_TURBO
+        ):
+            return "turbo"
+        elif (
+            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SILENT
+        ):
+            return "silent"
+        return None
 
     # @property
     # def is_on(self):
@@ -205,7 +233,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         """Turn on the device."""
         _LOGGER.debug("turn_on -> kwargs: %s", kwargs)
         try:
-            await self._api.send_action(self._ent, self.entity_description.on_data)
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_START})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
 
@@ -215,7 +243,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         """Turn off the device."""
         _LOGGER.debug("turn_off -> kwargs: %s", kwargs)
         try:
-            await self._api.send_action(self._ent, self.entity_description.off_data)
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_STOP})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
 
@@ -223,20 +251,30 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     async def async_return_to_base(self, **kwargs):
         _LOGGER.debug("return_to_base -> kwargs: %s", kwargs)
-        return
 
     async def async_clean_spot(self, **kwargs):
         _LOGGER.debug("clean_spot -> kwargs: %s", kwargs)
-        return
+        try:
+            await self._api.send_action(self._ent, {PROGRAM_ID: PROG_SPOT})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_start(self, **kwargs):
         _LOGGER.debug("start -> kwargs: %s", kwargs)
-        return
 
     async def async_stop(self, **kwargs):
         _LOGGER.debug("stop -> kwargs: %s", kwargs)
-        return
 
     async def async_pause(self, **kwargs):
         _LOGGER.debug("pause -> kwargs: %s", kwargs)
-        return
+        try:
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_PAUSE})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
+
+    async def async_set_fan_speed(self, **kwargs):
+        _LOGGER.debug("set_fan_speed -> kwargs: %s", kwargs)
+        try:
+            await self._api.send_action(self._ent, {PROGRAM_ID: PPROGRAM_MAP[kwargs["fan_speed"]]})
+        except aiohttp.ClientResponseError as ex:
+            _LOGGER.error("Set fan speed: %s - %s", ex.status, ex.message)
