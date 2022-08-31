@@ -380,7 +380,9 @@ TEST_DATA_23 = {
             "key_localized": "Program type",
         },
         "programPhase": {
-            "value_raw": 5904,
+            "value_raw": 5889,
+            "zvalue_raw": 5904,
+            "xvalue_raw": 5893,
             "value_localized": "in the base station",
             "key_localized": "Program phase",
         },

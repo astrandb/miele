@@ -136,7 +136,9 @@
       "final_rinse": "Slutsköljning",
       "docked": "Dockad",
       "cleaning": "Städar",
-      "returning": "Återvänder"
+      "returning": "Återvänder",
+      "going_to_target_area": "Går till område",
+      "wheel_lifted": "Hjul upplyft"
     }
   }
 }

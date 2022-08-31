@@ -136,7 +136,9 @@
       "final_rinse": "Final rinse",
       "docked": "Docked",
       "cleaning": "Cleaning",
-      "returning": "Returning"
+      "returning": "Returning",
+      "going_to_target_area": "Going to target area",
+      "wheel_lifted": "Wheel lifted"
     }
   }
 }

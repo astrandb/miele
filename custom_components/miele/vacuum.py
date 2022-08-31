@@ -7,11 +7,11 @@ from typing import Any, Final
 
 import aiohttp
 from homeassistant.components.vacuum import (
+    ATTR_STATUS,
     STATE_CLEANING,
     STATE_DOCKED,
     STATE_ERROR,
     STATE_IDLE,
-    STATE_ON,
     STATE_PAUSED,
     STATE_RETURNING,
     StateVacuumEntity,
@@ -51,6 +51,19 @@ PROG_TURBO = 3
 PROG_SILENT = 4
 
 PPROGRAM_MAP = {"normal": PROG_AUTO, "turbo": PROG_TURBO, "silent": PROG_SILENT}
+
+SUPPORTED_FEATURES = (
+    VacuumEntityFeature.TURN_ON
+    | VacuumEntityFeature.TURN_OFF
+    | VacuumEntityFeature.STATUS
+    | VacuumEntityFeature.STATE
+    | VacuumEntityFeature.BATTERY
+    | VacuumEntityFeature.FAN_SPEED
+    | VacuumEntityFeature.START
+    | VacuumEntityFeature.STOP
+    | VacuumEntityFeature.PAUSE
+    | VacuumEntityFeature.CLEAN_SPOT
+)
 
 
 @dataclass
@@ -131,6 +144,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
         self._idx = idx
         self._ent = ent
+        self._phase = None
         self.entity_description = description
         _LOGGER.debug("init vacuum %s", ent)
         appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
@@ -138,21 +152,11 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_supported_features = (
-            VacuumEntityFeature.TURN_ON
-            | VacuumEntityFeature.TURN_OFF
-            | VacuumEntityFeature.STATUS
-            | VacuumEntityFeature.STATE
-            | VacuumEntityFeature.BATTERY
-            | VacuumEntityFeature.FAN_SPEED
-            | VacuumEntityFeature.START
-            | VacuumEntityFeature.STOP
-            | VacuumEntityFeature.PAUSE
-            | VacuumEntityFeature.CLEAN_SPOT
-        )
+        self._attr_supported_features = SUPPORTED_FEATURES
         self._attr_fan_speed_list = FAN_SPEEDS
         self._attr_name = None
         self._attr_has_entity_name = True
+        self._attr_device_class = f"{DOMAIN}__vacuum"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
@@ -163,30 +167,46 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def state(self):
-        if self.coordinator.data[self._ent]["state|status|value_raw"] == 2:  # On
-            if (
-                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5904
-            ):  # in the base station
-                return STATE_DOCKED
-        if self.coordinator.data[self._ent]["state|status|value_raw"] == 5:  # On
-            if self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5889:
-                return STATE_CLEANING
-            elif (
-                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5890
-            ):
-                return STATE_RETURNING
-            elif (
-                self.coordinator.data[self._ent]["state|programPhase|value_raw"] == 5910
-            ):
-                return None
-            return
-        if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:  # pause
+        """
+        Todo
+        STATE_IDLE
+        STATE_ERROR
+        """
+        if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:
             return STATE_PAUSED
-        return STATE_ERROR
+
+        self._phase = self.coordinator.data[self._ent]["state|programPhase|value_raw"]
+        if self._phase == 5904:
+            return STATE_DOCKED
+        elif self._phase in (5889, 5892):
+            return STATE_CLEANING
+        elif self._phase == 5890:
+            return STATE_RETURNING
+        elif self._phase == 5893:
+            return STATE_ERROR
+
+        return self._phase
+
+    @property
+    def status(self):
+        if self._phase == 5892:
+            return "Going to target area"
+        if self._phase == 5893:
+            return "Wheel lifted"
+        return
 
     @property
     def error(self):
         return "Dummy error message"
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        """Return the state attributes of the vacuum cleaner."""
+        data: dict[str, Any] = {}
+        if self.status is not None:
+            data[ATTR_STATUS] = self.status
+
+        return data
 
     @property
     def battery_level(self):
