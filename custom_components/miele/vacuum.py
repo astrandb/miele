@@ -6,12 +6,11 @@ from dataclasses import dataclass
 from typing import Any, Final
 
 import aiohttp
-from homeassistant.components.vacuum import (
+from homeassistant.components.vacuum import (  # STATE_IDLE,
     ATTR_STATUS,
     STATE_CLEANING,
     STATE_DOCKED,
     STATE_ERROR,
-    STATE_IDLE,
     STATE_PAUSED,
     STATE_RETURNING,
     StateVacuumEntity,
@@ -156,7 +155,6 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         self._attr_fan_speed_list = FAN_SPEEDS
         self._attr_name = None
         self._attr_has_entity_name = True
-        self._attr_device_class = f"{DOMAIN}__vacuum"
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
