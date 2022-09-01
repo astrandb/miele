@@ -399,6 +399,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             OVEN_MICROWAVE,
             STEAM_OVEN,
             MICROWAVE,
+            ROBOT_VACUUM_CLEANER,
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
