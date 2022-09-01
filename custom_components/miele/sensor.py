@@ -674,6 +674,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
+        self._last_time = 0
 
     @property
     def native_value(self):
@@ -698,8 +699,18 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 + self.coordinator.data[self._ent][self.entity_description.data_tag1]
             )
             if mins == 0:
+                self._last_time = 0
                 return None
-            return (now + timedelta(minutes=mins)).strftime("%H:%M")
+            ts = (now + timedelta(minutes=mins)).strftime("%H:%M")
+
+            # Dont update status if the time change is -1 minute
+            # to reduce jitter
+            if self.entity_description.key == "stateRemainingTimeAbs":
+                if mins - self._last_time == -1:
+                    ts = (now + timedelta(minutes=self._last_time)).strftime("%H:%M")
+                else:
+                    self._last_time = mins
+            return ts
 
         if self.entity_description.key in [
             "stateElapsedTimeAbs",
@@ -711,6 +722,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             if mins == 0:
                 return None
+
             return (now - timedelta(minutes=mins)).strftime("%H:%M")
 
         # Log raw and localized values for programID etc
