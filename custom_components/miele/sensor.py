@@ -706,6 +706,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             if mins == 0:
                 return None
+            _LOGGER.debug("Key:  %s | Mins: %s | Now: %s | State: %s", self.entity_description.key, mins, now, (now + timedelta(minutes=mins)).strftime("%H:%M"))
             return (now + timedelta(minutes=mins)).strftime("%H:%M")
 
         if self.entity_description.key in [
