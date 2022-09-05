@@ -163,7 +163,9 @@ async def async_setup_entry(
     entities = []
     for idx, ent in enumerate(coordinator.data):
         for definition in NUMBER_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+            if coordinator.data[ent]["ident|type|value_raw"] in definition.types and (
+                coordinator.data[ent].get(definition.description.data_tag) is not None
+            ):
                 entities.append(
                     MieleNumber(
                         coordinator,
