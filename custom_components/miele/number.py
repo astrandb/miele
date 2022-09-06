@@ -226,6 +226,8 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
 
     @property
     def native_value(self):
+        if self.coordinator.data[self._ent].get(self._ed.data_tag) is None:
+            return
         return PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
 
     @property
