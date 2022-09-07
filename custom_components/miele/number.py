@@ -163,7 +163,9 @@ async def async_setup_entry(
     entities = []
     for idx, ent in enumerate(coordinator.data):
         for definition in NUMBER_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+            if coordinator.data[ent]["ident|type|value_raw"] in definition.types and (
+                coordinator.data[ent].get(definition.description.data_tag) is not None
+            ):
                 entities.append(
                     MieleNumber(
                         coordinator,
@@ -225,6 +227,8 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
 
     @property
     def native_value(self):
+        if self.coordinator.data[self._ent].get(self._ed.data_tag) is None:
+            return
         return PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
 
     @property
