@@ -314,7 +314,7 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
                 "ident|deviceIdentLabel|techType"
             ]
         self._attr_name = self.entity_description.name
-        self._attr_has_emtity_name = True
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
