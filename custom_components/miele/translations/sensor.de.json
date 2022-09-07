@@ -60,7 +60,6 @@
       "cottons_eco": "Baumwolle ECO",
       "quick_power_wash": "QuickPowerWash",
       "eco_40_60": "ECO 40-60",
-
       "intensive": "Intensiv",
       "maintenance": "Gerätepflege",
       "eco": "ECO",
@@ -72,7 +71,6 @@
       "hygiene": "Hygiene",
       "tall_items": "Ohne Oberkorb",
       "glasses_warm": "Biergläser warm",
-
       "gentle_minimum_iron": "Pflegeleicht fein",
       "woollens_handcare": "Finish Wolle",
       "gentle_smoothing": "Glätten fein",
@@ -81,7 +79,6 @@
       "standard_pillows": "Kopfkissen normal",
       "basket_program": "Korbprogramm",
       "smoothing": "Glätten",
-
       "eco_fan_heat": "Eco-Heißluft",
       "auto_roast": "Bratautomatik",
       "full_grill": "Grill groß",
@@ -91,7 +88,11 @@
       "conventional_heat": "Ober-/Unterhitze",
       "top_heat": "Oberhitze",
       "fan_grill": "Umluftgrill",
-      "bottom_heat": "Unterhitze"
+      "bottom_heat": "Unterhitze",
+      "auto": "Auto",
+      "spot": "Spot",
+      "turbo": "Turbo",
+      "silent": "Silent"
     },
     "miele__state_program_phase": {
       "not_running": "Nicht in Betrieb",
@@ -132,7 +133,12 @@
       "pre_dishwash": "Vorspülen",
       "main_dishwash": "Reinigen",
       "interim_rinse": "Zwischenspülen",
-      "final_rinse": "Klarspülen"
+      "final_rinse": "Klarspülen",
+      "docked": "Docked",
+      "cleaning": "Cleaning",
+      "returning": "Returning",
+      "going_to_target_area": "Going to target area",
+      "wheel_lifted": "Wheel lifted"
     }
   }
 }

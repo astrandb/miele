@@ -88,7 +88,11 @@
       "conventional_heat": "Konventionell varme",
       "top_heat": "Overvarme",
       "fan_grill": "Varmluftsgrill",
-      "bottom_heat": "Undervarme"
+      "bottom_heat": "Undervarme",
+      "auto": "Auto",
+      "spot": "Spot",
+      "turbo": "Turbo",
+      "silent": "Silent"
     },
     "miele__state_program_phase": {
       "not_running": "Kjører ikke",
@@ -129,7 +133,12 @@
       "pre_dishwash": "Forvask",
       "main_dishwash": "Vasker opp",
       "interim_rinse": "Mellomskylling",
-      "final_rinse": "Sluttskylling"
+      "final_rinse": "Sluttskylling",
+      "docked": "Docked",
+      "cleaning": "Cleaning",
+      "returning": "Returning",
+      "going_to_target_area": "Going to target area",
+      "wheel_lifted": "Wheel lifted"
     }
   }
 }

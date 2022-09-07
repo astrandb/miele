@@ -60,7 +60,6 @@
       "cottons_eco": "Katoen ECO",
       "quick_power_wash": "QuickPowerWash",
       "eco_40_60": "ECO 40-60",
-
       "intensive": "Intensief",
       "maintenance": "Onderhouds programma",
       "eco": "ECO",
@@ -72,7 +71,6 @@
       "hygiene": "AllergoWash",
       "tall_items": "Grote items",
       "glasses_warm": "Warme glazen",
-
       "gentle_minimum_iron": "Behoedzaam kreukherstellend",
       "woollens_handcare": "Handverzorgde wol",
       "gentle_smoothing": "Behoedzaam gladstrijken",
@@ -81,7 +79,6 @@
       "standard_pillows": "Standaard hoofdkussens",
       "basket_program": "Wasmand programma",
       "smoothing": "Gladstrijken",
-
       "eco_fan_heat": "Hete lucht ECO",
       "auto_roast": "Automatisch roosteren",
       "full_grill": "Volledige grill",
@@ -91,7 +88,11 @@
       "conventional_heat": "Boven/onder warmte",
       "top_heat": "Boven warmte",
       "fan_grill": "Hete lucht grill",
-      "bottom_heat": "Onder warmte"
+      "bottom_heat": "Onder warmte",
+      "auto": "Auto",
+      "spot": "Spot",
+      "turbo": "Turbo",
+      "silent": "Silent"
     },
     "miele__state_program_phase": {
       "not_running": "Inactief",
@@ -132,7 +133,12 @@
       "pre_dishwash": "Voorspoelen",
       "main_dishwash": "Schoonmaken",
       "interim_rinse": "Tussendoor spoelen",
-      "final_rinse": "Afspoelen"
+      "final_rinse": "Afspoelen",
+      "docked": "Docked",
+      "cleaning": "Cleaning",
+      "returning": "Returning",
+      "going_to_target_area": "Going to target area",
+      "wheel_lifted": "Wheel lifted"
     }
   }
 }
