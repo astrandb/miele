@@ -60,7 +60,6 @@
       "cottons_eco": "Cottons ECO",
       "quick_power_wash": "QuickPowerWash",
       "eco_40_60": "ECO 40-60",
-
       "intensive": "Intensive",
       "maintenance": "Maintenance program",
       "eco": "ECO",
@@ -72,7 +71,6 @@
       "hygiene": "Hygiene",
       "tall_items": "Tall items",
       "glasses_warm": "Glasses warm",
-
       "gentle_minimum_iron": "Gentle minimum iron",
       "woollens_handcare": "Woollens handcare",
       "gentle_smoothing": "Gentle smoothing",
@@ -81,7 +79,6 @@
       "standard_pillows": "Standard pillows",
       "basket_program": "Basket program",
       "smoothing": "Smoothing",
-
       "eco_fan_heat": "Eco fan heat",
       "auto_roast": "Auto roast",
       "full_grill": "Full grill",
@@ -91,7 +88,11 @@
       "conventional_heat": "Conventional heat",
       "top_heat": "Top heat",
       "fan_grill": "Fan grill",
-      "bottom_heat": "Bottom heat"
+      "bottom_heat": "Bottom heat",
+      "auto": "Auto",
+      "spot": "Spot",
+      "turbo": "Turbo",
+      "silent": "Silent"
     },
     "miele__state_program_phase": {
       "not_running": "Not running",
@@ -132,7 +133,12 @@
       "pre_dishwash": "Pre-cleaning",
       "main_dishwash": "Cleaning",
       "interim_rinse": "Interim rinse",
-      "final_rinse": "Final rinse"
+      "final_rinse": "Final rinse",
+      "docked": "Docked",
+      "cleaning": "Cleaning",
+      "returning": "Returning",
+      "going_to_target_area": "Going to target area",
+      "wheel_lifted": "Wheel lifted"
     }
   }
 }

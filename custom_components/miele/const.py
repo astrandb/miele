@@ -149,6 +149,12 @@ STATE_PROGRAM_PHASE = {
     1799: "drying",
     1800: "finished",
     1801: "pre_dishwash",
+    # Robot vacuum cleaner
+    5889: "cleaning",
+    5890: "returning",
+    5892: "going_to_target_area",
+    5893: "wheel_lifted",
+    5904: "docked",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
 }
@@ -256,6 +262,14 @@ OVEN_PROGRAM_ID = {
     29: "fan_grill",
     31: "bottom_heat",
 }
+ROBOT_VACUUM_CLEANER_PROGRAM_ID = {
+    -1: "no_program",  # Extrapolated from other device types
+    0: "no_program",  # Extrapolated from other device types
+    1: "auto",
+    2: "spot",
+    3: "turbo",
+    4: "silent",
+}
 
 STATE_PROGRAM_ID = {
     WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
@@ -263,6 +277,7 @@ STATE_PROGRAM_ID = {
     DISHWASHER: DISHWASHER_PROGRAM_ID,
     OVEN: OVEN_PROGRAM_ID,
     WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
+    ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
 }
 
 COLORS = "colors"

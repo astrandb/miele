@@ -344,6 +344,85 @@ TEST_DATA_21 = {
     },
 }
 
+TEST_DATA_23 = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 23,
+            "value_localized": "Robot vacuum cleaner",
+        },
+        "deviceName": "Batman",
+        "protocolVersion": 0,
+        "deviceIdentLabel": {
+            "fabNumber": "161173909",
+            "fabIndex": "32",
+            "techType": "RX3",
+            "matNumber": "11686510",
+            "swids": [
+                "<swid1>",
+                "<swid2>",
+                "<swid3>",
+                "<...>",
+            ],
+        },
+        "xkmIdentLabel": {"techType": "", "releaseVersion": ""},
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 1,
+            "value_localized": "Auto",
+            "key_localized": "Program name",
+        },
+        "status": {"value_raw": 2, "value_localized": "On", "key_localized": "status"},
+        "programType": {
+            "value_raw": 0,
+            "value_localized": "Program",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "xvalue_raw": 5889,
+            "zvalue_raw": 5904,
+            "value_raw": 5893,
+            "value_localized": "in the base station",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [],
+        "temperature": [],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": None,
+        "elapsedTime": [0, 0],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": None,
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": 65,
+    },
+}
+
 TEST_DATA_24 = {
     "ident": {
         "type": {
@@ -627,4 +706,19 @@ TEST_ACTION_21 = {
     "modes": [1],
     "programs": [],
     "id_log": [],
+}
+
+TEST_ACTION_23 = {
+    "processAction": [1],
+    "light": [],
+    "ambientLight": [],
+    "startTime": [],
+    "ventilationStep": [],
+    "programId": [2, 3, 4],
+    "targetTemperature": [],
+    "deviceName": True,
+    "powerOn": True,
+    "powerOff": False,
+    "colors": [],
+    "modes": [],
 }

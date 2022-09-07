@@ -130,7 +130,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="temperature2",
             data_tag="state|temperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature Zone 2",
+            name="Temperature zone 2",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
@@ -158,7 +158,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="temperature3",
             data_tag="state|temperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature Zone 3",
+            name="Temperature zone 3",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
@@ -188,7 +188,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature",
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target Temperature",
+            name="Target temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -218,7 +218,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature2",
             data_tag="state|targetTemperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target Temperature Zone2",
+            name="Target temperature zone 2",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -249,7 +249,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature3",
             data_tag="state|targetTemperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target Temperature Zone3",
+            name="Target temperature zone 3",
             native_unit_of_measurement=TEMP_CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -341,7 +341,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramType",
             data_tag="state|programType|value_raw",
             data_tag_loc="state|programType|value_localized",
-            name="Program Type",
+            name="Program type",
             device_class="miele__state_program_type",
             icon="mdi:state-machine",
             convert=lambda x, t: STATE_PROGRAM_TYPE.get(x, x),
@@ -359,6 +359,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN,
             MICROWAVE,
             COFFEE_SYSTEM,
+            ROBOT_VACUUM_CLEANER,
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
@@ -368,7 +369,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramPhase",
             data_tag="state|programPhase|value_raw",
             data_tag_loc="state|programPhase|value_localized",
-            name="Program Phase",
+            name="Program phase",
             device_class="miele__state_program_phase",
             icon="mdi:state-machine",
             convert=lambda x, t: STATE_PROGRAM_PHASE.get(x, x),
@@ -383,7 +384,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateSpinningSpeed",
             data_tag="state|spinningSpeed|value_raw",
-            name="Spin Speed",
+            name="Spin speed",
             icon="mdi:sync",
             native_unit_of_measurement="rpm",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -398,6 +399,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             OVEN_MICROWAVE,
             STEAM_OVEN,
             MICROWAVE,
+            ROBOT_VACUUM_CLEANER,
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
@@ -539,7 +541,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateCurrentWaterConsumption",
             data_tag="state|ecoFeedback|currentWaterConsumption|value",
-            name="Water Consumption",
+            name="Water consumption",
             icon="mdi:water-outline",
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement="l",
@@ -557,7 +559,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateCurrentEnergyConsumption",
             data_tag="state|ecoFeedback|currentEnergyConsumption|value",
-            name="Energy Consumption",
+            name="Energy consumption",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement="kWh",
@@ -574,7 +576,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateWaterForecast",
             data_tag="state|ecoFeedback|waterForecast",
-            name="Water Forecast",
+            name="Water forecast",
             icon="mdi:water-percent",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -592,12 +594,25 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateEnergyForecast",
             data_tag="state|ecoFeedback|energyForecast",
-            name="Energy Forecast",
+            name="Energy forecast",
             icon="mdi:label-percent-outline",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
             convert=lambda x, t: x * 100.0,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            ROBOT_VACUUM_CLEANER,
+        ],
+        description=MieleSensorDescription(
+            key="batteryLevel",
+            data_tag="state|batteryLevel",
+            name="Battery",
+            device_class=SensorDeviceClass.BATTERY,
+            native_unit_of_measurement="%",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
 )
@@ -645,7 +660,9 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = f"{appl_type} {self.entity_description.name}"
+        # self._attr_name = f"{appl_type} {self.entity_description.name}"
+        self._attr_name = self.entity_description.name
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
