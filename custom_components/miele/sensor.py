@@ -12,7 +12,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import PERCENTAGE, TEMP_CELSIUS
+from homeassistant.const import PERCENTAGE, TEMP_CELSIUS, TIME_MINUTES, ENERGY_KILO_WATT_HOUR
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -411,7 +411,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|remainingTime|1",
             name="Remaining time",
             icon="mdi:clock-end",
-            native_unit_of_measurement="min",
+            native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -458,7 +458,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|startTime|1",
             name="Start time",
             icon="mdi:clock-start",
-            native_unit_of_measurement="min",
+            native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -505,7 +505,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|elapsedTime|1",
             name="Elapsed time",
             icon="mdi:timer-outline",
-            native_unit_of_measurement="min",
+            native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -562,7 +562,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Energy consumption",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
-            native_unit_of_measurement="kWh",
+            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
@@ -611,7 +611,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|batteryLevel",
             name="Battery",
             device_class=SensorDeviceClass.BATTERY,
-            native_unit_of_measurement="%",
+            native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
