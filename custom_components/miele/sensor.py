@@ -644,6 +644,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Sensor."""
 
     entity_description: MieleSensorDescription
+    _last_finished_time_reported = None
 
     def __init__(
         self,
@@ -677,6 +678,8 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
+        self._last_finished_time_reported = None
+
 
     @property
     def native_value(self):
@@ -702,7 +705,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             if mins == 0:
                 return None
-            _LOGGER.debug("Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s", self.entity_description.key, self._ent, mins, now, (now + timedelta(minutes=mins)).strftime("%H:%M"))
+            # _LOGGER.debug("Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s", self.entity_description.key, self._ent, mins, now, (now + timedelta(minutes=mins)).strftime("%H:%M"))
             return (now + timedelta(minutes=mins)).strftime("%H:%M")
 
         if self.entity_description.key in [
@@ -716,7 +719,12 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             if mins == 0:
                 return None
             _LOGGER.debug("Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s", self.entity_description.key, self._ent, mins, now, (now + timedelta(minutes=mins)).strftime("%H:%M"))
-            return (now - timedelta(minutes=mins)).strftime("%H:%M")
+            finished_time = (now - timedelta(minutes=mins)).strftime("%H:%M")
+            # Don't update sensor if state == program_ended
+            if self.coordinator.data[self._ent]["stateStatus"] == 7:
+                return self._last_finished_time_reported
+            self._last_finished_time_reported = finished_time
+            return finished_time
 
         # Log raw and localized values for programID etc
         # Active if logger.level is DEBUG or INFO
