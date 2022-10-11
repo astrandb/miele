@@ -72,6 +72,93 @@ LIVE_ACTION_CAPABILITIES = {
     },
 }
 
+TEST_DATA_1 = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 1,
+            "value_localized": "Washing machine",
+        },
+        "deviceName": "",
+        "protocolVersion": 4,
+        "deviceIdentLabel": {
+            "fabNumber": "<fabnumber01>",
+            "fabIndex": "00",
+            "techType": "WWI860",
+            "matNumber": "",
+            "swids": ["000"],
+        },
+        "xkmIdentLabel": {
+            "techType": "EK057",
+            "releaseVersion": "08.15",
+        },
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 1,
+            "value_localized": "Cottons",
+            "key_localized": "Program name",
+        },
+        "status": {
+            "value_raw": 1,
+            "value_localized": "Off",
+            "key_localized": "status",
+        },
+        "programType": {
+            "value_raw": 1,
+            "value_localized": "Own programme",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": -32766, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "temperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": True,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": None,
+        "elapsedTime": [0,0],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": 1600,
+            "value_localized": "1600",
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_7 = {
     "ident": {
         "type": {

@@ -30,6 +30,7 @@ from .const import ACTIONS, API, DOMAIN
 from .devcap import (  # noqa: F401
     TEST_ACTION_21,
     TEST_ACTION_23,
+    TEST_DATA_1,
     TEST_DATA_7,
     TEST_DATA_18,
     TEST_DATA_21,
@@ -174,6 +175,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_data(data) -> None:
         # _LOGGER.debug("Callback data: %s", data)
+        # data["1223001"] = TEST_DATA_1
         # data["1223007"] = TEST_DATA_7
         # data["1223018"] = TEST_DATA_18
         # data["1223021"] = TEST_DATA_21
@@ -232,6 +234,7 @@ async def get_coordinator(
             raise ConfigEntryAuthFailed("Authentication failure when fetching data")
         result = await res.json()
         flat_result: dict = {}
+        # result["1223001"] = TEST_DATA_1
         # result["1223007"] = TEST_DATA_7
         # result["1223018"] = TEST_DATA_18
         # result["1223021"] = TEST_DATA_21
