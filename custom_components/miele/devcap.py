@@ -136,7 +136,7 @@ TEST_DATA_1 = {
         },
         "ambientLight": None,
         "light": None,
-        "elapsedTime": [0,0],
+        "elapsedTime": [0, 0],
         "spinningSpeed": {
             "unit": "rpm",
             "value_raw": 1600,

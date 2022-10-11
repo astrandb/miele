@@ -17,7 +17,7 @@ from homeassistant.const import (
     PERCENTAGE,
     TEMP_CELSIUS,
     TIME_MINUTES,
-    VOLUME_LITRES,
+    VOLUME_LITERS,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
