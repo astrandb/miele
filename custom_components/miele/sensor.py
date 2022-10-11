@@ -651,7 +651,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Sensor."""
 
     entity_description: MieleSensorDescription
-    _last_finished_time_reported = None
 
     def __init__(
         self,
