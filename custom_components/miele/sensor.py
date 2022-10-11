@@ -12,7 +12,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import PERCENTAGE, TEMP_CELSIUS
+from homeassistant.const import PERCENTAGE, TEMP_CELSIUS, VOLUME_LITERS
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -543,8 +543,9 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|ecoFeedback|currentWaterConsumption|value",
             name="Water consumption",
             icon="mdi:water-outline",
+            device_class=SensorDeviceClass.VOLUME,
             state_class=SensorStateClass.TOTAL_INCREASING,
-            native_unit_of_measurement="l",
+            native_unit_of_measurement=VOLUME_LITERS,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
