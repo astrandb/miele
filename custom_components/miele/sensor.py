@@ -743,6 +743,8 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             self.coordinator.data[self._ent].get(self.entity_description.data_tag)
             is None
             or self.coordinator.data[self._ent][self.entity_description.data_tag]
+            == -32766
+            or self.coordinator.data[self._ent][self.entity_description.data_tag]
             == -32768
         ):
             return None

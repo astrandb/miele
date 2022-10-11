@@ -220,6 +220,8 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
     @property
     def target_temperature(self):
         """Return the target temperature."""
+        if self.coordinator.data[self._ent][self._ed.targetTemperature_tag] == -32766:
+            return None
         return round(
             self.coordinator.data[self._ent][self._ed.targetTemperature_tag] / 100,
             1,
