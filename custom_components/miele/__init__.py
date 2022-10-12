@@ -183,7 +183,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     async def _callback_update_data(data) -> None:
-        # _LOGGER.debug("Callback data: %s", data)
+
         # data["1223001"] = TEST_DATA_1TEST_DATA_18
         # data["1223007"] = TEST_DATA_7
         # data["1223018"] = TEST_DATA_18
@@ -192,16 +192,18 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223024"] = TEST_DATA_24
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
-        for idx, ent in enumerate(data):
-            flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
-        coordinator.async_set_updated_data(flat_result)
+        try:
+            for idx, ent in enumerate(data):
+                flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
+            coordinator.async_set_updated_data(flat_result)
+        except:  # noqa: E722
+            _LOGGER.warning("Failed to process pushed data from API")
 
     async def _callback_update_actions(data) -> None:
         hass.data[DOMAIN][entry.entry_id][ACTIONS] = data
         # Force update of UI
         # data["1223021"] = TEST_ACTION_21
         coordinator.async_set_updated_data(coordinator.data)
-        # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
         hass.data[DOMAIN][entry.entry_id][API].listen_events(
@@ -244,9 +246,7 @@ async def get_coordinator(
         except asyncio.TimeoutError:
             _LOGGER.warning("Timeout during coordinator fetch")
         except JSONDecodeError:
-            _LOGGER.warning(
-                "Could not decode json from coordinator fetch"
-            )
+            _LOGGER.warning("Could not decode json from coordinator fetch")
 
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
