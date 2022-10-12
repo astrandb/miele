@@ -170,8 +170,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                     )
             result = await res.json()
             hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
-        except asyncio.TimeoutError:
-            _LOGGER.warning("Timeout during initial fetch of actions from API")
+        except asyncio.TimeoutError as err:
+            raise ConfigEntryNotReady from err
         except JSONDecodeError:
             _LOGGER.warning(
                 "Could not decode json from fetch of actions for %s", serial
