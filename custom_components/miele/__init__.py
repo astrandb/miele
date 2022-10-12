@@ -5,6 +5,7 @@ import asyncio
 import logging
 from datetime import timedelta
 from http import HTTPStatus
+from json.decoder import JSONDecodeError
 
 import async_timeout
 import flatdict
@@ -157,16 +158,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     serialnumbers = list(coordinator.data.keys())
-    _LOGGER.debug("Serial numbers: %s", serialnumbers)
+
+    miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
-        miele_api = hass.data[DOMAIN][entry.entry_id][API]
-        async with async_timeout.timeout(10):
-            res = await miele_api.request("GET", f"/devices/{serial}/actions")
-            _LOGGER.debug("Actions for %s: %s", serial, await res.json())
-        if res.status == 401:
-            raise ConfigEntryAuthFailed("Authentication failure when fetching data")
-        result = await res.json()
-        hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
+        try:
+            async with async_timeout.timeout(10):
+                res = await miele_api.request("GET", f"/devices/{serial}/actions")
+                if res.status == 401:
+                    raise ConfigEntryAuthFailed(
+                        "Authentication failure when fetching data"
+                    )
+            result = await res.json()
+            hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
+        except asyncio.TimeoutError:
+            _LOGGER.warning("Timeout during initial fetch of actions from API")
+        except JSONDecodeError:
+            _LOGGER.warning(
+                "Could not decode json from fetch of actions for %s", serial
+            )
 
     # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223023"] = TEST_ACTION_23
 
