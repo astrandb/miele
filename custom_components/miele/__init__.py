@@ -22,6 +22,7 @@ from homeassistant.helpers.update_coordinator import (
     ConfigEntryAuthFailed,
     ConfigEntryNotReady,
     DataUpdateCoordinator,
+    UpdateFailed,
 )
 from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 
@@ -170,8 +171,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                     )
             result = await res.json()
             hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
-        except asyncio.TimeoutError as err:
-            raise ConfigEntryNotReady from err
+        except asyncio.TimeoutError as error:
+            raise ConfigEntryNotReady from error
         except JSONDecodeError:
             _LOGGER.warning(
                 "Could not decode json from fetch of actions for %s", serial
@@ -243,10 +244,12 @@ async def get_coordinator(
             if res.status == 401:
                 raise ConfigEntryAuthFailed("Authentication failure when fetching data")
             result = await res.json()
-        except asyncio.TimeoutError:
+        except asyncio.TimeoutError as error:
             _LOGGER.warning("Timeout during coordinator fetch")
-        except JSONDecodeError:
+            raise UpdateFailed(error) from error
+        except JSONDecodeError as error:
             _LOGGER.warning("Could not decode json from coordinator fetch")
+            raise UpdateFailed(error) from error
 
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
