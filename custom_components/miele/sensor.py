@@ -733,7 +733,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             started_time = (now - timedelta(minutes=mins)).strftime("%H:%M")
             # Don't update sensor if state == program_ended
-            if self.coordinator.data[self._ent]["stateStatus"] == 7:
+            if self.coordinator.data[self._ent]["state|status|value_raw"] == 7:
                 return self._last_started_time_reported
             self._last_started_time_reported = started_time
             return started_time
