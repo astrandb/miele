@@ -3,13 +3,13 @@
 import logging
 
 import aiohttp
-import voluptuous as vol
 from homeassistant.const import CONF_DEVICE_ID, CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry
 from homeassistant.helpers.service import async_extract_config_entry_ids
+import voluptuous as vol
 
 from .const import (
     AMBIENT_COLORS,

@@ -1,9 +1,9 @@
 """Platform for Miele sensor integration."""
 from __future__ import annotations
 
-import logging
 from dataclasses import dataclass
 from datetime import timedelta
+import logging
 from typing import Any, Callable, Final
 
 from homeassistant.components.sensor import (
