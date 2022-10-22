@@ -57,7 +57,7 @@ $ cd miele
 $ make install_dev
 ```
 
-Home Assistant has defined a code style. Run `make lint` before pushing your changes to align with the peferred style.
+Home Assistant has defined a code style. Run `make lint` before pushing your changes to align with the preferred style.
 
 There are many ways to test the integration, two examples are:
 
