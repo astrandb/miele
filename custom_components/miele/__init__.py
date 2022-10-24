@@ -5,6 +5,7 @@ import asyncio
 import logging
 from datetime import timedelta
 from http import HTTPStatus
+from json.decoder import JSONDecodeError
 
 import async_timeout
 import flatdict
@@ -21,6 +22,7 @@ from homeassistant.helpers.update_coordinator import (
     ConfigEntryAuthFailed,
     ConfigEntryNotReady,
     DataUpdateCoordinator,
+    UpdateFailed,
 )
 from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 
@@ -157,16 +159,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     serialnumbers = list(coordinator.data.keys())
-    _LOGGER.debug("Serial numbers: %s", serialnumbers)
+
+    miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
-        miele_api = hass.data[DOMAIN][entry.entry_id][API]
-        async with async_timeout.timeout(10):
-            res = await miele_api.request("GET", f"/devices/{serial}/actions")
-            _LOGGER.debug("Actions for %s: %s", serial, await res.json())
-        if res.status == 401:
-            raise ConfigEntryAuthFailed("Authentication failure when fetching data")
-        result = await res.json()
-        hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
+        try:
+            async with async_timeout.timeout(10):
+                res = await miele_api.request("GET", f"/devices/{serial}/actions")
+                if res.status == 401:
+                    raise ConfigEntryAuthFailed(
+                        "Authentication failure when fetching data"
+                    )
+            result = await res.json()
+            hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
+        except asyncio.TimeoutError as error:
+            raise ConfigEntryNotReady from error
+        except JSONDecodeError:
+            _LOGGER.warning(
+                "Could not decode json from fetch of actions for %s", serial
+            )
 
     # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223023"] = TEST_ACTION_23
 
@@ -174,8 +184,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     async def _callback_update_data(data) -> None:
-        # _LOGGER.debug("Callback data: %s", data)
-        # data["1223001"] = TEST_DATA_1
+
+        # data["1223001"] = TEST_DATA_1TEST_DATA_18
         # data["1223007"] = TEST_DATA_7
         # data["1223018"] = TEST_DATA_18
         # data["1223021"] = TEST_DATA_21
@@ -183,16 +193,18 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223024"] = TEST_DATA_24
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
-        for idx, ent in enumerate(data):
-            flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
-        coordinator.async_set_updated_data(flat_result)
+        try:
+            for idx, ent in enumerate(data):
+                flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
+            coordinator.async_set_updated_data(flat_result)
+        except:  # noqa: E722
+            _LOGGER.warning("Failed to process pushed data from API")
 
     async def _callback_update_actions(data) -> None:
         hass.data[DOMAIN][entry.entry_id][ACTIONS] = data
         # Force update of UI
         # data["1223021"] = TEST_ACTION_21
         coordinator.async_set_updated_data(coordinator.data)
-        # _LOGGER.debug("Pushed actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     hass.data[DOMAIN][entry.entry_id]["listener"] = asyncio.create_task(
         hass.data[DOMAIN][entry.entry_id][API].listen_events(
@@ -226,13 +238,19 @@ async def get_coordinator(
 
     async def async_fetch():
         miele_api = hass.data[DOMAIN][entry.entry_id][API]
-        async with async_timeout.timeout(10):
-            res = await miele_api.request("GET", "/devices")
-            # _LOGGER.debug("Data: %s", await res.json())
-        if res.status == 401:
-            # raise MieleAuthException("Authentication failure when fetching data")
-            raise ConfigEntryAuthFailed("Authentication failure when fetching data")
-        result = await res.json()
+        try:
+            async with async_timeout.timeout(10):
+                res = await miele_api.request("GET", "/devices")
+            if res.status == 401:
+                raise ConfigEntryAuthFailed("Authentication failure when fetching data")
+            result = await res.json()
+        except asyncio.TimeoutError as error:
+            _LOGGER.warning("Timeout during coordinator fetch")
+            raise UpdateFailed(error) from error
+        except JSONDecodeError as error:
+            _LOGGER.warning("Could not decode json from coordinator fetch")
+            raise UpdateFailed(error) from error
+
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
         # result["1223007"] = TEST_DATA_7
