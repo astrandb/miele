@@ -2,15 +2,14 @@
 from __future__ import annotations
 
 import asyncio
-import logging
 from datetime import timedelta
 from http import HTTPStatus
 from json.decoder import JSONDecodeError
+import logging
 
+from aiohttp import ClientResponseError
 import async_timeout
 import flatdict
-import voluptuous as vol
-from aiohttp import ClientResponseError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET, Platform
 from homeassistant.core import HomeAssistant
@@ -25,6 +24,7 @@ from homeassistant.helpers.update_coordinator import (
     UpdateFailed,
 )
 from pymiele import OAUTH2_AUTHORIZE, OAUTH2_TOKEN
+import voluptuous as vol
 
 from . import config_flow
 from .api import AsyncConfigEntryAuth

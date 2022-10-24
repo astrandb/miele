@@ -1,9 +1,9 @@
 """Platform for Miele fan entity."""
 from __future__ import annotations
 
+from dataclasses import dataclass
 import logging
 import math
-from dataclasses import dataclass
 from typing import Any, Callable, Final, Optional
 
 import aiohttp
