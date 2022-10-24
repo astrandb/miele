@@ -441,6 +441,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|remainingTime|1",
             name="Finish at",
             icon="mdi:clock-end",
+            native_unit_of_measurement="",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -488,6 +489,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|startTime|1",
             name="Start at",
             icon="mdi:clock-start",
+            native_unit_of_measurement="",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -535,6 +537,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag1="state|elapsedTime|1",
             name="Started at",
             icon="mdi:timer-outline",
+            native_unit_of_measurement="",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -681,6 +684,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
+        self._last_started_time_reported = None
 
     @property
     def native_value(self):
@@ -706,6 +710,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             if mins == 0:
                 return None
+            # _LOGGER.debug("Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s", self.entity_description.key, self._ent, mins, now, (now + timedelta(minutes=mins)).strftime("%H:%M"))
             return (now + timedelta(minutes=mins)).strftime("%H:%M")
 
         if self.entity_description.key in [
@@ -718,7 +723,20 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             if mins == 0:
                 return None
-            return (now - timedelta(minutes=mins)).strftime("%H:%M")
+            _LOGGER.debug(
+                "Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s",
+                self.entity_description.key,
+                self._ent,
+                mins,
+                now,
+                (now + timedelta(minutes=mins)).strftime("%H:%M"),
+            )
+            started_time = (now - timedelta(minutes=mins)).strftime("%H:%M")
+            # Don't update sensor if state == program_ended
+            if self.coordinator.data[self._ent]["state|status|value_raw"] == 7:
+                return self._last_started_time_reported
+            self._last_started_time_reported = started_time
+            return started_time
 
         # Log raw and localized values for programID etc
         # Active if logger.level is DEBUG or INFO
