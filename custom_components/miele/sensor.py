@@ -1,4 +1,4 @@
-"""Platform for Miele sensor integration."""
+"""Platform for Miele sensor integration."""U
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -13,11 +13,11 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
-    ENERGY_KILO_WATT_HOUR,
+    UnitOfEnergy,
     PERCENTAGE,
-    TEMP_CELSIUS,
+    UnitofTemperature,
     TIME_MINUTES,
-    VOLUME_LITERS,
+    UnitOfVolume,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
@@ -110,7 +110,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|temperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Temperature",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
         ),
@@ -137,7 +137,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|temperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Temperature zone 2",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
@@ -165,7 +165,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|temperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Temperature zone 3",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
             entity_registry_enabled_default=False,
@@ -195,7 +195,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Target temperature",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: x / 100.0,
@@ -225,7 +225,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|targetTemperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Target temperature zone 2",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: x / 100.0,
@@ -256,7 +256,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|targetTemperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Target temperature zone 3",
-            native_unit_of_measurement=TEMP_CELSIUS,
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: x / 100.0,
@@ -554,7 +554,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             icon="mdi:water-outline",
             device_class=SensorDeviceClass.VOLUME,
             state_class=SensorStateClass.TOTAL_INCREASING,
-            native_unit_of_measurement=VOLUME_LITERS,
+            native_unit_of_measurement=UnitOfVolume.LITERS,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
@@ -572,7 +572,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Energy consumption",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
         ),
