@@ -1,4 +1,4 @@
-"""Platform for Miele sensor integration."""U
+"""Platform for Miele sensor integration."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -15,7 +15,7 @@ from homeassistant.components.sensor import (
 from homeassistant.const import (
     UnitOfEnergy,
     PERCENTAGE,
-    UnitofTemperature,
+    UnitOfTemperature,
     TIME_MINUTES,
     UnitOfVolume,
 )
