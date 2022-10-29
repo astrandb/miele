@@ -245,7 +245,7 @@ async def get_coordinator(
                 raise ConfigEntryAuthFailed("Authentication failure when fetching data")
             result = await res.json()
         except asyncio.TimeoutError as error:
-            _LOGGER.warning("Timeout during coordinator fetch")
+            # _LOGGER.warning("Timeout during coordinator fetch")
             raise UpdateFailed(error) from error
         except JSONDecodeError as error:
             _LOGGER.warning("Could not decode json from coordinator fetch")
