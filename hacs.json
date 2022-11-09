@@ -1,19 +1,6 @@
 {
   "name": "Miele",
-  "domains": [
-    "binary_sensor",
-    "button",
-    "climate",
-    "fan",
-    "light",
-    "number",
-    "sensor",
-    "switch"
-  ],
   "homeassistant": "2022.10.0",
-  "iot_class": [
-    "Cloud Push"
-  ],
   "zip_release": true,
   "filename": "miele.zip",
   "render_readme": true
