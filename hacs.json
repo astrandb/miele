@@ -1,6 +1,6 @@
 {
   "name": "Miele",
-  "homeassistant": "2022.10.0",
+  "homeassistant": "2022.11.0",
   "zip_release": true,
   "filename": "miele.zip",
   "render_readme": true
