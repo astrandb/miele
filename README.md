@@ -1,4 +1,4 @@
-[![Miele](https://img.shields.io/github/v/release/astrandb/miele)](https://github.com/astrandb/miele/releases/latest) [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration) ![Validate with hassfest](https://github.com/astrandb/miele/workflows/Validate%20with%20hassfest/badge.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/total)](https://github.com/astrandb/miele) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/latest/total)](https://github.com/astrandb/miele)
+[![Miele](https://img.shields.io/github/v/release/astrandb/miele)](https://github.com/astrandb/miele/releases/latest) [![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/integration) ![Validate with hassfest](https://github.com/astrandb/miele/workflows/Validate%20with%20hassfest/badge.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/total)](https://github.com/astrandb/miele) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/latest/total)](https://github.com/astrandb/miele)
 
 # Miele Integration for Home Assistant
 
@@ -16,7 +16,7 @@ If you have an existing integration with the name "miele" you are recommended to
 
 ### Preferred download method
 
-- Use HACS, add this repo as a custom repository and install Miele integration.
+- Use HACS, search for Miele integration and install it.
 - Restart Home Assistant
 
 ### Manual download method
