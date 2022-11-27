@@ -16,7 +16,7 @@ If you have an existing integration with the name "miele" you are recommended to
 
 ### Preferred download method
 
-- Use HACS, search for Miele integration and install it.
+- Use HACS, search for Miele integration and download it.
 - Restart Home Assistant
 
 ### Manual download method
