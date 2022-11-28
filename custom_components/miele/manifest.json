@@ -13,6 +13,7 @@
   "homekit": {},
   "version": "0.1.0",
   "dependencies": [
+    "application_credentials",
     "http"
   ],
   "codeowners": [
@@ -20,5 +21,7 @@
   ],
   "iot_class": "cloud_push",
   "integration_type": "hub",
-  "loggers": ["pymiele"]
+  "loggers": [
+    "pymiele"
+  ]
 }
