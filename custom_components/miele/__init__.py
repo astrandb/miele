@@ -29,17 +29,7 @@ import voluptuous as vol
 from . import config_flow
 from .api import AsyncConfigEntryAuth
 from .const import ACTIONS, API, DOMAIN
-from .devcap import (  # noqa: F401
-    TEST_ACTION_21,
-    TEST_ACTION_23,
-    TEST_DATA_1,
-    TEST_DATA_7,
-    TEST_DATA_18,
-    TEST_DATA_21,
-    TEST_DATA_23,
-    TEST_DATA_24,
-    TEST_DATA_74,
-)
+from .devcap import    TEST_ACTION_21,     TEST_ACTION_23,     TEST_DATA_1,    TEST_DATA_7,    TEST_DATA_18,    TEST_DATA_21,    TEST_DATA_23,    TEST_DATA_24,    TEST_DATA_74
 from .services import async_setup_services
 
 _LOGGER = logging.getLogger(__name__)
