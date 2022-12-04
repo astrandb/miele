@@ -60,6 +60,7 @@ One option is to use the VS Code Dev Container. You need to have Docker installe
 1. Walk through the Home Assistant first-launch UI.
 1. Go to http://localhost:9123/config/integrations, click `Add Integration` and add the `Miele` integration.
 1. To debug, press `F5` to attach to the Home Assistant running in the container.
+1. You can enable a persistent (survives rebuild of container) config directory for Home Assistant by uncommenting the mounts statement in devcontainer.json and rebuild the container.
 
 #### Without a Dev Container
 Alternatively, you can run Home Assistant directly on your machine/WSL2. The following procedure works fine in the hands of the maintainer developing with VS Code on WSL2/Windows.
@@ -75,7 +76,9 @@ $ make install_dev
 
 Home Assistant has defined a code style. Run `make lint` before pushing your changes to align with the peferred style.
 
-There are many ways to test the integration, two examples are:
+There are many ways to test the integration, three examples are:
+
+- run Home Assistant in the development container as described above
 
 - copy all files in `custom_comonents/miele` to `custom_components/miele` in your HA configuration directory
 - mount `custom_components/miele` into a HA development container

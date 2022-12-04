@@ -26,5 +26,10 @@
 		"editor.formatOnSave": true,
 		"editor.formatOnType": true,
 		"files.trimTrailingWhitespace": true
-	}
+	},
+	"mounts": [
+		// Uncomment the line below to enable a persistent configuration directory
+		// Create ~/miele_config directory and rebuild container
+		// "source=${localEnv:HOME}/miele_config,target=/config,type=bind"
+	]
 }
