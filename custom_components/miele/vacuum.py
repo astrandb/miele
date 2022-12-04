@@ -187,6 +187,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def status(self):
+        """Return status."""
         if self._phase == 5892:
             return "Going to target area"
         if self._phase == 5893:
@@ -195,6 +196,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def error(self):
+        """Return error."""
         return "Dummy error message"
 
     @property
@@ -311,7 +313,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
-    async def async_set_fan_speed(self, **kwargs):
+    async def async_set_fan_speed(self, fan_speed, **kwargs):
         _LOGGER.debug("set_fan_speed -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(

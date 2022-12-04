@@ -194,10 +194,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
         try:
-            for idx, ent in enumerate(data):
+            for ent in data:
                 flat_result[ent] = dict(flatdict.FlatterDict(data[ent], delimiter="|"))
             coordinator.async_set_updated_data(flat_result)
-        except:  # noqa: E722
+        except Exception:  # pylint: disable=broad-except  # noqa: E722
             _LOGGER.warning("Failed to process pushed data from API")
 
     async def _callback_update_actions(data) -> None:
@@ -260,7 +260,7 @@ async def get_coordinator(
         # result["1223024"] = TEST_DATA_24
         # result["1223074"] = TEST_DATA_74
 
-        for idx, ent in enumerate(result):
+        for ent in result:
             flat_result[ent] = dict(flatdict.FlatterDict(result[ent], delimiter="|"))
         # _LOGGER.debug("Data: %s", flat_result)
         return flat_result

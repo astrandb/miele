@@ -31,8 +31,8 @@ _LOGGER = logging.getLogger(__name__)
 class MieleClimateDescription(ClimateEntityDescription):
     """Class describing Miele climate entities."""
 
-    currentTemperature_tag: str | None = None
-    targetTemperature_tag: str | None = None
+    current_temperature_tag: str | None = None
+    target_temperature_tag: str | None = None
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
@@ -59,8 +59,8 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
         types=[19, 20, 21, 32, 33, 34, 68],
         description=MieleClimateDescription(
             key="thermostat",
-            currentTemperature_tag="state|temperature|0|value_raw",
-            targetTemperature_tag="state|targetTemperature|0|value_raw",
+            current_temperature_tag="state|temperature|0|value_raw",
+            target_temperature_tag="state|targetTemperature|0|value_raw",
             name="Zone 1",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
@@ -74,8 +74,8 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
         types=[19, 20, 21, 32, 33, 34, 68],
         description=MieleClimateDescription(
             key="thermostat",
-            currentTemperature_tag="state|temperature|1|value_raw",
-            targetTemperature_tag="state|targetTemperature|1|value_raw",
+            current_temperature_tag="state|temperature|1|value_raw",
+            target_temperature_tag="state|targetTemperature|1|value_raw",
             name="Zone 2",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
@@ -89,8 +89,8 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
         types=[19, 20, 21, 32, 33, 34, 68],
         description=MieleClimateDescription(
             key="thermostat",
-            currentTemperature_tag="state|temperature|2|value_raw",
-            targetTemperature_tag="state|targetTemperature|2|value_raw",
+            current_temperature_tag="state|temperature|2|value_raw",
+            target_temperature_tag="state|targetTemperature|2|value_raw",
             name="Zone 3",
             temperature_unit=TEMP_CELSIUS,
             precision=1.0,
@@ -116,7 +116,7 @@ async def async_setup_entry(
         for definition in CLIMATE_TYPES:
             if (
                 coordinator.data[ent]["ident|type|value_raw"] in definition.types
-                and coordinator.data[ent][definition.description.targetTemperature_tag]
+                and coordinator.data[ent][definition.description.target_temperature_tag]
                 != -32768
             ):
                 entities.append(
@@ -156,7 +156,11 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._ent = ent
         self._ed = description
         _LOGGER.debug("init climate %s", ent)
-        # _LOGGER.debug("Type: %s, Zone: %s", self.coordinator.data[self._ent]["ident|type|value_raw"], self._ed.zone)
+        # _LOGGER.debug(
+        #     "Type: %s, Zone: %s",
+        #     self.coordinator.data[self._ent]["ident|type|value_raw"],
+        #     self._ed.zone,
+        # )
         appl_type = self.coordinator.data[self._ent][self._ed.type_key]
         if appl_type == "":
             appl_type = self.coordinator.data[self._ent][
@@ -213,17 +217,17 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
     def current_temperature(self):
         """Return the current temperature."""
         return round(
-            self.coordinator.data[self._ent][self._ed.currentTemperature_tag] / 100,
+            self.coordinator.data[self._ent][self._ed.current_temperature_tag] / 100,
             1,
         )
 
     @property
     def target_temperature(self):
         """Return the target temperature."""
-        if self.coordinator.data[self._ent][self._ed.targetTemperature_tag] == -32766:
+        if self.coordinator.data[self._ent][self._ed.target_temperature_tag] == -32766:
             return None
         return round(
-            self.coordinator.data[self._ent][self._ed.targetTemperature_tag] / 100,
+            self.coordinator.data[self._ent][self._ed.target_temperature_tag] / 100,
             1,
         )
 

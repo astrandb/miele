@@ -32,14 +32,13 @@ async def async_get_config_entry_diagnostics(
 
     device_data = {}
     action_data = {}
-    ino = 0
-    for val, key in enumerate(coordinator.data):
-        ino += 1
-        device_data[f"Appliance_{ino}"] = coordinator.data[key]
+
+    for ino, key in enumerate(coordinator.data):
+        device_data[f"Appliance_{ino+1}"] = coordinator.data[key]
         if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
-            action_data[f"Appliance_{ino}"] = hass.data[DOMAIN][config_entry.entry_id][
-                ACTIONS
-            ][key]
+            action_data[f"Appliance_{ino+1}"] = hass.data[DOMAIN][
+                config_entry.entry_id
+            ][ACTIONS][key]
 
     diagnostics_data = {
         "info": async_redact_data(config_entry.data, TO_REDACT),
@@ -67,7 +66,7 @@ async def async_get_device_diagnostics(
     action_data = {}
     program_data = {}
 
-    for val, key in enumerate(coordinator.data):
+    for key in coordinator.data:
         if ("miele", key) in device.identifiers:
             device_data = coordinator.data[key]
             if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:

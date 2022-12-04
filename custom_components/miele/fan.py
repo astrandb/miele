@@ -48,7 +48,7 @@ FAN_READ_ONLY = [HOB_INDUCT_EXTR]
 class MieleFanDescription(FanEntityDescription):
     """Class describing Miele fan entities."""
 
-    ventilationStep_tag: str | None = None
+    ventilation_step_tag: str | None = None
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     preset_modes: list | None = None
@@ -70,7 +70,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
         ],
         description=MieleFanDescription(
             key="fan",
-            ventilationStep_tag="state|ventilationStep|value_raw",
+            ventilation_step_tag="state|ventilationStep|value_raw",
             name="Fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
             supported_features=FanEntityFeature.SET_SPEED,
@@ -82,7 +82,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
         ],
         description=MieleFanDescription(
             key="fan",
-            ventilationStep_tag="state|ventilationStep|value_raw",
+            ventilation_step_tag="state|ventilationStep|value_raw",
             name="Fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
             supported_features=FanEntityFeature.SET_SPEED,
@@ -159,14 +159,14 @@ class MieleFan(CoordinatorEntity, FanEntity):
     def is_on(self):
         """Return current on/off state."""
         return (
-            self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+            self.coordinator.data[self._ent][self._ed.ventilation_step_tag]
             in self._ed.preset_modes
         )
 
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset_mode of the fan."""
-        pmode = self.coordinator.data[self._ent][self._ed.ventilationStep_tag]
+        pmode = self.coordinator.data[self._ent][self._ed.ventilation_step_tag]
         return None if pmode == 0 else pmode
 
     @property
@@ -179,7 +179,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
             SPEED_RANGE,
-            (self.coordinator.data[self._ent][self._ed.ventilationStep_tag] or 0),
+            (self.coordinator.data[self._ent][self._ed.ventilation_step_tag] or 0),
         )
 
     @property
@@ -216,7 +216,9 @@ class MieleFan(CoordinatorEntity, FanEntity):
         if preset_mode == 0:
             await self.async_turn_off()
         else:
-            self.coordinator.data[self._ent][self._ed.ventilationStep_tag] = preset_mode
+            self.coordinator.data[self._ent][
+                self._ed.ventilation_step_tag
+            ] = preset_mode
             await self.async_set_preset_mode(preset_mode)
             self.async_write_ha_state()
 
@@ -252,5 +254,5 @@ class MieleFan(CoordinatorEntity, FanEntity):
             await self._api.send_action(self._ent, {POWER_OFF: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
-        self.coordinator.data[self._ent][self._ed.ventilationStep_tag] = None
+        self.coordinator.data[self._ent][self._ed.ventilation_step_tag] = None
         self.async_write_ha_state()
