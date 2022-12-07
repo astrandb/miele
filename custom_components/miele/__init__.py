@@ -239,7 +239,7 @@ async def get_coordinator(
     async def async_fetch():
         miele_api = hass.data[DOMAIN][entry.entry_id][API]
         try:
-            async with async_timeout.timeout(10):
+            async with async_timeout.timeout(20):
                 res = await miele_api.request("GET", "/devices")
             if res.status == 401:
                 raise ConfigEntryAuthFailed("Authentication failure when fetching data")
