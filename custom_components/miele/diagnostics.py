@@ -75,7 +75,7 @@ async def async_get_device_diagnostics(
                     key, {}
                 )
             miele_api = hass.data[DOMAIN][config_entry.entry_id][API]
-            async with async_timeout.timeout(10):
+            async with async_timeout.timeout(20):
                 res = await miele_api.request("GET", f"/devices/{key}/programs")
             if res.status >= 300:
                 program_data = {"httpStatus": res.status}
