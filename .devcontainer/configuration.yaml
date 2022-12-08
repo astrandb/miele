@@ -4,6 +4,7 @@ logger:
   default: info
   logs:
     custom_components.miele: debug
+    pymiele: debug
 
 miele:
   client_id: !secret miele_client_id
