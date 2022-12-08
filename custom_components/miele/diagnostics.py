@@ -11,7 +11,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from .const import ACTIONS, API, DOMAIN
+from .const import ACTIONS, API, API_READ_TIMEOUT, DOMAIN, VERSION
 
 TO_REDACT = {
     CONF_PASSWORD,
@@ -33,7 +33,7 @@ async def async_get_config_entry_diagnostics(
     device_data = {}
     action_data = {}
     ino = 0
-    for val, key in enumerate(coordinator.data):
+    for key in coordinator.data:
         ino += 1
         device_data[f"Appliance_{ino}"] = coordinator.data[key]
         if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
@@ -67,7 +67,7 @@ async def async_get_device_diagnostics(
     action_data = {}
     program_data = {}
 
-    for val, key in enumerate(coordinator.data):
+    for key in coordinator.data:
         if ("miele", key) in device.identifiers:
             device_data = coordinator.data[key]
             if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
@@ -75,8 +75,12 @@ async def async_get_device_diagnostics(
                     key, {}
                 )
             miele_api = hass.data[DOMAIN][config_entry.entry_id][API]
-            async with async_timeout.timeout(10):
-                res = await miele_api.request("GET", f"/devices/{key}/programs")
+            async with async_timeout.timeout(API_READ_TIMEOUT):
+                res = await miele_api.request(
+                    "GET",
+                    f"/devices/{key}/programs",
+                    agent_suffix=f"Miele for Home Assistant/{VERSION}",
+                )
             if res.status >= 300:
                 program_data = {"httpStatus": res.status}
             else:

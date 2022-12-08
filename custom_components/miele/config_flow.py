@@ -20,6 +20,8 @@ class OAuth2FlowHandler(
 
     DOMAIN = DOMAIN
 
+    entry = None
+
     @property
     def logger(self) -> logging.Logger:
         """Return logger."""
@@ -39,7 +41,10 @@ class OAuth2FlowHandler(
         self.entry = entry
         persistent_notification.async_create(
             self.hass,
-            f"Miele integration for account {entry['auth_implementation']} needs to be re-authenticated. Please go to the integrations page to re-configure it.",
+            (
+                f"Miele integration for account {entry['auth_implementation']} needs to ",
+                "be re-authenticated. Please go to the integrations page to re-configure it.",
+            ),
             "Miele re-authentication",
             "miele_reauth",
         )
