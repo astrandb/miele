@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import logging
-from typing import Any, Callable, Final, Optional
+from typing import Any, Callable, Final
 
 import aiohttp
 from homeassistant.components.light import LightEntity, LightEntityDescription
@@ -164,9 +164,6 @@ class MieleLight(CoordinatorEntity, LightEntity):
 
     async def async_turn_on(
         self,
-        speed: Optional[str] = None,
-        percentage: Optional[int] = None,
-        preset_mode: Optional[str] = None,
         **kwargs: Any,
     ) -> None:
         """Turn on the light."""
