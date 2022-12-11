@@ -206,8 +206,8 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             self._attr_min_temp = self._eid[ACTIONS][self._ent][TARGET_TEMPERATURE][
                 self._ed.zone
             ]["min"]
-            _LOGGER.debug("Could not retreive min_target_temp %s from API", name)
         except KeyError:
+            _LOGGER.debug("Could not retreive min_target_temp %s from API", name)
             self._attr_min_temp = None
 
         self._attr_target_temperature_step = self._ed.target_temperature_step
