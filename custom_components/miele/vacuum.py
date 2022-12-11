@@ -187,6 +187,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def status(self):
+        """Map status text."""
         if self._phase == 5892:
             return "Going to target area"
         if self._phase == 5893:
@@ -195,6 +196,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def error(self):
+        """Map error message."""
         return "Dummy error message"
 
     @property
@@ -311,11 +313,11 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
-    async def async_set_fan_speed(self, **kwargs):
+    async def async_set_fan_speed(self, fan_speed: str, **kwargs):
         _LOGGER.debug("set_fan_speed -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(
-                self._ent, {PROGRAM_ID: PPROGRAM_MAP[kwargs["fan_speed"]]}
+                self._ent, {PROGRAM_ID: PPROGRAM_MAP[fan_speed]}
             )
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Set fan speed: %s - %s", ex.status, ex.message)
