@@ -148,6 +148,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     hass.data[DOMAIN][entry.entry_id] = {}
     hass.data[DOMAIN]["id_log"] = []
+    hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
     hass.data[DOMAIN][entry.entry_id]["listener"] = None
     hass.data[DOMAIN][entry.entry_id][API] = AsyncConfigEntryAuth(
         aiohttp_client.async_get_clientsession(hass), session
@@ -250,12 +251,21 @@ async def get_coordinator(
                     agent_suffix=f"Miele for Home Assistant/{VERSION}",
                 )
             if res.status == 401:
-                raise ConfigEntryAuthFailed("Authentication failure when fetching data")
+                hass.data[DOMAIN][entry.entry_id]["retries_401"] += 1
+                if hass.data[DOMAIN][entry.entry_id]["retries_401"] == 5:
+                    raise ConfigEntryAuthFailed(
+                        "Authentication failure when fetching data"
+                    )
+                else:
+                    raise UpdateFailed(
+                        f"HTTP status 401: {hass.data[DOMAIN][entry.entry_id]['retries_401']}"
+                    )
             result = await res.json()
         except JSONDecodeError as error:
             _LOGGER.warning("Could not decode json from coordinator fetch")
             raise UpdateFailed(error) from error
 
+        hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
         # result["1223007"] = TEST_DATA_7
