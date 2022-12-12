@@ -6,9 +6,5 @@ logger:
     custom_components.miele: debug
     pymiele: debug
 
-miele:
-  client_id: !secret miele_client_id
-  client_secret: !secret miele_secret
-
 # If you need to debug uncomment the line below (doc: https://www.home-assistant.io/integrations/debugpy/)
 debugpy:

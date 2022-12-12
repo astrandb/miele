@@ -11,7 +11,7 @@ Read more on design philosophy etc in the [Wiki](https://github.com/astrandb/mie
 
 ## Installation
 
-Make sure you have the credentials available for your account with Miele cloud. You have to register on https://www.miele.com/developer/
+Make sure you have the app credentials available for your account with Miele cloud. You have to register on https://www.miele.com/developer/.
 If you have an existing integration with the name "miele" you are recommended to remove it before attemping to install this one.
 
 ### Preferred download method
@@ -26,18 +26,10 @@ If you have an existing integration with the name "miele" you are recommended to
 
 ### Setup
 
-Request a client_id and client_secret from the manufacturer and
-enter following lines to `configuration.yaml`
+Goto `Integrations` > `Add Integration` and select `Miele`. Sometimes you must refresh the browser cache to find the integration.
 
-```yaml
-miele:
-  client_id: your_client_id
-  client_secret: your_client_secret
-```
-
-Goto Integrations->Add and select Miele. Sometimes you must refresh the browser cache to find the integration.
-
-Follow instructions to authenticate with Miele cloud server. Allow full access for Home Assistant client.
+Follow instructions to authenticate with Miele cloud server. First, you'll provide the app credentials acquired at https://www.miele.com/developer/.
+Next, you'll sign in using your Miele account. Allow full access for the Home Assistant client.
 
 ### Wiki - Documentation
 

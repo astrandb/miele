@@ -65,7 +65,7 @@ class OAuth2FlowHandler(
         persistent_notification.async_dismiss(self.hass, "miele_reauth")
         return await self.async_step_user()
 
-    async def async_oauth_create_entry(self, data: dict) -> dict:
+    async def async_oauth_create_entry(self, data: dict) -> FlowResult:
         """Create an oauth config entry or update existing entry for reauth."""
         existing_entry = await self.async_set_unique_id(DOMAIN)
         if existing_entry:
