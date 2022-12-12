@@ -26,7 +26,7 @@
     "info": {
       "reach_miele_cloud": "Kan nå Miele cloud",
       "component_version": "Versjon",
-      "connected2stream": "Tilkoblet signalr"
+      "pymiele_version": "Pymiele lib version"
     }
   }
 }

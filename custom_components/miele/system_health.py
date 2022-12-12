@@ -1,7 +1,7 @@
 """Provide info to system health."""
 from homeassistant.components import system_health
 from homeassistant.core import HomeAssistant, callback
-from pymiele import MIELE_API
+from pymiele import MIELE_API, VERSION as lib_version
 
 from .const import VERSION
 
@@ -16,10 +16,9 @@ def async_register(
 
 async def system_health_info(hass):
     """Get info for the info page."""
-    # client = hass.data[DOMAIN]
 
     return {
         "component_version": VERSION,
+        "pymiele_version": lib_version,
         "reach_miele_cloud": system_health.async_check_can_reach_url(hass, MIELE_API),
-        # "connected2stream": client["controller"].sr_is_connected(),
     }

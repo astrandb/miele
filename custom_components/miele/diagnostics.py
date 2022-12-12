@@ -32,14 +32,12 @@ async def async_get_config_entry_diagnostics(
 
     device_data = {}
     action_data = {}
-    ino = 0
-    for key in coordinator.data:
-        ino += 1
-        device_data[f"Appliance_{ino}"] = coordinator.data[key]
+    for ino, key in coordinator.data:
+        device_data[f"Appliance_{ino+1}"] = coordinator.data[key]
         if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
-            action_data[f"Appliance_{ino}"] = hass.data[DOMAIN][config_entry.entry_id][
-                ACTIONS
-            ][key]
+            action_data[f"Appliance_{ino+1}"] = hass.data[DOMAIN][
+                config_entry.entry_id
+            ][ACTIONS][key]
 
     diagnostics_data = {
         "info": async_redact_data(config_entry.data, TO_REDACT),

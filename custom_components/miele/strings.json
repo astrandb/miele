@@ -26,7 +26,7 @@
     "info": {
       "reach_miele_cloud": "Reach Miele Cloud",
       "component_version": "Version",
-      "connected2stream": "Connected to signalr"
+      "library_version": "Pymiele lib version"
     }
   }
 }
