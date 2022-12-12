@@ -12,6 +12,7 @@ from homeassistant.helpers.service import async_extract_config_entry_ids
 import voluptuous as vol
 
 from .const import (
+    ALL_MODES,
     AMBIENT_COLORS,
     API,
     COLORS,
@@ -32,6 +33,12 @@ from .const import (
 SERVICE_PROCESS_ACTION = cv.make_entity_service_schema(
     {
         vol.Required("action"): vol.In(PROCESS_ACTIONS),
+    },
+)
+
+SERVICE_MODES = cv.make_entity_service_schema(
+    {
+        vol.Required("mode"): vol.In(ALL_MODES),
     },
 )
 
@@ -124,7 +131,32 @@ async def async_setup_services(hass: HomeAssistant) -> None:
                 await _api.send_action(serno, {PROCESS_ACTION: act})
             except aiohttp.ClientResponseError as ex:
                 raise HomeAssistantError(
-                    f"Service generic_action: {ex.status} {ex.message}"
+                    f"Service process_action: {ex.status} {ex.message}"
+                )
+        return
+
+    async def send_modes_action(call: ServiceCall):
+        _LOGGER.debug("Call: %s", call)
+        if not (our_entry_ids := await extract_our_config_entry_ids(call)):
+            raise HomeAssistantError(
+                "Failed to call service 'modes'. Config entry for target not found"
+            )
+        _LOGGER.debug("Entries: %s", our_entry_ids)
+        device_reg = device_registry.async_get(hass)
+        for ent in call.data[CONF_DEVICE_ID]:
+            device_entry = device_reg.async_get(ent)
+            for ident in device_entry.identifiers:
+                for val in ident:
+                    if val != DOMAIN:
+                        serno = val
+
+            _api = hass.data[DOMAIN][our_entry_ids[0]][API]
+            act = ALL_MODES[call.data["mode"]]
+            try:
+                await _api.send_action(serno, {MODES: act})
+            except aiohttp.ClientResponseError as ex:
+                raise HomeAssistantError(
+                    f"Service modes_action: {ex.status} {ex.message}"
                 )
         return
 
@@ -206,6 +238,9 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
     hass.services.async_register(
         DOMAIN, "process_action", send_process_action, SERVICE_PROCESS_ACTION
+    )
+    hass.services.async_register(
+        DOMAIN, "modes_action", send_modes_action, SERVICE_MODES
     )
     hass.services.async_register(
         DOMAIN, "generic_action", send_generic_action, SERVICE_GENERIC_ACTION

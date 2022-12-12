@@ -325,5 +325,13 @@ AMBIENT_COLORS = {
     "turquoise",
 }
 
+# ALL_MODES = (0, 1, 2, 3)
+ALL_MODES = {
+    "mode_normal": 0,
+    "mode_sabbath": 1,
+    "mode_2": 2,
+    "mode_3": 3,
+}
+
 ACTIONS = "actions"
 API = "api"

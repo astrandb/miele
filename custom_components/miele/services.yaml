@@ -3,37 +3,75 @@
 process_action:
   name: Execute process action
   description: Executes process action if preconditions are met.
-  # If the service accepts entity IDs, target allows the user to specify entities by entity, device, or area.
-  # If `target` is specified, `entity_id` should not be defined in the `fields` map.
-  # By default it shows only targets matching entities from the same domain as the service,
-  # but if further customization is required, target supports the entity, device, and area selectors (https://www.home-assistant.io/docs/blueprint/selectors/).
-  # Entity selector parameters will automatically be applied to device and area, and device selector parameters will automatically be applied to area.
-  target:
-    device:
-      integration: "miele"
 
   fields:
+    device_id:
+      name: Target device
+      description: "Select the device to control"
+      required: true
+      example: "abcdef12345"
+      selector:
+        device:
+          integration: "miele"
     action:
       # Field name as shown in UI
       name: Action
-      description: processAction
+      description: Select desired processAction command
       required: true
       advanced: false
       # Example value that can be passed for this field
       example: "start"
       # The default field value
       default: ""
-      # Selector (https://www.home-assistant.io/docs/blueprint/selectors/) to control the input UI for this field
       selector:
         select:
           options:
-            - "start"
-            - "stop"
-            - "pause"
-            - "start_superfreezing"
-            - "stop_superfreezing"
-            - "start_supercooling"
-            - "stop_supercooling"
+            - value: "start"
+              label: "Start"
+            - value: "stop"
+              label: "Stop"
+            - value: "pause"
+              label: "Pause"
+            - value: "start_superfreezing"
+              label: "Start superfreezing"
+            - value: "stop_superfreezing"
+              label: "Stop superfreezing"
+            - value: "start_supercooling"
+              label: "Start supercooling"
+            - value: "stop_supercooling"
+              label: "Stop supercooling"
+
+modes_action:
+  name: Execute set mode action
+  description: Executes set mode action if preconditions are met.
+
+  fields:
+    device_id:
+      name: Target device
+      description: "Select the device to control"
+      required: true
+      example: "abcdef12345"
+      selector:
+        device:
+          integration: "miele"
+    mode:
+      # Field name as shown in UI
+      name: Mode
+      description: Select desired modes command
+      required: true
+      advanced: false
+      example: 0
+      selector:
+        select:
+          options:
+            - value: "mode_normal"
+              label: "Normal mode"
+            - value: "mode_sabbath"
+              label: "Sabbath mode"
+            - value: "mode_2"
+              label: "Mode 2"
+            - value: "mode_3"
+              label: "Mode 3"
 
 generic_action:
   name: Execute generic action
