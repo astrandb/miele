@@ -32,7 +32,7 @@ async def async_get_config_entry_diagnostics(
 
     device_data = {}
     action_data = {}
-    for ino, key in coordinator.data:
+    for ino, key in enumerate(coordinator.data):
         device_data[f"Appliance_{ino+1}"] = coordinator.data[key]
         if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
             action_data[f"Appliance_{ino+1}"] = hass.data[DOMAIN][
