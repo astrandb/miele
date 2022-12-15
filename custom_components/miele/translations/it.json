@@ -26,7 +26,7 @@
       "info": {
         "reach_miele_cloud": "Raggiunto il cloud Miele",
         "component_version": "Versione",
-        "connected2stream": "Connected to signalr"
+        "connected2stream": "Connesso a signalr"
       }
     }
   }
