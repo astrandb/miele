@@ -11,18 +11,18 @@ from aiohttp import ClientResponseError
 import async_timeout
 import flatdict
 from homeassistant.components import persistent_notification
+from homeassistant.components.application_credentials import (
+    ClientCredential,
+    async_import_client_credential,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import aiohttp_client
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.config_entry_oauth2_flow import (
-    async_get_config_entry_implementation,
     OAuth2Session,
-)
-from homeassistant.components.application_credentials import (
-    async_import_client_credential,
-    ClientCredential,
+    async_get_config_entry_implementation,
 )
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
@@ -253,8 +253,14 @@ async def get_coordinator(
         # result["1223024"] = TEST_DATA_24
         # result["1223074"] = TEST_DATA_74
 
-        for ent in result:
-            flat_result[ent] = dict(flatdict.FlatterDict(result[ent], delimiter="|"))
+        try:
+            for ent in result:
+                flat_result[ent] = dict(
+                    flatdict.FlatterDict(result[ent], delimiter="|")
+                )
+        except TypeError as ex:
+            raise UpdateFailed(ex) from ex
+
         # _LOGGER.debug("Data: %s", flat_result)
         return flat_result
 
