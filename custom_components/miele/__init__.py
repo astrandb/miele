@@ -116,12 +116,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         await session.async_ensure_token_valid()
     except ClientResponseError as ex:
         _LOGGER.debug("API error: %s (%s)", ex.code, ex.message)
-        if ex.code in (
-            HTTPStatus.BAD_REQUEST,
-            HTTPStatus.UNAUTHORIZED,
-            HTTPStatus.FORBIDDEN,
-        ):
-            raise ConfigEntryAuthFailed("Token not valid, trigger renewal") from ex
+        if ex.code in (HTTPStatus.UNAUTHORIZED,):
+            raise ConfigEntryAuthFailed(
+                f"Token not valid, trigger renewal: {ex}"
+            ) from ex
         raise ConfigEntryNotReady from ex
 
     hass.data[DOMAIN][entry.entry_id] = {}
