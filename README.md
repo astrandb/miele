@@ -26,15 +26,6 @@ If you have an existing integration with the name "miele" you are recommended to
 
 ### Setup
 
-Request a client_id and client_secret from the manufacturer and
-enter following lines to `configuration.yaml`
-
-```yaml
-miele:
-  client_id: your_client_id
-  client_secret: your_client_secret
-```
-
 Goto `Integrations` > `Add Integration` and select `Miele`. Sometimes you must refresh the browser cache to find the integration.
 
 Follow instructions to authenticate with Miele cloud server. First, you'll provide the app credentials acquired at https://www.miele.com/developer/.
