@@ -1,0 +1,32 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "L'account è già stato configurato",
+            "already_in_progress": "Configurazione già in corso",
+            "authorize_url_timeout": "Timeout nel generare l'URL di autorizzazione.",
+            "missing_configuration": "Il componente non è stato configurato. Segui la guida.",
+            "no_url_available": "Nessun URL disponibile. Per ulteriori informazioni riguardo questo errore, [controlla la sezione aiuto]({docs_url})",
+            "oauth_error": "I dati del token ricevuti non sono validi.",
+            "reauth_successful": "Ri-autenticazione avvenuta con successo"
+        },
+        "create_entry": {
+            "default": "Autenticato con successo"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Scegli un metodo di autenticazione"
+            },
+            "reauth_confirm": {
+              "title": "Ri-autentica l'integrazione",
+              "description": "L'integrazione Miele ha bisogno di ri-autenticare il tuo account: {account}"
+            }
+        }
+    }    ,
+    "system_health": {
+      "info": {
+        "reach_miele_cloud": "Raggiunto il cloud Miele",
+        "component_version": "Versione",
+        "connected2stream": "Connected to signalr"
+      }
+    }
+  }
