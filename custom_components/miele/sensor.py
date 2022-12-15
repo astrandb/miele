@@ -645,7 +645,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             icon="mdi:thermometer-check",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-            state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
