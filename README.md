@@ -3,7 +3,7 @@
 # Miele Integration for Home Assistant
 
 
-The capabilities are based on Miele API version 1.0.5. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some devices lack support and some devices support features that are not marked.
+The capabilities are based on Miele API version 1.0.6. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some devices lack support and some devices support features that are not marked.
 
 All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers, refridgerators, dishwashers and washer/dryers will have a more complete support. Changes on the appliances will be pushed to HA and displayed immediately. As a backup the status is read from the cloud every 60 seconds.
 
