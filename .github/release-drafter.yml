@@ -45,3 +45,6 @@ autolabeler:
   - label: "code quality"
     title: 
       - "lint"
+  - label: "translation"
+    files:
+      - "*/translations/*.json"
