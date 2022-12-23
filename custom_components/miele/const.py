@@ -270,6 +270,31 @@ ROBOT_VACUUM_CLEANER_PROGRAM_ID = {
     3: "turbo",
     4: "silent",
 }
+COFFEE_SYSTEM_PROGRAM_ID = {
+    -1: "no_program",  # Extrapolated from other device types
+    0: "no_program",  # Extrapolated from other device types
+    17004: "check_appliance",
+    24000: "ristretto",
+    24001: "espresso",
+    24032: "ristretto",
+    24033: "espresso",
+    24049: "black_tea",
+    24064: "ristretto",
+    24065: "espresso",
+    24081: "black_tea",
+    24096: "ristretto",
+    24097: "espresso",
+    24113: "black_tea",
+    24128: "ristretto",
+    24129: "espresso",
+    24145: "black_tea",
+    24750: "appliance_rinse",
+    24754: "milk_pipework_rinse",
+    24759: "appliance_rinse",
+    24773: "appliance_rinse",
+    24787: "appliance_rinse",
+    24789: "milk_pipework_clean",
+}
 
 STATE_PROGRAM_ID = {
     WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
@@ -278,6 +303,7 @@ STATE_PROGRAM_ID = {
     OVEN: OVEN_PROGRAM_ID,
     WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
     ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
+    COFFEE_SYSTEM: COFFEE_SYSTEM_PROGRAM_ID,
 }
 
 COLORS = "colors"
