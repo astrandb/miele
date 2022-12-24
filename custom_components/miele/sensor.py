@@ -174,6 +174,22 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             WASHING_MACHINE,
+            WASHER_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="targetTemperature",
+            data_tag="state|targetTemperature|0|value_raw",
+            device_class=SensorDeviceClass.TEMPERATURE,
+            name="Temperature",
+            native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            decimals=0,
+            convert=lambda x, t: int(x / 100),
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
             OVEN,
             OVEN_MICROWAVE,
             STEAM_OVEN,
@@ -203,7 +219,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     ),
     MieleSensorDefinition(
         types=[
-            WASHING_MACHINE,
             OVEN,
             OVEN_MICROWAVE,
             STEAM_OVEN,
@@ -234,7 +249,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     ),
     MieleSensorDefinition(
         types=[
-            WASHING_MACHINE,
             OVEN,
             OVEN_MICROWAVE,
             STEAM_OVEN,
