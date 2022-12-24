@@ -59,26 +59,44 @@ APPLIANCE_TYPES = {
     HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 
+STATE_STATUS_OFF = 1
+STATE_STATUS_ON = 2
+STATE_STATUS_PROGRAMMED = 3
+STATE_STATUS_WAITING_TO_START = 4
+STATE_STATUS_RUNNING = 5
+STATE_STATUS_PAUSE = 6
+STATE_STATUS_PROGRAM_ENDED = 7
+STATE_STATUS_FAILURE = 8
+STATE_STATUS_PROGRAM_INTERRUPTED = 9
+STATE_STATUS_IDLE = 10
+STATE_STATUS_RINSE_HOLD = 11
+STATE_STATUS_SERVICE = 12
+STATE_STATUS_SUPERFREEZING = 13
+STATE_STATUS_SUPERCOOLING = 14
+STATE_STATUS_SUPERHEATING = 15
+STATE_STATUS_SUPERCOOLING_SUPERFREEZING = 146
+STATE_STATUS_NOT_CONNECTED = 255
+
 # Define various states
 STATE_STATUS = {
     0: "reserved",
-    1: "off",
-    2: "on",
-    3: "programmed",
-    4: "waiting_to_start",
-    5: "running",
-    6: "pause",
-    7: "program_ended",
-    8: "failure",
-    9: "program_interrupted",
-    10: "idle",
-    11: "rinse_hold",
-    12: "service",
-    13: "superfreezing",
-    14: "supercooling",
-    15: "superheating",
-    146: "supercooling_superfreezing",
-    255: "not_connected",
+    STATE_STATUS_OFF: "off",
+    STATE_STATUS_ON: "on",
+    STATE_STATUS_PROGRAMMED: "programmed",
+    STATE_STATUS_WAITING_TO_START: "waiting_to_start",
+    STATE_STATUS_RUNNING: "running",
+    STATE_STATUS_PAUSE: "pause",
+    STATE_STATUS_PROGRAM_ENDED: "program_ended",
+    STATE_STATUS_FAILURE: "failure",
+    STATE_STATUS_PROGRAM_INTERRUPTED: "program_interrupted",
+    STATE_STATUS_IDLE: "idle",
+    STATE_STATUS_RINSE_HOLD: "rinse_hold",
+    STATE_STATUS_SERVICE: "service",
+    STATE_STATUS_SUPERFREEZING: "superfreezing",
+    STATE_STATUS_SUPERCOOLING: "supercooling",
+    STATE_STATUS_SUPERHEATING: "superheating",
+    STATE_STATUS_SUPERCOOLING_SUPERFREEZING: "supercooling_superfreezing",
+    STATE_STATUS_NOT_CONNECTED: "not_connected",
 }
 
 STATE_PROGRAM_TYPE = {
