@@ -149,6 +149,9 @@ STATE_PROGRAM_PHASE = {
     1799: "drying",
     1800: "finished",
     1801: "pre_dishwash",
+    # Coffee system
+    4353: "espresso",
+    4405: "rinse",
     # Robot vacuum cleaner
     5889: "cleaning",
     5890: "returning",
