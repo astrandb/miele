@@ -288,6 +288,7 @@ STATE_DRYING_STEP = {
     4: "hand_iron_1",
     5: "hand_iron_2",
     6: "machine_iron",
+    7: "smoothing",
 }
 
 COLORS = "colors"

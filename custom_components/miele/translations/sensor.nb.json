@@ -141,6 +141,7 @@
       "wheel_lifted": "Wheel lifted"
     },
     "miele__state_drying_step": {
+      "smoothing": "Glatter ut",
       "machine_iron": "Maskinstryking",
       "hand_iron_1": "Handstryking 1",
       "hand_iron_2": "Handstryking 2",

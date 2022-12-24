@@ -141,6 +141,7 @@
       "wheel_lifted": "Wheel lifted"
     },
     "miele__state_drying_step": {
+      "smoothing": "Gladstrijken",
       "machine_iron": "Machine gestreken",
       "hand_iron_1": "Handgestreken 1",
       "hand_iron_2": "Handgestreken 2",

@@ -141,6 +141,7 @@
       "wheel_lifted": "Wheel lifted"
     },
     "miele__state_drying_step": {
+      "smoothing": "Glätten",
       "machine_iron": "Mangelfeucht",
       "hand_iron_1": "Bügelfeucht 1",
       "hand_iron_2": "Bügelfeucht 2",
