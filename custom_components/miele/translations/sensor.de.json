@@ -139,6 +139,15 @@
       "returning": "Returning",
       "going_to_target_area": "Going to target area",
       "wheel_lifted": "Wheel lifted"
+    },
+    "miele__state_drying_step": {
+      "machine_iron": "Mangelfeucht",
+      "hand_iron_1": "Bügelfeucht 1",
+      "hand_iron_2": "Bügelfeucht 2",
+      "slightly_dry": "Leichttrocken",
+      "normal": "Schranktrocken",
+      "normal_plus": "Schranktrocken +",
+      "extra_dry": "Extratrocken"
     }
   }
 }

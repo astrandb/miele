@@ -139,6 +139,15 @@
       "returning": "Returning",
       "going_to_target_area": "Going to target area",
       "wheel_lifted": "Wheel lifted"
+    },
+    "miele__state_drying_step": {
+      "machine_iron": "Maskinstryking",
+      "hand_iron_1": "Handstryking 1",
+      "hand_iron_2": "Handstryking 2",
+      "slightly_dry": "Trommeltørt",
+      "normal": "Normal",
+      "normal_plus": "Normal Plus",
+      "extra_dry": "Ekstra tørt"
     }
   }
 }

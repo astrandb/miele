@@ -139,6 +139,15 @@
       "returning": "Återvänder",
       "going_to_target_area": "Går till område",
       "wheel_lifted": "Hjul upplyft"
+    },
+    "miele__state_drying_step": {
+      "machine_iron": "Maskinstykning",
+      "hand_iron_1": "Handstrykning 1",
+      "hand_iron_2": "Handstrykning 2",
+      "slightly_dry": "Slightly dry",
+      "normal": "Normal",
+      "normal_plus": "Normal Plus",
+      "extra_dry": "Extra torrt"
     }
   }
 }

@@ -280,6 +280,16 @@ STATE_PROGRAM_ID = {
     ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
 }
 
+STATE_DRYING_STEP = {
+    0: "extra_dry",
+    1: "normal_plus",
+    2: "normal",
+    3: "slightly_dry",
+    4: "hand_iron_1",
+    5: "hand_iron_2",
+    6: "machine_iron",
+}
+
 COLORS = "colors"
 DEVICE_NAME = "deviceName"
 LIGHT = "light"
