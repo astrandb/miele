@@ -180,7 +180,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature",
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature",
+            name="Target temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -785,7 +785,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         if _LOGGER.getEffectiveLevel() <= logging.INFO:
             if self.entity_description.key in {
                 "stateProgramPhase",
-                "stateProgramID",
+                "stateProgramId",
                 "stateProgramType",
             }:
                 while len(self.hass.data[DOMAIN]["id_log"]) >= 500:
