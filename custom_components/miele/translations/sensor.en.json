@@ -23,7 +23,8 @@
       "normal_operation_mode": "Normal operation mode",
       "own_program": "Own program",
       "automatic_program": "Automatic program",
-      "cleaning_care_program": "Cleaning/care program"
+      "cleaning_care_program": "Cleaning/care program",
+      "maintainance_program": "Maintainance program"
     },
     "miele__state_program_id": {
       "no_program": "No program",

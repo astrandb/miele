@@ -86,7 +86,7 @@ STATE_PROGRAM_TYPE = {
     1: "own_program",
     2: "automatic_program",
     3: "cleaning_care_program",
-    4: "cleaning_care_program",  # used by washer-dryer
+    4: "maintainance_program",
 }
 
 STATE_PROGRAM_PHASE = {
@@ -150,6 +150,7 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Coffee system
+    4352: "not_running",
     4353: "espresso",
     4405: "rinse",
     # Robot vacuum cleaner
@@ -296,6 +297,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24759: "appliance_rinse",
     24773: "appliance_rinse",
     24787: "appliance_rinse",
+    24788: "appliance_rinse",
     24789: "milk_pipework_clean",
 }
 

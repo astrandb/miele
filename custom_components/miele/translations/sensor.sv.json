@@ -23,7 +23,8 @@
       "normal_operation_mode": "Normalläge",
       "own_program": "Eget program",
       "automatic_program": "Automatiskt program",
-      "cleaning_care_program": "Rengöringsprogram"
+      "cleaning_care_program": "Rengöringsprogram",
+      "maintainance_program": "Maintainance program"
     },
     "miele__state_program_id": {
       "no_program": "Inget program",

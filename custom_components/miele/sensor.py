@@ -342,6 +342,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
+            COFFEE_SYSTEM,
         ],
         description=MieleSensorDescription(
             key="stateProgramType",
