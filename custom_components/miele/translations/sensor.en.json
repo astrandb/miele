@@ -140,6 +140,16 @@
       "going_to_target_area": "Going to target area",
       "wheel_lifted": "Wheel lifted",
       "not_charging": "Not charging"
+    },
+    "miele__state_drying_step": {
+      "smoothing": "Smoothing",
+      "machine_iron": "Machine iron",
+      "hand_iron_1": "Hand iron 1",
+      "hand_iron_2": "Hand iron 2",
+      "slightly_dry": "Slightly dry",
+      "normal": "Normal",
+      "normal_plus": "Normal Plus",
+      "extra_dry": "Extra dry"
     }
   }
 }

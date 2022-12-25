@@ -140,6 +140,16 @@
       "going_to_target_area": "Going to target area",
       "wheel_lifted": "Wheel lifted",
       "not_charging": "Not charging"
+    },
+    "miele__state_drying_step": {
+      "smoothing": "Glätten",
+      "machine_iron": "Mangelfeucht",
+      "hand_iron_1": "Bügelfeucht 1",
+      "hand_iron_2": "Bügelfeucht 2",
+      "slightly_dry": "Leichttrocken",
+      "normal": "Schranktrocken",
+      "normal_plus": "Schranktrocken +",
+      "extra_dry": "Extratrocken"
     }
   }
 }
