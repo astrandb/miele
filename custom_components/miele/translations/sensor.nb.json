@@ -138,7 +138,8 @@
       "cleaning": "Cleaning",
       "returning": "Returning",
       "going_to_target_area": "Going to target area",
-      "wheel_lifted": "Wheel lifted"
+      "wheel_lifted": "Wheel lifted",
+      "not_charging": "Not charging"
     }
   }
 }
