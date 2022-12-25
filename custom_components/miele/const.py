@@ -329,8 +329,8 @@ AMBIENT_COLORS = {
 ALL_MODES = {
     "mode_normal": 0,
     "mode_sabbath": 1,
-    "mode_2": 2,
-    "mode_3": 3,
+    "mode_party": 2,
+    "mode_holiday": 3,
 }
 
 ACTIONS = "actions"

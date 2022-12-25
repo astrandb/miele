@@ -68,10 +68,10 @@ modes_action:
               label: "Normal mode"
             - value: "mode_sabbath"
               label: "Sabbath mode"
-            - value: "mode_2"
-              label: "Mode 2"
-            - value: "mode_3"
-              label: "Mode 3"
+            - value: "mode_party"
+              label: "Party mode"
+            - value: "mode_holiday"
+              label: "Holiday mode"
 
 generic_action:
   name: Execute generic action
