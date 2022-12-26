@@ -183,7 +183,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             device_class=SensorDeviceClass.TEMPERATURE,
             name="Target temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-            state_class=SensorStateClass.MEASUREMENT,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: int(x / 100.0),
         ),
