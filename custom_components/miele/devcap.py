@@ -117,7 +117,7 @@ TEST_DATA_1 = {
         "remainingTime": [0, 0],
         "startTime": [0, 0],
         "targetTemperature": [
-            {"value_raw": -32766, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": 6000, "value_localized": None, "unit": "Celsius"},
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
         ],
