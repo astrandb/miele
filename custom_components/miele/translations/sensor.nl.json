@@ -165,7 +165,18 @@
       "cleaning": "Cleaning",
       "returning": "Returning",
       "going_to_target_area": "Going to target area",
-      "wheel_lifted": "Wheel lifted"
+      "wheel_lifted": "Wheel lifted",
+      "not_charging": "Not charging"
+    },
+    "miele__state_drying_step": {
+      "smoothing": "Gladstrijken",
+      "machine_iron": "Machine gestreken",
+      "hand_iron_1": "Handgestreken 1",
+      "hand_iron_2": "Handgestreken 2",
+      "slightly_dry": "Lichtelijk droog",
+      "normal": "Kastdroog",
+      "normal_plus": "Kastdroog Plus",
+      "extra_dry": "Extra droog"
     }
   }
 }

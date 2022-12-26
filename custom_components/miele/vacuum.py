@@ -216,14 +216,14 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     def fan_speed(self):
         if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
             return "normal"
-        elif self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SPOT:
+        elif self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SPOT:
             return "normal"
         elif (
-            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_TURBO
+            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO
         ):
             return "turbo"
         elif (
-            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SILENT
+            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SILENT
         ):
             return "silent"
         return None
