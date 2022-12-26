@@ -216,34 +216,17 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     def fan_speed(self):
         if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
             return "normal"
-        elif self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SPOT:
+        elif self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SPOT:
             return "normal"
         elif (
-            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_TURBO
+            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO
         ):
             return "turbo"
         elif (
-            self.coordinator.data[self._ent]["state|ProgramId|value_raw"] == PROG_SILENT
+            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SILENT
         ):
             return "silent"
         return None
-
-    # @property
-    # def is_on(self):
-    #     """Return the state of the vacuum."""
-    #     if self.entity_description.key in {"supercooling", "superfreezing"}:
-    #         return (
-    #             self.coordinator.data[self._ent][self.entity_description.data_tag]
-    #             == self.entity_description.on_value
-    #         )
-
-    #     elif self.entity_description.key in {"poweronoff"}:
-    #         power_data = (
-    #             self._api_data.get(ACTIONS, {}).get(self._ent, {}).get(POWER_OFF, True)
-    #         )
-    #         return power_data
-
-    #     return False
 
     @property
     def available(self):

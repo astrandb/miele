@@ -50,6 +50,7 @@ from .const import (
     STATE_PROGRAM_ID,
     STATE_PROGRAM_PHASE,
     STATE_PROGRAM_TYPE,
+    STATE_DRYING_STEP,
     STATE_STATUS,
     STATE_STATUS_IDLE,
     STATE_STATUS_NOT_CONNECTED,
@@ -74,14 +75,13 @@ _LOGGER = logging.getLogger(__name__)
 
 @dataclass
 class MieleSensorDescription(SensorEntityDescription):
-    """Class describing Weatherlink sensor entities."""
+    """Class describing Miele sensor entities."""
 
     data_tag: str | None = None
     data_tag1: str | None = None
     data_tag_loc: str | None = None
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
-    decimals: int = 1
     extra_attributes: dict[str, Any] | None = None
 
 
@@ -399,6 +399,23 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Spin speed",
             icon="mdi:sync",
             native_unit_of_measurement="rpm",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
+    MieleSensorDefinition(
+        types=[
+            WASHER_DRYER,
+            TUMBLE_DRYER,
+        ],
+        description=MieleSensorDescription(
+            key="stateDryingStep",
+            data_tag="state|dryingStep|value_raw",
+            data_tag_loc="state|dryingStep|value_localized",
+            name="Drying step",
+            device_class="miele__state_drying_step",
+            icon="mdi:water-outline",
+            convert=lambda x, t: STATE_DRYING_STEP.get(x, x),
+            extra_attributes={"Raw value": 0},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
