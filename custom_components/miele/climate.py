@@ -35,7 +35,6 @@ class MieleClimateDescription(ClimateEntityDescription):
     target_temperature_tag: str | None = None
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
-    decimals: int = 1
     temperature_unit: str = None
     precision: float | None = None
     max_temp: float | None = None

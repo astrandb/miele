@@ -69,14 +69,13 @@ _LOGGER = logging.getLogger(__name__)
 
 @dataclass
 class MieleSensorDescription(SensorEntityDescription):
-    """Class describing Weatherlink sensor entities."""
+    """Class describing Miele sensor entities."""
 
     data_tag: str | None = None
     data_tag1: str | None = None
     data_tag_loc: str | None = None
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
-    decimals: int = 1
     extra_attributes: dict[str, Any] | None = None
 
 
