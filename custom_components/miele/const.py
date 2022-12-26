@@ -154,6 +154,7 @@ STATE_PROGRAM_PHASE = {
     5890: "returning",
     5892: "going_to_target_area",
     5893: "wheel_lifted",
+    5899: "not_charging",
     5904: "docked",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
@@ -278,6 +279,17 @@ STATE_PROGRAM_ID = {
     OVEN: OVEN_PROGRAM_ID,
     WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
     ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
+}
+
+STATE_DRYING_STEP = {
+    0: "extra_dry",
+    1: "normal_plus",
+    2: "normal",
+    3: "slightly_dry",
+    4: "hand_iron_1",
+    5: "hand_iron_2",
+    6: "machine_iron",
+    7: "smoothing",
 }
 
 COLORS = "colors"
