@@ -2,7 +2,7 @@
     "config": {
         "abort": {
             "already_configured": "L'account è già stato configurato",
-            "already_in_progress": "Configurazione in corso",
+            "already_in_progress": "Configurazione già in corso",
             "authorize_url_timeout": "Timeout nel generare l'URL di autorizzazione.",
             "missing_configuration": "Il componente non è stato configurato. Seguire la documentazione.",
             "no_url_available": "Nessun URL disponibile. Per ulteriori informazioni riguardo questo errore, [controlla la sezione supporto]({docs_url})",
