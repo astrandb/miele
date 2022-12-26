@@ -54,6 +54,7 @@ from .const import (
     STATE_STATUS,
     STATE_STATUS_IDLE,
     STATE_STATUS_NOT_CONNECTED,
+    STATE_STATUS_OFF,
     STATE_STATUS_ON,
     STATE_STATUS_PROGRAMMED,
     STATE_STATUS_SERVICE,
@@ -818,14 +819,17 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                     }
                 )
 
-        # Show 0 consumption when the appliance is on, but not
-        # running to correctly reset utility meter cycle
+        # Show 0 consumption when the appliance is not running,
+        # to correctly reset utility meter cycle. Ignore this when
+        # appliance is not connected (it may disconnect while a program
+        # is running causing problems in energy stats).
         state = self.coordinator.data[self._ent]["state|status|value_raw"]
         if self.entity_description.key in [
             "stateCurrentEnergyConsumption",
             "stateCurrentWaterConsumption",
         ] and state in [
             STATE_STATUS_ON,
+            STATE_STATUS_OFF,
             STATE_STATUS_PROGRAMMED,
             STATE_STATUS_WAITING_TO_START,
             STATE_STATUS_IDLE,
