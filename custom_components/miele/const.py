@@ -160,6 +160,7 @@ STATE_PROGRAM_PHASE = {
     4401: "2nd_grinding",
     4393: "2nd_pre_brewing",
     4385: "2nd_espresso",
+    4404: "dispensing",
     4405: "rinse",
     # Robot vacuum cleaner
     5889: "cleaning",
