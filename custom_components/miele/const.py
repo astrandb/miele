@@ -118,11 +118,11 @@ STATE_PROGRAM_PHASE = {
     513: "program_running",
     514: "drying",
     515: "machine_iron",
-    516: "hand_iron",
+    516: "hand_iron_2",
     517: "normal",
     518: "normal_plus",
     519: "cooling_down",
-    520: "hand_iron",
+    520: "hand_iron_1",
     521: "anti_crease",
     522: "finished",
     523: "extra_dry",
@@ -236,7 +236,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
     50: "delicates",
     60: "warm_air",
     70: "cool_air",
-    80: "express_20",
+    80: "express",
     90: "cottons",
     100: "gentle_smoothing",
     120: "proofing",
@@ -248,6 +248,8 @@ TUMBLE_DRYER_PROGRAM_ID = {
     190: "standard_pillows",
     220: "basket_program",
     240: "smoothing",
+    # steam_smoothing
+    # bed_linen
 }
 OVEN_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
