@@ -201,6 +201,7 @@ STATE_PROGRAM_PHASE = {
     5892: "going_to_target_area",
     5893: "wheel_lifted",
     5899: "not_charging",
+    5903: "docked",
     5904: "docked",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
