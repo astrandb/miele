@@ -52,6 +52,13 @@ from .const import (
     STATE_PROGRAM_TYPE,
     STATE_DRYING_STEP,
     STATE_STATUS,
+    STATE_STATUS_IDLE,
+    STATE_STATUS_NOT_CONNECTED,
+    STATE_STATUS_OFF,
+    STATE_STATUS_ON,
+    STATE_STATUS_PROGRAMMED,
+    STATE_STATUS_SERVICE,
+    STATE_STATUS_WAITING_TO_START,
     STEAM_OVEN,
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
@@ -809,6 +816,24 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                     }
                 )
 
+        # Show 0 consumption when the appliance is not running,
+        # to correctly reset utility meter cycle. Ignore this when
+        # appliance is not connected (it may disconnect while a program
+        # is running causing problems in energy stats).
+        state = self.coordinator.data[self._ent]["state|status|value_raw"]
+        if self.entity_description.key in [
+            "stateCurrentEnergyConsumption",
+            "stateCurrentWaterConsumption",
+        ] and state in [
+            STATE_STATUS_ON,
+            STATE_STATUS_OFF,
+            STATE_STATUS_PROGRAMMED,
+            STATE_STATUS_WAITING_TO_START,
+            STATE_STATUS_IDLE,
+            STATE_STATUS_SERVICE,
+        ]:
+            return 0
+
         if (
             self.coordinator.data[self._ent].get(self.entity_description.data_tag)
             is None
@@ -839,7 +864,10 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         if not self.coordinator.last_update_success:
             return False
 
-        return self.coordinator.data[self._ent]["state|status|value_raw"] != 255
+        return (
+            self.coordinator.data[self._ent]["state|status|value_raw"]
+            != STATE_STATUS_NOT_CONNECTED
+        )
 
     @property
     def extra_state_attributes(self):
