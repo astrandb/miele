@@ -306,7 +306,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Status",
             device_class="miele__state_status",
             convert=lambda x, t: STATE_STATUS.get(x, x),
-            convert_icon=lambda t: APPLIANCE_ICONS.get(t),
+            convert_icon=lambda t: APPLIANCE_ICONS.get(t, "mdi:state-machine"),
             extra_attributes={"Serial no": 0, "Raw value": 0},
         ),
     ),
