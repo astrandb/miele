@@ -1,7 +1,7 @@
 """Constants for the Miele integration."""
 
 DOMAIN = "miele"
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 API_READ_TIMEOUT = 20
 
 # Define appliance types
