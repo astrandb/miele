@@ -860,6 +860,11 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             == -32768
         ):
             return None
+        if (
+            self.entity_description.key in ["stateProgramId", "stateProgramPhase"]
+            and self.coordinator.data[self._ent][self.entity_description.data_tag] <= 0
+        ):
+            return None
 
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
