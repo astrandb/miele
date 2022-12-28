@@ -59,6 +59,34 @@ APPLIANCE_TYPES = {
     HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 
+APPLIANCE_ICONS = {
+    WASHING_MACHINE: "mdi:washing-machine",
+    TUMBLE_DRYER: "mdi:tumble-dryer",
+    DISHWASHER: "mdi:dishwasher",
+    OVEN: "mdi:chef-hat",
+    OVEN_MICROWAVE: "mdi:chef-hat",
+    HOB_HIGHLIGHT: "mdi:pot-steam-outline",
+    STEAM_OVEN: "mdi:chef-hat",
+    MICROWAVE: "mdi:microwave",
+    COFFEE_SYSTEM: "mdi:coffee-maker",
+    HOOD: "mdi:turbine",
+    FRIDGE: "mdi:fridge-industrial-outline",
+    FREEZER: "mdi:fridge-industrial-outline",
+    FRIDGE_FREEZER: "mdi:fridge-outline",
+    ROBOT_VACUUM_CLEANER: "mdi:robot-vacuum",
+    WASHER_DRYER: "mdi:washing-machine",
+    DISH_WARMER: "mdi:heat-wave",
+    HOB_INDUCTION: "mdi:pot-steam-outline",
+    STEAM_OVEN_COMBI: "mdi:chef-hat",
+    WINE_CABINET: "mdi:glass-wine",
+    WINE_CONDITIONING_UNIT: "mdi:glass-wine",
+    WINE_STORAGE_CONDITIONING_UNIT: "mdi:glass-wine",
+    STEAM_OVEN_MICRO: "mdi:chef-hat",
+    DIALOG_OVEN: "mdi:chef-hat",
+    WINE_CABINET_FREEZER: "mdi:glass-wine",
+    HOB_INDUCT_EXTR: "mdi:pot-steam-outline",
+}
+
 STATE_STATUS_OFF = 1
 STATE_STATUS_ON = 2
 STATE_STATUS_PROGRAMMED = 3

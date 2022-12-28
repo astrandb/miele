@@ -31,6 +31,7 @@ from homeassistant.util import dt as dt_util
 
 from . import get_coordinator
 from .const import (
+    APPLIANCE_ICONS,
     COFFEE_SYSTEM,
     DIALOG_OVEN,
     DISH_WARMER,
@@ -56,6 +57,7 @@ from .const import (
     STATE_STATUS_NOT_CONNECTED,
     STATE_STATUS_OFF,
     STATE_STATUS_ON,
+    STATE_STATUS_PROGRAM_ENDED,
     STATE_STATUS_PROGRAMMED,
     STATE_STATUS_SERVICE,
     STATE_STATUS_WAITING_TO_START,
@@ -82,7 +84,10 @@ class MieleSensorDescription(SensorEntityDescription):
     data_tag1: str | None = None
     data_tag_loc: str | None = None
     type_key: str = "ident|type|value_localized"
+    type_key_raw: str = "ident|type|value_raw"
+    status_key_raw: str = "state|status|value_raw"
     convert: Callable[[Any], Any] | None = None
+    convert_icon: Callable[[Any], Any] | None = None
     extra_attributes: dict[str, Any] | None = None
 
 
@@ -300,8 +305,8 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|status|value_raw",
             name="Status",
             device_class="miele__state_status",
-            icon="mdi:state-machine",
             convert=lambda x, t: STATE_STATUS.get(x, x),
+            convert_icon=lambda t: APPLIANCE_ICONS.get(t),
             extra_attributes={"Serial no": 0, "Raw value": 0},
         ),
     ),
@@ -509,7 +514,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|startTime|0",
             data_tag1="state|startTime|1",
             name="Start at",
-            icon="mdi:clock-start",
+            icon="mdi:calendar-clock",
             native_unit_of_measurement="",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -533,7 +538,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|elapsedTime|0",
             data_tag1="state|elapsedTime|1",
             name="Elapsed time",
-            icon="mdi:timer-outline",
+            icon="mdi:timelapse",
             native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -557,7 +562,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             data_tag="state|elapsedTime|0",
             data_tag1="state|elapsedTime|1",
             name="Started at",
-            icon="mdi:timer-outline",
+            icon="mdi:clock-start",
             native_unit_of_measurement="",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -729,6 +734,10 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 "ident|xkmIdentLabel|releaseVersion"
             ],
         )
+        if self.entity_description.convert_icon is not None:
+            self._attr_icon = self.entity_description.convert_icon(
+                self.coordinator.data[self._ent][self.entity_description.type_key_raw],
+            )
         self._last_started_time_reported = None
 
     @property
@@ -785,7 +794,10 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
             started_time = (now - timedelta(minutes=mins)).strftime("%H:%M")
             # Don't update sensor if state == program_ended
-            if self.coordinator.data[self._ent]["state|status|value_raw"] == 7:
+            if (
+                self.coordinator.data[self._ent][self.entity_description.status_key_raw]
+                == STATE_STATUS_PROGRAM_ENDED
+            ):
                 return self._last_started_time_reported
             self._last_started_time_reported = started_time
             return started_time
@@ -820,7 +832,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         # to correctly reset utility meter cycle. Ignore this when
         # appliance is not connected (it may disconnect while a program
         # is running causing problems in energy stats).
-        state = self.coordinator.data[self._ent]["state|status|value_raw"]
+        state = self.coordinator.data[self._ent][self.entity_description.status_key_raw]
         if self.entity_description.key in [
             "stateCurrentEnergyConsumption",
             "stateCurrentWaterConsumption",
@@ -851,7 +863,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         else:
             return self.entity_description.convert(
                 self.coordinator.data[self._ent][self.entity_description.data_tag],
-                self.coordinator.data[self._ent]["ident|type|value_raw"],
+                self.coordinator.data[self._ent][self.entity_description.type_key_raw],
             )
 
     @property
@@ -865,7 +877,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             return False
 
         return (
-            self.coordinator.data[self._ent]["state|status|value_raw"]
+            self.coordinator.data[self._ent][self.entity_description.status_key_raw]
             != STATE_STATUS_NOT_CONNECTED
         )
 
