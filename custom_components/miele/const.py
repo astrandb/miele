@@ -145,7 +145,7 @@ STATE_PROGRAM_PHASE = {
     260: "main_wash",
     261: "rinse",
     262: "rinse_hold",
-    263: "main_wash",
+    263: "cleaning",
     264: "cooling_down",
     265: "drain",
     266: "spin",
