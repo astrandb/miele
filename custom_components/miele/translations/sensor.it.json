@@ -121,7 +121,9 @@
       "herbal_tea": "Tè alle erbe",
       "appliance_rinse": "Risciacquo elettrodomestico",
       "milk_pipework_rinse": "Risciacquo condotti latte",
-      "milk_pipework_clean": "Pulizia condotti latte"
+      "milk_pipework_clean": "Pulizia condotti latte",
+      "brewing_unit_degrease": "Sgrassare modulo infusione",
+      "descaling": "Decalcificare elettrodomestico"
     },
     "miele__state_program_phase": {
       "not_running": "Non in funzione",

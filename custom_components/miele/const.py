@@ -421,6 +421,8 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24150: "japanese_tea",
     # maintainance
     24750: "appliance_rinse",
+    24751: "descaling",
+    24753: "brewing_unit_degrease",
     24754: "milk_pipework_rinse",
     24759: "appliance_rinse",
     24773: "appliance_rinse",

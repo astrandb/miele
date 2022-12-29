@@ -121,7 +121,9 @@
       "herbal_tea": "Herbal tea",
       "appliance_rinse": "Appliance rinse",
       "milk_pipework_rinse": "Milk pipework rinse",
-      "milk_pipework_clean": "Milk pipework clean"
+      "milk_pipework_clean": "Milk pipework clean",
+      "brewing_unit_degrease": "Brewing unit degrease",
+      "descaling": "Appliance descaling"
     },
     "miele__state_program_phase": {
       "not_running": "Inactief",
