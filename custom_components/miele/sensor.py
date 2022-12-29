@@ -444,7 +444,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Remaining time",
             icon="mdi:clock-end",
             native_unit_of_measurement=TIME_MINUTES,
-            extra_attributes={"Time format": 0},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -493,7 +492,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Start time",
             icon="mdi:clock-start",
             native_unit_of_measurement=TIME_MINUTES,
-            extra_attributes={"Time format": 0},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -542,7 +540,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             name="Elapsed time",
             icon="mdi:timelapse",
             native_unit_of_measurement=TIME_MINUTES,
-            extra_attributes={"Time format": 0},
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -903,14 +900,5 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             ]
         if "Serial no" in self.entity_description.extra_attributes:
             attr["Serial no"] = self._ent
-
-        if "Time format" in self.entity_description.extra_attributes:
-            attr["Time format"] = "".join(
-                [
-                    f"{self.coordinator.data[self._ent][self.entity_description.data_tag]:02d}",
-                    ":",
-                    f"{self.coordinator.data[self._ent][self.entity_description.data_tag1]:02d}",
-                ]
-            )
 
         return attr
