@@ -24,7 +24,7 @@
       "own_program": "Own program",
       "automatic_program": "Automatic program",
       "cleaning_care_program": "Cleaning/care program",
-      "maintainance_program": "Maintainance program"
+      "maintenance_program": "Maintenance program"
     },
     "miele__state_program_id": {
       "no_program": "No program",

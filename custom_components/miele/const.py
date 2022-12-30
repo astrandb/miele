@@ -104,7 +104,7 @@ STATE_PROGRAM_TYPE = {
     1: "own_program",
     2: "automatic_program",
     3: "cleaning_care_program",
-    4: "maintainance_program",
+    4: "maintenance_program",
 }
 
 STATE_PROGRAM_PHASE = {
@@ -419,7 +419,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24148: "green_tea",
     24149: "white_tea",
     24150: "japanese_tea",
-    # maintainance
+    # maintenance
     24750: "appliance_rinse",
     24751: "descaling",
     24753: "brewing_unit_degrease",
