@@ -196,7 +196,7 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Robot vacuum cleaner
-    5889: "cleaning",
+    5889: "vacuum_cleaning",
     5890: "returning",
     5892: "going_to_target_area",
     5893: "wheel_lifted",
