@@ -174,7 +174,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             return STATE_PAUSED
 
         self._phase = self.coordinator.data[self._ent]["state|programPhase|value_raw"]
-        if self._phase == 5904:
+        if self._phase in (5903, 5904):
             return STATE_DOCKED
         elif self._phase in (5889, 5892):
             return STATE_CLEANING
