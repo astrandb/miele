@@ -164,6 +164,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             data_tag="state|signalFailure",
             device_class=BinarySensorDeviceClass.PROBLEM,
             name="Failure",
+            icon="mdi:alert",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
