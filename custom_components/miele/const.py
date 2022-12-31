@@ -59,6 +59,34 @@ APPLIANCE_TYPES = {
     HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 
+APPLIANCE_ICONS = {
+    WASHING_MACHINE: "mdi:washing-machine",
+    TUMBLE_DRYER: "mdi:tumble-dryer",
+    DISHWASHER: "mdi:dishwasher",
+    OVEN: "mdi:chef-hat",
+    OVEN_MICROWAVE: "mdi:chef-hat",
+    HOB_HIGHLIGHT: "mdi:pot-steam-outline",
+    STEAM_OVEN: "mdi:chef-hat",
+    MICROWAVE: "mdi:microwave",
+    COFFEE_SYSTEM: "mdi:coffee-maker",
+    HOOD: "mdi:turbine",
+    FRIDGE: "mdi:fridge-industrial-outline",
+    FREEZER: "mdi:fridge-industrial-outline",
+    FRIDGE_FREEZER: "mdi:fridge-outline",
+    ROBOT_VACUUM_CLEANER: "mdi:robot-vacuum",
+    WASHER_DRYER: "mdi:washing-machine",
+    DISH_WARMER: "mdi:heat-wave",
+    HOB_INDUCTION: "mdi:pot-steam-outline",
+    STEAM_OVEN_COMBI: "mdi:chef-hat",
+    WINE_CABINET: "mdi:glass-wine",
+    WINE_CONDITIONING_UNIT: "mdi:glass-wine",
+    WINE_STORAGE_CONDITIONING_UNIT: "mdi:glass-wine",
+    STEAM_OVEN_MICRO: "mdi:chef-hat",
+    DIALOG_OVEN: "mdi:chef-hat",
+    WINE_CABINET_FREEZER: "mdi:glass-wine",
+    HOB_INDUCT_EXTR: "mdi:pot-steam-outline",
+}
+
 STATE_STATUS_OFF = 1
 STATE_STATUS_ON = 2
 STATE_STATUS_PROGRAMMED = 3
@@ -117,7 +145,7 @@ STATE_PROGRAM_PHASE = {
     260: "main_wash",
     261: "rinse",
     262: "rinse_hold",
-    263: "main_wash",
+    263: "cleaning",
     264: "cooling_down",
     265: "drain",
     266: "spin",
@@ -182,11 +210,12 @@ STATE_PROGRAM_PHASE = {
     4404: "dispensing",
     4405: "rinse",
     # Robot vacuum cleaner
-    5889: "cleaning",
+    5889: "vacuum_cleaning",
     5890: "returning",
     5892: "going_to_target_area",
     5893: "wheel_lifted",
     5899: "not_charging",
+    5903: "docked",
     5904: "docked",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.

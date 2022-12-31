@@ -706,15 +706,19 @@ TEST_DATA_24 = {
             "value_localized": "Minimum iron",
             "key_localized": "Program name",
         },
-        "status": {"value_raw": 1, "value_localized": "Off", "key_localized": "status"},
+        "status": {
+            "value_raw": 5,
+            "value_localized": "Running",
+            "key_localized": "status",
+        },
         "programType": {
             "value_raw": 1,
             "value_localized": "Own programme",
             "key_localized": "Program type",
         },
         "programPhase": {
-            "value_raw": 256,
-            "value_localized": "",
+            "value_raw": 260,
+            "value_localized": "Main wash",
             "key_localized": "Program phase",
         },
         "remainingTime": [1, 59],
@@ -747,8 +751,8 @@ TEST_DATA_24 = {
             "key_localized": "Spin speed",
         },
         "dryingStep": {
-            "value_raw": 0,
-            "value_localized": "",
+            "value_raw": 2,
+            "value_localized": "Normal",
             "key_localized": "Drying level",
         },
         "ventilationStep": {
@@ -757,7 +761,12 @@ TEST_DATA_24 = {
             "key_localized": "Fan level",
         },
         "plateStep": [],
-        "ecoFeedback": None,
+        "ecoFeedback": {
+            "currentWaterConsumption": {"unit": "l", "value": 17.0},
+            "currentEnergyConsumption": {"unit": "kWh", "value": 0.0},
+            "waterForecast": 0.5,
+            "energyForecast": 0.6,
+        },
         "batteryLevel": None,
     },
 }
