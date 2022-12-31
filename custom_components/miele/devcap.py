@@ -257,6 +257,173 @@ TEST_DATA_7 = {
     },
 }
 
+TEST_DATA_17_CM = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 17,
+            "value_localized": "Coffee machine",
+        },
+        "deviceName": "",
+        "protocolVersion": 4,
+        "deviceIdentLabel": {
+            "fabNumber": "",
+            "fabIndex": "10",
+            "techType": "CM6160",
+            "matNumber": "",
+            "swids": ["swid00"],
+        },
+        "xkmIdentLabel": {"techType": "EK037", "releaseVersion": "03.94"},
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 24759,
+            "value_localized": "",
+            "key_localized": "Program name",
+        },
+        "status": {
+            "value_raw": 5,
+            "value_localized": "In use",
+            "key_localized": "status",
+        },
+        "programType": {
+            "value_raw": 3,
+            "value_localized": "Cleaning/Care programme",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 4405,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+        ],
+        "temperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "coreTargetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+        ],
+        "coreTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": 1,
+        "elapsedTime": [],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": None,
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
+TEST_DATA_17_CVA = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 17,
+            "value_localized": "Coffee machine",
+        },
+        "deviceName": "",
+        "deviceIdentLabel": {
+            "fabNumber": "",
+            "fabIndex": "10",
+            "techType": "CVA7845",
+            "matNumber": "",
+            "swids": ["swid00"],
+        },
+        "xkmIdentLabel": {"techType": "EK037", "releaseVersion": "03.82"},
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program name",
+        },
+        "status": {"value_raw": 1, "value_localized": "Off", "key_localized": "status"},
+        "programType": {
+            "value_raw": 0,
+            "value_localized": "Programa",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 4352,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "temperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": 2,
+        "elapsedTime": [],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": None,
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_18 = {
     "ident": {
         "type": {
