@@ -739,6 +739,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             self._attr_icon = self.entity_description.convert_icon(
                 self.coordinator.data[self._ent][self.entity_description.type_key_raw],
             )
+        self._last_elapsed_time_reported = None
         self._last_started_time_reported = None
 
     @property
@@ -747,7 +748,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         if self.entity_description.key in [
             "stateRemainingTime",
             "stateStartTime",
-            "stateElapsedTime",
         ]:
             return (
                 self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
@@ -774,6 +774,22 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             #     (now + timedelta(minutes=mins)).strftime("%H:%M"),
             # )
             return (now + timedelta(minutes=mins)).strftime("%H:%M")
+
+        if self.entity_description.key in [
+            "stateElapsedTime",
+        ]:
+            mins = (
+                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
+                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
+            )
+            # Don't update sensor if state == program_ended
+            if (
+                self.coordinator.data[self._ent][self.entity_description.status_key_raw]
+                == STATE_STATUS_PROGRAM_ENDED
+            ):
+                return self._last_elapsed_time_reported
+            self._last_elapsed_time_reported = mins
+            return mins
 
         if self.entity_description.key in [
             "stateElapsedTimeAbs",
