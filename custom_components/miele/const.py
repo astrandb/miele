@@ -182,6 +182,7 @@ STATE_PROGRAM_PHASE = {
     532: "rinse_out_lint",
     533: "rinses",
     534: "smoothing",
+    536: "not_running",
     538: "slightly_dry",
     539: "safety_cooling",
     # Dishwasher
