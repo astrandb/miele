@@ -199,8 +199,8 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Oven
-    3074: "cooking_in_progress",
-    3078: "cooking_done",
+    3074: "process_running",
+    3078: "process_finished",
     # Coffee system
     3073: "heating",
     4352: "not_running",
@@ -332,6 +332,9 @@ OVEN_PROGRAM_ID = {
     25: "top_heat",
     29: "fan_grill",
     31: "bottom_heat",
+    49: "moisture_plus_fan_plus",
+    512: "1_tray",
+    513: "2_trays",
     # steam_bake
     17003: "no_program",
 }
