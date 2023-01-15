@@ -335,6 +335,7 @@ OVEN_PROGRAM_ID = {
     49: "moisture_plus_fan_plus",
     512: "1_tray",
     513: "2_trays",
+    529: "baking_tray",
     # steam_bake
     17003: "no_program",
 }
