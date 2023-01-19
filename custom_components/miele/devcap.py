@@ -257,6 +257,90 @@ TEST_DATA_7 = {
     },
 }
 
+TEST_DATA_12 = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 12,
+            "value_localized": "Oven",
+        },
+        "deviceName": "",
+        "protocolVersion": 4,
+        "deviceIdentLabel": {
+            "fabNumber": "",
+            "fabIndex": "00",
+            "techType": "H7264B",
+            "matNumber": "",
+            "swids": ["swid00"],
+        },
+        "xkmIdentLabel": {"techType": "EK057", "releaseVersion": "08.21"},
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 13,
+            "value_localized": "Fan plus",
+            "key_localized": "Program name",
+        },
+        "status": {
+            "value_raw": 3,
+            "value_localized": "Programmed",
+            "key_localized": "status",
+        },
+        "programType": {
+            "value_raw": 1,
+            "value_localized": "Own program",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": 18000, "value_localized": "180.0", "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "temperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": 2,
+        "elapsedTime": [0, 0],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": None,
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_17_CM = {
     "ident": {
         "type": {

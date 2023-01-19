@@ -181,8 +181,10 @@ STATE_PROGRAM_PHASE = {
     531: "comfort_cooling",
     532: "rinse_out_lint",
     533: "rinses",
+    535: "not_running",
     534: "smoothing",
     536: "not_running",
+    537: "not_running",
     538: "slightly_dry",
     539: "safety_cooling",
     # Dishwasher
@@ -196,6 +198,9 @@ STATE_PROGRAM_PHASE = {
     1799: "drying",
     1800: "finished",
     1801: "pre_dishwash",
+    # Oven
+    3074: "process_running",
+    3078: "process_finished",
     # Coffee system
     3073: "heating",
     4352: "not_running",
@@ -316,6 +321,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
 OVEN_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Extrapolated from other device types
+    1: "defrost",
     6: "eco_fan_heat",
     7: "auto_roast",
     10: "full_grill",
@@ -326,6 +332,12 @@ OVEN_PROGRAM_ID = {
     25: "top_heat",
     29: "fan_grill",
     31: "bottom_heat",
+    49: "moisture_plus_fan_plus",
+    512: "1_tray",
+    513: "2_trays",
+    529: "baking_tray",
+    # steam_bake
+    17003: "no_program",
 }
 ROBOT_VACUUM_CLEANER_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types
