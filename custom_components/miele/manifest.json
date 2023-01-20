@@ -6,7 +6,7 @@
   "issue_tracker": "https://github.com/astrandb/miele/issues",
   "requirements": [
     "flatdict==4.0.1",
-    "pymiele==0.1.4"
+    "pymiele==0.1.6"
   ],
   "ssdp": [],
   "zeroconf": [],
