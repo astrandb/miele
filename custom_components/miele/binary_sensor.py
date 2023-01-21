@@ -33,6 +33,7 @@ from .const import (
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
+    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -320,7 +321,7 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 
