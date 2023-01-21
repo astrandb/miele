@@ -199,10 +199,10 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Oven
+    3073: "heating",  # in common with coffee system
     3074: "process_running",
     3078: "process_finished",
     # Coffee system
-    3073: "heating",
     4352: "not_running",
     4353: "espresso",
     4355: "milk_foam",
