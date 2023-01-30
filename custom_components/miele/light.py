@@ -25,6 +25,7 @@ from .const import (
     LIGHT,
     LIGHT_OFF,
     LIGHT_ON,
+    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -144,7 +145,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 

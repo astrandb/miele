@@ -44,6 +44,7 @@ from .const import (
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
+    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -307,7 +308,15 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             translation_key="status",
             convert=lambda x, t: STATE_STATUS.get(x, x),
             convert_icon=lambda t: APPLIANCE_ICONS.get(t, "mdi:state-machine"),
-            extra_attributes={"Serial no": 0, "Raw value": 0},
+            extra_attributes={
+                "Serial no": 0,
+                "Raw value": 0,
+                "Appliance": 0,
+                "Manufacturer": 0,
+                "Model": 0,
+                "HW version": 0,
+                "SW version": 0,
+            },
         ),
     ),
     MieleSensorDefinition(
@@ -728,7 +737,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
             hw_version=self.coordinator.data[self._ent]["ident|xkmIdentLabel|techType"],
             sw_version=self.coordinator.data[self._ent][
@@ -906,7 +915,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
     @property
     def extra_state_attributes(self):
         if self.entity_description.extra_attributes is None:
-            return
+            return None
         attr = self.entity_description.extra_attributes
         if "Raw value" in self.entity_description.extra_attributes:
             attr["Raw value"] = self.coordinator.data[self._ent][
@@ -917,5 +926,28 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             ]
         if "Serial no" in self.entity_description.extra_attributes:
             attr["Serial no"] = self._ent
+
+        if "Appliance" in self.entity_description.extra_attributes:
+            attr["Appliance"] = self.coordinator.data[self._ent][
+                self.entity_description.type_key
+            ]
+
+        if "Manufacturer" in self.entity_description.extra_attributes:
+            attr["Manufacturer"] = MANUFACTURER
+
+        if "Model" in self.entity_description.extra_attributes:
+            attr["Model"] = self.coordinator.data[self._ent][
+                "ident|deviceIdentLabel|techType"
+            ]
+
+        if "HW version" in self.entity_description.extra_attributes:
+            attr["HW version"] = self.coordinator.data[self._ent][
+                "ident|xkmIdentLabel|techType"
+            ]
+
+        if "SW version" in self.entity_description.extra_attributes:
+            attr["SW version"] = self.coordinator.data[self._ent][
+                "ident|xkmIdentLabel|releaseVersion"
+            ]
 
         return attr

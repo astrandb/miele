@@ -32,6 +32,7 @@ from .const import (
     DOMAIN,
     HOB_INDUCT_EXTR,
     HOOD,
+    MANUFACTURER,
     POWER_OFF,
     POWER_ON,
     VENTILATION_STEP,
@@ -151,7 +152,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 

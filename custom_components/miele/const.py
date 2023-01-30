@@ -3,6 +3,7 @@
 DOMAIN = "miele"
 VERSION = "0.1.4"
 API_READ_TIMEOUT = 20
+MANUFACTURER = "Miele"
 
 # Define appliance types
 WASHING_MACHINE = 1

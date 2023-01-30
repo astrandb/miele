@@ -22,7 +22,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import ACTIONS, API, DOMAIN, TARGET_TEMPERATURE
+from .const import ACTIONS, API, DOMAIN, MANUFACTURER, TARGET_TEMPERATURE
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -216,7 +216,7 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 

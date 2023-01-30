@@ -20,7 +20,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import API, DOMAIN, HOB_INDUCT_EXTR
+from .const import API, DOMAIN, HOB_INDUCT_EXTR, MANUFACTURER
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -221,7 +221,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 
