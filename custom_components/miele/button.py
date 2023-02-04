@@ -26,6 +26,7 @@ from .const import (
     DISHWASHER,
     DOMAIN,
     HOOD,
+    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -164,7 +165,7 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
-            manufacturer="Miele",
+            manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
         )
 

@@ -1,8 +1,9 @@
 """Constants for the Miele integration."""
 
 DOMAIN = "miele"
-VERSION = "0.1.4"
+VERSION = "0.1.6"
 API_READ_TIMEOUT = 20
+MANUFACTURER = "Miele"
 
 # Define appliance types
 WASHING_MACHINE = 1

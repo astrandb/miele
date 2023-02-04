@@ -34,7 +34,7 @@ from homeassistant.helpers.update_coordinator import (
 import voluptuous as vol
 
 from .api import AsyncConfigEntryAuth
-from .const import ACTIONS, API, API_READ_TIMEOUT, DOMAIN, VERSION
+from .const import ACTIONS, API, API_READ_TIMEOUT, DOMAIN, MANUFACTURER, VERSION
 from .devcap import (  # noqa: F401
     TEST_ACTION_21,
     TEST_ACTION_23,
@@ -95,7 +95,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         "Configuration of the Miele platform in YAML is deprecated. "
         "Your existing configuration has been imported into the UI "
         "automatically and can be safely removed from your configuration.yaml file",
-        "Miele",
+        MANUFACTURER,
         "miele_config_import",
     )
 
@@ -200,7 +200,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         )
     )
 
-    hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     await async_setup_services(hass)
 
     return True
