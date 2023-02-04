@@ -223,6 +223,7 @@ STATE_PROGRAM_PHASE = {
     5892: "going_to_target_area",
     5893: "wheel_lifted",
     5894: "dirty_sensors",
+    5897: "blocked_brushes",
     5899: "not_charging",
     5903: "docked",
     5904: "docked",

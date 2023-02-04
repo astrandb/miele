@@ -223,6 +223,7 @@
                     "going_to_target_area": "In movimento verso l'area",
                     "wheel_lifted": "Ruota sollevata",
                     "dirty_sensors": "Sensori sporchi",
+                    "blocked_brushes": "Spazzole bloccate",
                     "not_charging": "Non in carica"
                 }
             },

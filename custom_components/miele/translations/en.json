@@ -223,6 +223,7 @@
           "going_to_target_area": "Going to target area",
           "wheel_lifted": "Wheel lifted",
           "dirty_sensors": "Dirty sesnsors",
+          "blocked_brushes": "Blocked brushes",
           "not_charging": "Not charging"
         }
       },
