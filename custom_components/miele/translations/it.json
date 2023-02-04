@@ -222,6 +222,7 @@
                     "returning": "Ritorno alla base",
                     "going_to_target_area": "In movimento verso l'area",
                     "wheel_lifted": "Ruota sollevata",
+                    "dirty_sensors": "Sensori sporchi",
                     "not_charging": "Non in carica"
                 }
             },

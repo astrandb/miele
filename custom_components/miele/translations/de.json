@@ -222,6 +222,7 @@
           "returning": "Returning",
           "going_to_target_area": "Going to target area",
           "wheel_lifted": "Wheel lifted",
+          "dirty_sensors": "Dirty sesnsors",
           "not_charging": "Not charging"
         }
       },

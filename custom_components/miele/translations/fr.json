@@ -222,6 +222,7 @@
                     "returning": "Retour à la base",
                     "going_to_target_area": "Aller vers destination",
                     "wheel_lifted": "Roues levées",
+                    "dirty_sensors": "Dirty sesnsors",
                     "not_charging": "Pas en charge"
                 }
             },
