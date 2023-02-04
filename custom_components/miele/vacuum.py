@@ -183,6 +183,8 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             return STATE_RETURNING
         elif self._phase == 5893:
             return STATE_ERROR
+        elif self._phase == 5891:
+            return STATE_PAUSED
 
         return self._phase
 

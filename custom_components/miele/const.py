@@ -219,6 +219,7 @@ STATE_PROGRAM_PHASE = {
     # Robot vacuum cleaner
     5889: "vacuum_cleaning",
     5890: "returning",
+    5891: "vacuum_cleaning_paused",
     5892: "going_to_target_area",
     5893: "wheel_lifted",
     5899: "not_charging",
