@@ -231,6 +231,7 @@ STATE_PROGRAM_PHASE = {
     5900: "blocked_front_wheel",  # F8
     5903: "docked",
     5904: "docked",
+    5910: "remote_controlled",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
 }

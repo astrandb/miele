@@ -228,7 +228,8 @@
                     "blocked_brushes": "Spazzole bloccate",
                     "motor_overload": "Contr. serbatoio e filtro",
                     "vacuum_internal_fault": "Guasto interno - riavviare",
-                    "blocked_front_wheel": "Ruota frontale bloccata"
+                    "blocked_front_wheel": "Ruota frontale bloccata",
+                    "remote_controlled": "Controllo con telecomando"
                 }
             },
             "drying_step": {

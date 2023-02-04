@@ -228,7 +228,8 @@
           "blocked_brushes": "Brushes blocked",
           "motor_overload": "Check dust box and filter",
           "vacuum_internal_fault": "Internal fault - reboot",
-          "blocked_front_wheel": "Front wheel blocked"
+          "blocked_front_wheel": "Front wheel blocked",
+          "remote_controlled": "Remote controlled"
         }
       },
       "drying_step": {
