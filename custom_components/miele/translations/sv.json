@@ -223,8 +223,12 @@
                     "going_to_target_area": "Går till område",
                     "wheel_lifted": "Hjul upplyft",
                     "dirty_sensors": "Dirty sesnsors",
-                    "blocked_brushes": "Blocked brushes",
-                    "not_charging": "Laddar inte"
+                    "dust_box_missing": "Missing dust box",
+                    "blocked_drive_wheels": "Drive wheels blocked",
+                    "blocked_brushes": "Brushes blocked",
+                    "motor_overload": "Check dust box and filter",
+                    "vacuum_internal_fault": "Internal fault - reboot",
+                    "blocked_front_wheel": "Front wheel blocked"
                 }
             },
             "drying_step": {

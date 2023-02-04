@@ -223,8 +223,12 @@
                     "going_to_target_area": "In movimento verso l'area",
                     "wheel_lifted": "Ruota sollevata",
                     "dirty_sensors": "Sensori sporchi",
+                    "dust_box_missing": "Serbatoio mancante",
+                    "blocked_drive_wheels": "Ruote guida bloccate",
                     "blocked_brushes": "Spazzole bloccate",
-                    "not_charging": "Non in carica"
+                    "motor_overload": "Contr. serbatoio e filtro",
+                    "vacuum_internal_fault": "Guasto interno - riavviare",
+                    "blocked_front_wheel": "Ruota frontale bloccata"
                 }
             },
             "drying_step": {
