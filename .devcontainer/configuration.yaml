@@ -1,5 +1,12 @@
 default_config:
 
+# miele:
+#   sensors:
+#     - id: sensor.tumble_dryer_program
+#       program_ids:
+#         - value_raw: 14
+#           value: shirts
+
 logger:
   default: info
   logs:

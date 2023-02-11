@@ -34,7 +34,19 @@ from homeassistant.helpers.update_coordinator import (
 import voluptuous as vol
 
 from .api import AsyncConfigEntryAuth
-from .const import ACTIONS, API, API_READ_TIMEOUT, DOMAIN, MANUFACTURER, VERSION
+from .const import (
+    ACTIONS,
+    API,
+    API_READ_TIMEOUT,
+    CONF_ID,
+    CONF_PROGRAM_IDS,
+    CONF_SENSORS,
+    CONF_VALUE,
+    CONF_VALUE_RAW,
+    DOMAIN,
+    MANUFACTURER,
+    VERSION,
+)
 from .devcap import (  # noqa: F401
     TEST_ACTION_21,
     TEST_ACTION_23,
@@ -53,21 +65,33 @@ from .services import async_setup_services
 
 _LOGGER = logging.getLogger(__name__)
 
-CONF_LANG = "lang"
-CONF_LANGUAGE = "language"
+CONFIG_PROGRAM_IDS_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_VALUE_RAW): cv.positive_int,
+        vol.Required(CONF_VALUE): cv.string,
+    }
+)
+
+CONFIG_SENSOR_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_ID): cv.entity_id,
+        vol.Optional(CONF_PROGRAM_IDS): vol.All(
+            cv.ensure_list, [CONFIG_PROGRAM_IDS_SCHEMA]
+        ),
+    }
+)
+
+CONFIG_SCHEMA_ROOT = vol.Schema(
+    {
+        # For compatibility with other integration
+        vol.Inclusive(CONF_CLIENT_ID, "oauth"): cv.string,
+        vol.Inclusive(CONF_CLIENT_SECRET, "oauth"): cv.string,
+        vol.Optional(CONF_SENSORS): vol.All(cv.ensure_list, [CONFIG_SENSOR_SCHEMA]),
+    }
+)
 
 CONFIG_SCHEMA = vol.Schema(
-    {
-        DOMAIN: vol.Schema(
-            {
-                # For compatibility with other integration
-                vol.Required(CONF_CLIENT_ID): cv.string,
-                vol.Required(CONF_CLIENT_SECRET): cv.string,
-                vol.Optional(CONF_LANG): cv.string,
-                vol.Optional(CONF_LANGUAGE): cv.string,
-            }
-        )
-    },
+    {DOMAIN: CONFIG_SCHEMA_ROOT},
     extra=vol.ALLOW_EXTRA,
 )
 
@@ -88,24 +112,27 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the Miele component."""
     hass.data[DOMAIN] = {}
     if DOMAIN not in config:
-        return True
+        config[DOMAIN] = {}
 
-    persistent_notification.async_create(
-        hass,
-        "Configuration of the Miele platform in YAML is deprecated. "
-        "Your existing configuration has been imported into the UI "
-        "automatically and can be safely removed from your configuration.yaml file",
-        MANUFACTURER,
-        "miele_config_import",
-    )
+    await _setup_sensor_config(hass, config)
 
-    await async_import_client_credential(
-        hass,
-        DOMAIN,
-        ClientCredential(
-            config[DOMAIN][CONF_CLIENT_ID], config[DOMAIN][CONF_CLIENT_SECRET]
-        ),
-    )
+    if CONF_CLIENT_ID in config[DOMAIN] and CONF_CLIENT_ID in config[DOMAIN]:
+        persistent_notification.async_create(
+            hass,
+            "Configuration of the Miele platform in YAML is deprecated. "
+            "Your existing configuration has been imported into the UI "
+            "automatically and can be safely removed from your configuration.yaml file",
+            MANUFACTURER,
+            "miele_config_import",
+        )
+
+        await async_import_client_credential(
+            hass,
+            DOMAIN,
+            ClientCredential(
+                config[DOMAIN][CONF_CLIENT_ID], config[DOMAIN][CONF_CLIENT_SECRET]
+            ),
+        )
 
     return True
 
@@ -168,7 +195,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
 
     async def _callback_update_data(data) -> None:
-
         # data["1223001"] = TEST_DATA_1
         # data["1223007"] = TEST_DATA_7
         # data["1223012"] = TEST_DATA_12
@@ -280,3 +306,42 @@ async def get_coordinator(
     )
     await hass.data[DOMAIN][entry.entry_id]["coordinator"].async_refresh()
     return hass.data[DOMAIN][entry.entry_id]["coordinator"]
+
+
+async def _setup_sensor_config(hass: HomeAssistant, config: ConfigType):
+    """Set up sensors configuration."""
+
+    # configuration.yaml
+    # miele:
+    #   sensors:
+    #     - id: sensor.tumble_dryer_program
+    #       program_ids:
+    #         - value_raw: 14
+    #           value: shirts
+    #         - value_raw: 31
+    #           value: bed_linen
+    # ---> becomes
+    # hass.data[DOMAIN] = {
+    #   "sensors": {
+    #       "sensor.tumble_dryer_program": {
+    #           "program_ids": {
+    #              14: "shirts",
+    #              31: "bed_linen"
+    #           }
+    #       }
+    #   }
+    # }
+    if CONF_SENSORS in config[DOMAIN]:
+        hass.data[DOMAIN][CONF_SENSORS] = {}
+        for sensor_config in config[DOMAIN][CONF_SENSORS]:
+            hass.data[DOMAIN][CONF_SENSORS][sensor_config[CONF_ID]] = {}
+            if CONF_PROGRAM_IDS in sensor_config:
+                hass.data[DOMAIN][CONF_SENSORS][sensor_config[CONF_ID]][
+                    CONF_PROGRAM_IDS
+                ] = {}
+                for program_id_definition in sensor_config[CONF_PROGRAM_IDS]:
+                    hass.data[DOMAIN][CONF_SENSORS][sensor_config[CONF_ID]][
+                        CONF_PROGRAM_IDS
+                    ][program_id_definition[CONF_VALUE_RAW]] = program_id_definition[
+                        CONF_VALUE
+                    ]
