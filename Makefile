@@ -15,7 +15,7 @@ lint:
 	flake8 $(src_dir)
 
 .venv:
-	python3.9 -m venv .venv
+	python3.10 -m venv .venv
 
 install_dev: | .venv
 	(. .venv/bin/activate; \
