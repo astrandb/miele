@@ -346,7 +346,7 @@ OVEN_PROGRAM_ID = {
     512: "1_tray",
     513: "2_trays",
     529: "baking_tray",
-    # steam_bake
+    "unmapped_1": "steam_bake",
     17003: "no_program",
 }
 ROBOT_VACUUM_CLEANER_PROGRAM_ID = {
