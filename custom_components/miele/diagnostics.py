@@ -8,10 +8,11 @@ from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import entity_registry
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from .const import ACTIONS, API, API_READ_TIMEOUT, DOMAIN, VERSION
+from .const import ACTIONS, API, API_READ_TIMEOUT, CONF_SENSORS, DOMAIN, VERSION
 
 TO_REDACT = {
     CONF_PASSWORD,
@@ -86,12 +87,23 @@ async def async_get_device_diagnostics(
             else:
                 program_data = await res.json()
 
+    local_mappings = {}
+
+    if CONF_SENSORS in hass.data[DOMAIN]:
+        entity_reg = entity_registry.async_get(hass)
+        entries = entity_registry.async_entries_for_device(entity_reg, device.id)
+
+        for entry in entries:
+            if entry.entity_id in hass.data[DOMAIN][CONF_SENSORS]:
+                local_mappings = hass.data[DOMAIN][CONF_SENSORS][entry.entity_id]
+
     diagnostics_data = {
         "info": async_redact_data(info, TO_REDACT),
         "data": async_redact_data(device_data, TO_REDACT),
         "actions": async_redact_data(action_data, TO_REDACT),
         "programs": program_data,
         "id_log": hass.data[DOMAIN]["id_log"],
+        "local_mappings": local_mappings,
     }
 
     return diagnostics_data
