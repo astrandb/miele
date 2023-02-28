@@ -217,11 +217,19 @@
                     "2nd_grinding": "2e mouture",
                     "2nd_espresso": "2e Espresso",
                     "vacuum_cleaning": "Nettoyage",
+                    "vacuum_cleaning_paused": "Cleaning paused",
                     "docked": "Sur sa base",
                     "returning": "Retour à la base",
                     "going_to_target_area": "Aller vers destination",
                     "wheel_lifted": "Roues levées",
-                    "not_charging": "Pas en charge"
+                    "dirty_sensors": "Dirty sesnsors",
+                    "dust_box_missing": "Missing dust box",
+                    "blocked_drive_wheels": "Drive wheels blocked",
+                    "blocked_brushes": "Brushes blocked",
+                    "motor_overload": "Check dust box and filter",
+                    "vacuum_internal_fault": "Internal fault - reboot",
+                    "blocked_front_wheel": "Front wheel blocked",
+                    "remote_controlled": "Remote controlled"
                 }
             },
             "drying_step": {

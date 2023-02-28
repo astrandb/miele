@@ -6,11 +6,12 @@ import logging
 from typing import Any, Final
 
 import aiohttp
-from homeassistant.components.vacuum import (  # STATE_IDLE,
+from homeassistant.components.vacuum import (
     ATTR_STATUS,
     STATE_CLEANING,
     STATE_DOCKED,
     STATE_ERROR,
+    STATE_IDLE,
     STATE_PAUSED,
     STATE_RETURNING,
     StateVacuumEntity,
@@ -166,11 +167,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def state(self):
-        """
-        Todo
-        STATE_IDLE
-        STATE_ERROR
-        """
+        """Map state."""
         if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:
             return STATE_PAUSED
 
@@ -181,24 +178,41 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             return STATE_CLEANING
         elif self._phase == 5890:
             return STATE_RETURNING
-        elif self._phase == 5893:
+        elif self._phase in (5893, 5894, 5895, 5896, 5897, 5898, 5899, 5900):
             return STATE_ERROR
+        elif self._phase in (5891, 5910):
+            return STATE_PAUSED
+        elif self._phase == 0:
+            return STATE_IDLE
 
         return self._phase
 
     @property
     def status(self):
         """Map status text."""
+        # TODO: in the future add translations to vacuum attributes. Currently
+        # supported only for climate entity: https://developers.home-assistant.io/docs/internationalization/core/#entity-attribute-name-and-state-of-entity-components
         if self._phase == 5892:
             return "Going to target area"
         if self._phase == 5893:
             return "Wheel lifted"
+        if self._phase == 5894:
+            return "Dirty sesnsors"
+        if self._phase == 5895:
+            return "Missing dust box"
+        if self._phase == 5896:
+            return "Drive wheels blocked"
+        if self._phase == 5897:
+            return "Brushes blocked"
+        if self._phase == 5898:
+            return "Check dust box and filter"
+        if self._phase == 5899:
+            return "Internal fault - reboot"
+        if self._phase == 5900:
+            return "Front wheel blocked"
+        if self._phase == 5910:
+            return "Remote controlled"
         return
-
-    @property
-    def error(self):
-        """Map error message."""
-        return "Dummy error message"
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:

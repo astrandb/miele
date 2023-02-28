@@ -200,10 +200,10 @@ STATE_PROGRAM_PHASE = {
     1800: "finished",
     1801: "pre_dishwash",
     # Oven
+    3073: "heating",  # in common with coffee system
     3074: "process_running",
     3078: "process_finished",
     # Coffee system
-    3073: "heating",
     4352: "not_running",
     4353: "espresso",
     4355: "milk_foam",
@@ -219,11 +219,19 @@ STATE_PROGRAM_PHASE = {
     # Robot vacuum cleaner
     5889: "vacuum_cleaning",
     5890: "returning",
+    5891: "vacuum_cleaning_paused",
     5892: "going_to_target_area",
-    5893: "wheel_lifted",
-    5899: "not_charging",
+    5893: "wheel_lifted",  # F1
+    5894: "dirty_sensors",  # F2
+    5895: "dust_box_missing",  # F3
+    5896: "blocked_drive_wheels",  # F4
+    5897: "blocked_brushes",  # F5
+    5898: "motor_overload",  # F6
+    5899: "internal_fault",  # F7
+    5900: "blocked_front_wheel",  # F8
     5903: "docked",
     5904: "docked",
+    5910: "remote_controlled",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
 }

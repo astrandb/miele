@@ -217,11 +217,19 @@
                     "2nd_grinding": "Macinatura n.2",
                     "2nd_espresso": "Caffè espresso n.2",
                     "vacuum_cleaning": "Pulizia",
+                    "vacuum_cleaning_paused": "Pulizia in pausa",
                     "docked": "Agganciato alla base",
                     "returning": "Ritorno alla base",
                     "going_to_target_area": "In movimento verso l'area",
                     "wheel_lifted": "Ruota sollevata",
-                    "not_charging": "Non in carica"
+                    "dirty_sensors": "Sensori sporchi",
+                    "dust_box_missing": "Serbatoio mancante",
+                    "blocked_drive_wheels": "Ruote guida bloccate",
+                    "blocked_brushes": "Spazzole bloccate",
+                    "motor_overload": "Contr. serbatoio e filtro",
+                    "vacuum_internal_fault": "Guasto interno - riavviare",
+                    "blocked_front_wheel": "Ruota frontale bloccata",
+                    "remote_controlled": "Controllo con telecomando"
                 }
             },
             "drying_step": {

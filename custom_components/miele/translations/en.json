@@ -217,11 +217,19 @@
           "2nd_grinding": "2nd Grinding",
           "2nd_espresso": "2nd Espresso coffee",
           "vacuum_cleaning": "Cleaning",
+          "vacuum_cleaning_paused": "Cleaning paused",
           "docked": "Docked",
           "returning": "Returning",
           "going_to_target_area": "Going to target area",
           "wheel_lifted": "Wheel lifted",
-          "not_charging": "Not charging"
+          "dirty_sensors": "Dirty sesnsors",
+          "dust_box_missing": "Missing dust box",
+          "blocked_drive_wheels": "Drive wheels blocked",
+          "blocked_brushes": "Brushes blocked",
+          "motor_overload": "Check dust box and filter",
+          "vacuum_internal_fault": "Internal fault - reboot",
+          "blocked_front_wheel": "Front wheel blocked",
+          "remote_controlled": "Remote controlled"
         }
       },
       "drying_step": {
