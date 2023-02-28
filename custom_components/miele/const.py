@@ -5,6 +5,13 @@ VERSION = "0.1.6"
 API_READ_TIMEOUT = 20
 MANUFACTURER = "Miele"
 
+# Conf keys
+CONF_SENSORS = "sensors"
+CONF_PROGRAM_IDS = "program_ids"
+CONF_ID = "id"
+CONF_VALUE_RAW = "value_raw"
+CONF_VALUE = "value"
+
 # Define appliance types
 WASHING_MACHINE = 1
 TUMBLE_DRYER = 2
@@ -324,8 +331,10 @@ TUMBLE_DRYER_PROGRAM_ID = {
     190: "standard_pillows",
     220: "basket_program",
     240: "smoothing",
-    # steam_smoothing
-    # bed_linen
+    "unmapped_1": "steam_smoothing",
+    "unmapped_2": "bed_linen",
+    "unmapped_3": "cottons_eco",
+    "unmapped_4": "shirts",
 }
 OVEN_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
@@ -345,7 +354,7 @@ OVEN_PROGRAM_ID = {
     512: "1_tray",
     513: "2_trays",
     529: "baking_tray",
-    # steam_bake
+    "unmapped_1": "steam_bake",
     17003: "no_program",
 }
 ROBOT_VACUUM_CLEANER_PROGRAM_ID = {

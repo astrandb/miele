@@ -33,6 +33,8 @@ from . import get_coordinator
 from .const import (
     APPLIANCE_ICONS,
     COFFEE_SYSTEM,
+    CONF_PROGRAM_IDS,
+    CONF_SENSORS,
     DIALOG_OVEN,
     DISH_WARMER,
     DISHWASHER,
@@ -89,6 +91,7 @@ class MieleSensorDescription(SensorEntityDescription):
     status_key_raw: str = "state|status|value_raw"
     convert: Callable[[Any], Any] | None = None
     convert_icon: Callable[[Any], Any] | None = None
+    available_states: Callable[[Any], Any] | None = None
     extra_attributes: dict[str, Any] | None = None
 
 
@@ -343,6 +346,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             translation_key="program_id",
             icon="mdi:selection-ellipse-arrow-inside",
             convert=lambda x, t: STATE_PROGRAM_ID.get(t, {}).get(x, x),
+            available_states=lambda t: STATE_PROGRAM_ID.get(t, {}).values(),
             extra_attributes={"Raw value": 0},
         ),
     ),
@@ -748,6 +752,11 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             self._attr_icon = self.entity_description.convert_icon(
                 self.coordinator.data[self._ent][self.entity_description.type_key_raw],
             )
+        self._available_states = []
+        if self.entity_description.available_states is not None:
+            self._available_states = self.entity_description.available_states(
+                self.coordinator.data[self._ent][self.entity_description.type_key_raw],
+            )
         self._last_elapsed_time_reported = None
         self._last_started_time_reported = None
 
@@ -891,11 +900,22 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
 
         if self.entity_description.convert is None:
             return self.coordinator.data[self._ent][self.entity_description.data_tag]
-        else:
-            return self.entity_description.convert(
-                self.coordinator.data[self._ent][self.entity_description.data_tag],
-                self.coordinator.data[self._ent][self.entity_description.type_key_raw],
-            )
+
+        # If configuration.yaml contains an overridden mapping, use that value if available
+        custom_mapped_value = self._get_custom_mapped_value(
+            self.coordinator.data[self._ent][self.entity_description.data_tag]
+        )
+        if (
+            custom_mapped_value is not None
+            and custom_mapped_value in self._available_states
+        ):
+            return custom_mapped_value
+
+        # Otherwise use converter specified in entity description
+        return self.entity_description.convert(
+            self.coordinator.data[self._ent][self.entity_description.data_tag],
+            self.coordinator.data[self._ent][self.entity_description.type_key_raw],
+        )
 
     @property
     def available(self):
@@ -951,3 +971,11 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             ]
 
         return attr
+
+    def _get_sensor_config(self):
+        """Return sensor config for current entity."""
+        return self.hass.data[DOMAIN].get(CONF_SENSORS, {}).get(self.entity_id, {})
+
+    def _get_custom_mapped_value(self, raw_value):
+        """Return sensor value mapping for current entity."""
+        return self._get_sensor_config().get(CONF_PROGRAM_IDS, {}).get(raw_value, None)
