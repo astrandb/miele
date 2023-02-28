@@ -15,9 +15,9 @@
   "loggers": [ "pymiele" ],
   "requirements": [
     "flatdict==4.0.1",
-    "pymiele==0.1.6"
+    "pymiele==0.1.7"
   ],
   "ssdp": [ ],
-  "version": "0.1.6",
+  "version": "0.1.7",
   "zeroconf": [ ]
 }
