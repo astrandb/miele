@@ -26,8 +26,8 @@
     "sensor": {
       "status": {
         "state": {
-          "off": "Off",
-          "on": "On",
+          "off": "Ki",
+          "on": "Be",
           "programmed": "Program beállítva",
           "waiting_to_start": "Várakozás indulásra",
           "running": "Fut",
@@ -242,7 +242,7 @@
           "slightly_dry": "Enyhén száraz",
           "normal": "Normál",
           "normal_plus": "Normál plusz",
-          "extra_dry": "Extra száraz",
+          "extra_dry": "Extra száraz"
         }
       }
     }
