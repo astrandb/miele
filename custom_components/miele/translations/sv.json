@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Sköljer mölkrör",
                     "milk_pipework_clean": "Rengör mjölkrör",
                     "brewing_unit_degrease": "Avfettning av bryggenhet",
-                    "descaling": "Avkalkning"
+                    "descaling": "Avkalkning",
+                    "appliance_settings": "Appliance settings menu"
                 }
             },
             "program_phase": {
