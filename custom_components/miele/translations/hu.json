@@ -157,7 +157,8 @@
           "milk_pipework_rinse": "Tejcső öblítés",
           "milk_pipework_clean": "Tejcső tisztítás",
           "brewing_unit_degrease": "Főzőegység zsírtalanítás",
-          "descaling": "Vízkőmentesítés"
+          "descaling": "Vízkőmentesítés",
+          "appliance_settings": "Appliance settings menu"   
         }
       },
       "program_phase": {
