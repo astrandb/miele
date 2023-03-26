@@ -288,6 +288,7 @@ DISHWASHER_PROGRAM_ID = {
     2: "maintenance",
     3: "eco",
     6: "automatic",
+    7: "automatic",
     9: "solar_save",
     10: "gentle",
     11: "extra_quiet",
