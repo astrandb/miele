@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Risciacquo condotti latte",
                     "milk_pipework_clean": "Pulizia condotti latte",
                     "brewing_unit_degrease": "Sgrassare modulo infusione",
-                    "descaling": "Decalcificare elettrodomestico"
+                    "descaling": "Decalcificare elettrodomestico",
+                    "appliance_settings": "Menu impostazioni elettrodomestico"
                 }
             },
             "program_phase": {

@@ -58,7 +58,7 @@
                 "state": {
                     "no_program": "Inget program",
                     "cottons": "Bomull",
-                    "minimum_iron": "Minimum strykning",
+                    "minimum_iron": "Strykfri tvätt",
                     "delicates": "Fintvätt",
                     "woollens": "Ylle",
                     "silks": "Siden",
@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Sköljer mölkrör",
                     "milk_pipework_clean": "Rengör mjölkrör",
                     "brewing_unit_degrease": "Avfettning av bryggenhet",
-                    "descaling": "Avkalkning"
+                    "descaling": "Avkalkning",
+                    "appliance_settings": "Inställningsmeny"
                 }
             },
             "program_phase": {

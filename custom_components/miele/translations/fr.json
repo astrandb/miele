@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Rinçage circuit lait",
                     "milk_pipework_clean": "Nettoyage circuit lait",
                     "brewing_unit_degrease": "Degraissage moulin",
-                    "descaling": "Détartage"
+                    "descaling": "Détartage",
+                    "appliance_settings": "Appliance settings menu"
                 }
             },
             "program_phase": {
