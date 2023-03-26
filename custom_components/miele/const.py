@@ -489,40 +489,40 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24149: "white_tea",
     24150: "japanese_tea",
     # machine settings menu
-    24500: "appliance_settings",  #  total dispensed
-    24502: "appliance_settings",  #  lights appliance on
-    24503: "appliance_settings",  #  lights appliance off
-    24504: "appliance_settings",  #  turn off lights after
-    24506: "appliance_settings",  #  altitude
-    24513: "appliance_settings",  #  performance mode
-    24516: "appliance_settings",  #  turn off after
-    24537: "appliance_settings",  #  advanced mode
-    24542: "appliance_settings",  #  tea timer
-    24549: "appliance_settings",  #  total coffee dispensed
-    24550: "appliance_settings",  #  total tea dispensed
-    24551: "appliance_settings",  #  total ristretto
-    24552: "appliance_settings",  #  total cappuccino
-    24553: "appliance_settings",  #  total espresso
-    24554: "appliance_settings",  #  total coffee
-    24555: "appliance_settings",  #  total long coffee
-    24556: "appliance_settings",  #  total italian cappuccino
-    24557: "appliance_settings",  #  total latte macchiato
-    24558: "appliance_settings",  #  total caffellatte
-    24560: "appliance_settings",  #  total espresso macchiato
-    24562: "appliance_settings",  #  total flat white
-    24563: "appliance_settings",  #  total coffee with milk
-    24564: "appliance_settings",  #  total black tea
-    24565: "appliance_settings",  #  total herbal tea
-    24566: "appliance_settings",  #  total fruit tea
-    24567: "appliance_settings",  #  total green tea
-    24568: "appliance_settings",  #  total white tea
-    24569: "appliance_settings",  #  total japanese tea
-    24571: "appliance_settings",  #  total milk foam
-    24572: "appliance_settings",  #  total hot milk
-    24573: "appliance_settings",  #  total hot water
-    24574: "appliance_settings",  #  total very hot water
-    24575: "appliance_settings",  #  counter to descaling
-    24576: "appliance_settings",  #  counter to brewing unit degreasing
+    24500: "appliance_settings",  # total dispensed
+    24502: "appliance_settings",  # lights appliance on
+    24503: "appliance_settings",  # lights appliance off
+    24504: "appliance_settings",  # turn off lights after
+    24506: "appliance_settings",  # altitude
+    24513: "appliance_settings",  # performance mode
+    24516: "appliance_settings",  # turn off after
+    24537: "appliance_settings",  # advanced mode
+    24542: "appliance_settings",  # tea timer
+    24549: "appliance_settings",  # total coffee dispensed
+    24550: "appliance_settings",  # total tea dispensed
+    24551: "appliance_settings",  # total ristretto
+    24552: "appliance_settings",  # total cappuccino
+    24553: "appliance_settings",  # total espresso
+    24554: "appliance_settings",  # total coffee
+    24555: "appliance_settings",  # total long coffee
+    24556: "appliance_settings",  # total italian cappuccino
+    24557: "appliance_settings",  # total latte macchiato
+    24558: "appliance_settings",  # total caffellatte
+    24560: "appliance_settings",  # total espresso macchiato
+    24562: "appliance_settings",  # total flat white
+    24563: "appliance_settings",  # total coffee with milk
+    24564: "appliance_settings",  # total black tea
+    24565: "appliance_settings",  # total herbal tea
+    24566: "appliance_settings",  # total fruit tea
+    24567: "appliance_settings",  # total green tea
+    24568: "appliance_settings",  # total white tea
+    24569: "appliance_settings",  # total japanese tea
+    24571: "appliance_settings",  # total milk foam
+    24572: "appliance_settings",  # total hot milk
+    24573: "appliance_settings",  # total hot water
+    24574: "appliance_settings",  # total very hot water
+    24575: "appliance_settings",  # counter to descaling
+    24576: "appliance_settings",  # counter to brewing unit degreasing
     # maintenance
     24750: "appliance_rinse",
     24751: "descaling",
@@ -533,6 +533,10 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24787: "appliance_rinse",
     24788: "appliance_rinse",
     24789: "milk_pipework_clean",
+    # profiles settings menu
+    24800: "appliance_settings",  # add profile
+    24801: "appliance_settings",  # ask profile settings
+    24813: "appliance_settings",  # modify profile name
 }
 
 STATE_PROGRAM_ID = {
