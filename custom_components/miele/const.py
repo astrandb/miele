@@ -563,6 +563,7 @@ STATE_DRYING_STEP = {
 
 COLORS = "colors"
 DEVICE_NAME = "deviceName"
+AMBIENT_LIGHT = "ambientLight"
 LIGHT = "light"
 LIGHT_ON = 1
 LIGHT_OFF = 2
@@ -604,6 +605,14 @@ AMBIENT_COLORS = {
     "pink",
     "purple",
     "turquoise",
+    "violet",
+    "crimson",
+    "salmon",
+    "gold",
+    "cyan blue",
+    "sky blue",
+    "rose",
+    "lavender",
 }
 
 ACTIONS = "actions"
