@@ -23,7 +23,7 @@
         }
     },
     "entity": {
-        "binary_sensor":{
+        "binary_sensor": {
             "door": {
                 "name": "Door"
             },
@@ -41,6 +41,14 @@
             },
             "mobile_start": {
                 "name": "Mobile start"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stop"
             }
         },
         "sensor": {

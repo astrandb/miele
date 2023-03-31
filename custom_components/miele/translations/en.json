@@ -27,21 +27,29 @@
       "door": {
           "name": "Door"
         },
-        "info": {
-            "name": "Info"
-        },
-        "failure": {
-            "name": "Failure"
-        },
-        "remote_control": {
-            "name": "Remote control"
-        },
-        "smart_grid": {
-            "name": "Smart grid"
-        },
-        "mobile_start": {
-            "name": "Mobile start"
-  }
+      "info": {
+          "name": "Info"
+      },
+      "failure": {
+          "name": "Failure"
+      },
+      "remote_control": {
+          "name": "Remote control"
+      },
+      "smart_grid": {
+          "name": "Smart grid"
+      },
+      "mobile_start": {
+          "name": "Mobile start"
+      }
+    },
+    "button": {
+      "start": {
+          "name": "Start"
+      },
+      "stop": {
+          "name": "Stop"
+      }
     },
     "sensor": {
       "status": {

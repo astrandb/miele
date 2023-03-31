@@ -77,7 +77,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ],
         description=MieleButtonDescription(
             key="start",
-            name="Start",
+            translation_key="start",
             press_data={PROCESS_ACTION: ACT_START},
         ),
     ),
@@ -98,7 +98,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
         ],
         description=MieleButtonDescription(
             key="stop",
-            name="Stop",
+            translation_key="stop",
             press_data={PROCESS_ACTION: ACT_STOP},
         ),
     ),
@@ -159,7 +159,6 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = self.entity_description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(

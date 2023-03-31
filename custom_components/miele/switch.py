@@ -79,7 +79,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             data_tag="state|status|value_raw",
             on_value=14,
             icon="mdi:snowflake",
-            translation_key="supercooling"
+            translation_key="supercooling",
             on_data={PROCESS_ACTION: ACT_START_SUPERCOOL},
             off_data={PROCESS_ACTION: ACT_STOP_SUPERCOOL},
         ),

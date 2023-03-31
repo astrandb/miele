@@ -43,6 +43,14 @@
                 "name": "Mobilstart"
             }
         },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stopp"
+            }
+        },
         "sensor": {
             "status": {
                 "name": "Status",
@@ -120,7 +128,7 @@
                 "name": "Vatten prognos"
             },
             "energy_forecast": {
-                "name": "Eneri prognos"
+                "name": "Energi prognos"
             },
             "battery": {
                 "name": "Batteri"
@@ -132,6 +140,7 @@
                 "name": "Mål stektemperatur"
             },
             "program_type": {
+                "name": "programtyp",
                 "state": {
                     "normal_operation_mode": "Normalläge",
                     "own_program": "Eget program",
