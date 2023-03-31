@@ -51,6 +51,44 @@
                 "name": "Stopp"
             }
         },
+        "climate": {
+            "fridge": {
+                "name": "Kyl"
+            },
+            "freezer": {
+                "name": "Frys"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Fläkt"
+            }
+        },
+        "light": {
+            "light": {
+                "name": "Belysning"
+            },
+            "ambient_light": {
+                "name": "Omgivningsljus"
+            }
+        },
+        "number": {
+            "plate_0": {
+                "name": "Platta 0"
+            },
+            "plate_1": {
+                "name": "Platta 1"
+            },
+            "plate_2": {
+                "name": "Platta 2"
+            },
+            "plate_3": {
+                "name": "Platta 3"
+            },
+            "plate_4": {
+                "name": "Platta 4"
+            }
+        },
         "sensor": {
             "status": {
                 "name": "Status",
@@ -140,7 +178,7 @@
                 "name": "Mål stektemperatur"
             },
             "program_type": {
-                "name": "programtyp",
+                "name": "Programtyp",
                 "state": {
                     "normal_operation_mode": "Normalläge",
                     "own_program": "Eget program",
@@ -352,6 +390,11 @@
             },
             "power_on": {
                 "name": "Till"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Dammsugare"
             }
         }
     },

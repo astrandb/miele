@@ -169,25 +169,25 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
             and self._ed.zone == 0
         ):
-            name = "Fridge"
+            name = "fridge"
         elif (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
             and self._ed.zone == 1
         ):
-            name = "Freezer"
+            name = "freezer"
         elif (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 19
             and self._ed.zone == 0
         ):
-            name = "Fridge"
+            name = "fridge"
         elif (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 20
             and self._ed.zone == 0
         ):
-            name = "Freezer"
+            name = "freezer"
         else:
             name = self._ed.name
-        self._attr_name = name
+        self._attr_translation_key = name
         self._attr_has_entity_name = True
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"

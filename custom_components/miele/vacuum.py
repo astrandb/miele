@@ -92,7 +92,7 @@ VACUUM_TYPES: Final[tuple[MieleVacuumDefinition, ...]] = (
             key="vacuum",
             data_tag="state|status|value_raw",
             on_value=14,
-            name="Vacuum",
+            translation_key="vacuum",
         ),
     ),
 )
@@ -155,7 +155,6 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             ]
         self._attr_supported_features = SUPPORTED_FEATURES
         self._attr_fan_speed_list = FAN_SPEEDS
-        self._attr_name = None
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(

@@ -51,7 +51,45 @@
           "name": "Stop"
       }
     },
-    "sensor": {
+    "climate": {
+      "fridge": {
+          "name": "Fridge"
+      },
+      "freezer": {
+          "name": "Freezer"
+      }
+    },
+    "fan": {
+      "fan": {
+          "name": "Fan"
+      }
+    },
+    "light": {
+      "light": {
+          "name": "Light"
+      },
+      "ambient_light": {
+          "name": "Ambient light"
+      }
+    },
+    "number": {
+      "plate_0": {
+          "name": "Plate 0"
+      },
+      "plate_1": {
+          "name": "Plate 1"
+      },
+      "plate_2": {
+          "name": "Plate 2"
+      },
+      "plate_3": {
+          "name": "Plate 3"
+      },
+      "plate_4": {
+          "name": "Plate 4"
+      }
+  },
+"sensor": {
       "status": {
         "name": "Status",
         "state": {
@@ -353,6 +391,11 @@
       "power_on": {
         "name": "Power on"
       }
+    },
+    "vacuum": {
+        "vacuum": {
+            "name": "Vacuum"
+        }
     }
   },
   "system_health": {
