@@ -26,7 +26,22 @@
     "binary_sensor":{
       "door": {
           "name": "Door"
-      }
+        },
+        "info": {
+            "name": "Info"
+        },
+        "failure": {
+            "name": "Failure"
+        },
+        "remote_control": {
+            "name": "Remote control"
+        },
+        "smart_grid": {
+            "name": "Smart grid"
+        },
+        "mobile_start": {
+            "name": "Mobile start"
+  }
     },
     "sensor": {
       "status": {
@@ -56,7 +71,67 @@
           }
         }
       },
-      "program_type": {
+      "temperature": {
+        "name": "Temperature"
+    },
+    "temperature_z2": {
+        "name": "Temperature zone 2"
+    },
+    "temperature_z3": {
+        "name": "Temperature zone 3"
+    },
+    "target_temperature": {
+        "name": "Target temperature"
+    },
+    "target_temperature_z2": {
+        "name": "Target temperature zone 2"
+    },
+    "target_temperature_z3": {
+        "name": "Target temperature zone 3"
+    },
+    "spin_speed": {
+        "name": "Spin speed"
+    },
+    "remaining_time": {
+        "name": "Remaining time"
+    },
+    "finish_at": {
+        "name": "Finish at"
+    },
+    "start_time": {
+        "name": "Start time"
+    },
+    "start_at": {
+        "name": "Start at"
+    },
+    "elapsed_time": {
+        "name": "Elapsed time"
+    },
+    "started_at": {
+        "name": "Started at"
+    },
+    "water_consumption": {
+        "name": "Water consumption"
+    },
+    "energy_consumption": {
+        "name": "Energy consumption"
+    },
+    "water_forecast": {
+        "name": "Water forecast"
+    },
+    "energy_forecast": {
+        "name": "Energy forecast"
+    },
+    "battery": {
+        "name": "Battery"
+    },
+    "food_core_temperature": {
+        "name": "Food core temperature"
+    },
+    "food_core_target_temperature": {
+        "name": "Food core target temperature"
+    },
+"program_type": {
         "name": "Program type",
         "state": {
           "normal_operation_mode": "Normal operation mode",
@@ -247,6 +322,7 @@
         }
       },
       "drying_step": {
+        "name": "Drying step",
         "state": {
           "smoothing": "Smoothing",
           "machine_iron": "Machine iron",
@@ -257,6 +333,17 @@
           "normal_plus": "Normal Plus",
           "extra_dry": "Extra dry"
         }
+      }
+    },
+    "switch": {
+      "supercooling": {
+        "name": "Supercooling"
+      },
+      "superfreezing": {
+        "name": "Superfreezing"
+      },
+      "power_on": {
+        "name": "Power on"
       }
     }
   },

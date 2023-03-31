@@ -26,6 +26,21 @@
         "binary_sensor":{
             "door": {
                 "name": "Dörr"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "failure": {
+                "name": "Problem"
+            },
+            "remote_control": {
+                "name": "Fjärrstyrning"
+            },
+            "smart_grid": {
+                "name": "Smart elnät"
+            },
+            "mobile_start": {
+                "name": "Mobilstart"
             }
         },
         "sensor": {
@@ -55,6 +70,66 @@
                     "name": "Tillverkare"
                   }
                 }
+            },
+            "temperature": {
+                "name": "Temperatur"
+            },
+            "temperature_z2": {
+                "name": "Temperatur zon 2"
+            },
+            "temperature_z3": {
+                "name": "Temperatur zon 3"
+            },
+            "target_temperature": {
+                "name": "Måltemperatur"
+            },
+            "target_temperature_z2": {
+                "name": "Måltemperatur zon 2"
+            },
+            "target_temperature_z3": {
+                "name": "Måltemperatur zon 3"
+            },
+            "spin_speed": {
+                "name": "Centrifugering"
+            },
+            "remaining_time": {
+                "name": "Återstående tid"
+            },
+            "finish_at": {
+                "name": "Klar kl"
+            },
+            "start_time": {
+                "name": "Start om"
+            },
+            "start_at": {
+                "name": "Startar kl"
+            },
+            "elapsed_time": {
+                "name": "Förfluten tid"
+            },
+            "started_at": {
+                "name": "Startade kl"
+            },
+            "water_consumption": {
+                "name": "Vattenförbrukning"
+            },
+            "energy_consumption": {
+                "name": "Energiförbrukning"
+            },
+            "water_forecast": {
+                "name": "Vatten prognos"
+            },
+            "energy_forecast": {
+                "name": "Eneri prognos"
+            },
+            "battery": {
+                "name": "Batteri"
+            },
+            "food_core_temperature": {
+                "name": "Stektemperatur"
+            },
+            "food_core_target_temperature": {
+                "name": "Mål stektemperatur"
             },
             "program_type": {
                 "state": {
@@ -246,9 +321,10 @@
                 }
             },
             "drying_step": {
+                "name": "Torkningsläge",
                 "state": {
                     "smoothing": "Slätar ut",
-                    "machine_iron": "Maskinstykning",
+                    "machine_iron": "Maskinstrykning",
                     "hand_iron_1": "Handstrykning 1",
                     "hand_iron_2": "Handstrykning 2",
                     "slightly_dry": "Lätt torrt",
@@ -256,6 +332,17 @@
                     "normal_plus": "Normal Plus",
                     "extra_dry": "Extra torrt"
                 }
+            }
+        },
+        "switch": {
+            "supercooling": {
+                "name": "Snabbkylning"
+            },
+            "superfreezing": {
+                "name": "Snabbinfrysning"
+            },
+            "power_on": {
+                "name": "Till"
             }
         }
     },
