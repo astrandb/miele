@@ -30,7 +30,7 @@
         },
         "sensor": {
             "status": {
-                "name": "Status_sv",
+                "name": "Status",
                 "state": {
                     "off": "Från",
                     "on": "Till",
@@ -66,7 +66,7 @@
                 }
             },
             "program_id": {
-                "name": "Program sv",
+                "name": "Program",
                 "state": {
                     "no_program": "Inget program",
                     "cottons": "Bomull",
