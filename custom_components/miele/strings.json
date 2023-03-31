@@ -23,8 +23,14 @@
         }
     },
     "entity": {
+        "binary_sensor":{
+            "door": {
+                "name": "Door"
+            }
+        },
         "sensor": {
             "status": {
+                "name": "Status",
                 "state": {
                     "off": "Off",
                     "on": "On",
@@ -43,6 +49,11 @@
                     "superheating": "Superheating",
                     "supercooling_superfreezing": "Supercooling/superfreezing",
                     "not_connected": "Not connected"
+                },
+                "state_attributes":{
+                  "manufacturer": {
+                    "name": "Manufacturer"
+                  }
                 }
             },
             "program_type": {
@@ -55,6 +66,7 @@
                 }
             },
             "program_id": {
+                "name": "Program",
                 "state": {
                     "no_program": "No program",
                     "cottons": "Cottons",
@@ -161,6 +173,7 @@
                 }
             },
             "program_phase": {
+                "name": "Program phase",
                 "state": {
                     "not_running": "Not running",
                     "main_wash": "Main wash",

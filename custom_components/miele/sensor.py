@@ -307,7 +307,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateStatus",
             data_tag="state|status|value_raw",
-            name="Status",
             translation_key="status",
             convert=lambda x, t: STATE_STATUS.get(x, x),
             convert_icon=lambda t: APPLIANCE_ICONS.get(t, "mdi:state-machine"),
@@ -315,7 +314,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
                 "Serial no": 0,
                 "Raw value": 0,
                 "Appliance": 0,
-                "Manufacturer": 0,
+                "manufacturer": 0,
                 "Model": 0,
                 "HW version": 0,
                 "SW version": 0,
@@ -342,7 +341,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramId",
             data_tag="state|ProgramID|value_raw",
             data_tag_loc="state|ProgramID|value_localized",
-            name="Program",
             translation_key="program_id",
             icon="mdi:selection-ellipse-arrow-inside",
             convert=lambda x, t: STATE_PROGRAM_ID.get(t, {}).get(x, x),
@@ -398,7 +396,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramPhase",
             data_tag="state|programPhase|value_raw",
             data_tag_loc="state|programPhase|value_localized",
-            name="Program phase",
             translation_key="program_phase",
             icon="mdi:tray-full",
             convert=lambda x, t: STATE_PROGRAM_PHASE.get(x, x),
@@ -731,8 +728,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        # self._attr_name = f"{appl_type} {self.entity_description.name}"
-        self._attr_name = self.entity_description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
@@ -949,8 +944,8 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
                 self.entity_description.type_key
             ]
 
-        if "Manufacturer" in self.entity_description.extra_attributes:
-            attr["Manufacturer"] = MANUFACTURER
+        if "manufacturer" in self.entity_description.extra_attributes:
+            attr["manufacturer"] = MANUFACTURER
 
         if "Model" in self.entity_description.extra_attributes:
             attr["Model"] = self.coordinator.data[self._ent][

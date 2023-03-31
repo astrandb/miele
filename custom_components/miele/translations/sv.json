@@ -23,8 +23,14 @@
         }
     },
     "entity": {
+        "binary_sensor":{
+            "door": {
+                "name": "Dörr"
+            }
+        },
         "sensor": {
             "status": {
+                "name": "Status_sv",
                 "state": {
                     "off": "Från",
                     "on": "Till",
@@ -43,6 +49,11 @@
                     "superheating": "Supervärmning",
                     "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
                     "not_connected": "Ej ansluten"
+                },
+                "state_attributes":{
+                  "manufacturer": {
+                    "name": "Tillverkare"
+                  }
                 }
             },
             "program_type": {
@@ -55,6 +66,7 @@
                 }
             },
             "program_id": {
+                "name": "Program sv",
                 "state": {
                     "no_program": "Inget program",
                     "cottons": "Bomull",
@@ -161,6 +173,7 @@
                 }
             },
             "program_phase": {
+                "name": "Programfas",
                 "state": {
                     "not_running": "Kör ej",
                     "main_wash": "Huvudtvätt",
