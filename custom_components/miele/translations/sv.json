@@ -129,19 +129,19 @@
             "temperature": {
                 "name": "Temperatur"
             },
-            "temperature_z2": {
+            "temperature_zone_2": {
                 "name": "Temperatur zon 2"
             },
-            "temperature_z3": {
+            "temperature_zone_3": {
                 "name": "Temperatur zon 3"
             },
             "target_temperature": {
                 "name": "Måltemperatur"
             },
-            "target_temperature_z2": {
+            "target_temperature_zone_2": {
                 "name": "Måltemperatur zon 2"
             },
-            "target_temperature_z3": {
+            "target_temperature_zone_3": {
                 "name": "Måltemperatur zon 3"
             },
             "spin_speed": {
