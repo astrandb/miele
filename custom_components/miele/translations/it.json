@@ -84,10 +84,10 @@
                     "freshen_up": "Rinfrescare",
                     "trainers": "Scarpe da ginnastica",
                     "clean_machine": "Pulizia macchina",
-                    "down_duvets": "Piumoni",
+                    "down_duvets": "Trapunte & Piumini",
                     "express_20": "Express 20'",
                     "express": "Express",
-                    "down_filled_items": "Trapunte & Piumini",
+                    "down_filled_items": "Piumoni",
                     "cottons_eco": "Cotone ECO",
                     "quick_power_wash": "QuickPowerWash",
                     "eco_40_60": "ECO 40-60",
@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Risciacquo condotti latte",
                     "milk_pipework_clean": "Pulizia condotti latte",
                     "brewing_unit_degrease": "Sgrassare modulo infusione",
-                    "descaling": "Decalcificare elettrodomestico"
+                    "descaling": "Decalcificare elettrodomestico",
+                    "appliance_settings": "Menu impostazioni elettrodomestico"
                 }
             },
             "program_phase": {

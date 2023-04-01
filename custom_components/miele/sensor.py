@@ -469,6 +469,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
+            ROBOT_VACUUM_CLEANER,
         ],
         description=MieleSensorDescription(
             key="stateRemainingTimeAbs",
@@ -539,6 +540,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
+            ROBOT_VACUUM_CLEANER,
         ],
         description=MieleSensorDescription(
             key="stateElapsedTime",
@@ -563,6 +565,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
+            ROBOT_VACUUM_CLEANER,
         ],
         description=MieleSensorDescription(
             key="stateElapsedTimeAbs",
