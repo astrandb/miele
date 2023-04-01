@@ -157,7 +157,8 @@
                     "milk_pipework_rinse": "Milk pipework rinse",
                     "milk_pipework_clean": "Milk pipework clean",
                     "brewing_unit_degrease": "Brewing unit degrease",
-                    "descaling": "Appliance descaling"
+                    "descaling": "Appliance descaling",
+                    "appliance_settings": "Appliance settings menu"
                 }
             },
             "program_phase": {

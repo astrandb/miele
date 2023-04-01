@@ -18,6 +18,7 @@ from homeassistant.helpers.update_coordinator import (
 
 from . import get_coordinator
 from .const import (
+    AMBIENT_LIGHT,
     API,
     COFFEE_SYSTEM,
     DOMAIN,
@@ -80,6 +81,16 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
             key="light",
             light_tag="state|light",
             translation_key="light",
+        ),
+    ),
+    MieleLightDefinition(
+        types=[
+            HOOD,
+        ],
+        description=MieleLightDescription(
+            key="ambientlight",
+            light_tag="state|ambientLight",
+            name="Ambient light",
         ),
     ),
 )
@@ -167,14 +178,16 @@ class MieleLight(CoordinatorEntity, LightEntity):
         **kwargs: Any,
     ) -> None:
         """Turn on the light."""
+        light_type = AMBIENT_LIGHT if self._ed.key == "ambientlight" else LIGHT
         try:
-            await self._api.send_action(self._ent, {LIGHT: LIGHT_ON})
+            await self._api.send_action(self._ent, {light_type: LIGHT_ON})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_on: %s - %s", ex.status, ex.message)
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
+        light_type = AMBIENT_LIGHT if self._ed.key == "ambientlight" else LIGHT
         try:
-            await self._api.send_action(self._ent, {LIGHT: LIGHT_OFF})
+            await self._api.send_action(self._ent, {light_type: LIGHT_OFF})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
