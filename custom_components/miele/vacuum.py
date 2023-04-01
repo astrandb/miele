@@ -194,7 +194,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         if self._phase == 5892:
             return "Going to target area"
         if self._phase == 5893:
-            return "Wheel lifted"
+            return "wheel_lifted"
         if self._phase == 5894:
             return "Dirty sesnsors"
         if self._phase == 5895:
@@ -219,7 +219,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         data: dict[str, Any] = {}
         if self.status is not None:
             data[ATTR_STATUS] = self.status
-
+        data["test"] = "testing"
         return data
 
     @property

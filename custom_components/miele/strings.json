@@ -111,10 +111,19 @@
                     "supercooling_superfreezing": "Supercooling/superfreezing",
                     "not_connected": "Not connected"
                 },
-                "state_attributes":{
-                  "manufacturer": {
-                    "name": "Manufacturer"
-                  }
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Appliance"
+                    },
+                    "manufacturer": {
+                        "name": "Manufacturer"
+                    },
+                    "model": {
+                        "name": "Model"
+                    },
+                    "serial_no": {
+                        "name": "Serial no"
+                    }
                 }
             },
             "temperature": {
@@ -394,7 +403,14 @@
         },
         "vacuum": {
             "vacuum": {
-                "name": "Vacuum"
+                "name": "Vacuum",
+                "state_attributes": {
+                    "status": {
+                        "state": {
+                            "wheel_lifted": "Wheel lifted"
+                        }
+                    }
+                }
             }
         }
     },

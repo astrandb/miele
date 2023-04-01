@@ -311,11 +311,11 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             convert=lambda x, t: STATE_STATUS.get(x, x),
             convert_icon=lambda t: APPLIANCE_ICONS.get(t, "mdi:state-machine"),
             extra_attributes={
-                "Serial no": 0,
+                "serial_no": 0,
                 "Raw value": 0,
-                "Appliance": 0,
+                "appliance": 0,
                 "manufacturer": 0,
-                "Model": 0,
+                "model": 0,
                 "HW version": 0,
                 "SW version": 0,
             },
@@ -934,19 +934,19 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             attr["Localized"] = self.coordinator.data[self._ent][
                 self.entity_description.data_tag.replace("_raw", "_localized")
             ]
-        if "Serial no" in self.entity_description.extra_attributes:
-            attr["Serial no"] = self._ent
+        if "serial_no" in self.entity_description.extra_attributes:
+            attr["serial_no"] = self._ent
 
-        if "Appliance" in self.entity_description.extra_attributes:
-            attr["Appliance"] = self.coordinator.data[self._ent][
+        if "appliance" in self.entity_description.extra_attributes:
+            attr["appliance"] = self.coordinator.data[self._ent][
                 self.entity_description.type_key
             ]
 
         if "manufacturer" in self.entity_description.extra_attributes:
             attr["manufacturer"] = MANUFACTURER
 
-        if "Model" in self.entity_description.extra_attributes:
-            attr["Model"] = self.coordinator.data[self._ent][
+        if "model" in self.entity_description.extra_attributes:
+            attr["model"] = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
 

@@ -23,7 +23,7 @@
         }
     },
     "entity": {
-        "binary_sensor":{
+        "binary_sensor": {
             "door": {
                 "name": "Dörr"
             },
@@ -111,10 +111,19 @@
                     "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
                     "not_connected": "Ej ansluten"
                 },
-                "state_attributes":{
-                  "manufacturer": {
-                    "name": "Tillverkare"
-                  }
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Apparat"
+                    },
+                    "manufacturer": {
+                        "name": "Tillverkare"
+                    },
+                    "model": {
+                        "name": "Modell"
+                    },
+                    "serial_no": {
+                        "name": "Serienummer"
+                    }
                 }
             },
             "temperature": {
@@ -394,7 +403,21 @@
         },
         "vacuum": {
             "vacuum": {
-                "name": "Dammsugare"
+                "name": "Dammsugare",
+                "state_attributes": {
+                    "status": {
+                        "name": "Status sv",
+                        "state": {
+                            "wheel_lifted": "Hjul upplyft"
+                        }
+                    },
+                    "test": {
+                        "name": "Test",
+                        "state": {
+                            "testing": "Testar"
+                        }
+                    }
+                }
             }
         }
     },
