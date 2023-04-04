@@ -69,7 +69,7 @@
                 "name": "Belysning"
             },
             "ambient_light": {
-                "name": "Omgivningsljus"
+                "name": "Omgivningsbelysning"
             }
         },
         "number": {
