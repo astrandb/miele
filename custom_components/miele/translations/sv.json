@@ -407,15 +407,18 @@
                 "name": "Dammsugare",
                 "state_attributes": {
                     "status": {
-                        "name": "Status sv",
+                        "name": "Status",
                         "state": {
-                            "wheel_lifted": "Hjul upplyft"
-                        }
-                    },
-                    "test": {
-                        "name": "Test",
-                        "state": {
-                            "testing": "Testar"
+                            "going_to_target_area": "Går till område",
+                            "wheel_lifted": "Hjul upplyft",
+                            "dirty_sensors": "Smuts på sensorer",
+                            "dust_box_missing": "Dammbehållare saknas",
+                            "blocked_drive_wheels": "Drivhjul blockerade",
+                            "blocked_brushes": "Borstar blockerade",
+                            "check_dust_box_and_filter": "Kontrollera dammbehållare och filter",
+                            "internal_fault_reboot": "Internt fel - starta om",
+                            "blocked_front_wheel": "Framhjul blockerat",
+                            "remote_controlled": "Fjärrstyrd"
                         }
                     }
                 }

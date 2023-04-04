@@ -407,8 +407,18 @@
                 "name": "Vacuum",
                 "state_attributes": {
                     "status": {
+                        "name": "Status",
                         "state": {
-                            "wheel_lifted": "Wheel lifted"
+                            "going_to_target_area": "Going to target area",
+                            "wheel_lifted": "Wheel lifted",
+                            "dirty_sensors": "Dirty sensors",
+                            "dust_box_missing": "Missing dust box",
+                            "blocked_drive_wheels": "Drive wheels blocked",
+                            "blocked_brushes": "Brushes blocked",
+                            "check_dust_box_and_filter": "Check dust box andfilter",
+                            "internal_fault_reboot": "Internal fault - Reboot",
+                            "blocked_front_wheel": "Front wheel blocked",
+                            "remote_controlled": "Remote controlled"
                         }
                     }
                 }
