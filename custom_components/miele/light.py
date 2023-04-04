@@ -90,7 +90,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
         description=MieleLightDescription(
             key="ambientlight",
             light_tag="state|ambientLight",
-            name="Ambient light",
+            translation_key="ambient_light",
         ),
     ),
 )
