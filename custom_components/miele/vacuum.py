@@ -92,7 +92,7 @@ VACUUM_TYPES: Final[tuple[MieleVacuumDefinition, ...]] = (
             key="vacuum",
             data_tag="state|status|value_raw",
             on_value=14,
-            name="Vacuum",
+            translation_key="vacuum",
         ),
     ),
 )
@@ -155,7 +155,6 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             ]
         self._attr_supported_features = SUPPORTED_FEATURES
         self._attr_fan_speed_list = FAN_SPEEDS
-        self._attr_name = None
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
@@ -190,28 +189,26 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     @property
     def status(self):
         """Map status text."""
-        # TODO: in the future add translations to vacuum attributes. Currently
-        # supported only for climate entity: https://developers.home-assistant.io/docs/internationalization/core/#entity-attribute-name-and-state-of-entity-components
         if self._phase == 5892:
-            return "Going to target area"
+            return "going_to_target_area"
         if self._phase == 5893:
-            return "Wheel lifted"
+            return "wheel_lifted"
         if self._phase == 5894:
-            return "Dirty sesnsors"
+            return "dirty_sensors"
         if self._phase == 5895:
-            return "Missing dust box"
+            return "dust_box_missing"
         if self._phase == 5896:
-            return "Drive wheels blocked"
+            return "blocked_drive_wheels"
         if self._phase == 5897:
-            return "Brushes blocked"
+            return "blocked_brushes"
         if self._phase == 5898:
-            return "Check dust box and filter"
+            return "check_dust_box_and_filter"
         if self._phase == 5899:
-            return "Internal fault - reboot"
+            return "internal_fault_reboot"
         if self._phase == 5900:
-            return "Front wheel blocked"
+            return "blocked_front_wheel"
         if self._phase == 5910:
-            return "Remote controlled"
+            return "remote_controlled"
         return
 
     @property
@@ -220,7 +217,6 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         data: dict[str, Any] = {}
         if self.status is not None:
             data[ATTR_STATUS] = self.status
-
         return data
 
     @property

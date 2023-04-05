@@ -80,7 +80,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
         description=MieleLightDescription(
             key="light",
             light_tag="state|light",
-            name="Light",
+            translation_key="light",
         ),
     ),
     MieleLightDefinition(
@@ -90,7 +90,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
         description=MieleLightDescription(
             key="ambientlight",
             light_tag="state|ambientLight",
-            name="Ambient light",
+            translation_key="ambient_light",
         ),
     ),
 )
@@ -142,17 +142,16 @@ class MieleLight(CoordinatorEntity, LightEntity):
 
         self._idx = idx
         self._ent = ent
-        self._ed = description
+        self.entity_description = description
         _LOGGER.debug("Init light %s", ent)
-        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
+        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
         if appl_type == "":
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = self._ed.name
         self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self._ed.key}-{self._ent}"
-        self._attr_supported_features = self._ed.supported_features
+        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
+        self._attr_supported_features = self.entity_description.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
@@ -163,7 +162,7 @@ class MieleLight(CoordinatorEntity, LightEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return self.coordinator.data[self._ent][self._ed.light_tag] == LIGHT_ON
+        return self.coordinator.data[self._ent][self.entity_description.light_tag] == LIGHT_ON
 
     @property
     def available(self):

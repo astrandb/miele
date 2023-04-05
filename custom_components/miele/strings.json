@@ -23,8 +23,75 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Door"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "failure": {
+                "name": "Failure"
+            },
+            "remote_control": {
+                "name": "Remote control"
+            },
+            "smart_grid": {
+                "name": "Smart grid"
+            },
+            "mobile_start": {
+                "name": "Mobile start"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stop"
+            }
+        },
+        "climate": {
+            "fridge": {
+                "name": "Fridge"
+            },
+            "freezer": {
+                "name": "Freezer"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Fan"
+            }
+        },
+        "light": {
+            "light": {
+                "name": "Light"
+            },
+            "ambient_light": {
+                "name": "Ambient light"
+            }
+        },
+        "number": {
+            "plate_0": {
+                "name": "Plate 0"
+            },
+            "plate_1": {
+                "name": "Plate 1"
+            },
+            "plate_2": {
+                "name": "Plate 2"
+            },
+            "plate_3": {
+                "name": "Plate 3"
+            },
+            "plate_4": {
+                "name": "Plate 4"
+            }
+        },
         "sensor": {
             "status": {
+                "name": "Status",
                 "state": {
                     "off": "Off",
                     "on": "On",
@@ -43,9 +110,84 @@
                     "superheating": "Superheating",
                     "supercooling_superfreezing": "Supercooling/superfreezing",
                     "not_connected": "Not connected"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Appliance"
+                    },
+                    "manufacturer": {
+                        "name": "Manufacturer"
+                    },
+                    "model": {
+                        "name": "Model"
+                    },
+                    "serial_no": {
+                        "name": "Serial no"
+                    }
                 }
             },
+            "temperature": {
+                "name": "Temperature"
+            },
+            "temperature_zone_2": {
+                "name": "Temperature zone 2"
+            },
+            "temperature_zone_3": {
+                "name": "Temperature zone 3"
+            },
+            "target_temperature": {
+                "name": "Target temperature"
+            },
+            "target_temperature_zone_2": {
+                "name": "Target temperature zone 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Target temperature zone 3"
+            },
+            "spin_speed": {
+                "name": "Spin speed"
+            },
+            "remaining_time": {
+                "name": "Remaining time"
+            },
+            "finish_at": {
+                "name": "Finish at"
+            },
+            "start_time": {
+                "name": "Start time"
+            },
+            "start_at": {
+                "name": "Start at"
+            },
+            "elapsed_time": {
+                "name": "Elapsed time"
+            },
+            "started_at": {
+                "name": "Started at"
+            },
+            "water_consumption": {
+                "name": "Water consumption"
+            },
+            "energy_consumption": {
+                "name": "Energy consumption"
+            },
+            "water_forecast": {
+                "name": "Water forecast"
+            },
+            "energy_forecast": {
+                "name": "Energy forecast"
+            },
+            "battery": {
+                "name": "Battery"
+            },
+            "food_core_temperature": {
+                "name": "Food core temperature"
+            },
+            "food_core_target_temperature": {
+                "name": "Food core target temperature"
+            },
             "program_type": {
+                "name": "Program type",
                 "state": {
                     "normal_operation_mode": "Normal operation mode",
                     "own_program": "Own program",
@@ -55,6 +197,7 @@
                 }
             },
             "program_id": {
+                "name": "Program",
                 "state": {
                     "no_program": "No program",
                     "cottons": "Cottons",
@@ -162,6 +305,7 @@
                 }
             },
             "program_phase": {
+                "name": "Program phase",
                 "state": {
                     "not_running": "Not running",
                     "main_wash": "Main wash",
@@ -234,6 +378,7 @@
                 }
             },
             "drying_step": {
+                "name": "Drying step",
                 "state": {
                     "smoothing": "Smoothing",
                     "machine_iron": "Machine iron",
@@ -243,6 +388,39 @@
                     "normal": "Normal",
                     "normal_plus": "Normal Plus",
                     "extra_dry": "Extra dry"
+                }
+            }
+        },
+        "switch": {
+            "supercooling": {
+                "name": "Supercooling"
+            },
+            "superfreezing": {
+                "name": "Superfreezing"
+            },
+            "power_on": {
+                "name": "Power on"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Vacuum",
+                "state_attributes": {
+                    "status": {
+                        "name": "Status",
+                        "state": {
+                            "going_to_target_area": "Going to target area",
+                            "wheel_lifted": "Wheel lifted",
+                            "dirty_sensors": "Dirty sensors",
+                            "dust_box_missing": "Missing dust box",
+                            "blocked_drive_wheels": "Drive wheels blocked",
+                            "blocked_brushes": "Brushes blocked",
+                            "check_dust_box_and_filter": "Check dust box andfilter",
+                            "internal_fault_reboot": "Internal fault - Reboot",
+                            "blocked_front_wheel": "Front wheel blocked",
+                            "remote_controlled": "Remote controlled"
+                        }
+                    }
                 }
             }
         }

@@ -23,8 +23,75 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Dörr"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "failure": {
+                "name": "Problem"
+            },
+            "remote_control": {
+                "name": "Fjärrstyrning"
+            },
+            "smart_grid": {
+                "name": "Smart elnät"
+            },
+            "mobile_start": {
+                "name": "Mobilstart"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stopp"
+            }
+        },
+        "climate": {
+            "fridge": {
+                "name": "Kyl"
+            },
+            "freezer": {
+                "name": "Frys"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Fläkt"
+            }
+        },
+        "light": {
+            "light": {
+                "name": "Belysning"
+            },
+            "ambient_light": {
+                "name": "Omgivningsbelysning"
+            }
+        },
+        "number": {
+            "plate_0": {
+                "name": "Platta 0"
+            },
+            "plate_1": {
+                "name": "Platta 1"
+            },
+            "plate_2": {
+                "name": "Platta 2"
+            },
+            "plate_3": {
+                "name": "Platta 3"
+            },
+            "plate_4": {
+                "name": "Platta 4"
+            }
+        },
         "sensor": {
             "status": {
+                "name": "Status",
                 "state": {
                     "off": "Från",
                     "on": "Till",
@@ -43,9 +110,84 @@
                     "superheating": "Supervärmning",
                     "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
                     "not_connected": "Ej ansluten"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Apparat"
+                    },
+                    "manufacturer": {
+                        "name": "Tillverkare"
+                    },
+                    "model": {
+                        "name": "Modell"
+                    },
+                    "serial_no": {
+                        "name": "Serienummer"
+                    }
                 }
             },
+            "temperature": {
+                "name": "Temperatur"
+            },
+            "temperature_zone_2": {
+                "name": "Temperatur zon 2"
+            },
+            "temperature_zone_3": {
+                "name": "Temperatur zon 3"
+            },
+            "target_temperature": {
+                "name": "Måltemperatur"
+            },
+            "target_temperature_zone_2": {
+                "name": "Måltemperatur zon 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Måltemperatur zon 3"
+            },
+            "spin_speed": {
+                "name": "Centrifugering"
+            },
+            "remaining_time": {
+                "name": "Återstående tid"
+            },
+            "finish_at": {
+                "name": "Klar kl"
+            },
+            "start_time": {
+                "name": "Start om"
+            },
+            "start_at": {
+                "name": "Startar kl"
+            },
+            "elapsed_time": {
+                "name": "Förfluten tid"
+            },
+            "started_at": {
+                "name": "Startade kl"
+            },
+            "water_consumption": {
+                "name": "Vattenförbrukning"
+            },
+            "energy_consumption": {
+                "name": "Energiförbrukning"
+            },
+            "water_forecast": {
+                "name": "Vatten prognos"
+            },
+            "energy_forecast": {
+                "name": "Energi prognos"
+            },
+            "battery": {
+                "name": "Batteri"
+            },
+            "food_core_temperature": {
+                "name": "Stektemperatur"
+            },
+            "food_core_target_temperature": {
+                "name": "Mål stektemperatur"
+            },
             "program_type": {
+                "name": "Programtyp",
                 "state": {
                     "normal_operation_mode": "Normalläge",
                     "own_program": "Eget program",
@@ -55,6 +197,7 @@
                 }
             },
             "program_id": {
+                "name": "Program",
                 "state": {
                     "no_program": "Inget program",
                     "cottons": "Bomull",
@@ -162,6 +305,7 @@
                 }
             },
             "program_phase": {
+                "name": "Programfas",
                 "state": {
                     "not_running": "Kör ej",
                     "main_wash": "Huvudtvätt",
@@ -234,15 +378,49 @@
                 }
             },
             "drying_step": {
+                "name": "Torkningsläge",
                 "state": {
                     "smoothing": "Slätar ut",
-                    "machine_iron": "Maskinstykning",
+                    "machine_iron": "Maskinstrykning",
                     "hand_iron_1": "Handstrykning 1",
                     "hand_iron_2": "Handstrykning 2",
                     "slightly_dry": "Lätt torrt",
                     "normal": "Normal",
                     "normal_plus": "Normal Plus",
                     "extra_dry": "Extra torrt"
+                }
+            }
+        },
+        "switch": {
+            "supercooling": {
+                "name": "Snabbkylning"
+            },
+            "superfreezing": {
+                "name": "Snabbinfrysning"
+            },
+            "power_on": {
+                "name": "Till"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Dammsugare",
+                "state_attributes": {
+                    "status": {
+                        "name": "Status",
+                        "state": {
+                            "going_to_target_area": "Går till område",
+                            "wheel_lifted": "Hjul upplyft",
+                            "dirty_sensors": "Smuts på sensorer",
+                            "dust_box_missing": "Dammbehållare saknas",
+                            "blocked_drive_wheels": "Drivhjul blockerade",
+                            "blocked_brushes": "Borstar blockerade",
+                            "check_dust_box_and_filter": "Kontrollera dammbehållare och filter",
+                            "internal_fault_reboot": "Internt fel - starta om",
+                            "blocked_front_wheel": "Framhjul blockerat",
+                            "remote_controlled": "Fjärrstyrd"
+                        }
+                    }
                 }
             }
         }

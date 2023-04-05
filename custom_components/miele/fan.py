@@ -72,7 +72,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
         description=MieleFanDescription(
             key="fan",
             ventilation_step_tag="state|ventilationStep|value_raw",
-            name="Fan",
+            translation_key="fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
             supported_features=FanEntityFeature.SET_SPEED,
         ),
@@ -84,7 +84,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
         description=MieleFanDescription(
             key="fan",
             ventilation_step_tag="state|ventilationStep|value_raw",
-            name="Fan",
+            translation_key="fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
             supported_features=FanEntityFeature.SET_SPEED,
         ),
@@ -138,17 +138,16 @@ class MieleFan(CoordinatorEntity, FanEntity):
 
         self._idx = idx
         self._ent = ent
-        self._ed = description
+        self.entity_description = description
         _LOGGER.debug("Init fan %s", ent)
-        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
+        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
         if appl_type == "":
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = self._ed.name
         self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self._ed.key}-{self._ent}"
-        self._attr_supported_features = self._ed.supported_features
+        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
+        self._attr_supported_features = self.entity_description.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,
@@ -160,14 +159,14 @@ class MieleFan(CoordinatorEntity, FanEntity):
     def is_on(self):
         """Return current on/off state."""
         return (
-            self.coordinator.data[self._ent][self._ed.ventilation_step_tag]
-            in self._ed.preset_modes
+            self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag]
+            in self.entity_description.preset_modes
         )
 
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset_mode of the fan."""
-        pmode = self.coordinator.data[self._ent][self._ed.ventilation_step_tag]
+        pmode = self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag]
         return None if pmode == 0 else pmode
 
     @property
@@ -180,7 +179,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
             SPEED_RANGE,
-            (self.coordinator.data[self._ent][self._ed.ventilation_step_tag] or 0),
+            (self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag] or 0),
         )
 
     @property
@@ -198,9 +197,9 @@ class MieleFan(CoordinatorEntity, FanEntity):
             return
         if preset_mode is None or preset_mode == 0:
             return
-        if self._ed.preset_modes is None or preset_mode not in self._ed.preset_modes:
+        if self.entity_description.preset_modes is None or preset_mode not in self.entity_description.preset_modes:
             raise ValueError(
-                f"{preset_mode} is not a valid preset_mode: {self._ed.preset_modes}"
+                f"{preset_mode} is not a valid preset_mode: {self.entity_description.preset_modes}"
             )
         try:
             await self._api.send_action(self._ent, {VENTILATION_STEP: preset_mode})
@@ -218,7 +217,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
             await self.async_turn_off()
         else:
             self.coordinator.data[self._ent][
-                self._ed.ventilation_step_tag
+                self.entity_description.ventilation_step_tag
             ] = preset_mode
             await self.async_set_preset_mode(preset_mode)
             self.async_write_ha_state()
@@ -254,5 +253,5 @@ class MieleFan(CoordinatorEntity, FanEntity):
             await self._api.send_action(self._ent, {POWER_OFF: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
-        self.coordinator.data[self._ent][self._ed.ventilation_step_tag] = None
+        self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag] = None
         self.async_write_ha_state()

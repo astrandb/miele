@@ -95,7 +95,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             key="door",
             data_tag="state|signalDoor",
             device_class=BinarySensorDeviceClass.DOOR,
-            name="Door",
+            translation_key="door",
         ),
     ),
     MieleBinarySensorDefinition(
@@ -128,7 +128,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             key="info",
             data_tag="state|signalInfo",
             device_class=BinarySensorDeviceClass.PROBLEM,
-            name="Info",
+            translation_key="info",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
     ),
@@ -164,7 +164,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             key="failure",
             data_tag="state|signalFailure",
             device_class=BinarySensorDeviceClass.PROBLEM,
-            name="Failure",
+            translation_key="failure",
             icon="mdi:alert",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -197,7 +197,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="remoteEnable",
             data_tag="state|remoteEnable|fullRemoteControl",
-            name="Remote control",
+            translation_key="remote_control",
             icon="mdi:remote",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -230,7 +230,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="smartGrid",
             data_tag="state|remoteEnable|smartGrid",
-            name="Smart grid",
+            translation_key="smart_grid",
             icon="mdi:view-grid-plus-outline",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -264,7 +264,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
         description=MieleBinarySensorDescription(
             key="mobileStart",
             data_tag="state|remoteEnable|mobileStart",
-            name="Mobile start",
+            translation_key="mobile_start",
             icon="mdi:cellphone-wireless",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=False,
@@ -315,7 +315,6 @@ class MieleBinarySensor(CoordinatorEntity, BinarySensorEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = self.entity_description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(

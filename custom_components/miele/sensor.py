@@ -125,7 +125,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="temperature",
             data_tag="state|temperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature",
+            translation_key="temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
@@ -152,7 +152,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="temperature2",
             data_tag="state|temperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature zone 2",
+            translation_key="temperature_zone_2",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
@@ -180,7 +180,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="temperature3",
             data_tag="state|temperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Temperature zone 3",
+            translation_key="temperature_zone_3",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
             convert=lambda x, t: x / 100.0,
@@ -210,7 +210,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature",
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target temperature",
+            translation_key="target_temperature",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: int(x / 100.0),
@@ -239,7 +239,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature2",
             data_tag="state|targetTemperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target temperature zone 2",
+            translation_key="target_temperature_zone_2",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: int(x / 100.0),
@@ -269,7 +269,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="targetTemperature3",
             data_tag="state|targetTemperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
-            name="Target temperature zone 3",
+            translation_key="target_temperature_zone_3",
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             entity_category=EntityCategory.DIAGNOSTIC,
             convert=lambda x, t: int(x / 100.0),
@@ -307,16 +307,15 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateStatus",
             data_tag="state|status|value_raw",
-            name="Status",
             translation_key="status",
             convert=lambda x, t: STATE_STATUS.get(x, x),
             convert_icon=lambda t: APPLIANCE_ICONS.get(t, "mdi:state-machine"),
             extra_attributes={
-                "Serial no": 0,
+                "serial_no": 0,
                 "Raw value": 0,
-                "Appliance": 0,
-                "Manufacturer": 0,
-                "Model": 0,
+                "appliance": 0,
+                "manufacturer": 0,
+                "model": 0,
                 "HW version": 0,
                 "SW version": 0,
             },
@@ -342,7 +341,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramId",
             data_tag="state|ProgramID|value_raw",
             data_tag_loc="state|ProgramID|value_localized",
-            name="Program",
             translation_key="program_id",
             icon="mdi:selection-ellipse-arrow-inside",
             convert=lambda x, t: STATE_PROGRAM_ID.get(t, {}).get(x, x),
@@ -370,7 +368,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramType",
             data_tag="state|programType|value_raw",
             data_tag_loc="state|programType|value_localized",
-            name="Program type",
             translation_key="program_type",
             icon="mdi:state-machine",
             convert=lambda x, t: STATE_PROGRAM_TYPE.get(x, x),
@@ -398,7 +395,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateProgramPhase",
             data_tag="state|programPhase|value_raw",
             data_tag_loc="state|programPhase|value_localized",
-            name="Program phase",
             translation_key="program_phase",
             icon="mdi:tray-full",
             convert=lambda x, t: STATE_PROGRAM_PHASE.get(x, x),
@@ -413,7 +409,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateSpinningSpeed",
             data_tag="state|spinningSpeed|value_raw",
-            name="Spin speed",
+            translation_key="spin_speed",
             icon="mdi:sync",
             native_unit_of_measurement="rpm",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -428,7 +424,6 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateDryingStep",
             data_tag="state|dryingStep|value_raw",
             data_tag_loc="state|dryingStep|value_localized",
-            name="Drying step",
             translation_key="drying_step",
             icon="mdi:water-outline",
             convert=lambda x, t: STATE_DRYING_STEP.get(x, x),
@@ -455,7 +450,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateRemainingTime",
             data_tag="state|remainingTime|0",
             data_tag1="state|remainingTime|1",
-            name="Remaining time",
+            translation_key="remaining_time",
             icon="mdi:clock-end",
             native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -480,7 +475,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateRemainingTimeAbs",
             data_tag="state|remainingTime|0",
             data_tag1="state|remainingTime|1",
-            name="Finish at",
+            translation_key="finish_at",
             icon="mdi:clock-end",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -503,7 +498,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateStartTime",
             data_tag="state|startTime|0",
             data_tag1="state|startTime|1",
-            name="Start time",
+            translation_key="start_time",
             icon="mdi:clock-start",
             native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -527,7 +522,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateStartTimeAbs",
             data_tag="state|startTime|0",
             data_tag1="state|startTime|1",
-            name="Start at",
+            translation_key="start_at",
             icon="mdi:calendar-clock",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -551,7 +546,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateElapsedTime",
             data_tag="state|elapsedTime|0",
             data_tag1="state|elapsedTime|1",
-            name="Elapsed time",
+            translation_key="elapsed_time",
             icon="mdi:timelapse",
             native_unit_of_measurement=TIME_MINUTES,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -576,7 +571,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateElapsedTimeAbs",
             data_tag="state|elapsedTime|0",
             data_tag1="state|elapsedTime|1",
-            name="Started at",
+            translation_key="started_at",
             icon="mdi:clock-start",
             entity_category=EntityCategory.DIAGNOSTIC,
         ),
@@ -590,7 +585,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateCurrentWaterConsumption",
             data_tag="state|ecoFeedback|currentWaterConsumption|value",
-            name="Water consumption",
+            translation_key="water_consumption",
             device_class=SensorDeviceClass.WATER,
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement=UnitOfVolume.LITERS,
@@ -608,7 +603,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateCurrentEnergyConsumption",
             data_tag="state|ecoFeedback|currentEnergyConsumption|value",
-            name="Energy consumption",
+            translation_key="energy_consumption",
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING,
             native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
@@ -625,7 +620,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateWaterForecast",
             data_tag="state|ecoFeedback|waterForecast",
-            name="Water forecast",
+            translation_key="water_forecast",
             icon="mdi:water-outline",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -643,7 +638,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="stateEnergyForecast",
             data_tag="state|ecoFeedback|energyForecast",
-            name="Energy forecast",
+            translation_key="energy_forecast",
             icon="mdi:lightning-bolt-outline",
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -658,7 +653,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="batteryLevel",
             data_tag="state|batteryLevel",
-            name="Battery",
+            translation_key="battery",
             device_class=SensorDeviceClass.BATTERY,
             native_unit_of_measurement=PERCENTAGE,
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -669,7 +664,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="coreTemperature",
             data_tag="state|coreTemperature|0|value_raw",
-            name="Food core temperature",
+            translation_key="food_core_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
             state_class=SensorStateClass.MEASUREMENT,
@@ -681,7 +676,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         description=MieleSensorDescription(
             key="coreTargetTemperature",
             data_tag="state|coreTargetTemperature|0|value_raw",
-            name="Food core target temperature",
+            translation_key="food_core_target_temperature",
             icon="mdi:thermometer-check",
             device_class=SensorDeviceClass.TEMPERATURE,
             native_unit_of_measurement=UnitOfTemperature.CELSIUS,
@@ -734,8 +729,6 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        # self._attr_name = f"{appl_type} {self.entity_description.name}"
-        self._attr_name = self.entity_description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
@@ -944,19 +937,19 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             attr["Localized"] = self.coordinator.data[self._ent][
                 self.entity_description.data_tag.replace("_raw", "_localized")
             ]
-        if "Serial no" in self.entity_description.extra_attributes:
-            attr["Serial no"] = self._ent
+        if "serial_no" in self.entity_description.extra_attributes:
+            attr["serial_no"] = self._ent
 
-        if "Appliance" in self.entity_description.extra_attributes:
-            attr["Appliance"] = self.coordinator.data[self._ent][
+        if "appliance" in self.entity_description.extra_attributes:
+            attr["appliance"] = self.coordinator.data[self._ent][
                 self.entity_description.type_key
             ]
 
-        if "Manufacturer" in self.entity_description.extra_attributes:
-            attr["Manufacturer"] = MANUFACTURER
+        if "manufacturer" in self.entity_description.extra_attributes:
+            attr["manufacturer"] = MANUFACTURER
 
-        if "Model" in self.entity_description.extra_attributes:
-            attr["Model"] = self.coordinator.data[self._ent][
+        if "model" in self.entity_description.extra_attributes:
+            attr["model"] = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
 

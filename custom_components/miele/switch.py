@@ -79,7 +79,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             data_tag="state|status|value_raw",
             on_value=14,
             icon="mdi:snowflake",
-            name="Supercooling",
+            translation_key="supercooling",
             on_data={PROCESS_ACTION: ACT_START_SUPERCOOL},
             off_data={PROCESS_ACTION: ACT_STOP_SUPERCOOL},
         ),
@@ -91,7 +91,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             data_tag="state|status|value_raw",
             on_value=13,
             icon="mdi:snowflake",
-            name="Superfreezing",
+            translation_key="superfreezing",
             on_data={PROCESS_ACTION: ACT_START_SUPERFREEZE},
             off_data={PROCESS_ACTION: ACT_STOP_SUPERFREEZE},
         ),
@@ -117,7 +117,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             data_tag="state|status|value_raw",
             off_value=1,
             icon="mdi:power",
-            name="Power on",
+            translation_key="power_on",
             on_data={POWER_ON: True},
             off_data={POWER_OFF: True},
         ),
@@ -179,7 +179,6 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_name = self.entity_description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_device_info = DeviceInfo(
