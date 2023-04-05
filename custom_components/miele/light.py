@@ -162,7 +162,10 @@ class MieleLight(CoordinatorEntity, LightEntity):
     @property
     def is_on(self):
         """Return current on/off state."""
-        return self.coordinator.data[self._ent][self.entity_description.light_tag] == LIGHT_ON
+        return (
+            self.coordinator.data[self._ent][self.entity_description.light_tag]
+            == LIGHT_ON
+        )
 
     @property
     def available(self):

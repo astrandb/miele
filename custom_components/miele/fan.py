@@ -159,14 +159,18 @@ class MieleFan(CoordinatorEntity, FanEntity):
     def is_on(self):
         """Return current on/off state."""
         return (
-            self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag]
+            self.coordinator.data[self._ent][
+                self.entity_description.ventilation_step_tag
+            ]
             in self.entity_description.preset_modes
         )
 
     @property
     def preset_mode(self) -> str | None:
         """Return the current preset_mode of the fan."""
-        pmode = self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag]
+        pmode = self.coordinator.data[self._ent][
+            self.entity_description.ventilation_step_tag
+        ]
         return None if pmode == 0 else pmode
 
     @property
@@ -179,7 +183,12 @@ class MieleFan(CoordinatorEntity, FanEntity):
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
             SPEED_RANGE,
-            (self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag] or 0),
+            (
+                self.coordinator.data[self._ent][
+                    self.entity_description.ventilation_step_tag
+                ]
+                or 0
+            ),
         )
 
     @property
@@ -197,7 +206,10 @@ class MieleFan(CoordinatorEntity, FanEntity):
             return
         if preset_mode is None or preset_mode == 0:
             return
-        if self.entity_description.preset_modes is None or preset_mode not in self.entity_description.preset_modes:
+        if (
+            self.entity_description.preset_modes is None
+            or preset_mode not in self.entity_description.preset_modes
+        ):
             raise ValueError(
                 f"{preset_mode} is not a valid preset_mode: {self.entity_description.preset_modes}"
             )
@@ -253,5 +265,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
             await self._api.send_action(self._ent, {POWER_OFF: True})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Turn_off: %s - %s", ex.status, ex.message)
-        self.coordinator.data[self._ent][self.entity_description.ventilation_step_tag] = None
+        self.coordinator.data[self._ent][
+            self.entity_description.ventilation_step_tag
+        ] = None
         self.async_write_ha_state()
