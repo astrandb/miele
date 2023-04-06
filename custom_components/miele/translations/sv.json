@@ -301,7 +301,8 @@
                     "milk_pipework_clean": "Rengör mjölkrör",
                     "brewing_unit_degrease": "Avfettning av bryggenhet",
                     "descaling": "Avkalkning",
-                    "appliance_settings": "Inställningsmeny"
+                    "appliance_settings": "Inställningsmeny",
+                    "barista_assistant": "BaristaAssistant"
                 }
             },
             "program_phase": {
