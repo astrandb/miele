@@ -23,8 +23,75 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Sportello"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "failure": {
+                "name": "Guasto"
+            },
+            "remote_control": {
+                "name": "Remote Control"
+            },
+            "smart_grid": {
+                "name": "Smart Grid"
+            },
+            "mobile_start": {
+                "name": "MobileStart"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stop"
+            }
+        },
+        "climate": {
+            "fridge": {
+                "name": "Frigorifero"
+            },
+            "freezer": {
+                "name": "Congelatore"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Ventola"
+            }
+        },
+        "light": {
+            "light": {
+                "name": "Illuminazione"
+            },
+            "ambient_light": {
+                "name": "Illuminazione ambiente"
+            }
+        },
+        "number": {
+            "plate_0": {
+                "name": "Piastra 0"
+            },
+            "plate_1": {
+                "name": "Piastra 1"
+            },
+            "plate_2": {
+                "name": "Piastra 2"
+            },
+            "plate_3": {
+                "name": "Piastra 3"
+            },
+            "plate_4": {
+                "name": "Piastra 4"
+            }
+        },
         "sensor": {
             "status": {
+                "name": "Stato",
                 "state": {
                     "off": "Spento",
                     "on": "Acceso",
@@ -43,9 +110,84 @@
                     "superheating": "SuperRiscaldamento",
                     "supercooling_superfreezing": "SuperRaffreddamento/SuperFrost",
                     "not_connected": "Non connesso"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Elettrodomestico"
+                    },
+                    "manufacturer": {
+                        "name": "Produttore"
+                    },
+                    "model": {
+                        "name": "Modello"
+                    },
+                    "serial_no": {
+                        "name": "N. Seriale"
+                    }
                 }
             },
+            "temperature": {
+                "name": "Temperatura"
+            },
+            "temperature_zone_2": {
+                "name": "Temperatura zona 2"
+            },
+            "temperature_zone_3": {
+                "name": "Temperatura zona 3"
+            },
+            "target_temperature": {
+                "name": "Temperatura impostata"
+            },
+            "target_temperature_zone_2": {
+                "name": "Temperatura impostata zona 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Temperatura impostata zona 3"
+            },
+            "spin_speed": {
+                "name": "Centrifuga"
+            },
+            "remaining_time": {
+                "name": "Tempo residuo"
+            },
+            "finish_at": {
+                "name": "Ora termine"
+            },
+            "start_time": {
+                "name": "Tempo alla partenza"
+            },
+            "start_at": {
+                "name": "Ora partenza programmata"
+            },
+            "elapsed_time": {
+                "name": "Tempo trascorso"
+            },
+            "started_at": {
+                "name": "Ora inizio"
+            },
+            "water_consumption": {
+                "name": "Consumo acqua"
+            },
+            "energy_consumption": {
+                "name": "Consumo energia"
+            },
+            "water_forecast": {
+                "name": "Previsione consumo acqua"
+            },
+            "energy_forecast": {
+                "name": "Previsione consumo energia"
+            },
+            "battery": {
+                "name": "Batteria"
+            },
+            "food_core_temperature": {
+                "name": "Temperatura pietanza"
+            },
+            "food_core_target_temperature": {
+                "name": "Temperatura impostata pietanza"
+            },
             "program_type": {
+                "name": "Tipo programma",
                 "state": {
                     "normal_operation_mode": "Normale",
                     "own_program": "Programma proprio",
@@ -55,6 +197,7 @@
                 }
             },
             "program_id": {
+                "name": "Programma",
                 "state": {
                     "no_program": "Nessun programma",
                     "cottons": "Cotone",
@@ -162,6 +305,7 @@
                 }
             },
             "program_phase": {
+                "name": "Fase programma",
                 "state": {
                     "not_running": "Non in funzione",
                     "main_wash": "Lavaggio",
@@ -234,6 +378,7 @@
                 }
             },
             "drying_step": {
+                "name": "Livello asciugatura",
                 "state": {
                     "smoothing": "Toglipieghe",
                     "machine_iron": "Striratrice",
@@ -243,6 +388,39 @@
                     "normal": "Pronto asciutto",
                     "normal_plus": "Pronto asciutto +",
                     "extra_dry": "Secco"
+                }
+            }
+        },
+        "switch": {
+            "supercooling": {
+                "name": "SuperRaffreddamento"
+            },
+            "superfreezing": {
+                "name": "SuperFrost"
+            },
+            "power_on": {
+                "name": "Accensione"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Aspirapolvere",
+                "state_attributes": {
+                    "status": {
+                        "name": "Stato",
+                        "state": {
+                            "going_to_target_area": "Ritorno alla base",
+                            "wheel_lifted": "Ruota sollevata",
+                            "dirty_sensors": "Sensori sporchi",
+                            "dust_box_missing": "Serbatoio mancante",
+                            "blocked_drive_wheels": "Ruote guida bloccate",
+                            "blocked_brushes": "Spazzole bloccate",
+                            "check_dust_box_and_filter": "Contr. serbatoio e filtro",
+                            "internal_fault_reboot": "Guasto interno - riavviare",
+                            "blocked_front_wheel": "Ruota frontale bloccata",
+                            "remote_controlled": "Controllo con telecomando"
+                        }
+                    }
                 }
             }
         }
