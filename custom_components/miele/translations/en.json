@@ -301,7 +301,8 @@
                     "milk_pipework_clean": "Milk pipework clean",
                     "brewing_unit_degrease": "Brewing unit degrease",
                     "descaling": "Appliance descaling",
-                    "appliance_settings": "Appliance settings menu"
+                    "appliance_settings": "Appliance settings menu",
+                    "barista_assistant": "BaristaAssistant"
                 }
             },
             "program_phase": {

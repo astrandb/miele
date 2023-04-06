@@ -158,7 +158,8 @@
           "milk_pipework_clean": "Tejcső tisztítás",
           "brewing_unit_degrease": "Főzőegység zsírtalanítás",
           "descaling": "Vízkőmentesítés",
-          "appliance_settings": "Készülék beállításai menü"   
+          "appliance_settings": "Készülék beállításai menü",
+          "barista_assistant": "BaristaAssistant"
         }
       },
       "program_phase": {
