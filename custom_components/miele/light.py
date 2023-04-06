@@ -181,7 +181,9 @@ class MieleLight(CoordinatorEntity, LightEntity):
         **kwargs: Any,
     ) -> None:
         """Turn on the light."""
-        light_type = AMBIENT_LIGHT if self._ed.key == "ambientlight" else LIGHT
+        light_type = (
+            AMBIENT_LIGHT if self.entity_description.key == "ambientlight" else LIGHT
+        )
         try:
             await self._api.send_action(self._ent, {light_type: LIGHT_ON})
         except aiohttp.ClientResponseError as ex:
@@ -189,7 +191,9 @@ class MieleLight(CoordinatorEntity, LightEntity):
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
-        light_type = AMBIENT_LIGHT if self._ed.key == "ambientlight" else LIGHT
+        light_type = (
+            AMBIENT_LIGHT if self.entity_description.key == "ambientlight" else LIGHT
+        )
         try:
             await self._api.send_action(self._ent, {light_type: LIGHT_OFF})
         except aiohttp.ClientResponseError as ex:
