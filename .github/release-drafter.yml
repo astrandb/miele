@@ -22,6 +22,8 @@ categories:
     label: "maintenance"
   - title: "Code quality and optimizations"
     label: "code quality"
+  - title: "Development tools"
+    label: "devlopment tools"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 
@@ -48,3 +50,6 @@ autolabeler:
   - label: "translation"
     files:
       - "*/translations/*.json"
+  - label: "development tools"
+    files:
+      - ".devcontainer/*"
