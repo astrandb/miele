@@ -429,7 +429,6 @@
     },
     "system_health": {
         "info": {
-        "info": {
             "reach_miele_cloud": "Bereikbaarheid Miele Cloud",
             "component_version": "Versie"
         }
