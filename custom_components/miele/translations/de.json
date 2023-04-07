@@ -1,7 +1,6 @@
 {
     "config": {
         "abort": {
-            "already_configured": "Account is already configured",
             "already_configured": "Konto ist bereits konfiguriert",
             "already_in_progress": "Konfigurationsfluss bereits im Gange",
             "authorize_url_timeout": "Zeitüberschreitung beim Erzeugen der Autorisierungs-URL.",
