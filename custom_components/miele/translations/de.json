@@ -7,7 +7,7 @@
             "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folge der Anleitung.",
             "no_url_available": "Keine URL verfügbar. Für Informationen zu diesem Fehler, [überprüfe den Hilfe-Abschnitt]({docs_url})",
             "oauth_error": "Ungültige Token-Daten erhalten.",
-            "reauth_successful": "Die Neuauthentifizierung war erfolgreich."          
+            "reauth_successful": "Die Neuauthentifizierung war erfolgreich."
         },
         "create_entry": {
             "default": "Erfolgreich authentifiziert"
@@ -109,7 +109,7 @@
                     "supercooling": "SuperKühlen",
                     "superheating": "Schnellaufheizen",
                     "supercooling_superfreezing": "SuperKühlen/SuperFrost",
-                    "not_connected": "Nicht verbunden"              
+                    "not_connected": "Nicht verbunden"
                 },
                 "state_attributes": {
                     "appliance": {
