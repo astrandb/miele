@@ -148,7 +148,7 @@
                 "name": "Geschwindigkeit Schleudern"
             },
             "remaining_time": {
-                "name": "verbleibende Zeit"
+                "name": "Verbleibende Zeit"
             },
             "finish_at": {
                 "name": "Ende um"
@@ -160,10 +160,10 @@
                 "name": "Starte um"
             },
             "elapsed_time": {
-                "name": "verstrichene Zeit"
+                "name": "Verstrichene Zeit"
             },
             "started_at": {
-                "name": "gestartet um"
+                "name": "Gestartet um"
             },
             "water_consumption": {
                 "name": "Wasserverbrauch"
@@ -172,10 +172,10 @@
                 "name": "Stromverbrauch"
             },
             "water_forecast": {
-                "name": "geschätzter Wasserverbrauch"
+                "name": "Geschätzter Wasserverbrauch"
             },
             "energy_forecast": {
-                "name": "geschätzter Stromverbrauch"
+                "name": "Geschätzter Stromverbrauch"
             },
             "battery": {
                 "name": "Batterie"
@@ -361,10 +361,10 @@
                     "grinding": "Mahlen",
                     "2nd_pre_brewing": "Vorbrühen zweite Tasse",
                     "2nd_grinding": "Mahlen zweite Tasse",
-                    "2nd_espresso": "zweiter Espresso",
+                    "2nd_espresso": "Zweiter Espresso",
                     "vacuum_cleaning": "Saugen",
                     "vacuum_cleaning_paused": "Saugen pausiert",
-                    "docked": "in der Ladestation",
+                    "docked": "In der Ladestation",
                     "returning": "Gehe zur Ladestation",
                     "going_to_target_area": "Gehe zum Reinigungsbereich",
                     "wheel_lifted": "Rad angehoben",
@@ -419,7 +419,7 @@
                             "check_dust_box_and_filter": "Staubbehälter und Filter prüfen",
                             "internal_fault_reboot": "Interne Fehler - Neustart",
                             "blocked_front_wheel": "Vorderrad blockiert",
-                            "remote_controlled": "ferngesteuert"
+                            "remote_controlled": "Ferngesteuert"
                         }
                     }
                 }
