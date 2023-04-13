@@ -389,7 +389,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24006: "latte_macchiato",
     24007: "espresso_macchiato",
     24008: "cafe_au_lait",
-    24009: "caffellatte",
+    24009: "caffe_latte",
     24012: "flat_white",
     24013: "very_hot_water",
     24014: "hot_water",
@@ -411,7 +411,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24038: "latte_macchiato",
     24039: "espresso_macchiato",
     24040: "cafe_au_lait",
-    24041: "caffellatte",
+    24041: "caffe_latte",
     24044: "flat_white",
     24045: "very_hot_water",
     24046: "hot_water",
@@ -433,7 +433,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24070: "latte_macchiato",
     24071: "espresso_macchiato",
     24072: "cafe_au_lait",
-    24073: "caffellatte",
+    24073: "caffe_latte",
     24076: "flat_white",
     24077: "very_hot_water",
     24078: "hot_water",
@@ -477,7 +477,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24134: "latte_macchiato",
     24135: "espresso_macchiato",
     24136: "cafe_au_lait",
-    24137: "caffellatte",
+    24137: "caffe_latte",
     24140: "flat_white",
     24141: "very_hot_water",
     24142: "hot_water",
@@ -509,7 +509,7 @@ COFFEE_SYSTEM_PROGRAM_ID = {
     24555: "appliance_settings",  # total long coffee
     24556: "appliance_settings",  # total italian cappuccino
     24557: "appliance_settings",  # total latte macchiato
-    24558: "appliance_settings",  # total caffellatte
+    24558: "appliance_settings",  # total caffe_latte
     24560: "appliance_settings",  # total espresso macchiato
     24562: "appliance_settings",  # total flat white
     24563: "appliance_settings",  # total coffee with milk

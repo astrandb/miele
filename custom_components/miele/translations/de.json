@@ -187,7 +187,7 @@
                 "name": "Ziel-Kerntemperatur Lebensmittel"
             },
             "program_type": {
-                "name": "Programmart",
+                "name": "Modus",
                 "state": {
                     "normal_operation_mode": "Normalbetrieb",
                     "own_program": "Eigenes Programm",
@@ -213,7 +213,7 @@
                     "denim": "Jeans",
                     "proofing": "Imprägnieren",
                     "sportswear": "Sportwäsche",
-                    "automatic_plus": "Automatik plus",
+                    "automatic_plus": "Automatic plus",
                     "outerwear": "Outdoor",
                     "pillows": "Kopfkissen",
                     "cool_air": "Lüften kalt",
@@ -238,7 +238,7 @@
                     "maintenance": "Gerätepflege",
                     "eco": "ECO",
                     "normal": "Normal",
-                    "automatic": "Automatik",
+                    "automatic": "Automatic",
                     "solar_save": "SolarSpar",
                     "gentle": "Fein",
                     "extra_quiet": "ExtraLeise",
@@ -248,10 +248,10 @@
                     "gentle_minimum_iron": "Pflegeleicht fein",
                     "woollens_handcare": "Finish Wolle",
                     "bed_linen": "Bettwäsche",
-                    "steam_smoothing": "Dampfglätten",
+                    "steam_smoothing": "Finish Dampf",
                     "gentle_smoothing": "Glätten fein",
                     "gentle_denim": "Jeans fein",
-                    "silks_handcare": "Handpflege Seide",
+                    "silks_handcare": "Finish Seide",
                     "standard_pillows": "Kopfkissen normal",
                     "basket_program": "Korbprogramm",
                     "smoothing": "Glätten",
@@ -271,20 +271,20 @@
                     "2_trays": "2 Bleche",
                     "baking_tray": "Backblech",
                     "auto": "Auto",
-                    "spot": "Punkt",
+                    "spot": "Spot",
                     "turbo": "Turbo",
-                    "silent": "Leise",
+                    "silent": "Silent",
                     "check_appliance": "Gerät überprüfen",
                     "ristretto": "Ristretto",
                     "espresso": "Espresso",
                     "coffee": "Kaffee",
-                    "long_coffee": "Verlängerter",
+                    "long_coffee": "Kaffee lang",
                     "cappuccino": "Cappuccino",
                     "cappuccino_italiano": "Cappuccino Italiano",
                     "latte_macchiato": "Latte macchiato",
                     "espresso_macchiato": "Espresso macchiato",
                     "cafe_au_lait": "Café au lait",
-                    "caffellatte": "Milchkaffee",
+                    "caffe_latte": "Caffè latte",
                     "flat_white": "Flat white",
                     "hot_milk": "Heiße Milch",
                     "milk_foam": "Milchschaum",
@@ -294,14 +294,14 @@
                     "white_tea": "Weißer Tee",
                     "japanese_tea": "Japanischer Tee",
                     "green_tea": "Grüner Tee",
-                    "fruit_tea": "Früchtetee",
-                    "herbal_tea": "Kräutertee",
+                    "fruit_tea": "Früchte-Tee",
+                    "herbal_tea": "Kräuter-Tee",
                     "appliance_rinse": "Gerät reinigt",
-                    "milk_pipework_rinse": "Milchsystem spühlen",
-                    "milk_pipework_clean": "Milchsystem reinigen",
-                    "brewing_unit_degrease": "Brühgruppe reinigen",
+                    "milk_pipework_rinse": "Milchleitung spülen",
+                    "milk_pipework_clean": "Milchleiung reinigen",
+                    "brewing_unit_degrease": "Brüheinheit entfetten",
                     "descaling": "Gerät entkalken",
-                    "appliance_settings": "Einstellungsmenü",
+                    "appliance_settings": "Einstellungen",
                     "barista_assistant": "BaristaAssistant"
                 }
             },
@@ -379,7 +379,7 @@
                 }
             },
             "drying_step": {
-                "name": "Trocknungsstufe",
+                "name": "Trockenstufe",
                 "state": {
                     "smoothing": "Glätten",
                     "machine_iron": "Mangelfeucht",
@@ -394,13 +394,13 @@
         },
         "switch": {
             "supercooling": {
-                "name": "Superkühlen"
+                "name": "SuperKühlen"
             },
             "superfreezing": {
-                "name": "Supergefrieren"
+                "name": "SuperFrost"
             },
             "power_on": {
-                "name": "Ein"
+                "name": "Eingeschaltet"
             }
         },
         "vacuum": {
@@ -413,8 +413,8 @@
                             "going_to_target_area": "Gehe zurm Zielbereich",
                             "wheel_lifted": "Rad ist frei",
                             "dirty_sensors": "Schmutzige Sensoren",
-                            "dust_box_missing": "Fehlender Staubbehälter",
-                            "blocked_drive_wheels": "Antriebsrad blockiert",
+                            "dust_box_missing": "Staubbehälter fehlt",
+                            "blocked_drive_wheels": "Antriebsräder blockiert",
                             "blocked_brushes": "Bürsten blockiert",
                             "check_dust_box_and_filter": "Staubbehälter und Filter prüfen",
                             "internal_fault_reboot": "Interne Fehler - Neustart",
