@@ -1,4 +1,7 @@
 {
+    "application_credentials": {
+        "description": "Gå till [\"Get involved\" på Mieles utvecklar-sajt]({register_url}) för att erhålla behörighetsdata och fyll i dem nedan."
+    },
     "config": {
         "abort": {
             "already_configured": "Kontot är redan autentiserat",

@@ -1,4 +1,7 @@
 {
+    "application_credentials": {
+        "description": "Navigate to [\"Get involved\" at Miele developer site]({register_url}) to request credentials then enter them below."
+    },
     "config": {
         "step": {
             "pick_implementation": {
