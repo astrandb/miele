@@ -15,7 +15,13 @@ CONF_VALUE = "value"
 # Define appliance types
 WASHING_MACHINE = 1
 TUMBLE_DRYER = 2
+WASHING_MACHINE_SEMI_PROFESSIONAL = 3
+TUMBLE_DRYER_SEMI_PROFESSIONAL = 4
+WASHING_MACHINE_PROFESSIONAL = 5
+DRYER_PROFESSIONAL = 6
 DISHWASHER = 7
+DISHWASHER_SEMI_PROFESSIONAL = 8
+DISHWASHER_PROFESSIONAL = 9
 OVEN = 12
 OVEN_MICROWAVE = 13
 HOB_HIGHLIGHT = 14
@@ -42,7 +48,13 @@ HOB_INDUCT_EXTR = 74
 APPLIANCE_TYPES = {
     WASHING_MACHINE: "washing_machine",
     TUMBLE_DRYER: "tumble_dryer",
+    WASHING_MACHINE_SEMI_PROFESSIONAL: "washing_machine_semi_pro",
+    TUMBLE_DRYER_SEMI_PROFESSIONAL: "tumble_dryer_semi_pro",
+    WASHING_MACHINE_PROFESSIONAL: "washing_machine_pro",
+    DRYER_PROFESSIONAL: "dryer_pro",
     DISHWASHER: "dishwasher",
+    DISHWASHER_SEMI_PROFESSIONAL: "dish_washer_semi_pro",
+    DISHWASHER_PROFESSIONAL: "dishwasher_pro",
     OVEN: "oven",
     OVEN_MICROWAVE: "oven_microwave",
     HOB_HIGHLIGHT: "hob_highlight",
@@ -70,6 +82,7 @@ APPLIANCE_TYPES = {
 APPLIANCE_ICONS = {
     WASHING_MACHINE: "mdi:washing-machine",
     TUMBLE_DRYER: "mdi:tumble-dryer",
+    TUMBLE_DRYER_SEMI_PROFESSIONAL: "mdi:tumble-dryer",
     DISHWASHER: "mdi:dishwasher",
     OVEN: "mdi:chef-hat",
     OVEN_MICROWAVE: "mdi:chef-hat",

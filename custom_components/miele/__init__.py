@@ -51,6 +51,7 @@ from .devcap import (  # noqa: F401
     TEST_ACTION_21,
     TEST_ACTION_23,
     TEST_DATA_1,
+    TEST_DATA_4,
     TEST_DATA_7,
     TEST_DATA_12,
     TEST_DATA_17_CM,
@@ -196,6 +197,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_data(data) -> None:
         # data["1223001"] = TEST_DATA_1
+        # data["1223004"] = TEST_DATA_4
         # data["1223007"] = TEST_DATA_7
         # data["1223012"] = TEST_DATA_12
         # data["122A017"] = TEST_DATA_17_CM
@@ -276,6 +278,7 @@ async def get_coordinator(
         hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
+        # result["1223004"] = TEST_DATA_4
         # result["1223007"] = TEST_DATA_7
         # result["1223012"] = TEST_DATA_12
         # result["122A017"] = TEST_DATA_17_CM

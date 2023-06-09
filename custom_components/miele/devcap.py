@@ -159,6 +159,106 @@ TEST_DATA_1 = {
     },
 }
 
+TEST_DATA_4 = {
+    "ident": {
+        "type": {
+            "key_localized": "Type d'appareil",
+            "value_raw": 4,
+            "value_localized": "",
+        },
+        "deviceName": "",
+        "protocolVersion": 4,
+        "deviceIdentLabel": {
+            "fabNumber": "000178205259",
+            "fabIndex": "41",
+            "techType": "PDR508HP",
+            "matNumber": "11922280",
+            "swids": [
+                "5791",
+                "25359",
+                "25360",
+                "25189",
+                "20607",
+                "25237",
+                "5199",
+                "20402",
+                "25251",
+            ],
+        },
+        "xkmIdentLabel": {"techType": "EK037", "releaseVersion": "03.94"},
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Nom du programme",
+        },
+        "status": {
+            "value_raw": 1,
+            "value_localized": "Arrêt",
+            "key_localized": "statut",
+        },
+        "programType": {
+            "value_raw": 0,
+            "value_localized": "Programme",
+            "key_localized": "Type de programme",
+        },
+        "programPhase": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Phase du programme",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "coreTargetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+        ],
+        "temperature": [
+            {"value_raw": 6010, "value_localized": 60.1, "unit": "Celsius"},
+            {"value_raw": 5720, "value_localized": 57.2, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "coreTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": None,
+        "elapsedTime": [],
+        "spinningSpeed": {
+            "unit": "tr/min",
+            "value_raw": None,
+            "value_localized": None,
+            "key_localized": "Vitesse d'essorage",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Niveau de séchage",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Niveau du ventilateur",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_7 = {
     "ident": {
         "type": {
