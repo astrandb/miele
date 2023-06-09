@@ -210,6 +210,7 @@ STATE_PROGRAM_PHASE = {
     3073: "heating",  # in common with coffee system
     3074: "process_running",
     3078: "process_finished",
+    3084: "energy_save",
     # Coffee system
     4352: "not_running",
     4353: "espresso",
