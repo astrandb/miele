@@ -223,6 +223,12 @@ STATE_PROGRAM_PHASE = {
     3073: "heating",  # in common with coffee system
     3074: "process_running",
     3078: "process_finished",
+    3084: "energy_save",
+    # Microwave
+    3329: "heating",
+    3330: "process_running",
+    3334: "process_finished",
+    3340: "energy_save",
     # Coffee system
     4352: "not_running",
     4353: "espresso",
@@ -360,6 +366,7 @@ OVEN_PROGRAM_ID = {
     11: "economy_grill",
     13: "fan_plus",
     14: "intensive_bake",
+    19: "microwave",
     24: "conventional_heat",
     25: "top_heat",
     29: "fan_grill",
@@ -559,6 +566,7 @@ STATE_PROGRAM_ID = {
     TUMBLE_DRYER: TUMBLE_DRYER_PROGRAM_ID,
     DISHWASHER: DISHWASHER_PROGRAM_ID,
     OVEN: OVEN_PROGRAM_ID,
+    OVEN_MICROWAVE: OVEN_PROGRAM_ID,
     WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
     ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
     COFFEE_SYSTEM: COFFEE_SYSTEM_PROGRAM_ID,
