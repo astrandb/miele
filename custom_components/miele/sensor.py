@@ -68,6 +68,7 @@ from .const import (
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
     TUMBLE_DRYER,
+    TUMBLE_DRYER_SEMI_PROFESSIONAL,
     WASHER_DRYER,
     WASHING_MACHINE,
     WINE_CABINET,
@@ -106,6 +107,7 @@ class MieleSensorDefinition:
 SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             OVEN,
             OVEN_MICROWAVE,
             STEAM_OVEN,
@@ -133,6 +135,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     ),
     MieleSensorDefinition(
         types=[
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             OVEN,
             OVEN_MICROWAVE,
             STEAM_OVEN,
@@ -280,6 +283,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -325,6 +329,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -352,6 +357,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -379,6 +385,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -419,6 +426,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHER_DRYER,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
         ],
         description=MieleSensorDescription(
             key="stateDryingStep",
@@ -435,6 +443,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -460,6 +469,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -484,6 +494,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -508,6 +519,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             OVEN,
             OVEN_MICROWAVE,
@@ -597,6 +609,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             WASHER_DRYER,
         ],
@@ -632,6 +645,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
         types=[
             WASHING_MACHINE,
             TUMBLE_DRYER,
+            TUMBLE_DRYER_SEMI_PROFESSIONAL,
             DISHWASHER,
             WASHER_DRYER,
         ],
