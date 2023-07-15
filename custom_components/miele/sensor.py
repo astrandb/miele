@@ -922,7 +922,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         return mins
 
     def _get_absolute_time(self, sub=False):
-        now = dt_util.now()
+        now = dt_util.now().replace(second=0, microsecond=0)
         mins = self._get_minutes()
         if mins == 0:
             return None
@@ -942,9 +942,9 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         # check for previous value and return it if differning of +/-1 min
         if self.entity_description.key in self._last_abs_time:
             previous_value = self._last_abs_time[self.entity_description.key]
-            prev_minute = previous_value - timedelta(minutes=1)
-            next_minute = previous_value + timedelta(minutes=1)
-            if val == prev_minute or val == next_minute:
+            prev_minute = previous_value - timedelta(seconds=120)
+            next_minute = previous_value + timedelta(seconds=120)
+            if prev_minute <= val <= next_minute:
                 return previous_value.strftime("%H:%M")
         self._last_abs_time[self.entity_description.key] = val
         return formatted
