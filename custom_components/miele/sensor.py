@@ -771,6 +771,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
         self._last_elapsed_time_reported = None
         self._last_started_time_reported = None
+        self._last_abs_time = {}
 
     @property
     def native_value(self):
@@ -921,7 +922,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         return mins
 
     def _get_absolute_time(self, sub=False):
-        now = dt_util.now().replace(second=0, microsecond=0)
+        now = dt_util.now()
         mins = self._get_minutes()
         if mins == 0:
             return None
@@ -929,15 +930,24 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             val = now - timedelta(minutes=mins)
         else:
             val = now + timedelta(minutes=mins)
+        formatted = val.strftime("%H:%M")
         _LOGGER.debug(
             "Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s",
             self.entity_description.key,
             self._ent,
             mins,
             now,
-            val.strftime("%H:%M"),
+            formatted,
         )
-        return val.strftime("%H:%M")
+        # check for previous value and return it if differning of +/-1 min
+        if self.entity_description.key in self._last_abs_time:
+            previous_value = self._last_abs_time[self.entity_description.key]
+            prev_minute = (val - timedelta(minutes=1)).strftime("%H:%M")
+            next_minute = (val + timedelta(minutes=1)).strftime("%H:%M")
+            if formatted == prev_minute or formatted == next_minute:
+                return previous_value
+        self._last_abs_time[self.entity_description.key] = formatted
+        return formatted
 
     @property
     def available(self):
