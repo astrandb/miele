@@ -942,11 +942,11 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
         # check for previous value and return it if differning of +/-1 min
         if self.entity_description.key in self._last_abs_time:
             previous_value = self._last_abs_time[self.entity_description.key]
-            prev_minute = (val - timedelta(minutes=1)).strftime("%H:%M")
-            next_minute = (val + timedelta(minutes=1)).strftime("%H:%M")
-            if formatted == prev_minute or formatted == next_minute:
-                return previous_value
-        self._last_abs_time[self.entity_description.key] = formatted
+            prev_minute = previous_value - timedelta(minutes=1)
+            next_minute = previous_value + timedelta(minutes=1)
+            if val == prev_minute or val == next_minute:
+                return previous_value.strftime("%H:%M")
+        self._last_abs_time[self.entity_description.key] = val
         return formatted
 
     @property
