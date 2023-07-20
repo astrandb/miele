@@ -1,9 +1,0 @@
-black
-bump2version
-colorlog
-flake8
-isort
-wheel
-
-flatdict==4.0.1
-pymiele

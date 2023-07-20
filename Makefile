@@ -9,17 +9,17 @@ bump_minor:
 bump_major:
 	bump2version --allow-dirty major $(src_dir)/const.py $(src_dir)/manifest.json
 
-lint:
-	isort $(src_dir)
-	black $(src_dir)
-	flake8 $(src_dir)
+# lint:
+# 	isort $(src_dir)
+# 	black $(src_dir)
+# 	flake8 $(src_dir)
 
-.venv:
-	python3.10 -m venv .venv
+# .venv:
+# 	python3.10 -m venv .venv
 
-install_dev: | .venv
-	(. .venv/bin/activate; \
-	pip install -Ur requirements-dev.txt )
+# install_dev: | .venv
+# 	(. .venv/bin/activate; \
+# 	pip install -Ur requirements-dev.txt )
 
-clean:
-	rm -rf .venv $(src_dir)/__pycache__
+# clean:
+# 	rm -rf .venv $(src_dir)/__pycache__
