@@ -3,13 +3,13 @@
 import logging
 
 import aiohttp
+import voluptuous as vol
+
 from homeassistant.const import CONF_DEVICE_ID, CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers import device_registry
+from homeassistant.helpers import config_validation as cv, device_registry
 from homeassistant.helpers.service import async_extract_config_entry_ids
-import voluptuous as vol
 
 from .const import (
     AMBIENT_COLORS,
@@ -92,7 +92,7 @@ SERVICE_PROGRAM = cv.make_entity_service_schema(
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_services(hass: HomeAssistant) -> None:
+async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
     """Set up services."""
 
     async def extract_our_config_entry_ids(service_call: ServiceCall):
@@ -125,8 +125,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
             except aiohttp.ClientResponseError as ex:
                 raise HomeAssistantError(
                     f"Service generic_action: {ex.status} {ex.message}"
-                )
-        return
+                ) from ex
 
     async def send_generic_action(call: ServiceCall):
         _LOGGER.debug("Call: %s", call)
@@ -149,17 +148,16 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
             _api = hass.data[DOMAIN][our_entry_ids[0]][API]
             data = call.data.copy()
-            if CONF_ENTITY_ID in data.keys():
+            if CONF_ENTITY_ID in data:
                 data.pop(CONF_ENTITY_ID)
-            if CONF_DEVICE_ID in data.keys():
+            if CONF_DEVICE_ID in data:
                 data.pop(CONF_DEVICE_ID)
             try:
                 await _api.send_action(serno, data)
             except aiohttp.ClientResponseError as ex:
                 raise HomeAssistantError(
                     f"Service generic_action: {ex.status} {ex.message}"
-                )
-        return
+                ) from ex
 
     async def send_raw(call: ServiceCall):
         _LOGGER.debug("Call: %s", call)
@@ -168,8 +166,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:
         try:
             await _api.send_action(call.data["serialno"], call.data["extra"])
         except aiohttp.ClientResponseError as ex:
-            raise HomeAssistantError(f"Service raw: {ex.status} {ex.message}")
-        return
+            raise HomeAssistantError(f"Service raw: {ex.status} {ex.message}") from ex
 
     async def set_program(call: ServiceCall):
         _LOGGER.debug("Call: %s", call)
@@ -192,17 +189,16 @@ async def async_setup_services(hass: HomeAssistant) -> None:
 
             _api = hass.data[DOMAIN][our_entry_ids[0]][API]
             data = call.data.copy()
-            if CONF_ENTITY_ID in data.keys():
+            if CONF_ENTITY_ID in data:
                 data.pop(CONF_ENTITY_ID)
-            if CONF_DEVICE_ID in data.keys():
+            if CONF_DEVICE_ID in data:
                 data.pop(CONF_DEVICE_ID)
             try:
                 await _api.set_program(serno, data)
             except aiohttp.ClientResponseError as ex:
                 raise HomeAssistantError(
                     f"Service set_program: {ex.status} {ex.message}"
-                )
-        return
+                ) from ex
 
     hass.services.async_register(
         DOMAIN, "process_action", send_process_action, SERVICE_PROCESS_ACTION
@@ -212,4 +208,3 @@ async def async_setup_services(hass: HomeAssistant) -> None:
     )
     hass.services.async_register(DOMAIN, "raw", send_raw, SERVICE_RAW)
     hass.services.async_register(DOMAIN, "set_program", set_program, SERVICE_PROGRAM)
-    return

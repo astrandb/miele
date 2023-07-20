@@ -6,6 +6,7 @@ import logging
 from typing import Any, Final
 
 import aiohttp
+
 from homeassistant.components.vacuum import (
     ATTR_STATUS,
     STATE_CLEANING,
@@ -221,10 +222,12 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
 
     @property
     def battery_level(self):
+        """Return the battery level."""
         return self.coordinator.data[self._ent]["state|batteryLevel"]
 
     @property
     def fan_speed(self):
+        """Return the fan speed."""
         if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
             return "normal"
         elif self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SPOT:
@@ -277,9 +280,11 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         # await self.coordinator.async_request_refresh()
 
     async def async_return_to_base(self, **kwargs):
+        """Return to base."""
         _LOGGER.debug("return_to_base -> kwargs: %s", kwargs)
 
     async def async_clean_spot(self, **kwargs):
+        """Clean spot."""
         _LOGGER.debug("clean_spot -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(self._ent, {PROGRAM_ID: PROG_SPOT})
@@ -287,6 +292,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_start(self, **kwargs):
+        """Start cleaning."""
         _LOGGER.debug("start -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_START})
@@ -294,6 +300,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_stop(self, **kwargs):
+        """Stop cleaning."""
         _LOGGER.debug("stop -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_STOP})
@@ -301,6 +308,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_pause(self, **kwargs):
+        """Pause cleaning."""
         _LOGGER.debug("pause -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_PAUSE})
@@ -308,6 +316,7 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
             _LOGGER.error("Pause: %s - %s", ex.status, ex.message)
 
     async def async_set_fan_speed(self, fan_speed: str, **kwargs):
+        """Set fan speed."""
         _LOGGER.debug("set_fan_speed -> kwargs: %s", kwargs)
         try:
             await self._api.send_action(

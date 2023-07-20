@@ -1,9 +1,10 @@
 """Platform for Miele number entity."""
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 import logging
-from typing import Any, Callable, Final
+from typing import Any, Final
 
 from homeassistant.components.number import (
     NumberEntity,
@@ -226,6 +227,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
 
     @property
     def native_value(self):
+        """Return native value."""
         if self.coordinator.data[self._ent].get(self._ed.data_tag) is None:
             return
         return PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
