@@ -45,7 +45,7 @@ autolabeler:
     title:
       - "/fix/i"
   - label: "code quality"
-    title: 
+    title:
       - "lint"
   - label: "translation"
     files:

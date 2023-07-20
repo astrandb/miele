@@ -1,12 +1,14 @@
 """Platform for Miele fan entity."""
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 import logging
 import math
-from typing import Any, Callable, Final, Optional
+from typing import Any, Final, Optional
 
 import aiohttp
+
 from homeassistant.components.fan import (
     FanEntity,
     FanEntityDescription,

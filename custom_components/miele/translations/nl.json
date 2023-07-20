@@ -1,438 +1,437 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Account is al geconfigureerd",
-            "already_in_progress": "Er is al een configuratie bezig",
-            "authorize_url_timeout": "Timeout bij het genereren van een authorisatie URL.",
-            "missing_configuration": "Het component is niet correct geconfigureerd. Raadpleeg de documentatie.",
-            "no_url_available": "Geen URL beschikbaar. Voor meer informatie over deze error, [raadpleeg de hulp sectie]({docs_url}).",
-            "oauth_error": "Ongeldige token data ontvangen.",
-            "reauth_successful": "Her-authenticatie was succesvol"
-        },
-        "create_entry": {
-            "default": "Authenticatie succesvol"
-        },
-        "step": {
-            "pick_implementation": {
-                "title": "Kies een authenticatie methode"
-            },
-            "reauth_confirm": {
-                "title": "Her-authenticatie Integratie",
-                "description": "De Miele integratie moet uw account {account} opnieuw authenticeren."
-            }
-        }
+  "config": {
+    "abort": {
+      "already_configured": "Account is al geconfigureerd",
+      "already_in_progress": "Er is al een configuratie bezig",
+      "authorize_url_timeout": "Timeout bij het genereren van een authorisatie URL.",
+      "missing_configuration": "Het component is niet correct geconfigureerd. Raadpleeg de documentatie.",
+      "no_url_available": "Geen URL beschikbaar. Voor meer informatie over deze error, [raadpleeg de hulp sectie]({docs_url}).",
+      "oauth_error": "Ongeldige token data ontvangen.",
+      "reauth_successful": "Her-authenticatie was succesvol"
     },
-    "entity": {
-        "binary_sensor": {
-            "door": {
-                "name": "Deur"
-            },
-            "info": {
-                "name": "Info"
-            },
-            "failure": {
-                "name": "Storing"
-            },
-            "remote_control": {
-                "name": "Afstandsbediening"
-            },
-            "smart_grid": {
-                "name": "Smart grid"
-            },
-            "mobile_start": {
-                "name": "Mobile start"
-            }
-        },
-        "button": {
-            "start": {
-                "name": "Start"
-            },
-            "stop": {
-                "name": "Stop"
-            }
-        },
-        "climate": {
-            "fridge": {
-                "name": "Koelkast"
-            },
-            "freezer": {
-                "name": "Vriezer"
-            }
-        },
-        "fan": {
-            "fan": {
-                "name": "Ventilator"
-            }
-        },
-        "light": {
-            "light": {
-                "name": "Licht"
-            },
-            "ambient_light": {
-                "name": "Omgevingslicht"
-            }
-        },
-        "number": {
-            "plate_0": {
-                "name": "Plate 0"
-            },
-            "plate_1": {
-                "name": "Plate 1"
-            },
-            "plate_2": {
-                "name": "Plate 2"
-            },
-            "plate_3": {
-                "name": "Plate 3"
-            },
-            "plate_4": {
-                "name": "Plate 4"
-            }
-        },
-        "sensor": {
-            "status": {
-                "name": "Status",
-                "state": {
-                    "off": "Uit",
-                    "on": "Aan",
-                    "programmed": "Geprogrammeerd",
-                    "waiting_to_start": "Start ingepland",
-                    "running": "Bezig",
-                    "pause": "Pauze",
-                    "program_ended": "Programma beëindigd",
-                    "failure": "Storing",
-                    "program_interrupted": "Programma onderbroken",
-                    "idle": "Inactief",
-                    "rinse_hold": "Spoelstop",
-                    "service": "Onderhoud",
-                    "superfreezing": "Superbevriezing",
-                    "supercooling": "Super koelen",
-                    "superheating": "Super verwarmen",
-                    "supercooling_superfreezing": "Super koelen / verwarmen",
-                    "not_connected": "Niet verbonden"
-                },
-                "state_attributes": {
-                    "appliance": {
-                        "name": "Apparaat"
-                    },
-                    "manufacturer": {
-                        "name": "Fabrikant"
-                    },
-                    "model": {
-                        "name": "Model"
-                    },
-                    "serial_no": {
-                        "name": "Serienummer"
-                    }
-                }
-            },
-            "temperature": {
-                "name": "Temperatuur"
-            },
-            "temperature_zone_2": {
-                "name": "Temperatuur zone 2"
-            },
-            "temperature_zone_3": {
-                "name": "Temperatuur zone 3"
-            },
-            "target_temperature": {
-                "name": "Gewenste temperatuur"
-            },
-            "target_temperature_zone_2": {
-                "name": "Gewenste temperatuur zone 2"
-            },
-            "target_temperature_zone_3": {
-                "name": "Gewenste temperatuur zone 3"
-            },
-            "spin_speed": {
-                "name": "Centrifugetoerental"
-            },
-            "remaining_time": {
-                "name": "Resterende tijd"
-            },
-            "finish_at": {
-                "name": "Einde om"
-            },
-            "start_time": {
-                "name": "Starttijd"
-            },
-            "start_at": {
-                "name": "Start om"
-            },
-            "elapsed_time": {
-                "name": "Verstreken tijd"
-            },
-            "started_at": {
-                "name": "Start om"
-            },
-            "water_consumption": {
-                "name": "Waterverbruik"
-            },
-            "energy_consumption": {
-                "name": "Energieverbruik"
-            },
-            "water_forecast": {
-                "name": "Watervoorspelling"
-            },
-            "energy_forecast": {
-                "name": "Energievoorspelling"
-            },
-            "battery": {
-                "name": "Batterij"
-            },
-            "food_core_temperature": {
-                "name": "Kerntemperatuur van het voedsel"
-            },
-            "food_core_target_temperature": {
-                "name": "Kerndoeltemperatuur van het voedsel"
-            },
-            "program_type": {
-                "name": "Programma type",
-				"state": {
-                    "normal_operation_mode": "Normale werking",
-                    "own_program": "Eigen programma",
-                    "automatic_program": "Automatisch programma",
-                    "cleaning_care_program": "Schoonmaak / onderhoudsprogramma",
-                    "maintenance_program": "Onderhoudsprogramma"
-                }
-            },
-            "program_id": {
-                "name": "Programma",
-                "state": {
-				
-                    "no_program": "Geen programma",
-                    "cottons": "Katoen",
-                    "minimum_iron": "Kreukherstellend",
-                    "delicates": "Fijne was",
-                    "woollens": "Wol",
-                    "silks": "Zijde",
-                    "starch": "Stijven",
-                    "rinse": "Spoelen",
-                    "drain_spin": "Pompen / Centrifugeren",
-                    "curtains": "Vitrages",
-                    "shirts": "Overhemden",
-                    "denim": "Jeans",
-                    "proofing": "Impregneren",
-                    "sportswear": "Sportkleding",
-                    "automatic_plus": "Automatic extra",
-                    "outerwear": "Outdoor",
-                    "pillows": "Hoofdkussens",
-                    "cool_air": "Koud luchten",
-                    "warm_air": "Warm luchten",
-                    "rinse_out_lint": "Pluisjes uitspoelen",
-                    "dark_garments": "Donker wasgoed",
-                    "separate_rinse_starch": "Alleen Spoelen / Stijven",
-                    "first_wash": "Nieuw textiel",
-                    "cottons_hygiene": "Katoen Hygiëne",
-                    "steam_care": "Stoom verzorging",
-                    "freshen_up": "Opfrissen",
-                    "trainers": "Sportschoenen",
-                    "clean_machine": "Apparaat reinigen",
-                    "down_duvets": "Dekbedden",
-                    "express_20": "Express 20'",
-                    "express": "Express",
-                    "down_filled_items": "Dons",
-                    "cottons_eco": "Katoen ECO",
-                    "quick_power_wash": "QuickPowerWash",
-                    "eco_40_60": "ECO 40-60",
-                    "intensive": "Intensief",
-                    "maintenance": "Onderhoudsprogramma",
-                    "eco": "ECO",
-                    "normal": "Normaal",
-                    "automatic": "Automatisch",
-                    "solar_save": "SolarSave",
-                    "gentle": "Extra behoedzaam",
-                    "extra_quiet": "Extra stil",
-                    "hygiene": "AllergoWash",
-                    "tall_items": "Grote items",
-                    "glasses_warm": "Warme glazen",
-                    "gentle_minimum_iron": "Behoedzaam kreukherstellend",
-                    "woollens_handcare": "Handverzorgde wol",
-                    "bed_linen": "Bedlinnen",
-                    "steam_smoothing": "Gladstrijken met stoom",
-                    "gentle_smoothing": "Behoedzaam gladstrijken",
-                    "gentle_denim": "Behoedzaam Jeans",
-                    "silks_handcare": "Handverzorgde zijde",
-                    "standard_pillows": "Standaard hoofdkussens",
-                    "basket_program": "Wasmand programma",
-                    "smoothing": "Gladstrijken",
-                    "eco_fan_heat": "Hete lucht ECO",
-                    "auto_roast": "Automatisch roosteren",
-                    "full_grill": "Volledige grill",
-                    "economy_grill": "Economische grill",
-                    "fan_plus": "Hete lucht Plus",
-                    "intensive_bake": "Intensief bakken",
-                    "microwave": "Microgolf",
-                    "conventional_heat": "Boven/onder warmte",
-                    "top_heat": "Boven warmte",
-                    "fan_grill": "Hete lucht grill",
-                    "bottom_heat": "Onder warmte",
-                    "defrost": "Ontdooien",
-                    "moisture_plus_fan_plus": "Moisture Plus + Fan Plus",
-                    "1_tray": "1 plaat",
-                    "2_trays": "2 platen",
-                    "baking_tray": "Bakplaat",
-                    "auto": "Auto",
-                    "spot": "Spot",
-                    "turbo": "Turbo",
-                    "silent": "Stil",
-                    "check_appliance": "Controleer apparaat",
-                    "ristretto": "Ristretto",
-                    "espresso": "Espresso",
-                    "coffee": "Koffie",
-                    "long_coffee": "Long black",
-                    "cappuccino": "Cappuccino",
-                    "cappuccino_italiano": "Cappuccino Italiano",
-                    "latte_macchiato": "Latte macchiato",
-                    "espresso_macchiato": "Espresso macchiato",
-                    "cafe_au_lait": "Café au lait",
-                    "caffe_latte": "Caffè latte",
-                    "flat_white": "Flat white",
-                    "hot_milk": "Hete melk",
-                    "milk_foam": "Melkschuim",
-                    "hot_water": "Warm water",
-                    "very_hot_water": "Heet water",
-                    "black_tea": "Zwarte thee",
-                    "white_tea": "Witte thee",
-                    "japanese_tea": "Japanse thee",
-                    "green_tea": "Groene thee",
-                    "fruit_tea": "Vruchtenthee",
-                    "herbal_tea": "Kruidenthee",
-                    "appliance_rinse": "Apparaat spoelen",
-                    "milk_pipework_rinse": "Melkleiding spoelen",
-                    "milk_pipework_clean": "Melkleiding reinigen",
-                    "brewing_unit_degrease": "Filtersysteem ontvetten",
-                    "descaling": "Apparaat ontkalken",
-                    "appliance_settings": "Apparaat instellinen menu",
-                    "barista_assistant": "BaristaAssistant"
-                }
-            },
-            "program_phase": {
-                "name": "Programmafase",
-                "state": {
-                    "not_running": "Inactief",
-                    "main_wash": "Wassen",
-                    "drying": "Drogen",
-                    "pre_wash": "Voorwas",
-                    "soak": "Inweken",
-                    "rinse": "Spoelen",
-                    "rinse_hold": "Spoelstop",
-                    "cooling_down": "Afkoelen",
-                    "drain": "Afwatering",
-                    "spin": "Centrifugeren",
-                    "anti_crease": "Kreukbeveiliging",
-                    "finished": "Klaar",
-                    "venting": "Luchten",
-                    "starch_stop": "Stijven stop",
-                    "freshen_up_and_moisten": "Opfrissen & Bevochtigen",
-                    "steam_smoothing": "Stoom gladstrijken",
-                    "cleaning": "Cleaning",
-                    "hygiene": "Hygiëne",
-                    "disinfecting": "Desinfecteren",
-                    "program_running": "Programma bezig",
-                    "machine_iron": "Machine gestreken",
-                    "hand_iron": "Handgestreken",
-                    "hand_iron_1": "Handgestreken 1",
-                    "hand_iron_2": "Handgestreken 2",
-                    "normal": "Kastdroog",
-                    "normal_plus": "Kastdroog Plus",
-                    "extra_dry": "Extra droog",
-                    "moisten": "Bevochtigen",
-                    "thermo_spin": "Thermisch draaien",
-                    "timed_drying": "Tijdsgestuurd drogen",
-                    "warm_air": "Warme lucht",
-                    "comfort_cooling": "Comfort koelen",
-                    "rinse_out_lint": "Pluisjes uitspoelen",
-                    "rinses": "Spoelcycli",
-                    "smoothing": "Gladstrijken",
-                    "slightly_dry": "Lichtelijk droog",
-                    "safety_cooling": "Veiligheidskoelen",
-                    "reactivating": "Heractiveren",
-                    "pre_dishwash": "Voorspoelen",
-                    "main_dishwash": "Schoonmaken",
-                    "interim_rinse": "Tussendoor spoelen",
-                    "final_rinse": "Afspoelen",
-                    "process_running": "Proces loopt",
-                    "process_finished": "Proces voltooid",
-                    "energy_save": "Energie besparen",
-                    "espresso": "Espresso",
-                    "heating": "Verwarmen",
-                    "hot_milk": "Hete melk",
-                    "milk_foam": "Melkschuim",
-                    "dispensing": "Doseren",
-                    "pre_brewing": "Pre-brewing",
-                    "grinding": "Malen",
-                    "2nd_pre_brewing": "Tweede Pre-brewing",
-                    "2nd_grinding": "Tweede maling",
-                    "2nd_espresso": "Tweede Espresso",
-                    "vacuum_cleaning": "Schoonmaken",
-                    "vacuum_cleaning_paused": "Schoonmaken gepauzeerd",
-                    "docked": "Gedokt",
-                    "returning": "Terugkerend",
-                    "going_to_target_area": "Op weg naar het doelgebied",
-                    "wheel_lifted": "Wiel los van de grond",
-                    "dirty_sensors": "Sensoren verontreinigd",
-                    "dust_box_missing": "Stofreservoir ontbreekt",
-                    "blocked_drive_wheels": "Aandrijfwielen geblokkeerd",
-                    "blocked_brushes": "Borstels geblokkeerd",
-                    "motor_overload": "Controleer stofreservoir en filter",
-                    "vacuum_internal_fault": "Interne fout - Herstarten",
-                    "blocked_front_wheel": "Voorwiel geblokkeerd",
-                    "remote_controlled": "Op afstand bediend"
-                }
-            },
-            "drying_step": {
-                "name": "Droogfase",
-                "state": {
-                    "smoothing": "Gladstrijken",
-                    "machine_iron": "Machine gestreken",
-                    "hand_iron_1": "Handgestreken 1",
-                    "hand_iron_2": "Handgestreken 2",
-                    "slightly_dry": "Lichtelijk droog",
-                    "normal": "Kastdroog",
-                    "normal_plus": "Kastdroog Plus",
-                    "extra_dry": "Extra droog"
-                }
-            }
-        },
-        "switch": {
-            "supercooling": {
-                "name": "Super koelen"
-            },
-            "superfreezing": {
-                "name": "Superbevriezing"
-            },
-            "power_on": {
-                "name": "Power on"
-            }
-        },
-        "vacuum": {
-            "vacuum": {
-                "name": "Vacuum",
-                "state_attributes": {
-                    "status": {
-                        "name": "Status",
-                        "state": {
-                            "going_to_target_area": "Op weg naar het doelgebied",
-                            "wheel_lifted": "Wiel los van de grond",
-                            "dirty_sensors": "Sensoren verontreinigd",
-                            "dust_box_missing": "Stofreservoir ontbreekt",
-                            "blocked_drive_wheels": "Aandrijfwielen geblokkeerd",
-                            "blocked_brushes": "Borstels geblokkeerd",
-                            "check_dust_box_and_filter": "Controleer stofreservoir en filter",
-                            "internal_fault_reboot": "Interne fout - Herstarten",
-                            "blocked_front_wheel": "Voorwiel geblokkeerd",
-                            "remote_controlled": "Op afstand bediend"
-                        }
-                    }
-                }
-            }
-        }
+    "create_entry": {
+      "default": "Authenticatie succesvol"
     },
-    "system_health": {
-        "info": {
-            "reach_miele_cloud": "Bereikbaarheid Miele Cloud",
-            "component_version": "Versie"
-        }
+    "step": {
+      "pick_implementation": {
+        "title": "Kies een authenticatie methode"
+      },
+      "reauth_confirm": {
+        "title": "Her-authenticatie Integratie",
+        "description": "De Miele integratie moet uw account {account} opnieuw authenticeren."
+      }
     }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door": {
+        "name": "Deur"
+      },
+      "info": {
+        "name": "Info"
+      },
+      "failure": {
+        "name": "Storing"
+      },
+      "remote_control": {
+        "name": "Afstandsbediening"
+      },
+      "smart_grid": {
+        "name": "Smart grid"
+      },
+      "mobile_start": {
+        "name": "Mobile start"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Start"
+      },
+      "stop": {
+        "name": "Stop"
+      }
+    },
+    "climate": {
+      "fridge": {
+        "name": "Koelkast"
+      },
+      "freezer": {
+        "name": "Vriezer"
+      }
+    },
+    "fan": {
+      "fan": {
+        "name": "Ventilator"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Licht"
+      },
+      "ambient_light": {
+        "name": "Omgevingslicht"
+      }
+    },
+    "number": {
+      "plate_0": {
+        "name": "Plate 0"
+      },
+      "plate_1": {
+        "name": "Plate 1"
+      },
+      "plate_2": {
+        "name": "Plate 2"
+      },
+      "plate_3": {
+        "name": "Plate 3"
+      },
+      "plate_4": {
+        "name": "Plate 4"
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "off": "Uit",
+          "on": "Aan",
+          "programmed": "Geprogrammeerd",
+          "waiting_to_start": "Start ingepland",
+          "running": "Bezig",
+          "pause": "Pauze",
+          "program_ended": "Programma beëindigd",
+          "failure": "Storing",
+          "program_interrupted": "Programma onderbroken",
+          "idle": "Inactief",
+          "rinse_hold": "Spoelstop",
+          "service": "Onderhoud",
+          "superfreezing": "Superbevriezing",
+          "supercooling": "Super koelen",
+          "superheating": "Super verwarmen",
+          "supercooling_superfreezing": "Super koelen / verwarmen",
+          "not_connected": "Niet verbonden"
+        },
+        "state_attributes": {
+          "appliance": {
+            "name": "Apparaat"
+          },
+          "manufacturer": {
+            "name": "Fabrikant"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "serial_no": {
+            "name": "Serienummer"
+          }
+        }
+      },
+      "temperature": {
+        "name": "Temperatuur"
+      },
+      "temperature_zone_2": {
+        "name": "Temperatuur zone 2"
+      },
+      "temperature_zone_3": {
+        "name": "Temperatuur zone 3"
+      },
+      "target_temperature": {
+        "name": "Gewenste temperatuur"
+      },
+      "target_temperature_zone_2": {
+        "name": "Gewenste temperatuur zone 2"
+      },
+      "target_temperature_zone_3": {
+        "name": "Gewenste temperatuur zone 3"
+      },
+      "spin_speed": {
+        "name": "Centrifugetoerental"
+      },
+      "remaining_time": {
+        "name": "Resterende tijd"
+      },
+      "finish_at": {
+        "name": "Einde om"
+      },
+      "start_time": {
+        "name": "Starttijd"
+      },
+      "start_at": {
+        "name": "Start om"
+      },
+      "elapsed_time": {
+        "name": "Verstreken tijd"
+      },
+      "started_at": {
+        "name": "Start om"
+      },
+      "water_consumption": {
+        "name": "Waterverbruik"
+      },
+      "energy_consumption": {
+        "name": "Energieverbruik"
+      },
+      "water_forecast": {
+        "name": "Watervoorspelling"
+      },
+      "energy_forecast": {
+        "name": "Energievoorspelling"
+      },
+      "battery": {
+        "name": "Batterij"
+      },
+      "food_core_temperature": {
+        "name": "Kerntemperatuur van het voedsel"
+      },
+      "food_core_target_temperature": {
+        "name": "Kerndoeltemperatuur van het voedsel"
+      },
+      "program_type": {
+        "name": "Programma type",
+        "state": {
+          "normal_operation_mode": "Normale werking",
+          "own_program": "Eigen programma",
+          "automatic_program": "Automatisch programma",
+          "cleaning_care_program": "Schoonmaak / onderhoudsprogramma",
+          "maintenance_program": "Onderhoudsprogramma"
+        }
+      },
+      "program_id": {
+        "name": "Programma",
+        "state": {
+          "no_program": "Geen programma",
+          "cottons": "Katoen",
+          "minimum_iron": "Kreukherstellend",
+          "delicates": "Fijne was",
+          "woollens": "Wol",
+          "silks": "Zijde",
+          "starch": "Stijven",
+          "rinse": "Spoelen",
+          "drain_spin": "Pompen / Centrifugeren",
+          "curtains": "Vitrages",
+          "shirts": "Overhemden",
+          "denim": "Jeans",
+          "proofing": "Impregneren",
+          "sportswear": "Sportkleding",
+          "automatic_plus": "Automatic extra",
+          "outerwear": "Outdoor",
+          "pillows": "Hoofdkussens",
+          "cool_air": "Koud luchten",
+          "warm_air": "Warm luchten",
+          "rinse_out_lint": "Pluisjes uitspoelen",
+          "dark_garments": "Donker wasgoed",
+          "separate_rinse_starch": "Alleen Spoelen / Stijven",
+          "first_wash": "Nieuw textiel",
+          "cottons_hygiene": "Katoen Hygiëne",
+          "steam_care": "Stoom verzorging",
+          "freshen_up": "Opfrissen",
+          "trainers": "Sportschoenen",
+          "clean_machine": "Apparaat reinigen",
+          "down_duvets": "Dekbedden",
+          "express_20": "Express 20'",
+          "express": "Express",
+          "down_filled_items": "Dons",
+          "cottons_eco": "Katoen ECO",
+          "quick_power_wash": "QuickPowerWash",
+          "eco_40_60": "ECO 40-60",
+          "intensive": "Intensief",
+          "maintenance": "Onderhoudsprogramma",
+          "eco": "ECO",
+          "normal": "Normaal",
+          "automatic": "Automatisch",
+          "solar_save": "SolarSave",
+          "gentle": "Extra behoedzaam",
+          "extra_quiet": "Extra stil",
+          "hygiene": "AllergoWash",
+          "tall_items": "Grote items",
+          "glasses_warm": "Warme glazen",
+          "gentle_minimum_iron": "Behoedzaam kreukherstellend",
+          "woollens_handcare": "Handverzorgde wol",
+          "bed_linen": "Bedlinnen",
+          "steam_smoothing": "Gladstrijken met stoom",
+          "gentle_smoothing": "Behoedzaam gladstrijken",
+          "gentle_denim": "Behoedzaam Jeans",
+          "silks_handcare": "Handverzorgde zijde",
+          "standard_pillows": "Standaard hoofdkussens",
+          "basket_program": "Wasmand programma",
+          "smoothing": "Gladstrijken",
+          "eco_fan_heat": "Hete lucht ECO",
+          "auto_roast": "Automatisch roosteren",
+          "full_grill": "Volledige grill",
+          "economy_grill": "Economische grill",
+          "fan_plus": "Hete lucht Plus",
+          "intensive_bake": "Intensief bakken",
+          "microwave": "Microgolf",
+          "conventional_heat": "Boven/onder warmte",
+          "top_heat": "Boven warmte",
+          "fan_grill": "Hete lucht grill",
+          "bottom_heat": "Onder warmte",
+          "defrost": "Ontdooien",
+          "moisture_plus_fan_plus": "Moisture Plus + Fan Plus",
+          "1_tray": "1 plaat",
+          "2_trays": "2 platen",
+          "baking_tray": "Bakplaat",
+          "auto": "Auto",
+          "spot": "Spot",
+          "turbo": "Turbo",
+          "silent": "Stil",
+          "check_appliance": "Controleer apparaat",
+          "ristretto": "Ristretto",
+          "espresso": "Espresso",
+          "coffee": "Koffie",
+          "long_coffee": "Long black",
+          "cappuccino": "Cappuccino",
+          "cappuccino_italiano": "Cappuccino Italiano",
+          "latte_macchiato": "Latte macchiato",
+          "espresso_macchiato": "Espresso macchiato",
+          "cafe_au_lait": "Café au lait",
+          "caffe_latte": "Caffè latte",
+          "flat_white": "Flat white",
+          "hot_milk": "Hete melk",
+          "milk_foam": "Melkschuim",
+          "hot_water": "Warm water",
+          "very_hot_water": "Heet water",
+          "black_tea": "Zwarte thee",
+          "white_tea": "Witte thee",
+          "japanese_tea": "Japanse thee",
+          "green_tea": "Groene thee",
+          "fruit_tea": "Vruchtenthee",
+          "herbal_tea": "Kruidenthee",
+          "appliance_rinse": "Apparaat spoelen",
+          "milk_pipework_rinse": "Melkleiding spoelen",
+          "milk_pipework_clean": "Melkleiding reinigen",
+          "brewing_unit_degrease": "Filtersysteem ontvetten",
+          "descaling": "Apparaat ontkalken",
+          "appliance_settings": "Apparaat instellinen menu",
+          "barista_assistant": "BaristaAssistant"
+        }
+      },
+      "program_phase": {
+        "name": "Programmafase",
+        "state": {
+          "not_running": "Inactief",
+          "main_wash": "Wassen",
+          "drying": "Drogen",
+          "pre_wash": "Voorwas",
+          "soak": "Inweken",
+          "rinse": "Spoelen",
+          "rinse_hold": "Spoelstop",
+          "cooling_down": "Afkoelen",
+          "drain": "Afwatering",
+          "spin": "Centrifugeren",
+          "anti_crease": "Kreukbeveiliging",
+          "finished": "Klaar",
+          "venting": "Luchten",
+          "starch_stop": "Stijven stop",
+          "freshen_up_and_moisten": "Opfrissen & Bevochtigen",
+          "steam_smoothing": "Stoom gladstrijken",
+          "cleaning": "Cleaning",
+          "hygiene": "Hygiëne",
+          "disinfecting": "Desinfecteren",
+          "program_running": "Programma bezig",
+          "machine_iron": "Machine gestreken",
+          "hand_iron": "Handgestreken",
+          "hand_iron_1": "Handgestreken 1",
+          "hand_iron_2": "Handgestreken 2",
+          "normal": "Kastdroog",
+          "normal_plus": "Kastdroog Plus",
+          "extra_dry": "Extra droog",
+          "moisten": "Bevochtigen",
+          "thermo_spin": "Thermisch draaien",
+          "timed_drying": "Tijdsgestuurd drogen",
+          "warm_air": "Warme lucht",
+          "comfort_cooling": "Comfort koelen",
+          "rinse_out_lint": "Pluisjes uitspoelen",
+          "rinses": "Spoelcycli",
+          "smoothing": "Gladstrijken",
+          "slightly_dry": "Lichtelijk droog",
+          "safety_cooling": "Veiligheidskoelen",
+          "reactivating": "Heractiveren",
+          "pre_dishwash": "Voorspoelen",
+          "main_dishwash": "Schoonmaken",
+          "interim_rinse": "Tussendoor spoelen",
+          "final_rinse": "Afspoelen",
+          "process_running": "Proces loopt",
+          "process_finished": "Proces voltooid",
+          "energy_save": "Energie besparen",
+          "espresso": "Espresso",
+          "heating": "Verwarmen",
+          "hot_milk": "Hete melk",
+          "milk_foam": "Melkschuim",
+          "dispensing": "Doseren",
+          "pre_brewing": "Pre-brewing",
+          "grinding": "Malen",
+          "2nd_pre_brewing": "Tweede Pre-brewing",
+          "2nd_grinding": "Tweede maling",
+          "2nd_espresso": "Tweede Espresso",
+          "vacuum_cleaning": "Schoonmaken",
+          "vacuum_cleaning_paused": "Schoonmaken gepauzeerd",
+          "docked": "Gedokt",
+          "returning": "Terugkerend",
+          "going_to_target_area": "Op weg naar het doelgebied",
+          "wheel_lifted": "Wiel los van de grond",
+          "dirty_sensors": "Sensoren verontreinigd",
+          "dust_box_missing": "Stofreservoir ontbreekt",
+          "blocked_drive_wheels": "Aandrijfwielen geblokkeerd",
+          "blocked_brushes": "Borstels geblokkeerd",
+          "motor_overload": "Controleer stofreservoir en filter",
+          "vacuum_internal_fault": "Interne fout - Herstarten",
+          "blocked_front_wheel": "Voorwiel geblokkeerd",
+          "remote_controlled": "Op afstand bediend"
+        }
+      },
+      "drying_step": {
+        "name": "Droogfase",
+        "state": {
+          "smoothing": "Gladstrijken",
+          "machine_iron": "Machine gestreken",
+          "hand_iron_1": "Handgestreken 1",
+          "hand_iron_2": "Handgestreken 2",
+          "slightly_dry": "Lichtelijk droog",
+          "normal": "Kastdroog",
+          "normal_plus": "Kastdroog Plus",
+          "extra_dry": "Extra droog"
+        }
+      }
+    },
+    "switch": {
+      "supercooling": {
+        "name": "Super koelen"
+      },
+      "superfreezing": {
+        "name": "Superbevriezing"
+      },
+      "power_on": {
+        "name": "Power on"
+      }
+    },
+    "vacuum": {
+      "vacuum": {
+        "name": "Vacuum",
+        "state_attributes": {
+          "status": {
+            "name": "Status",
+            "state": {
+              "going_to_target_area": "Op weg naar het doelgebied",
+              "wheel_lifted": "Wiel los van de grond",
+              "dirty_sensors": "Sensoren verontreinigd",
+              "dust_box_missing": "Stofreservoir ontbreekt",
+              "blocked_drive_wheels": "Aandrijfwielen geblokkeerd",
+              "blocked_brushes": "Borstels geblokkeerd",
+              "check_dust_box_and_filter": "Controleer stofreservoir en filter",
+              "internal_fault_reboot": "Interne fout - Herstarten",
+              "blocked_front_wheel": "Voorwiel geblokkeerd",
+              "remote_controlled": "Op afstand bediend"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "reach_miele_cloud": "Bereikbaarheid Miele Cloud",
+      "component_version": "Versie"
+    }
+  }
 }

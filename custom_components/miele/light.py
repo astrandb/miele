@@ -1,11 +1,13 @@
 """Platform for Miele light entity."""
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 import logging
-from typing import Any, Callable, Final
+from typing import Any, Final
 
 import aiohttp
+
 from homeassistant.components.light import LightEntity, LightEntityDescription
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo

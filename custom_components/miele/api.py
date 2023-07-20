@@ -2,8 +2,9 @@
 # import logging
 
 from aiohttp import ClientSession
-from homeassistant.helpers import config_entry_oauth2_flow
 from pymiele import MIELE_API, AbstractAuth
+
+from homeassistant.helpers import config_entry_oauth2_flow
 
 # _LOGGER = logging.getLogger(__name__)
 
