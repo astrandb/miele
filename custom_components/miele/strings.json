@@ -1,440 +1,440 @@
 {
-    "application_credentials": {
-        "description": "Navigate to [\"Get involved\" at Miele developer site]({register_url}) to request credentials then enter them below."
+  "application_credentials": {
+    "description": "Navigate to [\"Get involved\" at Miele developer site]({register_url}) to request credentials then enter them below."
+  },
+  "config": {
+    "step": {
+      "pick_implementation": {
+        "title": "[%key:common::config_flow::title::oauth2_pick_implementation%]"
+      },
+      "reauth_confirm": {
+        "title": "[%key:common::config_flow::title::reauth%]",
+        "description": "The Miele integration needs to re-authenticate your account {account}"
+      }
     },
-    "config": {
-        "step": {
-            "pick_implementation": {
-                "title": "[%key:common::config_flow::title::oauth2_pick_implementation%]"
-            },
-            "reauth_confirm": {
-                "title": "[%key:common::config_flow::title::reauth%]",
-                "description": "The Miele integration needs to re-authenticate your account {account}"
-            }
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
-            "already_in_progress": "[%key:common::config_flow::abort::already_in_progress%]",
-            "oauth_error": "[%key:common::config_flow::abort::oauth2_error%]",
-            "missing_configuration": "[%key:common::config_flow::abort::oauth2_missing_configuration%]",
-            "authorize_url_timeout": "[%key:common::config_flow::abort::oauth2_authorize_url_timeout%]",
-            "no_url_available": "[%key:common::config_flow::abort::oauth2_no_url_available%]",
-            "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
-        },
-        "create_entry": {
-            "default": "[%key:common::config_flow::create_entry::authenticated%]"
-        }
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
+      "already_in_progress": "[%key:common::config_flow::abort::already_in_progress%]",
+      "oauth_error": "[%key:common::config_flow::abort::oauth2_error%]",
+      "missing_configuration": "[%key:common::config_flow::abort::oauth2_missing_configuration%]",
+      "authorize_url_timeout": "[%key:common::config_flow::abort::oauth2_authorize_url_timeout%]",
+      "no_url_available": "[%key:common::config_flow::abort::oauth2_no_url_available%]",
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
     },
-    "entity": {
-        "binary_sensor": {
-            "door": {
-                "name": "Door"
-            },
-            "info": {
-                "name": "Info"
-            },
-            "failure": {
-                "name": "Failure"
-            },
-            "remote_control": {
-                "name": "Remote control"
-            },
-            "smart_grid": {
-                "name": "Smart grid"
-            },
-            "mobile_start": {
-                "name": "Mobile start"
-            }
-        },
-        "button": {
-            "start": {
-                "name": "Start"
-            },
-            "stop": {
-                "name": "Stop"
-            }
-        },
-        "climate": {
-            "fridge": {
-                "name": "Fridge"
-            },
-            "freezer": {
-                "name": "Freezer"
-            }
-        },
-        "fan": {
-            "fan": {
-                "name": "Fan"
-            }
-        },
-        "light": {
-            "light": {
-                "name": "Light"
-            },
-            "ambient_light": {
-                "name": "Ambient light"
-            }
-        },
-        "number": {
-            "plate_0": {
-                "name": "Plate 0"
-            },
-            "plate_1": {
-                "name": "Plate 1"
-            },
-            "plate_2": {
-                "name": "Plate 2"
-            },
-            "plate_3": {
-                "name": "Plate 3"
-            },
-            "plate_4": {
-                "name": "Plate 4"
-            }
-        },
-        "sensor": {
-            "status": {
-                "name": "Status",
-                "state": {
-                    "off": "Off",
-                    "on": "On",
-                    "programmed": "Programmed",
-                    "waiting_to_start": "Waiting to start",
-                    "running": "Running",
-                    "pause": "Pause",
-                    "program_ended": "Program ended",
-                    "failure": "Failure",
-                    "program_interrupted": "Program interrupted",
-                    "idle": "Idle",
-                    "rinse_hold": "Rinse hold",
-                    "service": "Service",
-                    "superfreezing": "Superfreezing",
-                    "supercooling": "Supercooling",
-                    "superheating": "Superheating",
-                    "supercooling_superfreezing": "Supercooling/superfreezing",
-                    "not_connected": "Not connected"
-                },
-                "state_attributes": {
-                    "appliance": {
-                        "name": "Appliance"
-                    },
-                    "manufacturer": {
-                        "name": "Manufacturer"
-                    },
-                    "model": {
-                        "name": "Model"
-                    },
-                    "serial_no": {
-                        "name": "Serial no"
-                    }
-                }
-            },
-            "temperature": {
-                "name": "Temperature"
-            },
-            "temperature_zone_2": {
-                "name": "Temperature zone 2"
-            },
-            "temperature_zone_3": {
-                "name": "Temperature zone 3"
-            },
-            "target_temperature": {
-                "name": "Target temperature"
-            },
-            "target_temperature_zone_2": {
-                "name": "Target temperature zone 2"
-            },
-            "target_temperature_zone_3": {
-                "name": "Target temperature zone 3"
-            },
-            "spin_speed": {
-                "name": "Spin speed"
-            },
-            "remaining_time": {
-                "name": "Remaining time"
-            },
-            "finish_at": {
-                "name": "Finish at"
-            },
-            "start_time": {
-                "name": "Start time"
-            },
-            "start_at": {
-                "name": "Start at"
-            },
-            "elapsed_time": {
-                "name": "Elapsed time"
-            },
-            "started_at": {
-                "name": "Started at"
-            },
-            "water_consumption": {
-                "name": "Water consumption"
-            },
-            "energy_consumption": {
-                "name": "Energy consumption"
-            },
-            "water_forecast": {
-                "name": "Water forecast"
-            },
-            "energy_forecast": {
-                "name": "Energy forecast"
-            },
-            "battery": {
-                "name": "Battery"
-            },
-            "food_core_temperature": {
-                "name": "Food core temperature"
-            },
-            "food_core_target_temperature": {
-                "name": "Food core target temperature"
-            },
-            "program_type": {
-                "name": "Program type",
-                "state": {
-                    "normal_operation_mode": "Normal operation mode",
-                    "own_program": "Own program",
-                    "automatic_program": "Automatic program",
-                    "cleaning_care_program": "Cleaning/care program",
-                    "maintenance_program": "Maintenance program"
-                }
-            },
-            "program_id": {
-                "name": "Program",
-                "state": {
-                    "no_program": "No program",
-                    "cottons": "Cottons",
-                    "minimum_iron": "Minimum iron",
-                    "delicates": "Delicates",
-                    "woollens": "Woolens",
-                    "silks": "Silks",
-                    "starch": "Starch",
-                    "rinse": "Rinse",
-                    "drain_spin": "Drain/spin",
-                    "curtains": "Curtains",
-                    "shirts": "Shirts",
-                    "denim": "Denim",
-                    "proofing": "Proofing",
-                    "sportswear": "Sportswear",
-                    "automatic_plus": "Automatic Plus",
-                    "outerwear": "Outerwear",
-                    "pillows": "Pillows",
-                    "cool_air": "Cool air",
-                    "warm_air": "Warm air",
-                    "rinse_out_lint": "Rinse out lint",
-                    "dark_garments": "Dark garments",
-                    "separate_rinse_starch": "Separate rinse/starch",
-                    "first_wash": "First wash",
-                    "cottons_hygiene": "Cottons hygiene",
-                    "steam_care": "Steam care",
-                    "freshen_up": "Freshen up",
-                    "trainers": "Trainers",
-                    "clean_machine": "Clean machine",
-                    "down_duvets": "Down duvets",
-                    "express_20": "Express 20'",
-                    "express": "Express",
-                    "down_filled_items": "Down-filled items",
-                    "cottons_eco": "Cottons ECO",
-                    "quick_power_wash": "QuickPowerWash",
-                    "eco_40_60": "ECO 40-60",
-                    "intensive": "Intensive",
-                    "maintenance": "Maintenance program",
-                    "eco": "ECO",
-                    "normal": "Normal",
-                    "automatic": "Automatic",
-                    "solar_save": "SolarSave",
-                    "gentle": "Gentle",
-                    "extra_quiet": "Extra quiet",
-                    "hygiene": "Hygiene",
-                    "tall_items": "Tall items",
-                    "glasses_warm": "Glasses warm",
-                    "gentle_minimum_iron": "Gentle minimum iron",
-                    "woollens_handcare": "Woollens handcare",
-                    "bed_linen": "Bed linen",
-                    "steam_smoothing": "Steam smoothing",
-                    "gentle_smoothing": "Gentle smoothing",
-                    "gentle_denim": "Gentle denim",
-                    "silks_handcare": "Silks handcare",
-                    "standard_pillows": "Standard pillows",
-                    "basket_program": "Basket program",
-                    "smoothing": "Smoothing",
-                    "eco_fan_heat": "Eco fan heat",
-                    "auto_roast": "Auto roast",
-                    "full_grill": "Full grill",
-                    "economy_grill": "Economy grill",
-                    "fan_plus": "Fan Plus",
-                    "intensive_bake": "Intensive bake",
-                    "microwave": "Microwave",
-                    "conventional_heat": "Conventional heat",
-                    "top_heat": "Top heat",
-                    "fan_grill": "Fan grill",
-                    "bottom_heat": "Bottom heat",
-                    "defrost": "Defrost",
-                    "moisture_plus_fan_plus": "Moisture Plus + Fan Plus",
-                    "1_tray": "1 Tray",
-                    "2_trays": "2 Trays",
-                    "baking_tray": "Baking Tray",
-                    "auto": "Auto",
-                    "spot": "Spot",
-                    "turbo": "Turbo",
-                    "silent": "Silent",
-                    "check_appliance": "Check appliance",
-                    "ristretto": "Ristretto",
-                    "espresso": "Espresso",
-                    "coffee": "Coffee",
-                    "long_coffee": "Long coffee",
-                    "cappuccino": "Cappuccino",
-                    "cappuccino_italiano": "Cappuccino Italiano",
-                    "latte_macchiato": "Latte macchiato",
-                    "espresso_macchiato": "Espresso macchiato",
-                    "cafe_au_lait": "Café au lait",
-                    "caffe_latte": "Caffè latte",
-                    "flat_white": "Flat white",
-                    "hot_milk": "Hot milk",
-                    "milk_foam": "Milk foam",
-                    "hot_water": "Hot water",
-                    "very_hot_water": "Very hot water",
-                    "black_tea": "Black tea",
-                    "white_tea": "White tea",
-                    "japanese_tea": "Japanese tea",
-                    "green_tea": "Green tea",
-                    "fruit_tea": "Fruit tea",
-                    "herbal_tea": "Herbal tea",
-                    "appliance_rinse": "Appliance rinse",
-                    "milk_pipework_rinse": "Milk pipework rinse",
-                    "milk_pipework_clean": "Milk pipework clean",
-                    "brewing_unit_degrease": "Brewing unit degrease",
-                    "descaling": "Appliance descaling",
-                    "appliance_settings": "Appliance settings menu",
-                    "barista_assistant": "BaristaAssistant"
-                }
-            },
-            "program_phase": {
-                "name": "Program phase",
-                "state": {
-                    "not_running": "Not running",
-                    "main_wash": "Main wash",
-                    "drying": "Drying",
-                    "pre_wash": "Pre-wash",
-                    "soak": "Soak",
-                    "rinse": "Rinse",
-                    "rinse_hold": "Rinse hold",
-                    "cooling_down": "Cooling down",
-                    "drain": "Drain",
-                    "spin": "Spin",
-                    "anti_crease": "Anti-crease",
-                    "finished": "Finished",
-                    "venting": "Venting",
-                    "starch_stop": "Starch stop",
-                    "freshen_up_and_moisten": "Freshen up & moisten",
-                    "steam_smoothing": "Steam smoothing",
-                    "cleaning": "Cleaning",
-                    "hygiene": "Hygiene",
-                    "disinfecting": "Disinfecting",
-                    "program_running": "Program running",
-                    "machine_iron": "Machine iron",
-                    "hand_iron": "Hand iron",
-                    "hand_iron_1": "Hand iron 1",
-                    "hand_iron_2": "Hand iron 2",
-                    "normal": "Normal",
-                    "normal_plus": "Normal plus",
-                    "extra_dry": "Extra dry",
-                    "moisten": "Moisten",
-                    "thermo_spin": "Thermo spin",
-                    "timed_drying": "Timed drying",
-                    "warm_air": "Warm air",
-                    "comfort_cooling": "Comfort cooling",
-                    "rinse_out_lint": "Rinse out lint",
-                    "rinses": "Rinses",
-                    "smoothing": "Smoothing",
-                    "slightly_dry": "Slightly dry",
-                    "safety_cooling": "Safety cooling",
-                    "reactivating": "Reactivating",
-                    "pre_dishwash": "Pre-cleaning",
-                    "main_dishwash": "Cleaning",
-                    "interim_rinse": "Interim rinse",
-                    "final_rinse": "Final rinse",
-                    "process_running": "Process running",
-                    "process_finished": "Process finished",
-                    "energy_save": "Energy save",
-                    "espresso": "Espresso coffee",
-                    "heating": "Heating",
-                    "hot_milk": "Hot milk",
-                    "milk_foam": "Milk foam",
-                    "dispensing": "Dispensing",
-                    "pre_brewing": "Pre-brewing",
-                    "grinding": "Grinding",
-                    "2nd_pre_brewing": "2nd Pre-brewing",
-                    "2nd_grinding": "2nd Grinding",
-                    "2nd_espresso": "2nd Espresso coffee",
-                    "vacuum_cleaning": "Cleaning",
-                    "vacuum_cleaning_paused": "Cleaning paused",
-                    "docked": "Docked",
-                    "returning": "Returning",
-                    "going_to_target_area": "Going to target area",
-                    "wheel_lifted": "Wheel lifted",
-                    "dirty_sensors": "Dirty sesnsors",
-                    "dust_box_missing": "Missing dust box",
-                    "blocked_drive_wheels": "Drive wheels blocked",
-                    "blocked_brushes": "Brushes blocked",
-                    "motor_overload": "Check dust box and filter",
-                    "vacuum_internal_fault": "Internal fault - reboot",
-                    "blocked_front_wheel": "Front wheel blocked",
-                    "remote_controlled": "Remote controlled"
-                }
-            },
-            "drying_step": {
-                "name": "Drying step",
-                "state": {
-                    "smoothing": "Smoothing",
-                    "machine_iron": "Machine iron",
-                    "hand_iron_1": "Hand iron 1",
-                    "hand_iron_2": "Hand iron 2",
-                    "slightly_dry": "Slightly dry",
-                    "normal": "Normal",
-                    "normal_plus": "Normal Plus",
-                    "extra_dry": "Extra dry"
-                }
-            }
-        },
-        "switch": {
-            "supercooling": {
-                "name": "Supercooling"
-            },
-            "superfreezing": {
-                "name": "Superfreezing"
-            },
-            "power_on": {
-                "name": "Power on"
-            }
-        },
-        "vacuum": {
-            "vacuum": {
-                "name": "Vacuum",
-                "state_attributes": {
-                    "status": {
-                        "name": "Status",
-                        "state": {
-                            "going_to_target_area": "Going to target area",
-                            "wheel_lifted": "Wheel lifted",
-                            "dirty_sensors": "Dirty sensors",
-                            "dust_box_missing": "Missing dust box",
-                            "blocked_drive_wheels": "Drive wheels blocked",
-                            "blocked_brushes": "Brushes blocked",
-                            "check_dust_box_and_filter": "Check dust box andfilter",
-                            "internal_fault_reboot": "Internal fault - Reboot",
-                            "blocked_front_wheel": "Front wheel blocked",
-                            "remote_controlled": "Remote controlled"
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "system_health": {
-        "info": {
-            "reach_miele_cloud": "Reach Miele Cloud",
-            "component_version": "Version"
-        }
+    "create_entry": {
+      "default": "[%key:common::config_flow::create_entry::authenticated%]"
     }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door": {
+        "name": "Door"
+      },
+      "info": {
+        "name": "Info"
+      },
+      "failure": {
+        "name": "Failure"
+      },
+      "remote_control": {
+        "name": "Remote control"
+      },
+      "smart_grid": {
+        "name": "Smart grid"
+      },
+      "mobile_start": {
+        "name": "Mobile start"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Start"
+      },
+      "stop": {
+        "name": "Stop"
+      }
+    },
+    "climate": {
+      "fridge": {
+        "name": "Fridge"
+      },
+      "freezer": {
+        "name": "Freezer"
+      }
+    },
+    "fan": {
+      "fan": {
+        "name": "Fan"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Light"
+      },
+      "ambient_light": {
+        "name": "Ambient light"
+      }
+    },
+    "number": {
+      "plate_0": {
+        "name": "Plate 0"
+      },
+      "plate_1": {
+        "name": "Plate 1"
+      },
+      "plate_2": {
+        "name": "Plate 2"
+      },
+      "plate_3": {
+        "name": "Plate 3"
+      },
+      "plate_4": {
+        "name": "Plate 4"
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "off": "Off",
+          "on": "On",
+          "programmed": "Programmed",
+          "waiting_to_start": "Waiting to start",
+          "running": "Running",
+          "pause": "Pause",
+          "program_ended": "Program ended",
+          "failure": "Failure",
+          "program_interrupted": "Program interrupted",
+          "idle": "Idle",
+          "rinse_hold": "Rinse hold",
+          "service": "Service",
+          "superfreezing": "Superfreezing",
+          "supercooling": "Supercooling",
+          "superheating": "Superheating",
+          "supercooling_superfreezing": "Supercooling/superfreezing",
+          "not_connected": "Not connected"
+        },
+        "state_attributes": {
+          "appliance": {
+            "name": "Appliance"
+          },
+          "manufacturer": {
+            "name": "Manufacturer"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "serial_no": {
+            "name": "Serial no"
+          }
+        }
+      },
+      "temperature": {
+        "name": "Temperature"
+      },
+      "temperature_zone_2": {
+        "name": "Temperature zone 2"
+      },
+      "temperature_zone_3": {
+        "name": "Temperature zone 3"
+      },
+      "target_temperature": {
+        "name": "Target temperature"
+      },
+      "target_temperature_zone_2": {
+        "name": "Target temperature zone 2"
+      },
+      "target_temperature_zone_3": {
+        "name": "Target temperature zone 3"
+      },
+      "spin_speed": {
+        "name": "Spin speed"
+      },
+      "remaining_time": {
+        "name": "Remaining time"
+      },
+      "finish_at": {
+        "name": "Finish at"
+      },
+      "start_time": {
+        "name": "Start time"
+      },
+      "start_at": {
+        "name": "Start at"
+      },
+      "elapsed_time": {
+        "name": "Elapsed time"
+      },
+      "started_at": {
+        "name": "Started at"
+      },
+      "water_consumption": {
+        "name": "Water consumption"
+      },
+      "energy_consumption": {
+        "name": "Energy consumption"
+      },
+      "water_forecast": {
+        "name": "Water forecast"
+      },
+      "energy_forecast": {
+        "name": "Energy forecast"
+      },
+      "battery": {
+        "name": "Battery"
+      },
+      "food_core_temperature": {
+        "name": "Food core temperature"
+      },
+      "food_core_target_temperature": {
+        "name": "Food core target temperature"
+      },
+      "program_type": {
+        "name": "Program type",
+        "state": {
+          "normal_operation_mode": "Normal operation mode",
+          "own_program": "Own program",
+          "automatic_program": "Automatic program",
+          "cleaning_care_program": "Cleaning/care program",
+          "maintenance_program": "Maintenance program"
+        }
+      },
+      "program_id": {
+        "name": "Program",
+        "state": {
+          "no_program": "No program",
+          "cottons": "Cottons",
+          "minimum_iron": "Minimum iron",
+          "delicates": "Delicates",
+          "woollens": "Woolens",
+          "silks": "Silks",
+          "starch": "Starch",
+          "rinse": "Rinse",
+          "drain_spin": "Drain/spin",
+          "curtains": "Curtains",
+          "shirts": "Shirts",
+          "denim": "Denim",
+          "proofing": "Proofing",
+          "sportswear": "Sportswear",
+          "automatic_plus": "Automatic Plus",
+          "outerwear": "Outerwear",
+          "pillows": "Pillows",
+          "cool_air": "Cool air",
+          "warm_air": "Warm air",
+          "rinse_out_lint": "Rinse out lint",
+          "dark_garments": "Dark garments",
+          "separate_rinse_starch": "Separate rinse/starch",
+          "first_wash": "First wash",
+          "cottons_hygiene": "Cottons hygiene",
+          "steam_care": "Steam care",
+          "freshen_up": "Freshen up",
+          "trainers": "Trainers",
+          "clean_machine": "Clean machine",
+          "down_duvets": "Down duvets",
+          "express_20": "Express 20'",
+          "express": "Express",
+          "down_filled_items": "Down-filled items",
+          "cottons_eco": "Cottons ECO",
+          "quick_power_wash": "QuickPowerWash",
+          "eco_40_60": "ECO 40-60",
+          "intensive": "Intensive",
+          "maintenance": "Maintenance program",
+          "eco": "ECO",
+          "normal": "Normal",
+          "automatic": "Automatic",
+          "solar_save": "SolarSave",
+          "gentle": "Gentle",
+          "extra_quiet": "Extra quiet",
+          "hygiene": "Hygiene",
+          "tall_items": "Tall items",
+          "glasses_warm": "Glasses warm",
+          "gentle_minimum_iron": "Gentle minimum iron",
+          "woollens_handcare": "Woollens handcare",
+          "bed_linen": "Bed linen",
+          "steam_smoothing": "Steam smoothing",
+          "gentle_smoothing": "Gentle smoothing",
+          "gentle_denim": "Gentle denim",
+          "silks_handcare": "Silks handcare",
+          "standard_pillows": "Standard pillows",
+          "basket_program": "Basket program",
+          "smoothing": "Smoothing",
+          "eco_fan_heat": "Eco fan heat",
+          "auto_roast": "Auto roast",
+          "full_grill": "Full grill",
+          "economy_grill": "Economy grill",
+          "fan_plus": "Fan Plus",
+          "intensive_bake": "Intensive bake",
+          "microwave": "Microwave",
+          "conventional_heat": "Conventional heat",
+          "top_heat": "Top heat",
+          "fan_grill": "Fan grill",
+          "bottom_heat": "Bottom heat",
+          "defrost": "Defrost",
+          "moisture_plus_fan_plus": "Moisture Plus + Fan Plus",
+          "1_tray": "1 Tray",
+          "2_trays": "2 Trays",
+          "baking_tray": "Baking Tray",
+          "auto": "Auto",
+          "spot": "Spot",
+          "turbo": "Turbo",
+          "silent": "Silent",
+          "check_appliance": "Check appliance",
+          "ristretto": "Ristretto",
+          "espresso": "Espresso",
+          "coffee": "Coffee",
+          "long_coffee": "Long coffee",
+          "cappuccino": "Cappuccino",
+          "cappuccino_italiano": "Cappuccino Italiano",
+          "latte_macchiato": "Latte macchiato",
+          "espresso_macchiato": "Espresso macchiato",
+          "cafe_au_lait": "Café au lait",
+          "caffe_latte": "Caffè latte",
+          "flat_white": "Flat white",
+          "hot_milk": "Hot milk",
+          "milk_foam": "Milk foam",
+          "hot_water": "Hot water",
+          "very_hot_water": "Very hot water",
+          "black_tea": "Black tea",
+          "white_tea": "White tea",
+          "japanese_tea": "Japanese tea",
+          "green_tea": "Green tea",
+          "fruit_tea": "Fruit tea",
+          "herbal_tea": "Herbal tea",
+          "appliance_rinse": "Appliance rinse",
+          "milk_pipework_rinse": "Milk pipework rinse",
+          "milk_pipework_clean": "Milk pipework clean",
+          "brewing_unit_degrease": "Brewing unit degrease",
+          "descaling": "Appliance descaling",
+          "appliance_settings": "Appliance settings menu",
+          "barista_assistant": "BaristaAssistant"
+        }
+      },
+      "program_phase": {
+        "name": "Program phase",
+        "state": {
+          "not_running": "Not running",
+          "main_wash": "Main wash",
+          "drying": "Drying",
+          "pre_wash": "Pre-wash",
+          "soak": "Soak",
+          "rinse": "Rinse",
+          "rinse_hold": "Rinse hold",
+          "cooling_down": "Cooling down",
+          "drain": "Drain",
+          "spin": "Spin",
+          "anti_crease": "Anti-crease",
+          "finished": "Finished",
+          "venting": "Venting",
+          "starch_stop": "Starch stop",
+          "freshen_up_and_moisten": "Freshen up & moisten",
+          "steam_smoothing": "Steam smoothing",
+          "cleaning": "Cleaning",
+          "hygiene": "Hygiene",
+          "disinfecting": "Disinfecting",
+          "program_running": "Program running",
+          "machine_iron": "Machine iron",
+          "hand_iron": "Hand iron",
+          "hand_iron_1": "Hand iron 1",
+          "hand_iron_2": "Hand iron 2",
+          "normal": "Normal",
+          "normal_plus": "Normal plus",
+          "extra_dry": "Extra dry",
+          "moisten": "Moisten",
+          "thermo_spin": "Thermo spin",
+          "timed_drying": "Timed drying",
+          "warm_air": "Warm air",
+          "comfort_cooling": "Comfort cooling",
+          "rinse_out_lint": "Rinse out lint",
+          "rinses": "Rinses",
+          "smoothing": "Smoothing",
+          "slightly_dry": "Slightly dry",
+          "safety_cooling": "Safety cooling",
+          "reactivating": "Reactivating",
+          "pre_dishwash": "Pre-cleaning",
+          "main_dishwash": "Cleaning",
+          "interim_rinse": "Interim rinse",
+          "final_rinse": "Final rinse",
+          "process_running": "Process running",
+          "process_finished": "Process finished",
+          "energy_save": "Energy save",
+          "espresso": "Espresso coffee",
+          "heating": "Heating",
+          "hot_milk": "Hot milk",
+          "milk_foam": "Milk foam",
+          "dispensing": "Dispensing",
+          "pre_brewing": "Pre-brewing",
+          "grinding": "Grinding",
+          "2nd_pre_brewing": "2nd Pre-brewing",
+          "2nd_grinding": "2nd Grinding",
+          "2nd_espresso": "2nd Espresso coffee",
+          "vacuum_cleaning": "Cleaning",
+          "vacuum_cleaning_paused": "Cleaning paused",
+          "docked": "Docked",
+          "returning": "Returning",
+          "going_to_target_area": "Going to target area",
+          "wheel_lifted": "Wheel lifted",
+          "dirty_sensors": "Dirty sesnsors",
+          "dust_box_missing": "Missing dust box",
+          "blocked_drive_wheels": "Drive wheels blocked",
+          "blocked_brushes": "Brushes blocked",
+          "motor_overload": "Check dust box and filter",
+          "vacuum_internal_fault": "Internal fault - reboot",
+          "blocked_front_wheel": "Front wheel blocked",
+          "remote_controlled": "Remote controlled"
+        }
+      },
+      "drying_step": {
+        "name": "Drying step",
+        "state": {
+          "smoothing": "Smoothing",
+          "machine_iron": "Machine iron",
+          "hand_iron_1": "Hand iron 1",
+          "hand_iron_2": "Hand iron 2",
+          "slightly_dry": "Slightly dry",
+          "normal": "Normal",
+          "normal_plus": "Normal Plus",
+          "extra_dry": "Extra dry"
+        }
+      }
+    },
+    "switch": {
+      "supercooling": {
+        "name": "Supercooling"
+      },
+      "superfreezing": {
+        "name": "Superfreezing"
+      },
+      "power_on": {
+        "name": "Power on"
+      }
+    },
+    "vacuum": {
+      "vacuum": {
+        "name": "Vacuum",
+        "state_attributes": {
+          "status": {
+            "name": "Status",
+            "state": {
+              "going_to_target_area": "Going to target area",
+              "wheel_lifted": "Wheel lifted",
+              "dirty_sensors": "Dirty sensors",
+              "dust_box_missing": "Missing dust box",
+              "blocked_drive_wheels": "Drive wheels blocked",
+              "blocked_brushes": "Brushes blocked",
+              "check_dust_box_and_filter": "Check dust box andfilter",
+              "internal_fault_reboot": "Internal fault - Reboot",
+              "blocked_front_wheel": "Front wheel blocked",
+              "remote_controlled": "Remote controlled"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system_health": {
+    "info": {
+      "reach_miele_cloud": "Reach Miele Cloud",
+      "component_version": "Version"
+    }
+  }
 }

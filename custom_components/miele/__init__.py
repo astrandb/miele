@@ -10,6 +10,8 @@ import logging
 from aiohttp import ClientResponseError
 import async_timeout
 import flatdict
+import voluptuous as vol
+
 from homeassistant.components import persistent_notification
 from homeassistant.components.application_credentials import (
     ClientCredential,
@@ -18,8 +20,7 @@ from homeassistant.components.application_credentials import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET, Platform
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import aiohttp_client
-from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers import aiohttp_client, config_validation as cv
 from homeassistant.helpers.config_entry_oauth2_flow import (
     OAuth2Session,
     async_get_config_entry_implementation,
@@ -31,7 +32,6 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
 )
-import voluptuous as vol
 
 from .api import AsyncConfigEntryAuth
 from .const import (

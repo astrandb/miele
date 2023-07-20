@@ -1,10 +1,11 @@
 """Platform for Miele sensor integration."""
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import timedelta
 import logging
-from typing import Any, Callable, Final
+from typing import Any, Final
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -941,6 +942,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def extra_state_attributes(self):
+        """Return extra_state_attributes."""
         if self.entity_description.extra_attributes is None:
             return None
         attr = self.entity_description.extra_attributes

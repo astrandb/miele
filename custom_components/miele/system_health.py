@@ -1,7 +1,8 @@
 """Provide info to system health."""
+from pymiele import MIELE_API
+
 from homeassistant.components import system_health
 from homeassistant.core import HomeAssistant, callback
-from pymiele import MIELE_API
 
 from .const import VERSION
 

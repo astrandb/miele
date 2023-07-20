@@ -6,6 +6,7 @@ import logging
 from typing import Any, Final
 
 import aiohttp
+
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
