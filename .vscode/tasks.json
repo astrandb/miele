@@ -14,6 +14,18 @@
       "problemMatcher": []
     },
     {
+      "label": "Load Home Assistant from github - dev branch",
+      "type": "shell",
+      "command": "scripts/dev-branch",
+      "problemMatcher": []
+    },
+    {
+      "label": "Load specific version of Home Assistant",
+      "type": "shell",
+      "command": "scripts/specific-version",
+      "problemMatcher": []
+    },
+    {
       "label": "Lint with ruff",
       "type": "shell",
       "command": "scripts/lint",

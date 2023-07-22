@@ -4,4 +4,4 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-python3 -m pip install --upgrade --pre homeassistant
+python3 -m pip --disable-pip-version-check install --upgrade --pre homeassistant
