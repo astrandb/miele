@@ -87,6 +87,8 @@ class MieleSensorDescription(SensorEntityDescription):
 
     data_tag: str | None = None
     data_tag1: str | None = None
+    data_tag2: str | None = None
+    data_tag3: str | None = None
     data_tag_loc: str | None = None
     type_key: str = "ident|type|value_localized"
     type_key_raw: str = "ident|type|value_raw"
@@ -486,6 +488,9 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             key="stateRemainingTimeAbs",
             data_tag="state|remainingTime|0",
             data_tag1="state|remainingTime|1",
+            # also account for time until start in finish time (delayed start)
+            data_tag2="state|startTime|0",
+            data_tag3="state|startTime|1",
             translation_key="finish_at",
             icon="mdi:clock-end",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -767,6 +772,7 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             )
         self._last_elapsed_time_reported = None
         self._last_started_time_reported = None
+        self._last_abs_time = {}
 
     @property
     def native_value(self):
@@ -775,73 +781,49 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             "stateRemainingTime",
             "stateStartTime",
         ]:
-            return (
-                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
-                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
-            )
-
-        if self.entity_description.key in [
-            "stateRemainingTimeAbs",
-            "stateStartTimeAbs",
-        ]:
-            now = dt_util.now()
-            mins = (
-                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
-                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
-            )
-            if mins == 0:
-                return None
-            # _LOGGER.debug(
-            #     "Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s",
-            #     self.entity_description.key,
-            #     self._ent,
-            #     mins,
-            #     now,
-            #     (now + timedelta(minutes=mins)).strftime("%H:%M"),
-            # )
-            return (now + timedelta(minutes=mins)).strftime("%H:%M")
+            return self._get_minutes()
 
         if self.entity_description.key in [
             "stateElapsedTime",
         ]:
-            mins = (
-                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
-                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
-            )
-            # Don't update sensor if state == program_ended
+            mins = self._get_minutes()
+            # Keep value when program ends
             if (
                 self.coordinator.data[self._ent][self.entity_description.status_key_raw]
                 == STATE_STATUS_PROGRAM_ENDED
             ):
                 return self._last_elapsed_time_reported
+            # Force 0 when appliance is off
+            if (
+                self.coordinator.data[self._ent][self.entity_description.status_key_raw]
+                == STATE_STATUS_OFF
+            ):
+                return 0
             self._last_elapsed_time_reported = mins
             return mins
 
         if self.entity_description.key in [
+            "stateRemainingTimeAbs",
+            "stateStartTimeAbs",
+        ]:
+            return self._get_absolute_time()
+
+        if self.entity_description.key in [
             "stateElapsedTimeAbs",
         ]:
-            now = dt_util.now()
-            mins = (
-                self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
-                + self.coordinator.data[self._ent][self.entity_description.data_tag1]
-            )
-            if mins == 0:
-                return None
-            _LOGGER.debug(
-                "Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s",
-                self.entity_description.key,
-                self._ent,
-                mins,
-                now,
-                (now + timedelta(minutes=mins)).strftime("%H:%M"),
-            )
-            started_time = (now - timedelta(minutes=mins)).strftime("%H:%M")
+            started_time = self._get_absolute_time(sub=True)
             # Don't update sensor if state == program_ended
             if (
                 self.coordinator.data[self._ent][self.entity_description.status_key_raw]
                 == STATE_STATUS_PROGRAM_ENDED
             ):
                 return self._last_started_time_reported
+            # Force no state when appliance is off
+            if (
+                self.coordinator.data[self._ent][self.entity_description.status_key_raw]
+                == STATE_STATUS_OFF
+            ):
+                return None
             self._last_started_time_reported = started_time
             return started_time
 
@@ -924,6 +906,49 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             self.coordinator.data[self._ent][self.entity_description.data_tag],
             self.coordinator.data[self._ent][self.entity_description.type_key_raw],
         )
+
+    def _get_minutes(self):
+        mins = (
+            self.coordinator.data[self._ent][self.entity_description.data_tag] * 60
+            + self.coordinator.data[self._ent][self.entity_description.data_tag1]
+        )
+        if (
+            self.entity_description.data_tag2 is not None
+            and self.entity_description.data_tag2 is not None
+        ):
+            mins = mins + (
+                self.coordinator.data[self._ent][self.entity_description.data_tag2] * 60
+                + self.coordinator.data[self._ent][self.entity_description.data_tag3]
+            )
+        return mins
+
+    def _get_absolute_time(self, sub=False):
+        now = dt_util.now().replace(second=0, microsecond=0)
+        mins = self._get_minutes()
+        if mins == 0:
+            return None
+        if sub:
+            val = now - timedelta(minutes=mins)
+        else:
+            val = now + timedelta(minutes=mins)
+        formatted = val.strftime("%H:%M")
+        _LOGGER.debug(
+            "Key:  %s | Dev: %s | Mins: %s | Now: %s | State: %s",
+            self.entity_description.key,
+            self._ent,
+            mins,
+            now,
+            formatted,
+        )
+        # check for previous value and return it if differning of +/-1 min
+        if self.entity_description.key in self._last_abs_time:
+            previous_value = self._last_abs_time[self.entity_description.key]
+            prev_minute = previous_value - timedelta(seconds=120)
+            next_minute = previous_value + timedelta(seconds=120)
+            if prev_minute <= val <= next_minute:
+                return previous_value.strftime("%H:%M")
+        self._last_abs_time[self.entity_description.key] = val
+        return formatted
 
     @property
     def available(self):
