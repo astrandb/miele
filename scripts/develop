@@ -14,7 +14,7 @@ echo "
 logger:
     default: info
     logs:
-        homeassistant.components.miele: debug
+        custom_components.miele: debug
         pymiele: debug
 " >> config/configuration.yaml
 fi
