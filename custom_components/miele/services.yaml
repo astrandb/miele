@@ -15,8 +15,6 @@ process_action:
   fields:
     action:
       # Field name as shown in UI
-      name: Action
-      description: processAction
       required: true
       advanced: false
       # Example value that can be passed for this field
@@ -34,6 +32,7 @@ process_action:
             - "stop_superfreezing"
             - "start_supercooling"
             - "stop_supercooling"
+          translation_key: process_action
 
 generic_action:
   name: Execute generic action
@@ -44,47 +43,32 @@ generic_action:
   fields:
     processAction:
       example: 1
-      description: Set processAction
     light:
-      description: Set light on or off
       example: 1
     startTime:
-      description: Set start time
       example: "[1, 30]"
     ventilationStep:
-      description: Select ventilation step
       example: 1
     programId:
-      description: Set program
       example: 24
     targetTemperature:
-      description: Set target temperature
       example: '[{ "zone": 1, "value": 5 }]'
     deviceName:
-      description: Rename device
       example: "A new name"
     powerOn:
-      description: Power on appliance
       example: true
     powerOff:
-      description: Power off appliance
       example: true
     colors:
       example: "blue"
-      description: Set color of ambient light
     modes:
-      description: Set mode
       example: 1
 
 raw:
-  name: Execute raw action
-  description: Execute service with minmal validation.
   fields:
     serialno:
-      description: The serial number of the appliance
       example: "123456"
     extra:
-      description: A dictionary with parameters
       example: '{ "targetTemperature": [{"zone": 1, "value": -18 }] }'
 
 set_program:
