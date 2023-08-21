@@ -1,6 +1,6 @@
 # The contents of this file is based on https://github.com/home-assistant/core/blob/dev/pyproject.toml
 
-target-version = "py310"
+target-version = "py311"
 
 select = [
     "B002",    # Python does not support the unary prefix increment
@@ -57,6 +57,7 @@ select = [
     "SIM401",  # Use get from dict with default instead of an if block
     "T100",    # Trace found: {name} used
     "T20",     # flake8-print
+    "TID251",  # Banned imports
     "TRY004",  # Prefer TypeError exception for invalid type
     "TRY200",  # Use raise from to specify exception cause
     "TRY302",  # Remove exception handler; error is immediately re-raised
@@ -87,6 +88,15 @@ ignore = [
     "UP038", # Use `X | Y` in `isinstance` call instead of `(X, Y)`
 
 ]
+
+[flake8-import-conventions.extend-aliases]
+voluptuous = "vol"
+"homeassistant.helpers.area_registry" = "ar"
+"homeassistant.helpers.config_validation" = "cv"
+"homeassistant.helpers.device_registry" = "dr"
+"homeassistant.helpers.entity_registry" = "er"
+"homeassistant.helpers.issue_registry" = "ir"
+"homeassistant.util.dt" = "dt_util"
 
 [isort]
 force-sort-within-sections = true
