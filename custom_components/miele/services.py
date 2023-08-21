@@ -8,7 +8,7 @@ import voluptuous as vol
 from homeassistant.const import CONF_DEVICE_ID, CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers import config_validation as cv, device_registry
+from homeassistant.helpers import config_validation as cv, device_registry as dr
 from homeassistant.helpers.service import async_extract_config_entry_ids
 
 from .const import (
@@ -110,7 +110,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
                 "Failed to call service 'process_action'. Config entry for target not found"
             )
         _LOGGER.debug("Entries: %s", our_entry_ids)
-        device_reg = device_registry.async_get(hass)
+        device_reg = dr.async_get(hass)
         for ent in call.data[CONF_DEVICE_ID]:
             device_entry = device_reg.async_get(ent)
             for ident in device_entry.identifiers:
@@ -138,7 +138,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
                 "Cannot call generic_action on entity. Only on device."
             )
         _LOGGER.debug("Entries: %s", our_entry_ids)
-        device_reg = device_registry.async_get(hass)
+        device_reg = dr.async_get(hass)
         for ent in call.data[CONF_DEVICE_ID]:
             device_entry = device_reg.async_get(ent)
             for ident in device_entry.identifiers:
@@ -179,7 +179,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
                 "Cannot call set_program on entity. Only on device."
             )
         _LOGGER.debug("Entries: %s", our_entry_ids)
-        device_reg = device_registry.async_get(hass)
+        device_reg = dr.async_get(hass)
         for ent in call.data[CONF_DEVICE_ID]:
             device_entry = device_reg.async_get(ent)
             for ident in device_entry.identifiers:
