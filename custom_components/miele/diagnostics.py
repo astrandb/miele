@@ -9,7 +9,7 @@ from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import entity_registry
+from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
@@ -91,8 +91,8 @@ async def async_get_device_diagnostics(
     local_mappings = {}
 
     if CONF_SENSORS in hass.data[DOMAIN]:
-        entity_reg = entity_registry.async_get(hass)
-        entries = entity_registry.async_entries_for_device(entity_reg, device.id)
+        entity_reg = er.async_get(hass)
+        entries = er.async_entries_for_device(entity_reg, device.id)
 
         for entry in entries:
             if entry.entity_id in hass.data[DOMAIN][CONF_SENSORS]:
