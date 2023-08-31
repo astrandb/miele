@@ -45,9 +45,11 @@ generic_action:
     processAction:
       example: 1
       description: Set processAction
+      name: processAction
     light:
       description: Set light on or off
       example: 1
+      name: light
     startTime:
       description: Set start time
       example: "[1, 30]"
