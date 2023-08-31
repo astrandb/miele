@@ -450,7 +450,7 @@
       "name": "Utför generisk åtgärd"
     },
     "process_action": {
-      "description": "Utför processAction pom alla förutsättningar är uppfyllda.",
+      "description": "Utför processAction om alla förutsättningar är uppfyllda.",
       "fields": {
         "action": {
           "description": "Välj en processåtgärd att utföra.",
