@@ -463,7 +463,8 @@
       "description": "Execute service with minmal validation.",
       "fields": {
         "extra": {
-          "description": "A dictionary with parameters"
+          "description": "A dictionary with parameters",
+          "name": "Extra"
         },
         "serialno": {
           "description": "The serial number of the appliance",

@@ -84,13 +84,9 @@ raw:
   description: Execute service with minmal validation.
   fields:
     serialno:
-      description: The serial number of the appliance
       example: "123456"
-      name: serialno
     extra:
-      description: A dictionary with parameters
       example: '{ "targetTemperature": [{"zone": 1, "value": -18 }] }'
-      name: extra
 
 set_program:
   name: Set program
