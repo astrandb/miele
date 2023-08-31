@@ -53,30 +53,39 @@ generic_action:
     startTime:
       description: Set start time
       example: "[1, 30]"
+      name: startTime
     ventilationStep:
       description: Select ventilation step
       example: 1
+      name: ventilationStep
     programId:
       description: Set program
       example: 24
+      name: programId
     targetTemperature:
       description: Set target temperature
       example: '[{ "zone": 1, "value": 5 }]'
+      name: targetTemperature
     deviceName:
       description: Rename device
       example: "A new name"
+      name: devicename
     powerOn:
       description: Power on appliance
       example: true
+      name: powerOn
     powerOff:
       description: Power off appliance
       example: true
+      name: powerOff
     colors:
       example: "blue"
       description: Set color of ambient light
+      name: colors
     modes:
       description: Set mode
       example: 1
+      name: modes
 
 raw:
   name: Execute raw action
@@ -85,9 +94,11 @@ raw:
     serialno:
       description: The serial number of the appliance
       example: "123456"
+      name: serialno
     extra:
       description: A dictionary with parameters
       example: '{ "targetTemperature": [{"zone": 1, "value": -18 }] }'
+      name: extra
 
 set_program:
   name: Set program
@@ -99,3 +110,4 @@ set_program:
     programId:
       description: Set program Id
       example: 24
+      name: programId
