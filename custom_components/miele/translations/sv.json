@@ -431,6 +431,53 @@
       }
     }
   },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pausa",
+        "start": "Starta",
+        "start_supercooling": "Starta snabbkylning",
+        "start_superfreezing": "Starta snabbinfrysning",
+        "stop": "Stoppa",
+        "stop_supercooling": "Stoppa ssnabbkylning",
+        "stop_superfreezing": "Stoppa snabbinfrysning"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Utför en åtgärd på en enhet.",
+      "name": "Utför generisk åtgärd"
+    },
+    "process_action": {
+      "description": "Utför processAction pom alla förutsättningar är uppfyllda.",
+      "fields": {
+        "action": {
+          "description": "Välj en processåtgärd att utföra.",
+          "name": "Åtgärd"
+        }
+      },
+      "name": "Utför processAction"
+    },
+    "raw": {
+      "description": "Utför tjänst med minimal validering.",
+      "fields": {
+        "extra": {
+          "description": "Ett dict med parametar",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "Apparatens serienummer",
+          "name": "Serienummer"
+        }
+      },
+      "name": "Utför rakt kommando"
+    },
+    "set_program": {
+      "description": "Ställ in och starta program med valfria parametrar.",
+      "name": "Ställ in program"
+    }
+  },
   "system_health": {
     "info": {
       "reach_miele_cloud": "Kan nå Miele cloud",
