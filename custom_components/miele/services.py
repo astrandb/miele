@@ -124,7 +124,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
                 await _api.send_action(serno, {PROCESS_ACTION: act})
             except aiohttp.ClientResponseError as ex:
                 raise HomeAssistantError(
-                    f"Service generic_action: {ex.status} {ex.message}"
+                    f"Service process_action: {ex.status} {ex.message}"
                 ) from ex
 
     async def send_generic_action(call: ServiceCall):

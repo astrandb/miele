@@ -431,6 +431,53 @@
       }
     }
   },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pause",
+        "start": "Start",
+        "start_supercooling": "Start supercooling",
+        "start_superfreezing": "Start superfreezing",
+        "stop": "Stop",
+        "stop_supercooling": "Stop supercooling",
+        "stop_superfreezing": "Stop superfreezing"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Execute one action on a device",
+      "name": "Execute generic action"
+    },
+    "process_action": {
+      "description": "Executes process actions if preconditions are met.",
+      "fields": {
+        "action": {
+          "description": "Select one process action to execute.",
+          "name": "Action"
+        }
+      },
+      "name": "Execute process action"
+    },
+    "raw": {
+      "description": "Execute service with minmal validation.",
+      "fields": {
+        "extra": {
+          "description": "A dictionary with parameters",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "The serial number of the appliance",
+          "name": "Serial number"
+        }
+      },
+      "name": "Execute raw action"
+    },
+    "set_program": {
+      "description": "Set and start program with optional parameters.",
+      "name": "Set program"
+    }
+  },
   "system_health": {
     "info": {
       "reach_miele_cloud": "Reach Miele Cloud",
