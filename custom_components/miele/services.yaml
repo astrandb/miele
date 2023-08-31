@@ -1,13 +1,6 @@
 # Services descriptions for Miele
 
 process_action:
-  name: Execute process action
-  description: Executes process action if preconditions are met.
-  # If the service accepts entity IDs, target allows the user to specify entities by entity, device, or area.
-  # If `target` is specified, `entity_id` should not be defined in the `fields` map.
-  # By default it shows only targets matching entities from the same domain as the service,
-  # but if further customization is required, target supports the entity, device, and area selectors (https://www.home-assistant.io/docs/blueprint/selectors/).
-  # Entity selector parameters will automatically be applied to device and area, and device selector parameters will automatically be applied to area.
   target:
     device:
       integration: "miele"
@@ -15,8 +8,8 @@ process_action:
   fields:
     action:
       # Field name as shown in UI
-      name: Action
-      description: processAction
+      # name: Action
+      # description: processAction
       required: true
       advanced: false
       # Example value that can be passed for this field
@@ -34,10 +27,9 @@ process_action:
             - "stop_superfreezing"
             - "start_supercooling"
             - "stop_supercooling"
+          translation_key: process_action_options
 
 generic_action:
-  name: Execute generic action
-  description: Executes one action on a device
   target:
     device:
       integration: "miele"
@@ -69,7 +61,7 @@ generic_action:
     deviceName:
       description: Rename device
       example: "A new name"
-      name: devicename
+      name: deviceName
     powerOn:
       description: Power on appliance
       example: true
