@@ -8,14 +8,14 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant.components import persistent_notification, zeroconf
-from homeassistant.const import CONF_HOST, CONF_MAC, CONF_NAME, CONF_PORT
+from homeassistant.const import CONF_HOST, CONF_NAME, CONF_PORT
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers import config_entry_oauth2_flow
-from homeassistant.helpers.device_registry import format_mac
 
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
+
 
 class OAuth2FlowHandler(
     config_entry_oauth2_flow.AbstractOAuth2FlowHandler, domain=DOMAIN
@@ -81,7 +81,7 @@ class OAuth2FlowHandler(
 
     async def async_step_zeroconf(
         self, discovery_info: zeroconf.ZeroconfServiceInfo
-        ) -> FlowResult:
+    ) -> FlowResult:
         """Prepare configuration for a Zeroconf discovered Miele device."""
         self.name = discovery_info.name.split(".", 1)[0]
         return await self.async_step_zeroconf_confirm(
@@ -102,7 +102,7 @@ class OAuth2FlowHandler(
         if user_input is not None:
             try:
                 return await self.async_step_user()
-            except:  # (CannotConnect, ConnectionClosed):
+            except Exception:  # pylint: disable=broad-exception-caught]
                 # Device became network unreachable after discovery.
                 # Abort and let discovery find it again later.
                 return self.async_abort(reason="cannot_connect")
