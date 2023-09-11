@@ -22,6 +22,10 @@
       "reauth_confirm": {
         "title": "Reauthenticate Integration",
         "description": "The Miele integration needs to re-authenticate your account: {account}"
+      },
+      "zeroconf_confirm": {
+        "title": "Confirm that you are adding Miele integration",
+        "description": "You are about to add `{name}` and other Miele appliances, if any, to Home Assistant.\n\n**To complete the process, you have to enter your credentials.**"
       }
     }
   },
