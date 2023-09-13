@@ -8,7 +8,7 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant.components import persistent_notification, zeroconf
-from homeassistant.const import CONF_HOST, CONF_NAME, CONF_PORT
+from homeassistant.const import CONF_NAME
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers import config_entry_oauth2_flow
 
@@ -84,13 +84,7 @@ class OAuth2FlowHandler(
     ) -> FlowResult:
         """Prepare configuration for a Zeroconf discovered Miele device."""
         self.name = discovery_info.name.split(".", 1)[0]
-        return await self.async_step_zeroconf_confirm(
-            {
-                CONF_HOST: discovery_info.host,
-                CONF_NAME: self.name,
-                CONF_PORT: discovery_info.port,
-            }
-        )
+        return await self.async_step_zeroconf_confirm()
 
     async def async_step_zeroconf_confirm(
         self, user_input: dict[str, Any] | None = None

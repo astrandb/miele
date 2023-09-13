@@ -23,5 +23,7 @@
   ],
   "ssdp": [],
   "version": "0.1.15",
-  "zeroconf": []
+  "zeroconf": [
+    "_mieleathome._tcp.local."
+  ]
 }
