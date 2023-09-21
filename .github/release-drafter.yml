@@ -30,7 +30,12 @@ change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add
 template: |
   [![Downloads for this release](https://img.shields.io/github/downloads/astrandb/miele/v$RESOLVED_VERSION/total.svg)](https://github.com/astrandb/miele/releases/v$RESOLVED_VERSION)
 
-  ### Don't forget to run `make lint` and `make bump` before releasing new version
+  ### Checklist for release
+  - Download translations PR from Lokalize
+  - Run make lint
+  - Run make bump
+  - Review the draft below
+  - Remove this checklist
 
   ## Notable Changes
 
@@ -41,6 +46,8 @@ autolabeler:
     files:
       - "*.md"
       - ".github/*"
+      - ".ruff.toml"
+      - ".pre-commit-config.yaml"
   - label: "bugfix"
     title:
       - "/fix/i"
@@ -48,8 +55,11 @@ autolabeler:
     title:
       - "lint"
   - label: "translation"
+    title:
+      - "Lokalise:"
     files:
       - "*/translations/*.json"
   - label: "development tools"
     files:
       - ".devcontainer/*"
+      - ".devcontainer.json"
