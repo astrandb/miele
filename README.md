@@ -59,7 +59,7 @@ The recommended option is to use the VS Code Dev Container. You need to have Doc
 
 Alternatively, you can run Home Assistant directly on your machine/WSL2. The following procedure works fine in the hands of the maintainer developing with VS Code on WSL2/Windows.
 
-- Make sure you have at least python3.11 installed on your WSL.
+- Make sure you have at least python3.10 installed on your WSL.
 - Create a fork on github
 
 ```
@@ -77,17 +77,6 @@ There are many ways to test the integration, three examples are:
 - copy all files in `custom_comonents/miele` to `custom_components/miele` in your HA configuration directory
 - mount `custom_components/miele` into a HA development container
 
-### Translation
-To handle submission of translations we are using [Lokalize](https://lokalise.com/login/). They provide us with an amazing platform that is easy to use and maintain.
-
-To help out with the translation of Miele integration  you need an account on Lokalise, the easiest way to get one is to [click here](https://lokalise.com/login/)  then select "Log in with GitHub".
-
-When you have created the account, please post an issue here and I will add you to the proper project. If you want to add a new language, please open an issue.
-
-The translations are pulled when a new release of the integration is prepared. So you must wait until there is a new release until your look for your updates.
-
-If you want to add new elements that needs translation you should enter them in /translations/en.json and submit a PR. The new keys will appear in Lokalise when the PR is merged.
-
 ### Debugging and filing issues
 
 If you find bugs or other issues please download diagnostic information from the Miele integration card or from the device page and attach the file to your issue report.
@@ -104,6 +93,3 @@ The package and its author are not affiliated with Miele. Use at your own risk.
 ## License
 
 The package is released under the MIT license.
-
-## Support and cooperation
-This project is supported by [Localise](https://Lokalise.com)
