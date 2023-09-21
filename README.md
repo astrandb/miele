@@ -106,4 +106,6 @@ The package and its author are not affiliated with Miele. Use at your own risk.
 The package is released under the MIT license.
 
 ## Support and cooperation
-This project is supported by [Localise](https://Lokalise.com)
+This project is supported by
+
+[<img src="https://raw.githubusercontent.com/astrandb/documents/fef0776bbb7924e0253b9755d7928631fb19d5c7/img/Lokalise_logo_colour_black_text.svg" width=120>](https://lokalise.com)
