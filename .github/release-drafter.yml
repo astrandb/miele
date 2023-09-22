@@ -18,6 +18,7 @@ categories:
   - title: "Dependencies"
     labels:
       - "dependencies"
+      - "dependency"
   - title: "Maintenance"
     label: "maintenance"
   - title: "Code quality and optimizations"
