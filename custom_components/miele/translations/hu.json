@@ -17,8 +17,8 @@
         "title": "Kérem, válasszon egy hitelesítési módszert"
       },
       "reauth_confirm": {
-        "title": "Integráció újrahitelesítése",
-        "description": "A Miele integrációnak újra kell hitelesíteni a fiókját: {account}"
+        "description": "A Miele integrációnak újra kell hitelesíteni a fiókját: {account}",
+        "title": "Integráció újrahitelesítése"
       }
     }
   },
@@ -27,20 +27,20 @@
       "door": {
         "name": "Ajtó"
       },
+      "failure": {
+        "name": "Hibajelzés"
+      },
       "info": {
         "name": "Információ"
       },
-      "failure": {
-        "name": "Hibajelzés"
+      "mobile_start": {
+        "name": "Mobil start"
       },
       "remote_control": {
         "name": "Távvezérlés"
       },
       "smart_grid": {
         "name": "Smart grid"
-      },
-      "mobile_start": {
-        "name": "Mobil start"
       }
     },
     "button": {
@@ -52,11 +52,11 @@
       }
     },
     "climate": {
-      "fridge": {
-        "name": "Hűtő"
-      },
       "freezer": {
         "name": "Fagyasztó"
+      },
+      "fridge": {
+        "name": "Hűtő"
       }
     },
     "fan": {
@@ -65,11 +65,11 @@
       }
     },
     "light": {
-      "light": {
-        "name": "Fény"
-      },
       "ambient_light": {
         "name": "Hangulatfény"
+      },
+      "light": {
+        "name": "Fény"
       }
     },
     "number": {
@@ -90,26 +90,269 @@
       }
     },
     "sensor": {
+      "battery": {
+        "name": "Akku\/Elem"
+      },
+      "drying_step": {
+        "name": "Szárítási fázis",
+        "state": {
+          "extra_dry": "Extra száraz",
+          "hand_iron_1": "Kézi vasalás 1",
+          "hand_iron_2": "Kézi vasalás 2",
+          "machine_iron": "Gépi vasalás",
+          "normal": "Normál",
+          "normal_plus": "Normál plusz",
+          "slightly_dry": "Enyhén száraz",
+          "smoothing": "Simítás"
+        }
+      },
+      "elapsed_time": {
+        "name": "Eltelt idő"
+      },
+      "energy_consumption": {
+        "name": "Energiafogyasztás"
+      },
+      "energy_forecast": {
+        "name": "Várható energiafogyasztás"
+      },
+      "finish_at": {
+        "name": "Ekkor végez"
+      },
+      "food_core_target_temperature": {
+        "name": "Étel maghőmérséklet cél"
+      },
+      "food_core_temperature": {
+        "name": "Étel maghőmérséklet"
+      },
+      "program_id": {
+        "name": "Program",
+        "state": {
+          "1_tray": "1 Tálca",
+          "2_trays": "2 Tálca",
+          "appliance_rinse": "Öblítés",
+          "appliance_settings": "Készülék beállításai menü",
+          "auto": "Auto",
+          "auto_roast": "Auto sütés",
+          "automatic": "Automatikus",
+          "automatic_plus": "Automatikus Plusz",
+          "baking_tray": "Sütő Tálca",
+          "barista_assistant": "BaristaAssistant",
+          "basket_program": "Kosár program",
+          "bed_linen": "Ágynemű",
+          "black_tea": "Fekete tea",
+          "bottom_heat": "Alsó",
+          "brewing_unit_degrease": "Főzőegység zsírtalanítás",
+          "cafe_au_lait": "Café au lait",
+          "caffe_latte": "Caffè latte",
+          "cappuccino": "Cappuccino",
+          "cappuccino_italiano": "Cappuccino Italiano",
+          "check_appliance": "Ellenőrzés szükséges",
+          "clean_machine": "Gép tisztítása",
+          "coffee": "Kávé",
+          "conventional_heat": "Hagyományos fűtés",
+          "cool_air": "Hideg levegő",
+          "cottons": "Pamutok",
+          "cottons_eco": "ECO Pamutok",
+          "cottons_hygiene": "Alsónemű pamut",
+          "curtains": "Függönyök",
+          "dark_garments": "Sötétek",
+          "defrost": "Leolvasztás",
+          "delicates": "Gyöngédek",
+          "denim": "Farmerek",
+          "descaling": "Vízkőmentesítés",
+          "down_duvets": "Pehelypaplanok",
+          "down_filled_items": "Pehelytöltetűek",
+          "drain_spin": "Ürítés\/forgás",
+          "eco": "ECO",
+          "eco_40_60": "ECO 40-60",
+          "eco_fan_heat": "Eco hőlégkeverés",
+          "economy_grill": "Takarékos grill",
+          "espresso": "Espresso",
+          "espresso_macchiato": "Espresso macchiato",
+          "express": "Expressz",
+          "express_20": "Expressz 20'",
+          "extra_quiet": "Extra csendes",
+          "fan_grill": "Hőlégkeverés",
+          "fan_plus": "Venti Plusz",
+          "first_wash": "Első mosás",
+          "flat_white": "Flat white",
+          "freshen_up": "Felfrissítés",
+          "fruit_tea": "Gyümölcs tea",
+          "full_grill": "Full-os grill",
+          "gentle": "Gyöngéd",
+          "gentle_denim": "Farmer kímélő",
+          "gentle_minimum_iron": "Gyöngéd vasaláskímélő",
+          "gentle_smoothing": "Gyöngéd simítás",
+          "glasses_warm": "Üvegek forró",
+          "green_tea": "Zöld tea",
+          "herbal_tea": "Herbál tea",
+          "hot_milk": "Forró tej",
+          "hot_water": "Forró víz",
+          "hygiene": "Higiénikus",
+          "intensive": "Intenzív",
+          "intensive_bake": "Intenzív sütés",
+          "japanese_tea": "Japán tea",
+          "latte_macchiato": "Latte macchiato",
+          "long_coffee": "Hosszú kávé",
+          "maintenance": "Karbantartási program",
+          "microwave": "Mikrohullám",
+          "milk_foam": "Tejhab",
+          "milk_pipework_clean": "Tejcső tisztítás",
+          "milk_pipework_rinse": "Tejcső öblítés",
+          "minimum_iron": "Vasaláskímélő",
+          "moisture_plus_fan_plus": "Pára Plusz + Ventilátor Plusz",
+          "no_program": "Nincs program",
+          "normal": "Normál",
+          "outerwear": "Felsőruházat",
+          "pillows": "Párnák",
+          "proofing": "Vízzáró sport",
+          "quick_power_wash": "QuickPowerWash",
+          "rinse": "Öblítés",
+          "rinse_out_lint": "Szösztelenítés",
+          "ristretto": "Ristretto",
+          "separate_rinse_starch": "Külön öblítés\/keményítés",
+          "shirts": "Pólók",
+          "silent": "Csendes",
+          "silks": "Selymek",
+          "silks_handcare": "Kézi selyem",
+          "smoothing": "Simítás",
+          "solar_save": "SolarSave",
+          "sportswear": "Sportruházat",
+          "spot": "Cél",
+          "standard_pillows": "Párnák",
+          "starch": "Keményítés",
+          "steam_care": "Gőzápolás",
+          "steam_smoothing": "Gőzsimítás",
+          "tall_items": "Magas elemek",
+          "top_heat": "Felső",
+          "trainers": "Edzőcipő",
+          "turbo": "Turbó",
+          "very_hot_water": "Extraforró víz",
+          "warm_air": "Meleg levegő",
+          "white_tea": "Tea",
+          "woollens": "Gyapjúk",
+          "woollens_handcare": "Kézi gyapjú"
+        }
+      },
+      "program_phase": {
+        "name": "Munkafázis",
+        "state": {
+          "2nd_espresso": "Második Espresso kávé",
+          "2nd_grinding": "Második Darálás",
+          "2nd_pre_brewing": "Második előfőzés",
+          "anti_crease": "Gyűrődésgátló",
+          "blocked_brushes": "Kefék blokkolva",
+          "blocked_drive_wheels": "Vezető kerekek blokkolva",
+          "blocked_front_wheel": "Első kerék blokkolva",
+          "cleaning": "Tisztítás",
+          "comfort_cooling": "Komfort hűtés",
+          "cooling_down": "Lehűlés",
+          "dirty_sensors": "Piszkos érzékelők",
+          "disinfecting": "Fertőtlenítés",
+          "dispensing": "Kiadagolás",
+          "docked": "Dokkolva",
+          "drain": "Leeresztés",
+          "drying": "Szárítás",
+          "dust_box_missing": "Pordoboz hiányzik",
+          "energy_save": "Energy save",
+          "espresso": "Espresso kávé",
+          "extra_dry": "Extra száraz",
+          "final_rinse": "Végső öblítés",
+          "finished": "Elkészült",
+          "freshen_up_and_moisten": "Felfrisstés, nedvesítés",
+          "going_to_target_area": "Célterület felé",
+          "grinding": "Darálás",
+          "hand_iron": "Kézi vasalás",
+          "hand_iron_1": "Kézi vasalás 1",
+          "hand_iron_2": "Kézi vasalás 2",
+          "heating": "Melegítés",
+          "hot_milk": "Forró tej",
+          "hygiene": "Higiénia",
+          "interim_rinse": "Köztes öblítés",
+          "machine_iron": "Gépi vasalás",
+          "main_dishwash": "Tisztítás",
+          "main_wash": "Mosás",
+          "milk_foam": "Tejhab",
+          "moisten": "Nedvesítés",
+          "motor_overload": "Ellenőrizze a szűrőket",
+          "normal": "Normál",
+          "normal_plus": "Normál plusz",
+          "not_running": "Nem fut",
+          "pre_brewing": "Előfőzés",
+          "pre_dishwash": "Elő-tisztítás",
+          "pre_wash": "Előmosás",
+          "process_finished": "Elkészült",
+          "process_running": "Folyamatban",
+          "program_running": "Program fut",
+          "reactivating": "Újraaktiválás",
+          "remote_controlled": "Távvezérelve",
+          "returning": "Visszatérés",
+          "rinse": "Öblítés",
+          "rinse_hold": "Öblítés visszatartás",
+          "rinse_out_lint": "Szösztelenítés",
+          "rinses": "Öblítés",
+          "safety_cooling": "Biztonsági hűtés",
+          "slightly_dry": "Enyhén száraz",
+          "smoothing": "Simítás",
+          "soak": "Áztatás",
+          "spin": "Forgás",
+          "starch_stop": "Keményítő stop",
+          "steam_smoothing": "Gőzsimítás",
+          "thermo_spin": "Thermo forgás",
+          "timed_drying": "Időzített szárítás",
+          "vacuum_cleaning": "Tisztítás",
+          "vacuum_cleaning_paused": "Tisztítás szüneteltetve",
+          "vacuum_internal_fault": "Belső hiba - újraindítás",
+          "venting": "Szellőztetés",
+          "warm_air": "Meleg levegő",
+          "wheel_lifted": "Kerekek felemelve"
+        }
+      },
+      "program_type": {
+        "name": "Program típus",
+        "state": {
+          "automatic_program": "Automatikus program",
+          "cleaning_care_program": "Tisztító program",
+          "maintenance_program": "Karbantartó program",
+          "normal_operation_mode": "Normál üzem",
+          "own_program": "Saját program"
+        }
+      },
+      "remaining_time": {
+        "name": "Hátralevő idő"
+      },
+      "spin_speed": {
+        "name": "Fordulatszám"
+      },
+      "start_at": {
+        "name": "Indítás ekkor"
+      },
+      "start_time": {
+        "name": "Indítási késleltetés"
+      },
+      "started_at": {
+        "name": "Elindult ekkor"
+      },
       "status": {
         "name": "Status",
         "state": {
+          "failure": "Hiba történt",
+          "idle": "Tétlen",
+          "not_connected": "Nincs csatlakozva",
           "off": "Ki",
           "on": "Be",
-          "programmed": "Program beállítva",
-          "waiting_to_start": "Várakozás indulásra",
-          "running": "Fut",
           "pause": "Szünet",
           "program_ended": "Program vége",
-          "failure": "Hiba történt",
           "program_interrupted": "Program megszakítva",
-          "idle": "Tétlen",
+          "programmed": "Program beállítva",
           "rinse_hold": "Öblítés visszatartva",
+          "running": "Fut",
           "service": "Szervíz",
-          "superfreezing": "Szuperfagyasztás",
           "supercooling": "Superhűtés",
+          "supercooling_superfreezing": "Superhűtés\/Szuperfagyasztás",
+          "superfreezing": "Szuperfagyasztás",
           "superheating": "Supermelegítés",
-          "supercooling_superfreezing": "Superhűtés/Szuperfagyasztás",
-          "not_connected": "Nincs csatlakozva"
+          "waiting_to_start": "Várakozás indulásra"
         },
         "state_attributes": {
           "appliance": {
@@ -126,15 +369,6 @@
           }
         }
       },
-      "temperature": {
-        "name": "Hőmérséklet"
-      },
-      "temperature_zone_2": {
-        "name": "Hőmérséklet 2. zóna"
-      },
-      "temperature_zone_3": {
-        "name": "Hőmérséklet 3. zóna"
-      },
       "target_temperature": {
         "name": "Célhőmérséklet"
       },
@@ -144,266 +378,31 @@
       "target_temperature_zone_3": {
         "name": "Célhőmérséklet 3. zóna"
       },
-      "spin_speed": {
-        "name": "Fordulatszám"
+      "temperature": {
+        "name": "Hőmérséklet"
       },
-      "remaining_time": {
-        "name": "Hátralevő idő"
+      "temperature_zone_2": {
+        "name": "Hőmérséklet 2. zóna"
       },
-      "finish_at": {
-        "name": "Ekkor végez"
-      },
-      "start_time": {
-        "name": "Indítási késleltetés"
-      },
-      "start_at": {
-        "name": "Indítás ekkor"
-      },
-      "elapsed_time": {
-        "name": "Eltelt idő"
-      },
-      "started_at": {
-        "name": "Elindult ekkor"
+      "temperature_zone_3": {
+        "name": "Hőmérséklet 3. zóna"
       },
       "water_consumption": {
         "name": "Vízfogyasztás"
       },
-      "energy_consumption": {
-        "name": "Energiafogyasztás"
-      },
       "water_forecast": {
         "name": "Várható vízfogyasztás"
-      },
-      "energy_forecast": {
-        "name": "Várható energiafogyasztás"
-      },
-      "battery": {
-        "name": "Akku/Elem"
-      },
-      "food_core_temperature": {
-        "name": "Étel maghőmérséklet"
-      },
-      "food_core_target_temperature": {
-        "name": "Étel maghőmérséklet cél"
-      },
-      "program_type": {
-        "name": "Program típus",
-        "state": {
-          "normal_operation_mode": "Normál üzem",
-          "own_program": "Saját program",
-          "automatic_program": "Automatikus program",
-          "cleaning_care_program": "Tisztító program",
-          "maintenance_program": "Karbantartó program"
-        }
-      },
-      "program_id": {
-        "name": "Program",
-        "state": {
-          "no_program": "Nincs program",
-          "cottons": "Pamutok",
-          "minimum_iron": "Vasaláskímélő",
-          "delicates": "Gyöngédek",
-          "woollens": "Gyapjúk",
-          "silks": "Selymek",
-          "starch": "Keményítés",
-          "rinse": "Öblítés",
-          "drain_spin": "Ürítés/forgás",
-          "curtains": "Függönyök",
-          "shirts": "Pólók",
-          "denim": "Farmerek",
-          "proofing": "Vízzáró sport",
-          "sportswear": "Sportruházat",
-          "automatic_plus": "Automatikus Plusz",
-          "outerwear": "Felsőruházat",
-          "pillows": "Párnák",
-          "cool_air": "Hideg levegő",
-          "warm_air": "Meleg levegő",
-          "rinse_out_lint": "Szösztelenítés",
-          "dark_garments": "Sötétek",
-          "separate_rinse_starch": "Külön öblítés/keményítés",
-          "first_wash": "Első mosás",
-          "cottons_hygiene": "Alsónemű pamut",
-          "steam_care": "Gőzápolás",
-          "freshen_up": "Felfrissítés",
-          "trainers": "Edzőcipő",
-          "clean_machine": "Gép tisztítása",
-          "down_duvets": "Pehelypaplanok",
-          "express_20": "Expressz 20'",
-          "express": "Expressz",
-          "down_filled_items": "Pehelytöltetűek",
-          "cottons_eco": "ECO Pamutok",
-          "quick_power_wash": "QuickPowerWash",
-          "eco_40_60": "ECO 40-60",
-          "intensive": "Intenzív",
-          "maintenance": "Karbantartási program",
-          "eco": "ECO",
-          "normal": "Normál",
-          "automatic": "Automatikus",
-          "solar_save": "SolarSave",
-          "gentle": "Gyöngéd",
-          "extra_quiet": "Extra csendes",
-          "hygiene": "Higiénikus",
-          "tall_items": "Magas elemek",
-          "glasses_warm": "Üvegek forró",
-          "gentle_minimum_iron": "Gyöngéd vasaláskímélő",
-          "woollens_handcare": "Kézi gyapjú",
-          "bed_linen": "Ágynemű",
-          "steam_smoothing": "Gőzsimítás",
-          "gentle_smoothing": "Gyöngéd simítás",
-          "gentle_denim": "Farmer kímélő",
-          "silks_handcare": "Kézi selyem",
-          "standard_pillows": "Párnák",
-          "basket_program": "Kosár program",
-          "smoothing": "Simítás",
-          "eco_fan_heat": "Eco hőlégkeverés",
-          "auto_roast": "Auto sütés",
-          "full_grill": "Full-os grill",
-          "economy_grill": "Takarékos grill",
-          "fan_plus": "Venti Plusz",
-          "intensive_bake": "Intenzív sütés",
-          "microwave": "Mikrohullám",
-          "conventional_heat": "Hagyományos fűtés",
-          "top_heat": "Felső",
-          "fan_grill": "Hőlégkeverés",
-          "bottom_heat": "Alsó",
-          "defrost": "Leolvasztás",
-          "moisture_plus_fan_plus": "Pára Plusz + Ventilátor Plusz",
-          "1_tray": "1 Tálca",
-          "2_trays": "2 Tálca",
-          "baking_tray": "Sütő Tálca",
-          "auto": "Auto",
-          "spot": "Cél",
-          "turbo": "Turbó",
-          "silent": "Csendes",
-          "check_appliance": "Ellenőrzés szükséges",
-          "ristretto": "Ristretto",
-          "espresso": "Espresso",
-          "coffee": "Kávé",
-          "long_coffee": "Hosszú kávé",
-          "cappuccino": "Cappuccino",
-          "cappuccino_italiano": "Cappuccino Italiano",
-          "latte_macchiato": "Latte macchiato",
-          "espresso_macchiato": "Espresso macchiato",
-          "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffè latte",
-          "flat_white": "Flat white",
-          "hot_milk": "Forró tej",
-          "milk_foam": "Tejhab",
-          "hot_water": "Forró víz",
-          "very_hot_water": "Extraforró víz",
-          "black_tea": "Fekete tea",
-          "white_tea": "Tea",
-          "japanese_tea": "Japán tea",
-          "green_tea": "Zöld tea",
-          "fruit_tea": "Gyümölcs tea",
-          "herbal_tea": "Herbál tea",
-          "appliance_rinse": "Öblítés",
-          "milk_pipework_rinse": "Tejcső öblítés",
-          "milk_pipework_clean": "Tejcső tisztítás",
-          "brewing_unit_degrease": "Főzőegység zsírtalanítás",
-          "descaling": "Vízkőmentesítés",
-          "appliance_settings": "Készülék beállításai menü",
-          "barista_assistant": "BaristaAssistant"
-        }
-      },
-      "program_phase": {
-        "name": "Munkafázis",
-        "state": {
-          "not_running": "Nem fut",
-          "main_wash": "Mosás",
-          "drying": "Szárítás",
-          "pre_wash": "Előmosás",
-          "soak": "Áztatás",
-          "rinse": "Öblítés",
-          "rinse_hold": "Öblítés visszatartás",
-          "cooling_down": "Lehűlés",
-          "drain": "Leeresztés",
-          "spin": "Forgás",
-          "anti_crease": "Gyűrődésgátló",
-          "finished": "Elkészült",
-          "venting": "Szellőztetés",
-          "starch_stop": "Keményítő stop",
-          "freshen_up_and_moisten": "Felfrisstés, nedvesítés",
-          "steam_smoothing": "Gőzsimítás",
-          "cleaning": "Tisztítás",
-          "hygiene": "Higiénia",
-          "disinfecting": "Fertőtlenítés",
-          "program_running": "Program fut",
-          "machine_iron": "Gépi vasalás",
-          "hand_iron": "Kézi vasalás",
-          "hand_iron_1": "Kézi vasalás 1",
-          "hand_iron_2": "Kézi vasalás 2",
-          "normal": "Normál",
-          "normal_plus": "Normál plusz",
-          "extra_dry": "Extra száraz",
-          "moisten": "Nedvesítés",
-          "thermo_spin": "Thermo forgás",
-          "timed_drying": "Időzített szárítás",
-          "warm_air": "Meleg levegő",
-          "comfort_cooling": "Komfort hűtés",
-          "rinse_out_lint": "Szösztelenítés",
-          "rinses": "Öblítés",
-          "smoothing": "Simítás",
-          "slightly_dry": "Enyhén száraz",
-          "safety_cooling": "Biztonsági hűtés",
-          "reactivating": "Újraaktiválás",
-          "pre_dishwash": "Elő-tisztítás",
-          "main_dishwash": "Tisztítás",
-          "interim_rinse": "Köztes öblítés",
-          "final_rinse": "Végső öblítés",
-          "process_running": "Folyamatban",
-          "process_finished": "Elkészült",
-          "energy_save": "Energy save",
-          "espresso": "Espresso kávé",
-          "heating": "Melegítés",
-          "hot_milk": "Forró tej",
-          "milk_foam": "Tejhab",
-          "dispensing": "Kiadagolás",
-          "pre_brewing": "Előfőzés",
-          "grinding": "Darálás",
-          "2nd_pre_brewing": "Második előfőzés",
-          "2nd_grinding": "Második Darálás",
-          "2nd_espresso": "Második Espresso kávé",
-          "vacuum_cleaning": "Tisztítás",
-          "vacuum_cleaning_paused": "Tisztítás szüneteltetve",
-          "docked": "Dokkolva",
-          "returning": "Visszatérés",
-          "going_to_target_area": "Célterület felé",
-          "wheel_lifted": "Kerekek felemelve",
-          "dirty_sensors": "Piszkos érzékelők",
-          "dust_box_missing": "Pordoboz hiányzik",
-          "blocked_drive_wheels": "Vezető kerekek blokkolva",
-          "blocked_brushes": "Kefék blokkolva",
-          "motor_overload": "Ellenőrizze a szűrőket",
-          "vacuum_internal_fault": "Belső hiba - újraindítás",
-          "blocked_front_wheel": "Első kerék blokkolva",
-          "remote_controlled": "Távvezérelve"
-        }
-      },
-      "drying_step": {
-        "name": "Szárítási fázis",
-        "state": {
-          "smoothing": "Simítás",
-          "machine_iron": "Gépi vasalás",
-          "hand_iron": "Kézi vasalás",
-          "hand_iron_1": "Kézi vasalás 1",
-          "hand_iron_2": "Kézi vasalás 2",
-          "slightly_dry": "Enyhén száraz",
-          "normal": "Normál",
-          "normal_plus": "Normál plusz",
-          "extra_dry": "Extra száraz"
-        }
       }
     },
     "switch": {
+      "power_on": {
+        "name": "Bekapcsolás"
+      },
       "supercooling": {
         "name": "Superhűtés"
       },
       "superfreezing": {
         "name": "Szuperfagyasztás"
-      },
-      "power_on": {
-        "name": "Bekapcsolás"
       }
     },
     "vacuum": {
@@ -413,16 +412,16 @@
           "status": {
             "name": "Állapot",
             "state": {
-              "going_to_target_area": "Haladás a cél felé",
-              "wheel_lifted": "Kerék fent",
+              "blocked_brushes": "Kefék blokkolva",
+              "blocked_drive_wheels": "Iránykerekek blokkolva",
+              "blocked_front_wheel": "Első kerék blokkolva",
+              "check_dust_box_and_filter": "Pordoboz és szűrőt ellenőrizni",
               "dirty_sensors": "Piszkos érzékelők",
               "dust_box_missing": "Hiányzó pordoboz",
-              "blocked_drive_wheels": "Iránykerekek blokkolva",
-              "blocked_brushes": "Kefék blokkolva",
-              "check_dust_box_and_filter": "Pordoboz és szűrőt ellenőrizni",
+              "going_to_target_area": "Haladás a cél felé",
               "internal_fault_reboot": "Belső hiba - újraindítás",
-              "blocked_front_wheel": "Első kerék blokkolva",
-              "remote_controlled": "Távvezérelve"
+              "remote_controlled": "Távvezérelve",
+              "wheel_lifted": "Kerék fent"
             }
           }
         }
@@ -431,8 +430,8 @@
   },
   "system_health": {
     "info": {
-      "reach_miele_cloud": "Miele felhőszolgáltatás elérés",
-      "component_version": "Verzió"
+      "component_version": "Verzió",
+      "reach_miele_cloud": "Miele felhőszolgáltatás elérés"
     }
   }
 }
