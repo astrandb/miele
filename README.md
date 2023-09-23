@@ -78,11 +78,11 @@ There are many ways to test the integration, three examples are:
 - mount `custom_components/miele` into a HA development container
 
 ### Translation
-To handle submission of translations we are using [Lokalize](https://lokalise.com/login/). They provide us with an amazing platform that is easy to use and maintain.
+To handle submission of translations we are using [Lokalise](https://lokalise.com/login/). They provide us with an amazing platform that is easy to use and maintain.
 
 To help out with the translation of Miele integration  you need an account on Lokalise, the easiest way to get one is to [click here](https://lokalise.com/login/)  then select "Log in with GitHub".
 
-When you have created the account, please post an issue here and I will add you to the proper project. If you want to add a new language, please open an issue.
+When you have created the account, the [click here](https://app.lokalise.com/public/50153460650965e9a01e21.29484567/) to join the project. If you want to add a new language, please open an issue.
 
 The translations are pulled when a new release of the integration is prepared. So you must wait until there is a new release until your look for your updates.
 
