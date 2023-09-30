@@ -7,11 +7,14 @@ from typing import Any
 
 import voluptuous as vol
 
-from homeassistant.components import persistent_notification
+from homeassistant.components import persistent_notification, zeroconf
+from homeassistant.const import CONF_NAME
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers import config_entry_oauth2_flow
 
 from .const import DOMAIN
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class OAuth2FlowHandler(
@@ -22,6 +25,7 @@ class OAuth2FlowHandler(
     DOMAIN = DOMAIN
 
     entry = None
+    name = None
 
     @property
     def logger(self) -> logging.Logger:
@@ -74,3 +78,29 @@ class OAuth2FlowHandler(
             await self.hass.config_entries.async_reload(existing_entry.entry_id)
             return self.async_abort(reason="reauth_successful")
         return await super().async_oauth_create_entry(data)
+
+    async def async_step_zeroconf(
+        self, discovery_info: zeroconf.ZeroconfServiceInfo
+    ) -> FlowResult:
+        """Prepare configuration for a Zeroconf discovered Miele device."""
+        self.name = discovery_info.name.split(".", 1)[0]
+        return await self.async_step_zeroconf_confirm()
+
+    async def async_step_zeroconf_confirm(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Handle a flow initiated by zeroconf."""
+
+        await self.async_set_unique_id(DOMAIN)
+        self._abort_if_unique_id_configured()
+        if user_input is not None:
+            try:
+                return await self.async_step_user()
+            except Exception:  # pylint: disable=broad-exception-caught]
+                # Device became network unreachable after discovery.
+                # Abort and let discovery find it again later.
+                return self.async_abort(reason="cannot_connect")
+        return self.async_show_form(
+            step_id="zeroconf_confirm",
+            description_placeholders={CONF_NAME: self.name},
+        )
