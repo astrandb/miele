@@ -1,4 +1,7 @@
 {
+  "application_credentials": {
+    "description": "Kattontson a [\"Get involved\" linkre a Miele fejlesztői oldalán]({register_url}) a hitelesítő adatok kéréséhez, majd adja meg azokat az alábbiakban."
+  },
   "config": {
     "abort": {
       "already_configured": "A fiók már be van állítva",
@@ -19,6 +22,10 @@
       "reauth_confirm": {
         "description": "A Miele integrációnak újra kell hitelesíteni a fiókját: {account}",
         "title": "Integráció újrahitelesítése"
+      },
+      "zeroconf_confirm": {
+        "description": "`{name}` és más Miele készülékek hozzáadása rendszerhez.\\n\\n**A folyamat befejezéséhez meg kell adnia a hitelesítő adatait.**",
+        "title": "Miele integráció hozzáadása"
       }
     }
   },
@@ -231,7 +238,7 @@
           "warm_air": "Meleg levegő",
           "white_tea": "Tea",
           "woollens": "Gyapjúk",
-          "woollens_handcare": "Kézi gyapjú"
+          "woollens_handcare": "Gyapjú, kézi"
         }
       },
       "program_phase": {
@@ -415,7 +422,7 @@
               "blocked_brushes": "Kefék blokkolva",
               "blocked_drive_wheels": "Iránykerekek blokkolva",
               "blocked_front_wheel": "Első kerék blokkolva",
-              "check_dust_box_and_filter": "Pordoboz és szűrőt ellenőrizni",
+              "check_dust_box_and_filter": "Pordobozt és szűrőt ellenőrizni",
               "dirty_sensors": "Piszkos érzékelők",
               "dust_box_missing": "Hiányzó pordoboz",
               "going_to_target_area": "Haladás a cél felé",
@@ -426,6 +433,53 @@
           }
         }
       }
+    }
+  },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Szünet",
+        "start": "Start",
+        "start_supercooling": "Szuperhűtés bekapcsolása",
+        "start_superfreezing": "Szuperfagyasztás bekapcsolása",
+        "stop": "Stop",
+        "stop_supercooling": "Szuperhűtés kikapcsolása",
+        "stop_superfreezing": "Szuperfagyasztás kikapcsolása"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Egy művelet végrehajtása egy eszközön",
+      "name": "Általános művelet végrehajtása"
+    },
+    "process_action": {
+      "description": "Folyamatműveleteket hajt végre, ha az előfeltételek teljesülnek.",
+      "fields": {
+        "action": {
+          "description": "Válasszon ki egy végrehajtandó folyamatműveletet.",
+          "name": "Művelet"
+        }
+      },
+      "name": "Folyamat művelet végrehajtása"
+    },
+    "raw": {
+      "description": "Szolgáltatás végrehajtása minimális érvényesítéssel.",
+      "fields": {
+        "extra": {
+          "description": "Paraméterekkel töltött dict",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "A készülék gyáriszáma",
+          "name": "Gyári szám"
+        }
+      },
+      "name": "Nyers művelet végrehajtása"
+    },
+    "set_program": {
+      "description": "Program beállítása és elindítása opcionális paraméterekkel.",
+      "name": "Program beállítása"
     }
   },
   "system_health": {

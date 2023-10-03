@@ -1,4 +1,7 @@
 {
+  "application_credentials": {
+    "description": "Vai a [\"Get involved\" sul portale sviluppatori Miele]({register_url}) per richiedere credenziali da inserirle qui sotto."
+  },
   "config": {
     "abort": {
       "already_configured": "L'account è già stato configurato",
@@ -19,6 +22,10 @@
       "reauth_confirm": {
         "description": "L'integrazione Miele ha bisogno di ri-autenticare il tuo account: {account}",
         "title": "Ri-autentica l'integrazione"
+      },
+      "zeroconf_confirm": {
+        "description": "Stai per aggiungere `{name}` e altri elettrodomestici Miele, se presenti, su Home Assistant.\\n\\n**Per completare il processo, devi inserire le tue credenziali.**",
+        "title": "Conferma che stai aggiungendo l'integrazione Miele"
       }
     }
   },
@@ -274,7 +281,7 @@
           "main_wash": "Lavaggio",
           "milk_foam": "Schiuma di latte",
           "moisten": "Inumidire",
-          "motor_overload": "Contr. serbatoio e filtro",
+          "motor_overload": "Controllare serbatoio e filtro",
           "normal": "Pronto asciutto",
           "normal_plus": "Pronto asciutto +",
           "not_running": "Non in funzione",
@@ -312,7 +319,7 @@
         "name": "Tipo programma",
         "state": {
           "automatic_program": "Programma automatico",
-          "cleaning_care_program": "Programma di puliza",
+          "cleaning_care_program": "Programma di pulizia",
           "maintenance_program": "Programma di manutenzione",
           "normal_operation_mode": "Normale",
           "own_program": "Programma proprio"
@@ -415,7 +422,7 @@
               "blocked_brushes": "Spazzole bloccate",
               "blocked_drive_wheels": "Ruote guida bloccate",
               "blocked_front_wheel": "Ruota frontale bloccata",
-              "check_dust_box_and_filter": "Contr. serbatoio e filtro",
+              "check_dust_box_and_filter": "Controllare serbatoio e filtro",
               "dirty_sensors": "Sensori sporchi",
               "dust_box_missing": "Serbatoio mancante",
               "going_to_target_area": "Ritorno alla base",
@@ -428,10 +435,57 @@
       }
     }
   },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pausa",
+        "start": "Start",
+        "start_supercooling": "Inizia SuperCooling",
+        "start_superfreezing": "Inizia SuperFreezing",
+        "stop": "Stop",
+        "stop_supercooling": "Stop SuperCooling",
+        "stop_superfreezing": "Stop SuperFreezing"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Esegue un'azione su un elettrodomestico",
+      "name": "Esegui azione generica"
+    },
+    "process_action": {
+      "description": "Esegue azione processa se le precondizioni sono soddisfatte",
+      "fields": {
+        "action": {
+          "description": "Scegli un processo da eseguire",
+          "name": "Azione"
+        }
+      },
+      "name": "Esegui azione processa"
+    },
+    "raw": {
+      "description": "Esegui servizio con validazione minimale",
+      "fields": {
+        "extra": {
+          "description": "Mappa con parametri",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "Numero di serie elettrodomestico",
+          "name": "Numero di serie"
+        }
+      },
+      "name": "Esegui azione"
+    },
+    "set_program": {
+      "description": "Imposta e inizia programma con opzioni",
+      "name": "Imposta programma"
+    }
+  },
   "system_health": {
     "info": {
       "component_version": "Versione",
-      "reach_miele_cloud": "Raggiunto il cloud Miele"
+      "reach_miele_cloud": "Raggiunto il Cloud Miele"
     }
   }
 }
