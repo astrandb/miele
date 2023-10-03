@@ -1,4 +1,7 @@
 {
+  "application_credentials": {
+    "description": "Navigeer naar [\"Get involved\" at Miele developer site]({register_url}) om referenties aan te vragen en voer deze hieronder in."
+  },
   "config": {
     "abort": {
       "already_configured": "Account is al geconfigureerd",
@@ -19,6 +22,10 @@
       "reauth_confirm": {
         "description": "De Miele integratie moet uw account {account} opnieuw authenticeren.",
         "title": "Her-authenticatie Integratie"
+      },
+      "zeroconf_confirm": {
+        "description": "U staat op het punt ` {name} ` en eventuele andere Miele-apparaten toe te voegen aan Home Assistant. \\n\\n **Om het proces te voltooien, moet u uw inloggegevens invoeren.**",
+        "title": "Bevestig dat u Miele-integratie toevoegt"
       }
     }
   },
@@ -130,7 +137,7 @@
           "1_tray": "1 plaat",
           "2_trays": "2 platen",
           "appliance_rinse": "Apparaat spoelen",
-          "appliance_settings": "Apparaat instellinen menu",
+          "appliance_settings": "Menu Apparaatinstellingen",
           "auto": "Auto",
           "auto_roast": "Automatisch roosteren",
           "automatic": "Automatisch",
@@ -195,7 +202,7 @@
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Long black",
           "maintenance": "Onderhoudsprogramma",
-          "microwave": "Microgolf",
+          "microwave": "Magnetron",
           "milk_foam": "Melkschuim",
           "milk_pipework_clean": "Melkleiding reinigen",
           "milk_pipework_rinse": "Melkleiding spoelen",
@@ -214,7 +221,7 @@
           "shirts": "Overhemden",
           "silent": "Stil",
           "silks": "Zijde",
-          "silks_handcare": "Handverzorgde zijde",
+          "silks_handcare": "Zijde handverzorging",
           "smoothing": "Gladstrijken",
           "solar_save": "SolarSave",
           "sportswear": "Sportkleding",
@@ -231,7 +238,7 @@
           "warm_air": "Warm luchten",
           "white_tea": "Witte thee",
           "woollens": "Wol",
-          "woollens_handcare": "Handverzorgde wol"
+          "woollens_handcare": "Wollen handverzorging"
         }
       },
       "program_phase": {
@@ -244,7 +251,7 @@
           "blocked_brushes": "Borstels geblokkeerd",
           "blocked_drive_wheels": "Aandrijfwielen geblokkeerd",
           "blocked_front_wheel": "Voorwiel geblokkeerd",
-          "cleaning": "Cleaning",
+          "cleaning": "Schoonmaken",
           "comfort_cooling": "Comfort koelen",
           "cooling_down": "Afkoelen",
           "dirty_sensors": "Sensoren verontreinigd",
@@ -407,7 +414,7 @@
     },
     "vacuum": {
       "vacuum": {
-        "name": "Vacuum",
+        "name": "Vacuüm",
         "state_attributes": {
           "status": {
             "name": "Status",
@@ -426,6 +433,53 @@
           }
         }
       }
+    }
+  },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pauze",
+        "start": "Start",
+        "start_supercooling": "Start superkoeling",
+        "start_superfreezing": "Start superfreezing",
+        "stop": "Stop",
+        "stop_supercooling": "Stop superkoeling",
+        "stop_superfreezing": "Stop superfreezing"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Voer één actie uit op een apparaat",
+      "name": "Voer generieke actie uit"
+    },
+    "process_action": {
+      "description": "Voert procesacties uit als aan voorwaarden wordt voldaan.",
+      "fields": {
+        "action": {
+          "description": "Selecteer een procesactie om uit te voeren.",
+          "name": "Actie"
+        }
+      },
+      "name": "Procesactie uitvoeren"
+    },
+    "raw": {
+      "description": "Voer service uit met minimale validatie.",
+      "fields": {
+        "extra": {
+          "description": "Een woordenboek met parameters",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "Het serienummer van het apparaat",
+          "name": "Serienummer"
+        }
+      },
+      "name": "Ruwe actie uitvoeren"
+    },
+    "set_program": {
+      "description": "Programma instellen en starten met optionele parameters.",
+      "name": "Programma instellen"
     }
   },
   "system_health": {

@@ -1,13 +1,16 @@
 {
+  "application_credentials": {
+    "description": "Navigiere zu [\"Get involved\" auf der Miele-Entwickler-Website]({register_url}), um Anmeldedaten anzufordern, und gib diese unterhalb ein."
+  },
   "config": {
     "abort": {
       "already_configured": "Konto ist bereits konfiguriert",
       "already_in_progress": "Konfiguration läuft bereits",
       "authorize_url_timeout": "Zeitüberschreitung beim Erzeugen der Autorisierungs-URL.",
-      "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folge der Anleitung.",
+      "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folgen Sie der Anleitung.",
       "no_url_available": "Keine URL verfügbar. Für Informationen zu diesem Fehler, [überprüfe den Hilfe-Abschnitt]({docs_url})",
       "oauth_error": "Ungültige Token-Daten erhalten.",
-      "reauth_successful": "Die Neuauthentifizierung war erfolgreich."
+      "reauth_successful": "Neuauthentifizierung war erfolgreich"
     },
     "create_entry": {
       "default": "Erfolgreich authentifiziert"
@@ -17,8 +20,12 @@
         "title": "Authentifizierungsmethode auswählen"
       },
       "reauth_confirm": {
-        "description": "Die Miele-Integration muss deinen Account neu authentifizieren: {account}",
-        "title": "Neuauthentifizierung erforderlich"
+        "description": "Die Miele-Integration muss dein Konto neu authentifizieren: {account}",
+        "title": "Integration neu authentifizieren"
+      },
+      "zeroconf_confirm": {
+        "description": "Du bist dabei, „{name}“ und ggf. weitere Miele-Geräte zu Home Assistant hinzuzufügen. \\n\\n **Um den Vorgang abzuschließen, musst du deine Zugangsdaten eingeben.**",
+        "title": "Bestätige, dass du die Miele-Integration hinzufügen möchtest"
       }
     }
   },
@@ -34,7 +41,7 @@
         "name": "Info"
       },
       "mobile_start": {
-        "name": "Mobiler Start"
+        "name": "MobileStart"
       },
       "remote_control": {
         "name": "Fernsteuerung"
@@ -53,7 +60,7 @@
     },
     "climate": {
       "freezer": {
-        "name": "Tiefkühltruhe"
+        "name": "Gefrierschrank"
       },
       "fridge": {
         "name": "Kühlschrank"
@@ -66,7 +73,7 @@
     },
     "light": {
       "ambient_light": {
-        "name": "Raumlicht"
+        "name": "Ambientebeleuchtung"
       },
       "light": {
         "name": "Licht"
@@ -129,21 +136,21 @@
         "state": {
           "1_tray": "1 Blech",
           "2_trays": "2 Bleche",
-          "appliance_rinse": "Gerät reinigt",
+          "appliance_rinse": "Gerät spülen",
           "appliance_settings": "Einstellungen",
           "auto": "Auto",
           "auto_roast": "Bratautomatik",
-          "automatic": "Automatic",
+          "automatic": "Automatik",
           "automatic_plus": "Automatic plus",
           "baking_tray": "Backblech",
           "barista_assistant": "BaristaAssistant",
           "basket_program": "Korbprogramm",
           "bed_linen": "Bettwäsche",
-          "black_tea": "Schwarztee",
+          "black_tea": "Schwarzer Tee",
           "bottom_heat": "Unterhitze",
           "brewing_unit_degrease": "Brüheinheit entfetten",
           "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffè latte",
+          "caffe_latte": "Caffè Latte",
           "cappuccino": "Cappuccino",
           "cappuccino_italiano": "Cappuccino Italiano",
           "check_appliance": "Gerät überprüfen",
@@ -164,7 +171,7 @@
           "down_filled_items": "Daunen",
           "drain_spin": "Pumpen\/Schleudern",
           "eco": "ECO",
-          "eco_40_60": "ECO 40-60",
+          "eco_40_60": "ECO 40–60",
           "eco_fan_heat": "Eco-Heißluft",
           "economy_grill": "Grill klein",
           "espresso": "Espresso",
@@ -175,7 +182,7 @@
           "fan_grill": "Umluftgrill",
           "fan_plus": "Heißluft plus",
           "first_wash": "Neue Textilien",
-          "flat_white": "Flat white",
+          "flat_white": "Flat White",
           "freshen_up": "Auffrischen",
           "fruit_tea": "Früchtetee",
           "full_grill": "Grill groß",
@@ -212,7 +219,7 @@
           "ristretto": "Ristretto",
           "separate_rinse_starch": "Nur Spülen\/Stärken",
           "shirts": "Oberhemden",
-          "silent": "Silent",
+          "silent": "Leise",
           "silks": "Seide",
           "silks_handcare": "Finish Seide",
           "smoothing": "Glätten",
@@ -235,28 +242,28 @@
         }
       },
       "program_phase": {
-        "name": "Programmabschnitt",
+        "name": "Programmphase",
         "state": {
-          "2nd_espresso": "Zweiter Espresso",
-          "2nd_grinding": "Mahlen zweite Tasse",
-          "2nd_pre_brewing": "Vorbrühen zweite Tasse",
+          "2nd_espresso": "2. Espresso",
+          "2nd_grinding": "2. Mahlen",
+          "2nd_pre_brewing": "2. Vorbrühen",
           "anti_crease": "Knitterschutz",
           "blocked_brushes": "Bürsten blockiert",
           "blocked_drive_wheels": "Antriebsräder blockiert",
           "blocked_front_wheel": "Vorderrad blockiert",
-          "cleaning": "Cleaning",
+          "cleaning": "Reinigung",
           "comfort_cooling": "Komfortkühlen",
           "cooling_down": "Abkühlen",
-          "dirty_sensors": "Schmutzsensoren",
+          "dirty_sensors": "Verschmutzte Sensoren",
           "disinfecting": "Desinfizieren",
           "dispensing": "Abgabe",
-          "docked": "In der Ladestation",
+          "docked": "In der Basisstation",
           "drain": "Ablaufen",
           "drying": "Trocknen",
           "dust_box_missing": "Fehlender Staubbehälter",
           "energy_save": "Energie sparen",
           "espresso": "Espresso",
-          "extra_dry": "Extratrocken",
+          "extra_dry": "Extra trocken",
           "final_rinse": "Klarspülen",
           "finished": "Fertig",
           "freshen_up_and_moisten": "Auffrischen + Befeuchten",
@@ -286,7 +293,7 @@
           "program_running": "Programm läuft",
           "reactivating": "Reaktivieren",
           "remote_controlled": "Ferngesteuert",
-          "returning": "Gehe zur Ladestation",
+          "returning": "Rückkehr zur Basisstation",
           "rinse": "Spülen",
           "rinse_hold": "Spülstop",
           "rinse_out_lint": "Flusen ausspülen",
@@ -302,9 +309,9 @@
           "timed_drying": "Zeitgesteuertes Trocknen",
           "vacuum_cleaning": "Saugen",
           "vacuum_cleaning_paused": "Saugen pausiert",
-          "vacuum_internal_fault": "Interner Fehler - Neustart",
+          "vacuum_internal_fault": "Interner Fehler – Neustart",
           "venting": "Entlüften",
-          "warm_air": "Lüften warm",
+          "warm_air": "Warme Luft",
           "wheel_lifted": "Rad angehoben"
         }
       },
@@ -322,7 +329,7 @@
         "name": "Verbleibende Zeit"
       },
       "spin_speed": {
-        "name": "Geschwindigkeit Schleudern"
+        "name": "Schleudergeschwindigkeit"
       },
       "start_at": {
         "name": "Starte um"
@@ -418,8 +425,8 @@
               "check_dust_box_and_filter": "Staubbehälter und Filter prüfen",
               "dirty_sensors": "Schmutzige Sensoren",
               "dust_box_missing": "Staubbehälter fehlt",
-              "going_to_target_area": "Gehe zurm Zielbereich",
-              "internal_fault_reboot": "Interne Fehler - Neustart",
+              "going_to_target_area": "Gehe zum Zielbereich",
+              "internal_fault_reboot": "Interner Fehler – Neustart",
               "remote_controlled": "Ferngesteuert",
               "wheel_lifted": "Rad ist frei"
             }
@@ -428,10 +435,57 @@
       }
     }
   },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pause",
+        "start": "Start",
+        "start_supercooling": "Superkühlen starten",
+        "start_superfreezing": "Superfrost starten",
+        "stop": "Stopp",
+        "stop_supercooling": "Superkühlen stoppen",
+        "stop_superfreezing": "Superfrost stoppen"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Führe eine Aktion auf einem Gerät aus",
+      "name": "Generische Aktion ausführen"
+    },
+    "process_action": {
+      "description": "Führt Prozessaktionen aus, wenn die Vorbedingungen erfüllt sind.",
+      "fields": {
+        "action": {
+          "description": "Wähle eine auszuführende Prozessaktion aus.",
+          "name": "Aktion"
+        }
+      },
+      "name": "Prozessaktion ausführen"
+    },
+    "raw": {
+      "description": "Dienst mit minimaler Validierung ausführen.",
+      "fields": {
+        "extra": {
+          "description": "Ein Dictionary mit Parametern",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "Die Seriennummer des Gerätes",
+          "name": "Seriennummer"
+        }
+      },
+      "name": "Ungefilterte Aktion ausführen"
+    },
+    "set_program": {
+      "description": "Programm einstellen und mit optionalen Parametern starten.",
+      "name": "Programm einstellen"
+    }
+  },
   "system_health": {
     "info": {
       "component_version": "Version",
-      "reach_miele_cloud": "Erreichbarkeit Miele-Cloud"
+      "reach_miele_cloud": "Miele-Cloud erreichbar"
     }
   }
 }
