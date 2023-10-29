@@ -35,7 +35,7 @@
         "name": "Врата"
       },
       "failure": {
-        "name": "Неуспех"
+        "name": "Проблем"
       },
       "info": {
         "name": "Информация"
@@ -169,7 +169,7 @@
           "descaling": "Отстраняване на котлен камък от уреда",
           "down_duvets": "Пухени завивки",
           "down_filled_items": "Пух",
-          "drain_spin": "Изпомпване\/центрофугиране",
+          "drain_spin": "Изпомпване/центрофугиране",
           "eco": "ЕКО",
           "eco_40_60": "ЕКО 40-60",
           "eco_fan_heat": "Еко вентилаторна топлина",
@@ -217,7 +217,7 @@
           "rinse": "Изплакване",
           "rinse_out_lint": "Само изплакване",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Отделно изплакване\/колосване",
+          "separate_rinse_starch": "Отделно изплакване/колосване",
           "shirts": "Ризи",
           "silent": "Безшумен",
           "silks": "Коприна",
@@ -343,7 +343,7 @@
       "status": {
         "name": "Статус",
         "state": {
-          "failure": "Неуспех",
+          "failure": "Проблем",
           "idle": "Неактивен",
           "not_connected": "Няма връзка",
           "off": "Изкл.",
@@ -356,7 +356,7 @@
           "running": "Работещ",
           "service": "Обслужване",
           "supercooling": "Супер охлаждане",
-          "supercooling_superfreezing": "Супер охлаждане\/супер замразяване",
+          "supercooling_superfreezing": "Супер охлаждане/супер замразяване",
           "superfreezing": "Супер замразяване",
           "superheating": "Супер загряване",
           "waiting_to_start": "Очаква стартиране"
@@ -377,13 +377,13 @@
         }
       },
       "target_temperature": {
-        "name": "Зададена температура"
+        "name": "Целева температура"
       },
       "target_temperature_zone_2": {
-        "name": "Зададена температура зона 2"
+        "name": "Целева температура зона 2"
       },
       "target_temperature_zone_3": {
-        "name": "Зададена температура зона 3"
+        "name": "Целева температура зона 3"
       },
       "temperature": {
         "name": "Температура"
@@ -403,7 +403,7 @@
     },
     "switch": {
       "power_on": {
-        "name": "Включено"
+        "name": "Вкл./Изкл."
       },
       "supercooling": {
         "name": "Супер охлаждане"

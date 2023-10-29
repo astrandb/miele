@@ -169,7 +169,7 @@
           "descaling": "Appliance descaling",
           "down_duvets": "Down duvets",
           "down_filled_items": "Down-filled items",
-          "drain_spin": "Drain\/spin",
+          "drain_spin": "Drain/spin",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Eco fan heat",
@@ -217,7 +217,7 @@
           "rinse": "Rinse",
           "rinse_out_lint": "Rinse out lint",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Separate rinse\/starch",
+          "separate_rinse_starch": "Separate rinse/starch",
           "shirts": "Shirts",
           "silent": "Silent",
           "silks": "Silks",
@@ -319,7 +319,7 @@
         "name": "Program type",
         "state": {
           "automatic_program": "Automatic program",
-          "cleaning_care_program": "Cleaning\/care program",
+          "cleaning_care_program": "Cleaning/care program",
           "maintenance_program": "Maintenance program",
           "normal_operation_mode": "Normal operation mode",
           "own_program": "Own program"
@@ -356,7 +356,7 @@
           "running": "Running",
           "service": "Service",
           "supercooling": "Supercooling",
-          "supercooling_superfreezing": "Supercooling\/superfreezing",
+          "supercooling_superfreezing": "Supercooling/superfreezing",
           "superfreezing": "Superfreezing",
           "superheating": "Superheating",
           "waiting_to_start": "Waiting to start"

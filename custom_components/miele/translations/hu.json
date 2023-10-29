@@ -98,7 +98,7 @@
     },
     "sensor": {
       "battery": {
-        "name": "Akku\/Elem"
+        "name": "Akku/Elem"
       },
       "drying_step": {
         "name": "Szárítási fázis",
@@ -169,7 +169,7 @@
           "descaling": "Vízkőmentesítés",
           "down_duvets": "Pehelypaplanok",
           "down_filled_items": "Pehelytöltetűek",
-          "drain_spin": "Ürítés\/forgás",
+          "drain_spin": "Ürítés/forgás",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Eco hőlégkeverés",
@@ -217,7 +217,7 @@
           "rinse": "Öblítés",
           "rinse_out_lint": "Szösztelenítés",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Külön öblítés\/keményítés",
+          "separate_rinse_starch": "Külön öblítés/keményítés",
           "shirts": "Pólók",
           "silent": "Csendes",
           "silks": "Selymek",
@@ -356,7 +356,7 @@
           "running": "Fut",
           "service": "Szervíz",
           "supercooling": "Superhűtés",
-          "supercooling_superfreezing": "Superhűtés\/Szuperfagyasztás",
+          "supercooling_superfreezing": "Superhűtés/Szuperfagyasztás",
           "superfreezing": "Szuperfagyasztás",
           "superheating": "Supermelegítés",
           "waiting_to_start": "Várakozás indulásra"
