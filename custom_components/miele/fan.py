@@ -152,6 +152,7 @@ class MieleFan(CoordinatorEntity, FanEntity):
         self._attr_supported_features = self.entity_description.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
+            serial_number=self._ent,
             name=appl_type,
             manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
