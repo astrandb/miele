@@ -29,6 +29,46 @@
       }
     }
   },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} is failing",
+      "idle": "{entity_name} is idle",
+      "not_connected": "{entity_name} is not connected",
+      "off": "{entity_name} is off",
+      "on": "{entity_name} is on",
+      "pause": "{entity_name} is pausing",
+      "program_ended": "{entity_name} has ended program",
+      "program_interrupted": "{entity_name} has interrupted program",
+      "programmed": "{entity_name} is programmed",
+      "rinse_hold": "{entity_name} is in rinse hold",
+      "running": "{entity_name} is running",
+      "service": "{entity_name} is in service",
+      "supercooling": "{entity_name} is supercooling",
+      "supercooling_superfreezing": "{entity_name} is supercooling/superheating",
+      "superfreezing": "{entity_name} is superfreezing",
+      "superheating": "{entity_name} is superheating",
+      "waiting_to_start": "{entity_name} is waiting to start"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Failure",
+      "idle": "{entity_name} Idle",
+      "not_connected": "{entity_name} Not connected",
+      "off": "{entity_name} Off",
+      "on": "{entity_name} On",
+      "pause": "{entity_name} Pause",
+      "program_ended": "{entity_name} Program ended",
+      "program_interrupted": "{entity_name} Program interrupted",
+      "programmed": "{entity_name} Programmed",
+      "rinse_hold": "{entity_name} Rinse hold",
+      "running": "{entity_name} Running",
+      "service": "{entity_name} Service",
+      "supercooling_superfreezing": "{entity_name} Supercooling/superheating",
+      "supercooling": "{entity_name} Supercooling",
+      "superfreezing": "{entity_name} Superfreezing",
+      "superheating": "{entity_name} Superheating",
+      "waiting_to_start": "{entity_name} Waiting to start"
+    }
+  },
   "entity": {
     "binary_sensor": {
       "door": {
@@ -169,7 +209,7 @@
           "descaling": "Appliance descaling",
           "down_duvets": "Down duvets",
           "down_filled_items": "Down-filled items",
-          "drain_spin": "Drain\/spin",
+          "drain_spin": "Drain/spin",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Eco fan heat",
@@ -217,7 +257,7 @@
           "rinse": "Rinse",
           "rinse_out_lint": "Rinse out lint",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Separate rinse\/starch",
+          "separate_rinse_starch": "Separate rinse/starch",
           "shirts": "Shirts",
           "silent": "Silent",
           "silks": "Silks",
@@ -319,7 +359,7 @@
         "name": "Program type",
         "state": {
           "automatic_program": "Automatic program",
-          "cleaning_care_program": "Cleaning\/care program",
+          "cleaning_care_program": "Cleaning/care program",
           "maintenance_program": "Maintenance program",
           "normal_operation_mode": "Normal operation mode",
           "own_program": "Own program"
@@ -356,7 +396,7 @@
           "running": "Running",
           "service": "Service",
           "supercooling": "Supercooling",
-          "supercooling_superfreezing": "Supercooling\/superfreezing",
+          "supercooling_superfreezing": "Supercooling/superfreezing",
           "superfreezing": "Superfreezing",
           "superheating": "Superheating",
           "waiting_to_start": "Waiting to start"
