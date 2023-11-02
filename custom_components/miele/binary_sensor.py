@@ -126,7 +126,6 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
             WINE_CABINET_FREEZER,
-            HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
             key="info",

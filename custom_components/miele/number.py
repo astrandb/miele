@@ -21,7 +21,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import API, DOMAIN, HOB_INDUCT_EXTR, MANUFACTURER
+from .const import API, DOMAIN, HOB_INDUCT_EXTR, HOB_INDUCTION, MANUFACTURER
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -150,6 +150,96 @@ NUMBER_TYPES: Final[tuple[MieleNumberDefinition, ...]] = (
             native_step=0.5,
         ),
     ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|0|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_0",
+            zone=0,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|1|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_1",
+            zone=1,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|2|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_2",
+            zone=2,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|3|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_3",
+            zone=3,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|4|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_4",
+            zone=4,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
+    MieleNumberDefinition(
+        types=[
+            HOB_INDUCTION,
+        ],
+        description=MieleNumberDescription(
+            key="plate",
+            data_tag="state|plateStep|5|value_raw",
+            icon="mdi:stove",
+            translation_key="plate_5",
+            zone=4,
+            native_min_value=0.0,
+            native_max_value=12.0,
+            native_step=0.5,
+        ),
+    ),
 )
 
 
@@ -211,13 +301,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
             ]
         self._attr_has_entity_name = True
         self._attr_unique_id = f"{self._ed.key}-{self._ed.zone}{self._ent}"
-        # _LOGGER.debug("icon: %s | %s", self._ed.icon, self._ed.icon)
-        # self._attr_icon = self._ed.icon
         self._attr_mode = NumberMode.SLIDER
-        # self._attr_max_value = self._ed.max_value
-        # self._attr_min_value = self._ed.min_value
-        # self._attr_step = self._ed.step
-        # self._attr_supported_features = self._ed.supported_features
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
             name=appl_type,

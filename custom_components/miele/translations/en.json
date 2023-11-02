@@ -134,6 +134,9 @@
       },
       "plate_4": {
         "name": "Plate 4"
+      },
+      "plate_5": {
+        "name": "Plate 5"
       }
     },
     "sensor": {
