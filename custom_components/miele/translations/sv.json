@@ -80,9 +80,6 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Platta 0"
-      },
       "plate_1": {
         "name": "Platta 1"
       },
@@ -94,6 +91,12 @@
       },
       "plate_4": {
         "name": "Platta 4"
+      },
+      "plate_5": {
+        "name": "Platta 5"
+      },
+      "plate_6": {
+        "name": "Platta 6"
       }
     },
     "sensor": {
@@ -169,7 +172,7 @@
           "descaling": "Avkalkning",
           "down_duvets": "Duntäcken",
           "down_filled_items": "Dunfyllda plagg",
-          "drain_spin": "Tömning\/centrifugering",
+          "drain_spin": "Tömning/centrifugering",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Eco varmluft",
@@ -217,7 +220,7 @@
           "rinse": "Sköljning",
           "rinse_out_lint": "Spola ut ludd",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Separat sköljning\/stärkning",
+          "separate_rinse_starch": "Separat sköljning/stärkning",
           "shirts": "Skjortor",
           "silent": "Tyst",
           "silks": "Siden",
@@ -356,7 +359,7 @@
           "running": "Igång",
           "service": "Service",
           "supercooling": "Snabbkylning",
-          "supercooling_superfreezing": "Snabbkylning\/snabbinfrysning",
+          "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
           "superfreezing": "Snabbinfrysning",
           "superheating": "Supervärmning",
           "waiting_to_start": "Väntar på start"

@@ -120,9 +120,6 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Plate 0"
-      },
       "plate_1": {
         "name": "Plate 1"
       },
@@ -137,6 +134,9 @@
       },
       "plate_5": {
         "name": "Plate 5"
+      },
+      "plate_6": {
+        "name": "Plate 6"
       }
     },
     "sensor": {
