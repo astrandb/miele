@@ -29,13 +29,32 @@
       }
     }
   },
+  "device_automation": {
+    "condition_type": {
+      "waiting_to_start": "{entity_name} Очаква стартиране"
+    },
+    "trigger_type": {
+      "not_connected": "{entity_name} Няма връзка",
+      "on": "{entity_name} Вкл.",
+      "pause": "{entity_name} Пауза",
+      "program_ended": "{entity_name} Програмата е приключила",
+      "program_interrupted": "{entity_name} Програмата е прекъсната",
+      "programmed": "{entity_name} Програмиран",
+      "rinse_hold": "{entity_name} Спиране на изплакването",
+      "supercooling": "{entity_name} Супер охлаждане",
+      "supercooling_superfreezing": "{entity_name} Супер охлаждане/супер замразяване",
+      "superfreezing": "{entity_name} Супер замразяване",
+      "superheating": "{entity_name} Супер загряване",
+      "waiting_to_start": "{entity_name} Очаква стартиране"
+    }
+  },
   "entity": {
     "binary_sensor": {
       "door": {
         "name": "Врата"
       },
       "failure": {
-        "name": "Неуспех"
+        "name": "Проблем"
       },
       "info": {
         "name": "Информация"
@@ -94,6 +113,12 @@
       },
       "plate_4": {
         "name": "Плоча 4"
+      },
+      "plate_5": {
+        "name": "Плоча 5"
+      },
+      "plate_6": {
+        "name": "Плоча 6"
       }
     },
     "sensor": {
@@ -169,7 +194,7 @@
           "descaling": "Отстраняване на котлен камък от уреда",
           "down_duvets": "Пухени завивки",
           "down_filled_items": "Пух",
-          "drain_spin": "Изпомпване\/центрофугиране",
+          "drain_spin": "Изпомпване/центрофугиране",
           "eco": "ЕКО",
           "eco_40_60": "ЕКО 40-60",
           "eco_fan_heat": "Еко вентилаторна топлина",
@@ -217,7 +242,7 @@
           "rinse": "Изплакване",
           "rinse_out_lint": "Само изплакване",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Отделно изплакване\/колосване",
+          "separate_rinse_starch": "Отделно изплакване/колосване",
           "shirts": "Ризи",
           "silent": "Безшумен",
           "silks": "Коприна",
@@ -343,7 +368,7 @@
       "status": {
         "name": "Статус",
         "state": {
-          "failure": "Неуспех",
+          "failure": "Проблем",
           "idle": "Неактивен",
           "not_connected": "Няма връзка",
           "off": "Изкл.",
@@ -356,7 +381,7 @@
           "running": "Работещ",
           "service": "Обслужване",
           "supercooling": "Супер охлаждане",
-          "supercooling_superfreezing": "Супер охлаждане\/супер замразяване",
+          "supercooling_superfreezing": "Супер охлаждане/супер замразяване",
           "superfreezing": "Супер замразяване",
           "superheating": "Супер загряване",
           "waiting_to_start": "Очаква стартиране"
@@ -377,13 +402,13 @@
         }
       },
       "target_temperature": {
-        "name": "Зададена температура"
+        "name": "Целева температура"
       },
       "target_temperature_zone_2": {
-        "name": "Зададена температура зона 2"
+        "name": "Целева температура зона 2"
       },
       "target_temperature_zone_3": {
-        "name": "Зададена температура зона 3"
+        "name": "Целева температура зона 3"
       },
       "temperature": {
         "name": "Температура"
@@ -403,7 +428,7 @@
     },
     "switch": {
       "power_on": {
-        "name": "Включено"
+        "name": "Вкл./Изкл."
       },
       "supercooling": {
         "name": "Супер охлаждане"

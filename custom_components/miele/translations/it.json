@@ -94,6 +94,12 @@
       },
       "plate_4": {
         "name": "Piastra 4"
+      },
+      "plate_5": {
+        "name": "Piastra 5"
+      },
+      "plate_6": {
+        "name": "Piastra 6"
       }
     },
     "sensor": {
@@ -156,7 +162,7 @@
           "check_appliance": "Verificare elettrodomestico",
           "clean_machine": "Pulizia macchina",
           "coffee": "Caffè",
-          "conventional_heat": "Calore superiore\/inferiore",
+          "conventional_heat": "Calore superiore/inferiore",
           "cool_air": "Aria fresca",
           "cottons": "Cotone",
           "cottons_eco": "Cotone ECO",
@@ -169,7 +175,7 @@
           "descaling": "Decalcificare elettrodomestico",
           "down_duvets": "Trapunte & Piumini",
           "down_filled_items": "Piumoni",
-          "drain_spin": "Scarico\/Centrifuga",
+          "drain_spin": "Scarico/Centrifuga",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Cottura delicata",
@@ -188,7 +194,7 @@
           "full_grill": "Grill grande",
           "gentle": "Delicati",
           "gentle_denim": "Jeans Delicati",
-          "gentle_minimum_iron": "Lava\/Indossa Delicato",
+          "gentle_minimum_iron": "Lava/Indossa Delicato",
           "gentle_smoothing": "Pre-stiratura",
           "glasses_warm": "Bicchieri Birra",
           "green_tea": "Tè verde",
@@ -206,7 +212,7 @@
           "milk_foam": "Schiuma di latte",
           "milk_pipework_clean": "Pulizia condotti latte",
           "milk_pipework_rinse": "Risciacquo condotti latte",
-          "minimum_iron": "Lava\/Indossa",
+          "minimum_iron": "Lava/Indossa",
           "moisture_plus_fan_plus": "Cottura con vapore",
           "no_program": "Nessun programma",
           "normal": "Normale",
@@ -217,7 +223,7 @@
           "rinse": "Solo risciacquo",
           "rinse_out_lint": "Autopulizia cesto",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Risciacquare\/Inamidare",
+          "separate_rinse_starch": "Risciacquare/Inamidare",
           "shirts": "Camicie",
           "silent": "Silent",
           "silks": "Seta",
@@ -356,7 +362,7 @@
           "running": "In funzione",
           "service": "Impostazioni",
           "supercooling": "SuperRaffreddamento",
-          "supercooling_superfreezing": "SuperRaffreddamento\/SuperFrost",
+          "supercooling_superfreezing": "SuperRaffreddamento/SuperFrost",
           "superfreezing": "SuperFrost",
           "superheating": "SuperRiscaldamento",
           "waiting_to_start": "Pronto per l'uso"

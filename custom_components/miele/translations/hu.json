@@ -29,6 +29,46 @@
       }
     }
   },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} nem működik",
+      "idle": "{entity_name} tétlen",
+      "not_connected": "{entity_name} nincs csatlakoztatva",
+      "off": "{entity_name} ki van kapcsolva",
+      "on": "{entity_name} be van kapcsolva",
+      "pause": "{entity_name} szünetel",
+      "program_ended": "{entity_name} befejezte a programot",
+      "program_interrupted": "{entity_name} megszakította a programot",
+      "programmed": "{entity_name} Program beállítva",
+      "rinse_hold": "{entity_name} öblítési tartásban van",
+      "running": "{entity_name} Fut",
+      "service": "{entity_name} üzemben van",
+      "supercooling": "{entity_name} Szuperhűt",
+      "supercooling_superfreezing": "{entity_name} Szuperhűt/Szuperfagyaszt",
+      "superfreezing": "{entity_name} Szuperfagyaszt",
+      "superheating": "{entity_name} Szupermelegít",
+      "waiting_to_start": "{entity_name} Indításra vár"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Hiba",
+      "idle": "{entity_name} Tétlen",
+      "not_connected": "{entity_name} Nincs csatlakoztatva",
+      "off": "{entity_name} Ki",
+      "on": "{entity_name} Be",
+      "pause": "{entity_name} Szünet",
+      "program_ended": "{entity_name} Program vége",
+      "program_interrupted": "{entity_name} Program megszakítva",
+      "programmed": "{entity_name} Program beállítva",
+      "rinse_hold": "{entity_name} Öblítés visszatartva",
+      "running": "{entity_name} Fut",
+      "service": "{entity_name} Üzemel",
+      "supercooling": "{entity_name} Szuperhűt",
+      "supercooling_superfreezing": "{entity_name} Superhűt/Szuperfagyaszt",
+      "superfreezing": "{entity_name} Szuperfagyaszt",
+      "superheating": "{entity_name} Supermelegít",
+      "waiting_to_start": "{entity_name} Startra késsz"
+    }
+  },
   "entity": {
     "binary_sensor": {
       "door": {
@@ -94,11 +134,17 @@
       },
       "plate_4": {
         "name": "Zóna 4"
+      },
+      "plate_5": {
+        "name": "Zóna 5"
+      },
+      "plate_6": {
+        "name": "Zóna 6"
       }
     },
     "sensor": {
       "battery": {
-        "name": "Akku\/Elem"
+        "name": "Akku/Elem"
       },
       "drying_step": {
         "name": "Szárítási fázis",
@@ -169,7 +215,7 @@
           "descaling": "Vízkőmentesítés",
           "down_duvets": "Pehelypaplanok",
           "down_filled_items": "Pehelytöltetűek",
-          "drain_spin": "Ürítés\/forgás",
+          "drain_spin": "Ürítés/forgás",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Eco hőlégkeverés",
@@ -217,7 +263,7 @@
           "rinse": "Öblítés",
           "rinse_out_lint": "Szösztelenítés",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Külön öblítés\/keményítés",
+          "separate_rinse_starch": "Külön öblítés/keményítés",
           "shirts": "Pólók",
           "silent": "Csendes",
           "silks": "Selymek",
@@ -356,7 +402,7 @@
           "running": "Fut",
           "service": "Szervíz",
           "supercooling": "Superhűtés",
-          "supercooling_superfreezing": "Superhűtés\/Szuperfagyasztás",
+          "supercooling_superfreezing": "Superhűtés/Szuperfagyasztás",
           "superfreezing": "Szuperfagyasztás",
           "superheating": "Supermelegítés",
           "waiting_to_start": "Várakozás indulásra"

@@ -29,6 +29,46 @@
       }
     }
   },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} i felläge",
+      "idle": "{entity_name} i viloläge",
+      "not_connected": "{entity_name} är inte ansluten",
+      "off": "{entity_name} är av",
+      "on": "{entity_name} är på",
+      "pause": "{entity_name} pausar",
+      "program_ended": "{entity_name} har avslutat programmet",
+      "program_interrupted": "{entity_name} har avbrutit programmet",
+      "programmed": "{entity_name}program har valts",
+      "rinse_hold": "{entity_name} i läge sköljstopp",
+      "running": "{entity_name} i drift",
+      "service": "{entity_name} i serviceläge",
+      "supercooling": "{entity_name} i läge snabbkylning",
+      "supercooling_superfreezing": "{entity_name} i läge snabbkylning/snabbinfrysning",
+      "superfreezing": "{entity_name} i snabbfrysning",
+      "superheating": "{entity_name} i snabbvärmning",
+      "waiting_to_start": "{entity_name} väntar på start"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Felläge",
+      "idle": "{entity_name} Viloläge",
+      "not_connected": "{entity_name} Inte ansluten",
+      "off": "{entity_name} Av",
+      "on": "{entity_name} På",
+      "pause": "{entity_name} Paus",
+      "program_ended": "{entity_name} Programmet avslutat",
+      "program_interrupted": "{entity_name} Programmet avbrutet",
+      "programmed": "{entity_name} Programmerad",
+      "rinse_hold": "{entity_name} Sköljstopp",
+      "running": "{entity_name} Körs",
+      "service": "{entity_name} Serviceläge",
+      "supercooling": "{entity_name} Snabbkylning",
+      "supercooling_superfreezing": "{entity_name} Snabbkylning/snabbinfrysning",
+      "superfreezing": "{entity_name} Snabbfrysning",
+      "superheating": "{entity_name} Snabbvärmning",
+      "waiting_to_start": "{entity_name} Väntar på att starta"
+    }
+  },
   "entity": {
     "binary_sensor": {
       "door": {
@@ -80,6 +120,9 @@
       }
     },
     "number": {
+      "plate_0": {
+        "name": "Platta 0"
+      },
       "plate_1": {
         "name": "Platta 1"
       },
