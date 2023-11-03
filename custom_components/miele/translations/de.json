@@ -7,7 +7,7 @@
       "already_configured": "Konto ist bereits konfiguriert",
       "already_in_progress": "Konfiguration läuft bereits",
       "authorize_url_timeout": "Zeitüberschreitung beim Erzeugen der Autorisierungs-URL.",
-      "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folgen Sie der Anleitung.",
+      "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folge der Anleitung.",
       "no_url_available": "Keine URL verfügbar. Für Informationen zu diesem Fehler, [überprüfe den Hilfe-Abschnitt]({docs_url})",
       "oauth_error": "Ungültige Token-Daten erhalten.",
       "reauth_successful": "Neuauthentifizierung war erfolgreich"
@@ -27,6 +27,46 @@
         "description": "Du bist dabei, „{name}“ und ggf. weitere Miele-Geräte zu Home Assistant hinzuzufügen. \\n\\n **Um den Vorgang abzuschließen, musst du deine Zugangsdaten eingeben.**",
         "title": "Bestätige, dass du die Miele-Integration hinzufügen möchtest"
       }
+    }
+  },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} schlägt fehl",
+      "idle": "{entity_name} ist inaktiv",
+      "not_connected": "{entity_name} ist nicht verbunden",
+      "off": "{entity_name} ist ausgeschaltet",
+      "on": "{entity_name} ist eingeschaltet",
+      "pause": "{entity_name} pausiert",
+      "program_ended": "{entity_name} hat Programm beendet",
+      "program_interrupted": "{entity_name} hat Programm unterbrochen",
+      "programmed": "{entity_name} ist programmiert",
+      "rinse_hold": "{entity_name} befindet sich im Spülstop",
+      "running": "{entity_name} wird ausgeführt",
+      "service": "{entity_name} ist in Betrieb",
+      "supercooling": "{entity_name} hat SuperKühlen aktiviert",
+      "supercooling_superfreezing": "{entity_name} hat SuperKühlen/SuperFrost aktiviert",
+      "superfreezing": "{entity_name} hat SuperFrost aktiviert",
+      "superheating": "{entity_name} ist beim Schnellaufheizen",
+      "waiting_to_start": "{entity_name} wartet auf den Start"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Fehler",
+      "idle": "{entity_name} Leerlauf",
+      "not_connected": "{entity_name} Nicht verbunden",
+      "off": "{entity_name} aus",
+      "on": "{entity_name} an",
+      "pause": "{entity_name} Pause",
+      "program_ended": "{entity_name} Programm beendet",
+      "program_interrupted": "{entity_name} Programm unterbrochen",
+      "programmed": "{entity_name} programmiert",
+      "rinse_hold": "{entity_name} Spülstop",
+      "running": "{entity_name} in Betrieb",
+      "service": "{entity_name} Service",
+      "supercooling": "{entity_name} SuperKühlen",
+      "supercooling_superfreezing": "{entity_name} SuperKühlen/SuperFrost",
+      "superfreezing": "{entity_name} SuperFrost",
+      "superheating": "{entity_name} Schnellaufheizen",
+      "waiting_to_start": "{entity_name} wartet auf den Start"
     }
   },
   "entity": {
@@ -94,6 +134,12 @@
       },
       "plate_4": {
         "name": "Platte 4"
+      },
+      "plate_5": {
+        "name": "Platte 5"
+      },
+      "plate_6": {
+        "name": "Platte 6"
       }
     },
     "sensor": {
@@ -136,27 +182,27 @@
         "state": {
           "1_tray": "1 Blech",
           "2_trays": "2 Bleche",
-          "appliance_rinse": "Gerät spülen",
+          "appliance_rinse": "Gerät reinigt",
           "appliance_settings": "Einstellungen",
           "auto": "Auto",
           "auto_roast": "Bratautomatik",
-          "automatic": "Automatik",
+          "automatic": "Automatic",
           "automatic_plus": "Automatic plus",
           "baking_tray": "Backblech",
           "barista_assistant": "BaristaAssistant",
           "basket_program": "Korbprogramm",
           "bed_linen": "Bettwäsche",
-          "black_tea": "Schwarzer Tee",
+          "black_tea": "Schwarztee",
           "bottom_heat": "Unterhitze",
           "brewing_unit_degrease": "Brüheinheit entfetten",
           "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffè Latte",
+          "caffe_latte": "Caffè latte",
           "cappuccino": "Cappuccino",
           "cappuccino_italiano": "Cappuccino Italiano",
           "check_appliance": "Gerät überprüfen",
           "clean_machine": "Maschine reinigen",
           "coffee": "Kaffee",
-          "conventional_heat": "Ober-\/Unterhitze",
+          "conventional_heat": "Ober-/Unterhitze",
           "cool_air": "Lüften kalt",
           "cottons": "Baumwolle",
           "cottons_eco": "Baumwolle ECO",
@@ -169,7 +215,7 @@
           "descaling": "Gerät entkalken",
           "down_duvets": "Daunendecken",
           "down_filled_items": "Daunen",
-          "drain_spin": "Pumpen\/Schleudern",
+          "drain_spin": "Pumpen/Schleudern",
           "eco": "ECO",
           "eco_40_60": "ECO 40–60",
           "eco_fan_heat": "Eco-Heißluft",
@@ -182,7 +228,7 @@
           "fan_grill": "Umluftgrill",
           "fan_plus": "Heißluft plus",
           "first_wash": "Neue Textilien",
-          "flat_white": "Flat White",
+          "flat_white": "Flat white",
           "freshen_up": "Auffrischen",
           "fruit_tea": "Früchtetee",
           "full_grill": "Grill groß",
@@ -217,9 +263,9 @@
           "rinse": "Spülen",
           "rinse_out_lint": "Flusen ausspülen",
           "ristretto": "Ristretto",
-          "separate_rinse_starch": "Nur Spülen\/Stärken",
+          "separate_rinse_starch": "Nur Spülen/Stärken",
           "shirts": "Oberhemden",
-          "silent": "Leise",
+          "silent": "Silent",
           "silks": "Seide",
           "silks_handcare": "Finish Seide",
           "smoothing": "Glätten",
@@ -242,11 +288,11 @@
         }
       },
       "program_phase": {
-        "name": "Programmphase",
+        "name": "Programmabschnitt",
         "state": {
-          "2nd_espresso": "2. Espresso",
-          "2nd_grinding": "2. Mahlen",
-          "2nd_pre_brewing": "2. Vorbrühen",
+          "2nd_espresso": "2. Tasse Espresso",
+          "2nd_grinding": "Mahlen 2. Tasse",
+          "2nd_pre_brewing": "Vorbrühen 2. Tasse",
           "anti_crease": "Knitterschutz",
           "blocked_brushes": "Bürsten blockiert",
           "blocked_drive_wheels": "Antriebsräder blockiert",
@@ -263,7 +309,7 @@
           "dust_box_missing": "Fehlender Staubbehälter",
           "energy_save": "Energie sparen",
           "espresso": "Espresso",
-          "extra_dry": "Extra trocken",
+          "extra_dry": "Extratrocken",
           "final_rinse": "Klarspülen",
           "finished": "Fertig",
           "freshen_up_and_moisten": "Auffrischen + Befeuchten",
@@ -311,7 +357,7 @@
           "vacuum_cleaning_paused": "Saugen pausiert",
           "vacuum_internal_fault": "Interner Fehler – Neustart",
           "venting": "Entlüften",
-          "warm_air": "Warme Luft",
+          "warm_air": "Lüften warm",
           "wheel_lifted": "Rad angehoben"
         }
       },
@@ -319,7 +365,7 @@
         "name": "Modus",
         "state": {
           "automatic_program": "Automatik-Programm",
-          "cleaning_care_program": "Reinigungs-\/Pflege-Programm",
+          "cleaning_care_program": "Reinigungs-/Pflege-Programm",
           "maintenance_program": "Wartungsprogramm",
           "normal_operation_mode": "Normalbetrieb",
           "own_program": "Eigenes Programm"
@@ -356,7 +402,7 @@
           "running": "In Betrieb",
           "service": "Service",
           "supercooling": "SuperKühlen",
-          "supercooling_superfreezing": "SuperKühlen\/SuperFrost",
+          "supercooling_superfreezing": "SuperKühlen/SuperFrost",
           "superfreezing": "SuperFrost",
           "superheating": "Schnellaufheizen",
           "waiting_to_start": "Start verzögert"
@@ -444,7 +490,7 @@
         "start_superfreezing": "Superfrost starten",
         "stop": "Stopp",
         "stop_supercooling": "Superkühlen stoppen",
-        "stop_superfreezing": "Superfrost stoppen"
+        "stop_superfreezing": "SuperFrost stoppen"
       }
     }
   },

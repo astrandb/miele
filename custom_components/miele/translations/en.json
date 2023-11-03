@@ -44,7 +44,7 @@
       "running": "{entity_name} is running",
       "service": "{entity_name} is in service",
       "supercooling": "{entity_name} is supercooling",
-      "supercooling_superfreezing": "{entity_name} is supercooling/superheating",
+      "supercooling_superfreezing": "{entity_name} is supercooling/superfreezing",
       "superfreezing": "{entity_name} is superfreezing",
       "superheating": "{entity_name} is superheating",
       "waiting_to_start": "{entity_name} is waiting to start"
@@ -62,8 +62,8 @@
       "rinse_hold": "{entity_name} Rinse hold",
       "running": "{entity_name} Running",
       "service": "{entity_name} Service",
-      "supercooling_superfreezing": "{entity_name} Supercooling/superheating",
       "supercooling": "{entity_name} Supercooling",
+      "supercooling_superfreezing": "{entity_name} Supercooling/superfreezing",
       "superfreezing": "{entity_name} Superfreezing",
       "superheating": "{entity_name} Superheating",
       "waiting_to_start": "{entity_name} Waiting to start"
@@ -120,6 +120,9 @@
       }
     },
     "number": {
+      "plate_0": {
+        "name": "Plate 0"
+      },
       "plate_1": {
         "name": "Plate 1"
       },
