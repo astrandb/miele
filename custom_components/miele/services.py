@@ -133,7 +133,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
             raise HomeAssistantError(
                 "Failed to call service 'generic_action'. Config entry for target not found."
             )
-        if CONF_DEVICE_ID not in call.data.keys():
+        if CONF_DEVICE_ID not in call.data:
             raise HomeAssistantError(
                 "Cannot call generic_action on entity. Only on device."
             )
@@ -174,7 +174,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
             raise HomeAssistantError(
                 "Failed to call service 'set_program'. Config entry for target not found."
             )
-        if CONF_DEVICE_ID not in call.data.keys():
+        if CONF_DEVICE_ID not in call.data:
             raise HomeAssistantError(
                 "Cannot call set_program on entity. Only on device."
             )

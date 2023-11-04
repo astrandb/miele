@@ -1,7 +1,7 @@
 {
   "name": "Miele",
   "filename": "miele.zip",
-  "homeassistant": "2023.8.0",
+  "homeassistant": "2023.11.0",
   "render_readme": true,
   "zip_release": true
 }
