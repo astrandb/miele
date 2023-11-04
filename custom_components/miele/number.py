@@ -307,6 +307,7 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
         self._attr_mode = NumberMode.SLIDER
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self._ent)},
+            serial_number=self._ent,
             name=appl_type,
             manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
