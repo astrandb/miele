@@ -21,7 +21,7 @@
         "ryanluker.vscode-coverage-gutters",
         "ms-python.vscode-pylance",
         "ms-python.pylint",
-        "ms-python.black-formatter",
+        "charliermarsh.ruff",
         "thibault-vanderseypen.i18n-json-editor"
       ],
       "settings": {
@@ -29,13 +29,10 @@
         "editor.tabSize": 4,
         "python.pythonPath": "/usr/bin/python3",
         "python.analysis.autoSearchPaths": false,
-        "python.linting.pylintEnabled": true,
-        "python.linting.enabled": true,
         "[python]": {
-          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.defaultFormatter": "charliermarsh.ruff",
           "editor.formatOnSave": true
         },
-        "python.formatting.provider": "none",
         "editor.formatOnPaste": false,
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
