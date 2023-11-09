@@ -116,7 +116,9 @@ async def async_setup_entry(
         for definition in CLIMATE_TYPES:
             if (
                 coordinator.data[ent]["ident|type|value_raw"] in definition.types
-                and coordinator.data[ent][definition.description.target_temperature_tag]
+                and coordinator.data[ent].get(
+                    definition.description.target_temperature_tag, 0
+                )
                 != -32768
             ):
                 entities.append(
@@ -199,14 +201,14 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
             self._attr_max_temp = self._eid[ACTIONS][self._ent][TARGET_TEMPERATURE][
                 self._ed.zone
             ]["max"]
-        except KeyError:
+        except (IndexError, KeyError):
             _LOGGER.debug("Could not retreive max_target_temp on %s from API", name)
             self._attr_max_temp = None
         try:
             self._attr_min_temp = self._eid[ACTIONS][self._ent][TARGET_TEMPERATURE][
                 self._ed.zone
             ]["min"]
-        except KeyError:
+        except (IndexError, KeyError):
             _LOGGER.debug("Could not retreive min_target_temp %s from API", name)
             self._attr_min_temp = None
 
