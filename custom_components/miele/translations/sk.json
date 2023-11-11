@@ -1,0 +1,537 @@
+{
+  "application_credentials": {
+    "description": "Navigovať na [\"Zapojte sa\" na stránke vývojárov Miele]({register_url}) ak chcete požiadať o poverenia, zadajte ich nižšie."
+  },
+  "config": {
+    "abort": {
+      "already_configured": "Účet je už nakonfigurovaný",
+      "already_in_progress": "Tok konfigurácie už prebieha",
+      "authorize_url_timeout": "Časový limit generovania autorizačnej adresy URL.",
+      "missing_configuration": "Komponent nie je nakonfigurovaný. Postupujte podľa dokumentácie.",
+      "no_url_available": "Nie je k dispozícii žiadna adresa URL. Informácie o tejto chybe nájdete [pozrite si sekciu pomocníka]({docs_url})",
+      "oauth_error": "Prijaté neplatné údaje tokenu.",
+      "reauth_successful": "Opätovné overenie bolo úspešné"
+    },
+    "create_entry": {
+      "default": "Úspešne overené"
+    },
+    "step": {
+      "pick_implementation": {
+        "title": "Vyberte metódu overenia"
+      },
+      "reauth_confirm": {
+        "description": "Integrácia Miele potrebuje znovu overiť váš účet: {account}",
+        "title": "Znovu overiť integráciu"
+      },
+      "zeroconf_confirm": {
+        "description": "Chystáte sa pridať `{name}` a ďalšie spotrebiče Miele, ak existujú, Home Assistant.\\n\\n**Na dokončenie procesu musíte zadať svoje poverenia.**",
+        "title": "Potvrďte, že pridávate integráciu Miele"
+      }
+    }
+  },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} zlyháva",
+      "idle": "{entity_name} je nečinný",
+      "not_connected": "{entity_name} nie je pripojený",
+      "off": "{entity_name} je vypnutý",
+      "on": "{entity_name} je zapnutý",
+      "pause": "{entity_name} je pozastavený",
+      "program_ended": "{entity_name} ukončil program",
+      "program_interrupted": "{entity_name} má prerušený program",
+      "programmed": "{entity_name} je naprogramovaný",
+      "rinse_hold": "{entity_name} je v režime oplachovania",
+      "running": "{entity_name} je spustený",
+      "service": "{entity_name} je v prevádzke",
+      "supercooling": "{entity_name} je podchladenie",
+      "supercooling_superfreezing": "{entity_name} je podchladenie/supermrazenie",
+      "superfreezing": "{entity_name} je superzmrazenie",
+      "superheating": "{entity_name} sa prehrieva",
+      "waiting_to_start": "{entity_name} čaká na spustenie"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} zlyhanie",
+      "idle": "{entity_name} nečinný",
+      "not_connected": "{entity_name} nepripojený",
+      "off": "{entity_name} vypnutý",
+      "on": "{entity_name} zapnutý",
+      "pause": "{entity_name} pozastavený",
+      "program_ended": "{entity_name} program ukončený",
+      "program_interrupted": "{entity_name} program prerušený",
+      "programmed": "{entity_name} naprogramovaný",
+      "rinse_hold": "{entity_name} pozdržanie opláchnutia",
+      "running": "{entity_name} spustený",
+      "service": "{entity_name} prevádzka",
+      "supercooling": "{entity_name} Podchladenie",
+      "supercooling_superfreezing": "{entity_name} Superchladenie/supermrazenie",
+      "superfreezing": "{entity_name} Superzmrazenie",
+      "superheating": "{entity_name} Prehrievanie",
+      "waiting_to_start": "{entity_name} čaká sa na spustenie"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door": {
+        "name": "Dvere"
+      },
+      "failure": {
+        "name": "Zlyhanie"
+      },
+      "info": {
+        "name": "Info"
+      },
+      "mobile_start": {
+        "name": "Mobilný štart"
+      },
+      "remote_control": {
+        "name": "Vzdialené ovládanie"
+      },
+      "smart_grid": {
+        "name": "Inteligentná sieť"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Štart"
+      },
+      "stop": {
+        "name": "Stop"
+      }
+    },
+    "climate": {
+      "freezer": {
+        "name": "Mraznička"
+      },
+      "fridge": {
+        "name": "Chladnička"
+      }
+    },
+    "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      }
+    },
+    "light": {
+      "ambient_light": {
+        "name": "Okolité svetlo"
+      },
+      "light": {
+        "name": "Svetlo"
+      }
+    },
+    "number": {
+      "plate_0": {
+        "name": "Doska 0"
+      },
+      "plate_1": {
+        "name": "Doska 1"
+      },
+      "plate_2": {
+        "name": "Doska 2"
+      },
+      "plate_3": {
+        "name": "Doska 3"
+      },
+      "plate_4": {
+        "name": "Doska 4"
+      },
+      "plate_5": {
+        "name": "Doska 5"
+      },
+      "plate_6": {
+        "name": "Doska 6"
+      }
+    },
+    "sensor": {
+      "battery": {
+        "name": "Batéria"
+      },
+      "drying_step": {
+        "name": "Krok sušenia",
+        "state": {
+          "extra_dry": "Extra suché",
+          "hand_iron_1": "Ručná žehlička 1",
+          "hand_iron_2": "Ručná žehlička 2",
+          "machine_iron": "Strojová žehlička",
+          "normal": "Normálne",
+          "normal_plus": "Normálne plus",
+          "slightly_dry": "Mierne suché",
+          "smoothing": "Vyhladzovanie"
+        }
+      },
+      "elapsed_time": {
+        "name": "Uplynutý čas"
+      },
+      "energy_consumption": {
+        "name": "Spotreba energie"
+      },
+      "energy_forecast": {
+        "name": "Predpoveď spotreby"
+      },
+      "finish_at": {
+        "name": "Ukončenie o"
+      },
+      "food_core_target_temperature": {
+        "name": "Cieľová teplota jadra jedla"
+      },
+      "food_core_temperature": {
+        "name": "Teplota jadra jedla"
+      },
+      "program_id": {
+        "name": "Program",
+        "state": {
+          "1_tray": "1 zásobník",
+          "2_trays": "2 zásobníky",
+          "appliance_rinse": "Opláchnite spotrebič",
+          "appliance_settings": "Ponuka nastavení spotrebiča",
+          "auto": "Auto",
+          "auto_roast": "Automatické pečenie",
+          "automatic": "Automatické",
+          "automatic_plus": "Automatické Plus",
+          "baking_tray": "Plech",
+          "barista_assistant": "Asistent baristu",
+          "basket_program": "Košový program",
+          "bed_linen": "Posteľná bielizeň",
+          "black_tea": "Čierny čaj",
+          "bottom_heat": "Spodný ohrev",
+          "brewing_unit_degrease": "Odmasťovanie varnej jednotky",
+          "cafe_au_lait": "Káva s mliekom",
+          "caffe_latte": "Caffe latte",
+          "cappuccino": "Cappuccino",
+          "cappuccino_italiano": "Cappuccino Italiano",
+          "check_appliance": "Skontrolujte spotrebič",
+          "clean_machine": "Čistý stroj",
+          "coffee": "Coffee",
+          "conventional_heat": "Konvenčné teplo",
+          "cool_air": "Chladný vzduch",
+          "cottons": "Bavlna",
+          "cottons_eco": "Bavlna ECO",
+          "cottons_hygiene": "Hygiena bavlny",
+          "curtains": "Záclony",
+          "dark_garments": "Tmavé odevy",
+          "defrost": "Rozmrazovať",
+          "delicates": "Jemné",
+          "denim": "Denim",
+          "descaling": "Škálovanie zariadenia",
+          "down_duvets": "Škálovanie zariadenia",
+          "down_filled_items": "Dole vyplnené položky",
+          "drain_spin": "Vypustite/odstreďte",
+          "eco": "ECO",
+          "eco_40_60": "ECO 40-60",
+          "eco_fan_heat": "ECO ohrev ventilátorom",
+          "economy_grill": "Economický grill",
+          "espresso": "Espresso",
+          "espresso_macchiato": "Espresso macchiato",
+          "express": "Rýchle",
+          "express_20": "Rýchle 20'",
+          "extra_quiet": "Extra tiché",
+          "fan_grill": "Gril ventilátor",
+          "fan_plus": "Ventilátor Plus",
+          "first_wash": "Prvé umytie",
+          "flat_white": "Plochá biela",
+          "freshen_up": "Občerstviť",
+          "fruit_tea": "Ovocný čaj",
+          "full_grill": "Plný grill",
+          "gentle": "Jemné",
+          "gentle_denim": "Jemné denim",
+          "gentle_minimum_iron": "Jemné minimum žehlenia",
+          "gentle_smoothing": "Jemné vyhladenie",
+          "glasses_warm": "Teplé sklo",
+          "green_tea": "Zelený čas",
+          "herbal_tea": "Bylinkový čaj",
+          "hot_milk": "Horúce mlieko",
+          "hot_water": "Horúca voda",
+          "hygiene": "Hygiena",
+          "intensive": "Intensívne",
+          "intensive_bake": "Intenzívne pečenie",
+          "japanese_tea": "Japanský čaj",
+          "latte_macchiato": "Latte macchiato",
+          "long_coffee": "Long coffee",
+          "maintenance": "Program údržby",
+          "microwave": "Microvlnka",
+          "milk_foam": "Mliečna pena",
+          "milk_pipework_clean": "Mliečne potrubie čistenie",
+          "milk_pipework_rinse": "Oplach potrubia na mlieko",
+          "minimum_iron": "Minimálne žehlenie",
+          "moisture_plus_fan_plus": "Vlhkosť Plus + Ventilátor Plus",
+          "no_program": "Bez programu",
+          "normal": "Normálne",
+          "outerwear": "Vrchné odevy",
+          "pillows": "Vankúše",
+          "proofing": "Korektúra",
+          "quick_power_wash": "RýchleVýkonnéUmývanie",
+          "rinse": "Opláchnutie",
+          "rinse_out_lint": "Vypláchnite vlákna",
+          "ristretto": "Ristretto",
+          "separate_rinse_starch": "Oddelené plákanie/škrob",
+          "shirts": "Tričká",
+          "silent": "Tiché",
+          "silks": "Hodváb",
+          "silks_handcare": "Hodvábna starostlivosť o ruky",
+          "smoothing": "Vyhladzovanie",
+          "solar_save": "SolárnaÚspora",
+          "sportswear": "ŠportovéOblečenie",
+          "spot": "Bod",
+          "standard_pillows": "Štandardné vankúše",
+          "starch": "Škrob",
+          "steam_care": "Parná starostlivosť",
+          "steam_smoothing": "Vyhladzovanie parou",
+          "tall_items": "Dlhé predmety",
+          "top_heat": "Horný ohrev",
+          "trainers": "Tenisky",
+          "turbo": "Turbo",
+          "very_hot_water": "Veľmi horúca voda",
+          "warm_air": "Horúci vzduch",
+          "white_tea": "Biely čaj",
+          "woollens": "Vlna",
+          "woollens_handcare": "Vlna ručné"
+        }
+      },
+      "program_phase": {
+        "name": "Fáza programu",
+        "state": {
+          "2nd_espresso": "2-hé Espresso coffee",
+          "2nd_grinding": "2-hé brúsenie",
+          "2nd_pre_brewing": "2nd predvarenie",
+          "anti_crease": "Proti pokrčeniu",
+          "blocked_brushes": "Zablokované štetce",
+          "blocked_drive_wheels": "Hnacie kolesá sú zablokované",
+          "blocked_front_wheel": "Predné koleso zablokované",
+          "cleaning": "Čistenie",
+          "comfort_cooling": "Komfortné chladenie",
+          "cooling_down": "Schladzovanie",
+          "dirty_sensors": "Špinavé snímače",
+          "disinfecting": "Dezinfekcia",
+          "dispensing": "Výdaj",
+          "docked": "Dokovaný",
+          "drain": "Vypustiť",
+          "drying": "Sušenie",
+          "dust_box_missing": "Chýba nádoba na prach",
+          "energy_save": "Úspora energie",
+          "espresso": "Espresso coffee",
+          "extra_dry": "Extra suché",
+          "final_rinse": "Záverečné opláchnutie",
+          "finished": "Ukončené",
+          "freshen_up_and_moisten": "Osvieženie a zvlhčenie",
+          "going_to_target_area": "Chod do cieľovej oblasti",
+          "grinding": "Brúsenie",
+          "hand_iron": "Ručné žehlenie",
+          "hand_iron_1": "Ručná žehlička 1",
+          "hand_iron_2": "Ručná žehlička 2",
+          "heating": "Ohrev",
+          "hot_milk": "Horúce mlieko",
+          "hygiene": "Hygiena",
+          "interim_rinse": "Predbežné opláchnutie",
+          "machine_iron": "Strojné žehlenie",
+          "main_dishwash": "Čistenie",
+          "main_wash": "Hlavné pranie",
+          "milk_foam": "Mliečna pena",
+          "moisten": "Navlhčenie",
+          "motor_overload": "Skontrolovať prachovú nádobu a filter",
+          "normal": "Normálne",
+          "normal_plus": "Normálne plus",
+          "not_running": "Nespustené",
+          "pre_brewing": "Predvarenie",
+          "pre_dishwash": "Predčistenie",
+          "pre_wash": "Predprepierka",
+          "process_finished": "Proces ukončený",
+          "process_running": "Proces spustený",
+          "program_running": "Program spustený",
+          "reactivating": "Opätovná aktivácia",
+          "remote_controlled": "Diaľkovo ovládané",
+          "returning": "Návrat",
+          "rinse": "Opláchnutie",
+          "rinse_hold": "Opláchnutie pozdržané",
+          "rinse_out_lint": "Opláchnutie prádla",
+          "rinses": "Výplach",
+          "safety_cooling": "Bezpečnostné chladenie",
+          "slightly_dry": "Mierne suché",
+          "smoothing": "Vyhladzovanie",
+          "soak": "Namáčanie",
+          "spin": "Odstreďovanie",
+          "starch_stop": "Škrobová zastávka",
+          "steam_smoothing": "Vyhladenie parou",
+          "thermo_spin": "Termo odstreďovanie",
+          "timed_drying": "Časované sušenie",
+          "vacuum_cleaning": "Čistenie",
+          "vacuum_cleaning_paused": "Čistenie pozastavenie",
+          "vacuum_internal_fault": "Interná chyba - reštart",
+          "venting": "Vetranie",
+          "warm_air": "Teplý vzduch",
+          "wheel_lifted": "Koleso zdvihnuté"
+        }
+      },
+      "program_type": {
+        "name": "Typ programu",
+        "state": {
+          "automatic_program": "Automatický program",
+          "cleaning_care_program": "Program čistenia/starostlivosti",
+          "maintenance_program": "Program údržby",
+          "normal_operation_mode": "Normálny prevádzkový režim",
+          "own_program": "Vlastný program"
+        }
+      },
+      "remaining_time": {
+        "name": "Zostávajúci čas"
+      },
+      "spin_speed": {
+        "name": "Rýchlosť odstreďovania"
+      },
+      "start_at": {
+        "name": "Začiatok o"
+      },
+      "start_time": {
+        "name": "Doba spustenia"
+      },
+      "started_at": {
+        "name": "Spustené o"
+      },
+      "status": {
+        "name": "Stav",
+        "state": {
+          "failure": "Neúspech",
+          "idle": "Nečinné",
+          "not_connected": "Nepripojené",
+          "off": "Vypnuté",
+          "on": "Zapnuté",
+          "pause": "Pozastavené",
+          "program_ended": "Program skončený",
+          "program_interrupted": "Program prerušený",
+          "programmed": "Naprogramovaný",
+          "rinse_hold": "Pozdržanie opláchnutia",
+          "running": "Beh",
+          "service": "Prevádzka",
+          "supercooling": "Podchladenie",
+          "supercooling_superfreezing": "Superchladenie/supermrazenie",
+          "superfreezing": "Superzmrazenie",
+          "superheating": "Prehrievanie",
+          "waiting_to_start": "Čaká sa na spustenie"
+        },
+        "state_attributes": {
+          "appliance": {
+            "name": "Spotrebič"
+          },
+          "manufacturer": {
+            "name": "Výrobca"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "serial_no": {
+            "name": "Sériové číslo"
+          }
+        }
+      },
+      "target_temperature": {
+        "name": "Cieľová teplota"
+      },
+      "target_temperature_zone_2": {
+        "name": "Cieľová teplota zóna 2"
+      },
+      "target_temperature_zone_3": {
+        "name": "Cieľová teplota zóna 3"
+      },
+      "temperature": {
+        "name": "Teplota"
+      },
+      "temperature_zone_2": {
+        "name": "Teplota zóna 2"
+      },
+      "temperature_zone_3": {
+        "name": "Teplota zóna 3"
+      },
+      "water_consumption": {
+        "name": "Spotreba vody"
+      },
+      "water_forecast": {
+        "name": "Predpoveď vody"
+      }
+    },
+    "switch": {
+      "power_on": {
+        "name": "Zapnutie"
+      },
+      "supercooling": {
+        "name": "Podchladenie"
+      },
+      "superfreezing": {
+        "name": "Superzmrazenie"
+      }
+    },
+    "vacuum": {
+      "vacuum": {
+        "name": "Vákuum",
+        "state_attributes": {
+          "status": {
+            "name": "Stav",
+            "state": {
+              "blocked_brushes": "Zablokované štetce",
+              "blocked_drive_wheels": "Hnacie kolesá sú zablokované",
+              "blocked_front_wheel": "Predné koleso zablokované",
+              "check_dust_box_and_filter": "Skontrolovať prachovú nádobu a filter",
+              "dirty_sensors": "Špinavé snímače",
+              "dust_box_missing": "Chýba nádoba na prach",
+              "going_to_target_area": "Chod do cieľovej oblasti",
+              "internal_fault_reboot": "Interná chyba - Reštartovať",
+              "remote_controlled": "Diaľkovo ovládané",
+              "wheel_lifted": "Koleso zdvihnuté"
+            }
+          }
+        }
+      }
+    }
+  },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "pause": "Pauza",
+        "start": "Štart",
+        "start_supercooling": "Spustenie s predchladzovaním",
+        "start_superfreezing": "Spustenie s predzmrazovaním",
+        "stop": "Stop",
+        "stop_supercooling": "Zastaviť superchladenie",
+        "stop_superfreezing": "Zastaviť supermrazenie"
+      }
+    }
+  },
+  "services": {
+    "generic_action": {
+      "description": "Vykonať jednu akciu na zariadení",
+      "name": "Vykonať všeobecnú akciu"
+    },
+    "process_action": {
+      "description": "Ak sú splnené predpoklady, vykoná akcie procesu.",
+      "fields": {
+        "action": {
+          "description": "Vyberte jednu procesnú akciu na vykonanie.",
+          "name": "Akcia"
+        }
+      },
+      "name": "Vykonať akciu procesu"
+    },
+    "raw": {
+      "description": "Vykonať službu s minimálnym overením.",
+      "fields": {
+        "extra": {
+          "description": "Slovník s parametrami",
+          "name": "Extra"
+        },
+        "serialno": {
+          "description": "Sériové číslo spotrebiča",
+          "name": "Sériové číslo"
+        }
+      },
+      "name": "Vykonať surovú akciu"
+    },
+    "set_program": {
+      "description": "Nastaviť a spustiť program s voliteľnými parametrami.",
+      "name": "Nastaviť program"
+    }
+  },
+  "system_health": {
+    "info": {
+      "component_version": "Verzia",
+      "reach_miele_cloud": "Osloviť Miele Cloud"
+    }
+  }
+}
