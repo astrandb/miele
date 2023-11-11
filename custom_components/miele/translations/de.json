@@ -24,7 +24,7 @@
         "title": "Integration neu authentifizieren"
       },
       "zeroconf_confirm": {
-        "description": "Du bist dabei, „{name}“ und ggf. weitere Miele-Geräte zu Home Assistant hinzuzufügen. \\n\\n **Um den Vorgang abzuschließen, musst du deine Zugangsdaten eingeben.**",
+        "description": "Du bist dabei, „{name}“ und ggf. weitere Miele-Geräte zu Home Assistant hinzuzufügen. \n\n **Um den Vorgang abzuschließen, musst du deine Zugangsdaten eingeben.**",
         "title": "Bestätige, dass du die Miele-Integration hinzufügen möchtest"
       }
     }

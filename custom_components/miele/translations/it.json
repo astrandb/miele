@@ -24,7 +24,7 @@
         "title": "Ri-autentica l'integrazione"
       },
       "zeroconf_confirm": {
-        "description": "Stai per aggiungere `{name}` e altri elettrodomestici Miele, se presenti, su Home Assistant.\\n\\n**Per completare il processo, devi inserire le tue credenziali.**",
+        "description": "Stai per aggiungere `{name}` e altri elettrodomestici Miele, se presenti, su Home Assistant.\n\n**Per completare il processo, devi inserire le tue credenziali.**",
         "title": "Conferma che stai aggiungendo l'integrazione Miele"
       }
     }
