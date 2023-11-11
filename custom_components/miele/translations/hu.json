@@ -24,7 +24,7 @@
         "title": "Integráció újrahitelesítése"
       },
       "zeroconf_confirm": {
-        "description": "`{name}` és más Miele készülékek hozzáadása rendszerhez.\\n\\n**A folyamat befejezéséhez meg kell adnia a hitelesítő adatait.**",
+        "description": "`{name}` és más Miele készülékek hozzáadása rendszerhez.\n\n**A folyamat befejezéséhez meg kell adnia a hitelesítő adatait.**",
         "title": "Miele integráció hozzáadása"
       }
     }

@@ -24,7 +24,7 @@
         "title": "Förnya autentisering"
       },
       "zeroconf_confirm": {
-        "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\\n\\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
+        "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\n\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
         "title": "Bekräfta att du vill lägga till integration för Miele"
       }
     }
