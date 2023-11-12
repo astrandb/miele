@@ -51,6 +51,12 @@ PLATE_MAP = {
     118: 10,
 }
 
+PLATE_COUNT = {
+    "KM7474": 4,
+    "KM7897": 6,
+    "KMDA7634": 5,
+}
+
 
 @dataclass
 class MieleNumberDescriptionMixin:
