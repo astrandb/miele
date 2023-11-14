@@ -261,7 +261,7 @@ async def get_coordinator(
             async with async_timeout.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
-                    "/devices",
+                    f"/devices?language={hass.config.language}",
                     agent_suffix=f"Miele for Home Assistant/{VERSION}",
                 )
             if res.status == 401:
