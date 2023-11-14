@@ -1,6 +1,7 @@
 """Device capabilities."""
+# pylint: disable=too-many-lines
 
-# API Version 1.0.5
+# API Version 1.0.7
 
 DEV_TYPES = {
     1: "Washing Machine",
