@@ -7,7 +7,10 @@ categories:
     labels:
       - "feature"
       - "enhancement"
-  - title: "Bug Fixes"
+  - title: "Breaking changes
+    labels:
+      - "breaking"
+  - title: "Bug fixes"
     labels:
       - "fix"
       - "bugfix"
