@@ -484,6 +484,12 @@
       }
     }
   },
+  "issues": {
+    "hob_not_supported": {
+      "description": "The appliance type {tech_type} is not fully supported by the Miele integration. Therefore some entities might be missing or malfunctioning. \n\nPlease report this issue to [the maintainer on Github]({issue_url})",
+      "title": "The appliance {tech_type} is not fully supported"
+    }
+  },
   "selector": {
     "process_action_options": {
       "options": {
