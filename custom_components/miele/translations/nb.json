@@ -24,7 +24,7 @@
         "title": "Forny autentisering"
       },
       "zeroconf_confirm": {
-        "description": "Du er i ferd med å legge `{name}` og eventuelt andre Miele-produkter til Home Assistant.\\n\\n**For å fullføre prosessen må du logge inn.**",
+        "description": "Du er i ferd med å legge `{name}` og eventuelt andre Miele-produkter til Home Assistant.\n\n**For å fullføre prosessen må du logge inn.**",
         "title": "Bekreft at du legger til Miele-integrasjonen"
       }
     }

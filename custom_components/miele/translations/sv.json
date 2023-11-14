@@ -10,6 +10,9 @@
       "missing_configuration": "Komponenten kunde inte konfigureras. Vänligen följ dokumentationen",
       "no_url_available": "Ingen URL tillgänglig. För information om detta fel, [se hjälpavsnittet]({docs_url})",
       "oauth_error": "Tog emot ogiltiga token-data",
+      "oauth_failed": "Fel vid hämtning av åtkomsttoken.",
+      "oauth_timeout": "Timeout vid hämtning av OAuth-token.",
+      "oauth_unauthorized": "OAuth-auktoriseringsfel vid hämtning av åtkomsttoken.",
       "reauth_successful": "Omautentiseringen lyckades"
     },
     "create_entry": {
@@ -24,7 +27,7 @@
         "title": "Förnya autentisering"
       },
       "zeroconf_confirm": {
-        "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\\n\\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
+        "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\n\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
         "title": "Bekräfta att du vill lägga till integration för Miele"
       }
     }
@@ -479,6 +482,12 @@
           }
         }
       }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Apparattypen {tech_type} stöds inte fullt ut av Miele-integrationen. Därför kan vissa entiteter saknas eller inte fungera. \n\nRapportera problemet till [den ansvarige på Github]({issue_url})",
+      "title": "Enheten {tech_type} stöds inte fullt ut"
     }
   },
   "selector": {
