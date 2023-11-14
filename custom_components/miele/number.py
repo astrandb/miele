@@ -59,6 +59,7 @@ PLATE_MAP = {
     18: 9.5,
     117: 10,
     118: 10,
+    217: 110,
 }
 
 DEFAULT_PLATE_COUNT = 6
