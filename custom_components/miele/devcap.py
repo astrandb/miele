@@ -1137,6 +1137,99 @@ TEST_DATA_27_OFF = {
     },
 }
 
+TEST_DATA_73 = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 73,
+            "value_localized": "",
+        },
+        "deviceName": "",
+        "protocolVersion": 203,
+        "deviceIdentLabel": {
+            "fabNumber": "**REDACTED**",
+            "fabIndex": "00",
+            "techType": "DGC7450",
+            "matNumber": "11785200",
+            "swids": ["000"],
+        },
+        "xkmIdentLabel": {
+            "techType": "EK057",
+            "releaseVersion": "08.23",
+        },
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program name",
+        },
+        "status": {
+            "value_raw": 2,
+            "value_localized": "On",
+            "key_localized": "status",
+        },
+        "programType": {
+            "value_raw": 1,
+            "value_localized": "Own programme",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "coreTargetTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "temperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "coreTemperature": [
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": True,
+        },
+        "ambientLight": None,
+        "light": 2,
+        "elapsedTime": [0, 0],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": {},
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_74 = {
     "ident": {
         "type": {

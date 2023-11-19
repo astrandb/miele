@@ -43,6 +43,7 @@ WINE_STORAGE_CONDITIONING_UNIT = 34
 STEAM_OVEN_MICRO = 45
 DIALOG_OVEN = 67
 WINE_CABINET_FREEZER = 68
+STEAM_OVEN_MK2 = 73
 HOB_INDUCT_EXTR = 74
 
 APPLIANCE_TYPES = {
@@ -76,6 +77,7 @@ APPLIANCE_TYPES = {
     STEAM_OVEN_MICRO: "steam_oven_micro",
     DIALOG_OVEN: "dialog_oven",
     WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+    STEAM_OVEN_MK2: "steam_oven",
     HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 

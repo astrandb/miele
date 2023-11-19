@@ -37,6 +37,7 @@ from .const import (
     STEAM_OVEN,
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
+    STEAM_OVEN_MK2,
     TUMBLE_DRYER,
     TUMBLE_DRYER_SEMI_PROFESSIONAL,
     WASHER_DRYER,
@@ -76,6 +77,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
+            STEAM_OVEN_MK2,
             DIALOG_OVEN,
         ],
         description=MieleButtonDescription(
@@ -98,6 +100,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             WASHER_DRYER,
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
+            STEAM_OVEN_MK2,
             DIALOG_OVEN,
         ],
         description=MieleButtonDescription(
