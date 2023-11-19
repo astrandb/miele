@@ -62,6 +62,7 @@ from .devcap import (  # noqa: F401
     TEST_DATA_24,
     TEST_DATA_27,
     TEST_DATA_27_OFF,
+    TEST_DATA_73,
     TEST_DATA_74,
 )
 from .services import async_setup_services
@@ -210,6 +211,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223024"] = TEST_DATA_24
         # data["122A027"] = TEST_DATA_27
         # data["122B027"] = TEST_DATA_27_OFF
+        # data["1223073"] = TEST_DATA_73
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
         try:
@@ -293,6 +295,7 @@ async def get_coordinator(
         # result["1223024"] = TEST_DATA_24
         # result["122A027"] = TEST_DATA_27
         # result["122B027"] = TEST_DATA_27_OFF
+        # result["1223073"] = TEST_DATA_73
         # result["1223074"] = TEST_DATA_74
 
         try:

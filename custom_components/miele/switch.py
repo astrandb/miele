@@ -43,6 +43,7 @@ from .const import (
     STEAM_OVEN,
     STEAM_OVEN_COMBI,
     STEAM_OVEN_MICRO,
+    STEAM_OVEN_MK2,
     TUMBLE_DRYER,
     TUMBLE_DRYER_SEMI_PROFESSIONAL,
     WASHER_DRYER,
@@ -114,6 +115,7 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
             STEAM_OVEN_COMBI,
             STEAM_OVEN_MICRO,
             DIALOG_OVEN,
+            STEAM_OVEN_MK2,
         ],
         description=MieleSwitchDescription(
             key="poweronoff",
