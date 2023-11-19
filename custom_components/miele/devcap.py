@@ -1160,7 +1160,7 @@ TEST_DATA_73 = {
     },
     "state": {
         "ProgramID": {
-            "value_raw": 0,
+            "value_raw": 13,
             "value_localized": "",
             "key_localized": "Program name",
         },
@@ -1175,7 +1175,7 @@ TEST_DATA_73 = {
             "key_localized": "Program type",
         },
         "programPhase": {
-            "value_raw": 0,
+            "value_raw": 3073,
             "value_localized": "",
             "key_localized": "Program phase",
         },
