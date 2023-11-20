@@ -484,6 +484,12 @@
       }
     }
   },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Typ spotrebiča {tech_type} nie je plne podporovaný integráciou Miele. Preto môžu niektoré entity chýbať alebo nefungovať. \n\nNahláste tento problém [správcovi na Github]({issue_url})",
+      "title": "Zariadenie {tech_type} nie je plne podporované"
+    }
+  },
   "selector": {
     "process_action_options": {
       "options": {

@@ -10,6 +10,8 @@
       "missing_configuration": "Komponenten er ikke konfigureret. Følg venligst dokumentationen.",
       "no_url_available": "Ingen URL tilgængelig. For oplysninger om denne fejl, [tjek hjælpesektionen]( {docs_url} )",
       "oauth_error": "Modtog ugyldige tokendata.",
+      "oauth_failed": "Fejl under indhentning af adgangstoken.",
+      "oauth_unauthorized": "OAuth-autorisationsfejl under indhentning af adgangstoken.",
       "reauth_successful": "Gengodkendelse lykkedes"
     },
     "create_entry": {
@@ -245,6 +247,7 @@
           "intensive": "Intensiv",
           "intensive_bake": "Intensiv bagning",
           "japanese_tea": "Japansk te",
+          "keeping_warm": "Holder varmen",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Long Coffee",
           "maintenance": "Vedligeholdelsesprogram",
@@ -259,6 +262,9 @@
           "outerwear": "Overtøj",
           "pillows": "Puder",
           "proofing": "Korrektur",
+          "prove_15_min": "Hævning i 15 min.",
+          "prove_30_min": "Hævning i 30 min.",
+          "prove_45_min": "Hævning i 45 min.",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Skylning",
           "rinse_out_lint": "Skyl fnug ud",
@@ -479,6 +485,12 @@
           }
         }
       }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Apparattypen {tech_type} understøttes ikke fuldt ud af Miele-integrationen. Derfor kan nogle enheder mangle eller ikke fungere korrekt. \n\nRapporter venligst dette problem til [vedligeholderen på Github]({issue_url})",
+      "title": "Apparatet {tech_type} er ikke fuldt understøttet"
     }
   },
   "selector": {

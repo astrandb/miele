@@ -10,6 +10,9 @@
       "missing_configuration": "Die Komponente ist nicht konfiguriert. Bitte folge der Anleitung.",
       "no_url_available": "Keine URL verfügbar. Für Informationen zu diesem Fehler, [überprüfe den Hilfe-Abschnitt]({docs_url})",
       "oauth_error": "Ungültige Token-Daten erhalten.",
+      "oauth_failed": "Allgemeiner Fehler während der Einholung des Zugriffstokens.",
+      "oauth_timeout": "Zeitüberschreitung während der Auflösung des OAuth-Tokens.",
+      "oauth_unauthorized": "OAuth-Autorisierungsfehler während der Einholung des Zugriffstokens.",
       "reauth_successful": "Neuauthentifizierung war erfolgreich"
     },
     "create_entry": {
@@ -87,7 +90,7 @@
         "name": "Fernsteuerung"
       },
       "smart_grid": {
-        "name": "Smart grid"
+        "name": "Smart Grid"
       }
     },
     "button": {
@@ -238,6 +241,7 @@
           "gentle_smoothing": "Glätten fein",
           "glasses_warm": "Biergläser warm",
           "green_tea": "Grüner Tee",
+          "heat_crockery": "Geschirr wärmen",
           "herbal_tea": "Kräutertee",
           "hot_milk": "Heiße Milch",
           "hot_water": "Heißes Wasser",
@@ -245,6 +249,7 @@
           "intensive": "Intensiv",
           "intensive_bake": "Intensivbacken",
           "japanese_tea": "Japanischer Tee",
+          "keeping_warm": "Warmhalten",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Kaffee lang",
           "maintenance": "Gerätepflege",
@@ -253,12 +258,18 @@
           "milk_pipework_clean": "Milchleitung reinigen",
           "milk_pipework_rinse": "Milchleitung spülen",
           "minimum_iron": "Pflegeleicht",
-          "moisture_plus_fan_plus": "Klimagaren",
+          "moisture_plus_auto_roast": "Klimagaren + Bratautomatik",
+          "moisture_plus_conventional_heat": "Klimagaren + Ober-/Unterhitze",
+          "moisture_plus_fan_plus": "Klimagaren + Heißluft plus",
+          "moisture_plus_intensive_bake": "Klimagaren + Intensivbacken",
           "no_program": "Kein Programm",
           "normal": "Normal",
           "outerwear": "Outdoor",
           "pillows": "Kopfkissen",
           "proofing": "Imprägnieren",
+          "prove_15_min": "15 Minuten aufgehen",
+          "prove_30_min": "30 Minuten aufgehen",
+          "prove_45_min": "45 Minuten aufgehen",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Spülen",
           "rinse_out_lint": "Flusen ausspülen",
@@ -479,6 +490,12 @@
           }
         }
       }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Der Geräte-Typ {tech_type} wird nicht vollständig von der Miele-API unterstützt.\nDaher werden einige Entitäten nicht angezeigt oder melden eine Störung.\n\nBitte melden Sie diesen Fehler an [the maintainer on Github]({issue_url}).\nVielen Dank!",
+      "title": "Das Gerät {tech_type} wird derzeit nicht vollständig unterstützt."
     }
   },
   "selector": {
