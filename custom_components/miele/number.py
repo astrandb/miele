@@ -141,11 +141,15 @@ async def async_setup_entry(
 
         if coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES:
             tech_type = coordinator.data[ent]["ident|deviceIdentLabel|techType"]
-            plates = get_plate_count(tech_type)
             api_plates = 0
             for i in range(8):
                 if f"state|plateStep|{i}|value_raw" in coordinator.data[ent]:
                     api_plates = i
+            if api_plates == 0:
+                plates = get_plate_count(tech_type)
+            else:
+                plates = api_plates + 1
+
             if plates < api_plates + 1:
                 _LOGGER.warning(
                     "Inconsistent number of zones - API %s reports %s zones",
