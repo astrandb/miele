@@ -10,6 +10,9 @@
       "missing_configuration": "Az integráció nincs beállítva. Kérem, járjon el a dokumentáció szerint.",
       "no_url_available": "Nincs elérhető URL. Bővebb információért [ellenőrizze a súgót]({docs_url}).",
       "oauth_error": "Érvénytelen token érkezett.",
+      "oauth_failed": "Hiba a hozzáférési token beszerzése közben.",
+      "oauth_timeout": "Időtúllépés az OAuth-token feloldásakor.",
+      "oauth_unauthorized": "OAuth engedélyezési hiba a hozzáférési token beszerzése közben.",
       "reauth_successful": "Az újrahitelesítés sikerült"
     },
     "create_entry": {
@@ -238,6 +241,7 @@
           "gentle_smoothing": "Gyöngéd simítás",
           "glasses_warm": "Üvegek forró",
           "green_tea": "Zöld tea",
+          "heat_crockery": "Edények előmelegítése",
           "herbal_tea": "Herbál tea",
           "hot_milk": "Forró tej",
           "hot_water": "Forró víz",
@@ -245,6 +249,7 @@
           "intensive": "Intenzív",
           "intensive_bake": "Intenzív sütés",
           "japanese_tea": "Japán tea",
+          "keeping_warm": "Melegen tartás",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Hosszú kávé",
           "maintenance": "Karbantartási program",
@@ -253,12 +258,18 @@
           "milk_pipework_clean": "Tejcső tisztítás",
           "milk_pipework_rinse": "Tejcső öblítés",
           "minimum_iron": "Vasaláskímélő",
+          "moisture_plus_auto_roast": "Nedvesség plusz + automatikus sütés",
+          "moisture_plus_conventional_heat": "Nedvesség plusz + hagyományos hő",
           "moisture_plus_fan_plus": "Pára Plusz + Ventilátor Plusz",
+          "moisture_plus_intensive_bake": "Nedvesség plusz + intenzív sütés",
           "no_program": "Nincs program",
           "normal": "Normál",
           "outerwear": "Felsőruházat",
           "pillows": "Párnák",
           "proofing": "Vízzáró sport",
+          "prove_15_min": "15 perces teszt",
+          "prove_30_min": "30 perces teszt",
+          "prove_45_min": "45 perces teszt",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Öblítés",
           "rinse_out_lint": "Szösztelenítés",
@@ -479,6 +490,12 @@
           }
         }
       }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "A Miele integrációja nem támogatja teljes mértékben a {tech_type} típusú készüléket. Ezért előfordulhat, hogy egyes entitások hiányoznak vagy hibásan működnek. \n\n Kérem, jelentse a problémát [a Github-on az integráció repójában]({issue_url})",
+      "title": "{tech_type} készülék nem támogatott teljes mértékben"
     }
   },
   "selector": {
