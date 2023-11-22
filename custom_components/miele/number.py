@@ -12,7 +12,8 @@ from homeassistant.components.number import (
     NumberMode,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import issue_registry as ir
+
+# from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
@@ -62,13 +63,25 @@ PLATE_MAP = {
     217: 110,
 }
 
-DEFAULT_PLATE_COUNT = 6
+DEFAULT_PLATE_COUNT = 4
 
 PLATE_COUNT = {
-    "KM7474": 4,
+    "KM7678": 6,
+    "KM7697": 6,
+    "KM7878": 6,
     "KM7897": 6,
+    "KMDA7633": 5,
     "KMDA7634": 5,
 }
+
+
+def get_plate_count(tech_type):
+    """Get number of zones."""
+    stripped = tech_type.replace(" ", "")
+    for prefix, plates in PLATE_COUNT.items():
+        if stripped.startswith(prefix):
+            return plates
+    return DEFAULT_PLATE_COUNT
 
 
 @dataclass
@@ -106,29 +119,43 @@ async def async_setup_entry(
 
     entities = []
     for idx, ent in enumerate(coordinator.data):
-        if (
-            coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES
-            and coordinator.data[ent]["ident|deviceIdentLabel|techType"]
-            not in PLATE_COUNT
-        ):
-            ir.async_create_issue(
-                hass,
-                DOMAIN,
-                "hob_not_supported",
-                is_fixable=False,
-                severity=ir.IssueSeverity.WARNING,
-                translation_key="hob_not_supported",
-                translation_placeholders={
-                    "tech_type": coordinator.data[ent][
-                        "ident|deviceIdentLabel|techType"
-                    ],
-                    "issue_url": "https://github.com/astrandb/miele/issues",
-                },
-            )
+        # if (
+        #     coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES
+        #     and coordinator.data[ent]["ident|deviceIdentLabel|techType"]
+        #     not in PLATE_COUNT
+        # ):
+        #     ir.async_create_issue(
+        #         hass,
+        #         DOMAIN,
+        #         "hob_not_supported",
+        #         is_fixable=False,
+        #         severity=ir.IssueSeverity.WARNING,
+        #         translation_key="hob_not_supported",
+        #         translation_placeholders={
+        #             "tech_type": coordinator.data[ent][
+        #                 "ident|deviceIdentLabel|techType"
+        #             ],
+        #             "issue_url": "https://github.com/astrandb/miele/issues",
+        #         },
+        #     )
 
         if coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES:
             tech_type = coordinator.data[ent]["ident|deviceIdentLabel|techType"]
-            plates = PLATE_COUNT.get(tech_type, DEFAULT_PLATE_COUNT)
+            api_plates = 0
+            for i in range(8):
+                if f"state|plateStep|{i}|value_raw" in coordinator.data[ent]:
+                    api_plates = i
+            if api_plates == 0:
+                plates = get_plate_count(tech_type)
+            else:
+                plates = api_plates + 1
+
+            if plates < api_plates + 1:
+                _LOGGER.warning(
+                    "Inconsistent number of zones - API %s reports %s zones",
+                    tech_type,
+                    api_plates + 1,
+                )
             for plate_no in range(plates):
                 description = MieleNumberDescription(
                     key="plate",

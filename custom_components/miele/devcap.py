@@ -968,7 +968,7 @@ TEST_DATA_27 = {
         "deviceIdentLabel": {
             "fabNumber": "**REDACTED**",
             "fabIndex": "00",
-            "techType": "KM7897",
+            "techType": "KM7897 R02",
             "matNumber": "",
             "swids": ["000"],
         },
