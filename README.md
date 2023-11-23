@@ -33,7 +33,9 @@ Next, you'll sign in using your Miele account. Allow full access for the Home As
 ### Support - Wiki - Documentation
 
 Documentation (at least some...) can be found in the [wiki](https://github.com/astrandb/miele/wiki)
-[Discussion forum](https://github.com/astrandb/miele/wiki)
+
+[Discussion forum](https://github.com/astrandb/miele/discussions)
+
 [Discord chat](https://discord.gg/ZBZry2uf3D)
 
 ### Development
