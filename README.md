@@ -36,7 +36,7 @@ Documentation (at least some...) can be found in the [wiki](https://github.com/a
 
 [Discussion forum](https://github.com/astrandb/miele/discussions)
 
-[Discord chat](https://discord.gg/ZBZry2uf3D)
+[Discord chat](https://discord.gg/Us4PSG74vw)
 
 ### Development
 
