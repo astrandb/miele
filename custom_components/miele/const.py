@@ -357,6 +357,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
     "unmapped_2": "bed_linen",
     "unmapped_3": "cottons_eco",
     "unmapped_4": "shirts",
+    "unmapped_5": "large_pillows",
 }
 OVEN_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
