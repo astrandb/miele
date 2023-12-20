@@ -19,6 +19,7 @@ categories:
     labels:
       - "translation"
   - title: "Dependencies"
+    collapse-after: 2
     labels:
       - "dependencies"
       - "dependency"
@@ -28,11 +29,12 @@ categories:
     label: "code quality"
   - title: "Development tools"
     label: "development tools"
+
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads/astrandb/miele/v$RESOLVED_VERSION/total.svg)](https://github.com/astrandb/miele/releases/v$RESOLVED_VERSION)
+  [![Downloads for this release](https://img.shields.io/github/downloads/$OWNER/$REPOSISTORY/v$RESOLVED_VERSION/total.svg)](https://github.com/$OWNER/$REPOSISTORY/releases/v$RESOLVED_VERSION)
 
   ### Checklist for release
   - Download translations PR from Lokalize
@@ -62,7 +64,7 @@ autolabeler:
     title:
       - "Lokalise:"
     files:
-      - "*/translations/*.json"
+      - "**/translations/*.json"
   - label: "development tools"
     files:
       - ".devcontainer/*"
