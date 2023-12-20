@@ -1495,6 +1495,25 @@ TEST_DATA_TEMPLATE = {
     },
 }
 
+TEST_ACTION_19 = {
+    "processAction": [6],
+    "light": [],
+    "ambientLight": [],
+    "startTime": [],
+    "ventilationStep": [],
+    "programId": [],
+    "targetTemperature": [
+        {"zone": 1, "min": 1, "max": 9},
+    ],
+    "deviceName": True,
+    "powerOn": False,
+    "powerOff": True,
+    "colors": [],
+    "modes": [1],
+    "programs": [],
+    "id_log": [],
+}
+
 TEST_ACTION_21 = {
     "processAction": [4, 6],
     "light": [],

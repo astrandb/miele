@@ -48,6 +48,7 @@ from .const import (
     VERSION,
 )
 from .devcap import (  # noqa: F401
+    TEST_ACTION_19,
     TEST_ACTION_21,
     TEST_ACTION_23,
     TEST_DATA_1,
@@ -194,7 +195,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 "Could not decode json from fetch of actions for %s", serial
             )
 
-    # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223023"] = TEST_ACTION_23
+    # hass.data[DOMAIN][entry.entry_id][ACTIONS]["1223019"] = TEST_ACTION_19
 
     # _LOGGER.debug("First data - flat: %s", coordinator.data)
     # _LOGGER.debug("First actions: %s", hass.data[DOMAIN][entry.entry_id][ACTIONS])
