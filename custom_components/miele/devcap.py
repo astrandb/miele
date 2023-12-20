@@ -696,6 +696,91 @@ TEST_DATA_18 = {
     },
 }
 
+TEST_DATA_19 = {
+    "ident": {
+        "type": {
+            "key_localized": "Device type",
+            "value_raw": 19,
+            "value_localized": "Refrigerator",
+        },
+        "deviceName": "",
+        "protocolVersion": 203,
+        "deviceIdentLabel": {
+            "fabNumber": "**REDACTED**",
+            "fabIndex": "00",
+            "techType": "K 34483 iDF",
+            "matNumber": "11642200",
+            "swids": ["000"],
+        },
+        "xkmIdentLabel": {
+            "techType": "EK044W",
+            "releaseVersion": "02Q76",
+        },
+    },
+    "state": {
+        "ProgramID": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program name",
+        },
+        "status": {
+            "value_raw": 5,
+            "value_localized": "In use",
+            "key_localized": "status",
+        },
+        "programType": {
+            "value_raw": 0,
+            "value_localized": "Program",
+            "key_localized": "Program type",
+        },
+        "programPhase": {
+            "value_raw": 0,
+            "value_localized": "",
+            "key_localized": "Program phase",
+        },
+        "remainingTime": [0, 0],
+        "startTime": [0, 0],
+        "targetTemperature": [
+            {"value_raw": 600, "value_localized": 6.0, "unit": "Celsius"},
+        ],
+        "temperature": [
+            {"value_raw": 600, "value_localized": 6.0, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
+        ],
+        "signalInfo": False,
+        "signalFailure": False,
+        "signalDoor": False,
+        "remoteEnable": {
+            "fullRemoteControl": True,
+            "smartGrid": False,
+            "mobileStart": False,
+        },
+        "ambientLight": None,
+        "light": None,
+        "elapsedTime": [],
+        "spinningSpeed": {
+            "unit": "rpm",
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Spin speed",
+        },
+        "dryingStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Drying level",
+        },
+        "ventilationStep": {
+            "value_raw": None,
+            "value_localized": "",
+            "key_localized": "Fan level",
+        },
+        "plateStep": [],
+        "ecoFeedback": None,
+        "batteryLevel": None,
+    },
+}
+
 TEST_DATA_21 = {
     "ident": {
         "type": {
@@ -1408,6 +1493,25 @@ TEST_DATA_TEMPLATE = {
         "ecoFeedback": None,
         "batteryLevel": None,
     },
+}
+
+TEST_ACTION_19 = {
+    "processAction": [6],
+    "light": [],
+    "ambientLight": [],
+    "startTime": [],
+    "ventilationStep": [],
+    "programId": [],
+    "targetTemperature": [
+        {"zone": 1, "min": 1, "max": 9},
+    ],
+    "deviceName": True,
+    "powerOn": False,
+    "powerOff": True,
+    "colors": [],
+    "modes": [1],
+    "programs": [],
+    "id_log": [],
 }
 
 TEST_ACTION_21 = {

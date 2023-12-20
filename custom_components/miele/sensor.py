@@ -896,10 +896,11 @@ class MieleSensor(CoordinatorEntity, SensorEntity):
             is None
         ):
             return None
-        if (
-            self.coordinator.data[self._ent][self.entity_description.data_tag] == -32766
-            or self.coordinator.data[self._ent][self.entity_description.data_tag]
-            == -32768
+        if self.coordinator.data[self._ent].get(
+            self.entity_description.data_tag, -32768
+        ) in (
+            -32766,
+            -32768,
         ):
             return None
         if (
