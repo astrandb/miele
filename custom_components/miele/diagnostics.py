@@ -83,7 +83,7 @@ async def async_get_device_diagnostics(
                     f"/devices/{key}/programs",
                     agent_suffix=f"Miele for Home Assistant/{VERSION}",
                 )
-            if res.status >= 300:
+            if res.status >= 500:
                 program_data = {"httpStatus": res.status}
             else:
                 program_data = await res.json()
