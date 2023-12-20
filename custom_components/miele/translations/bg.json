@@ -460,6 +460,11 @@
       }
     }
   },
+  "issues": {
+    "hob_not_supported": {
+      "title": "Уредът {tech_type} не се поддържа напълно"
+    }
+  },
   "selector": {
     "process_action_options": {
       "options": {
