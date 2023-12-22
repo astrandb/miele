@@ -3,7 +3,8 @@ homeassistant
 pip>=21.0,<23.3
 ruff==0.1.8
 pre-commit==3.6.0
-bump2version==1.0.1
+bumpver
+urllib3>=1.26.5,<2
 
 flatdict==4.0.1
 pymiele

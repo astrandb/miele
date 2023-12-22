@@ -1,25 +1,17 @@
-src_dir := custom_components/miele
-
 bump:
-	bump2version --allow-dirty patch $(src_dir)/const.py $(src_dir)/manifest.json
+	bumpver update --patch --no-fetch
 
 bump_minor:
-	bump2version --allow-dirty minor $(src_dir)/const.py $(src_dir)/manifest.json
+	bumpver update minor --no-fetch
 
 bump_major:
-	bump2version --allow-dirty major $(src_dir)/const.py $(src_dir)/manifest.json
+	bumpver update major --no-fetch
 
-# lint:
-# 	isort $(src_dir)
-# 	black $(src_dir)
-# 	flake8 $(src_dir)
+bump_beta:
+	bumpver update --no-fetch --patch --tag=beta --tag-num
 
-# .venv:
-# 	python3.10 -m venv .venv
+bump_beta_next:
+	bumpver update --no-fetch --tag-num
 
-# install_dev: | .venv
-# 	(. .venv/bin/activate; \
-# 	pip install -Ur requirements-dev.txt )
-
-# clean:
-# 	rm -rf .venv $(src_dir)/__pycache__
+bump_remove_beta_tag:
+	bumpver update --no-fetch --tag=final
