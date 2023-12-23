@@ -41,7 +41,7 @@ template: |
   ### Checklist for release
   - Download translations PR from Lokalize
   - Run ruff linter
-  - Run make bump - select proper variank in Makefile
+  - Run make bump - select proper variant from Makefile
   - Review the draft below
   - Remove this checklist
 
