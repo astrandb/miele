@@ -28,7 +28,9 @@ categories:
   - title: "Code quality and optimizations"
     label: "code quality"
   - title: "Development tools"
-    label: "development tools"
+    labels:
+      - "development tools"
+      - "dev-tools"
 
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
@@ -38,8 +40,8 @@ template: |
 
   ### Checklist for release
   - Download translations PR from Lokalize
-  - Run make lint
-  - Run make bump
+  - Run ruff linter
+  - Run make bump - select proper variant from Makefile
   - Review the draft below
   - Remove this checklist
 
@@ -69,3 +71,5 @@ autolabeler:
     files:
       - ".devcontainer/*"
       - ".devcontainer.json"
+      - "Makefile"
+      - "setup.cfg"

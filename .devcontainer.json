@@ -2,7 +2,9 @@
   "name": "astrandb/dev-miele",
   "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11-bullseye",
   "postCreateCommand": "scripts/setup",
-  "appPort": ["9123:8123"],
+  "appPort": [
+    "9123:8123"
+  ],
   "portsAttributes": {
     "8123": {
       "label": "Home Assistant internal",
@@ -21,8 +23,7 @@
         "ryanluker.vscode-coverage-gutters",
         "ms-python.vscode-pylance",
         "ms-python.pylint",
-        "charliermarsh.ruff",
-        "thibault-vanderseypen.i18n-json-editor"
+        "charliermarsh.ruff"
       ],
       "settings": {
         "files.eol": "\n",
@@ -39,14 +40,13 @@
         "files.trimTrailingWhitespace": true,
         "[markdown]": {
           "files.trimTrailingWhitespace": false
-        },
-        "i18nJsonEditor.forceKeyUPPERCASE": false,
-        "i18nJsonEditor.supportedFolders": ["translations", "i18n"]
+        }
       }
     }
   },
   "remoteUser": "vscode",
   "features": {
-    "ghcr.io/devcontainers/features/rust:1": {}
+    "ghcr.io/devcontainers/features/rust:1": {},
+    "ghcr.io/devcontainers-contrib/features/ffmpeg-apt-get:1": {}
   }
 }
