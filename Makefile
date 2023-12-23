@@ -13,5 +13,5 @@ bump_beta:
 bump_beta_next:
 	bumpver update --no-fetch --tag-num
 
-bump_remove_beta_tag:
+bump_final:
 	bumpver update --no-fetch --tag=final
