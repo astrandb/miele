@@ -38,12 +38,14 @@ change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add
 template: |
   [![Downloads for this release](https://img.shields.io/github/downloads/$OWNER/$REPOSITORY/v$RESOLVED_VERSION/total.svg)](https://github.com/$OWNER/$REPOSITORY/releases/v$RESOLVED_VERSION)
 
+  <!--
   ### Checklist for release
   - Download translations PR from Lokalize
   - Run ruff linter
   - Run make bump - select proper variant from Makefile
   - Review the draft below
   - Remove this checklist
+  -->
 
   ## Notable Changes
 
