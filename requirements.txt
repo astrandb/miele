@@ -4,7 +4,7 @@ pip>=21.0,<23.3
 ruff==0.1.9
 pre-commit==3.6.0
 bumpver==2023.1129
-urllib3>=1.26.5,<2
+urllib3>=1.26.5,<3
 
 flatdict==4.0.1
 pymiele
