@@ -306,7 +306,8 @@
           "brewing_unit_degrease": "Brewing unit degrease",
           "descaling": "Appliance descaling",
           "appliance_settings": "Appliance settings menu",
-          "barista_assistant": "BaristaAssistant"
+          "barista_assistant": "BaristaAssistant",
+          "coffee_pot": "Coffee pot"
         }
       },
       "program_phase": {
