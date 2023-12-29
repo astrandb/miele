@@ -12,7 +12,7 @@ from homeassistant.components.climate import (
     ClimateEntityFeature,
 )
 from homeassistant.components.climate.const import HVACMode
-from homeassistant.const import ATTR_TEMPERATURE, TEMP_CELSIUS
+from homeassistant.const import ATTR_TEMPERATURE, UnitOfTemperature
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -62,7 +62,7 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             current_temperature_tag="state|temperature|0|value_raw",
             target_temperature_tag="state|targetTemperature|0|value_raw",
             name="Zone 1",
-            temperature_unit=TEMP_CELSIUS,
+            temperature_unit=UnitOfTemperature.CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
             hvac_modes=[HVACMode.COOL],
@@ -77,7 +77,7 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             current_temperature_tag="state|temperature|1|value_raw",
             target_temperature_tag="state|targetTemperature|1|value_raw",
             name="Zone 2",
-            temperature_unit=TEMP_CELSIUS,
+            temperature_unit=UnitOfTemperature.CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
             hvac_modes=[HVACMode.COOL],
@@ -92,7 +92,7 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
             current_temperature_tag="state|temperature|2|value_raw",
             target_temperature_tag="state|targetTemperature|2|value_raw",
             name="Zone 3",
-            temperature_unit=TEMP_CELSIUS,
+            temperature_unit=UnitOfTemperature.CELSIUS,
             precision=1.0,
             target_temperature_step=1.0,
             hvac_modes=[HVACMode.COOL],
