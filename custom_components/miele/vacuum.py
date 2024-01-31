@@ -16,7 +16,7 @@ from homeassistant.components.vacuum import (
     STATE_PAUSED,
     STATE_RETURNING,
     StateVacuumEntity,
-    VacuumEntityDescription,
+    StateVacuumEntityDescription,
     VacuumEntityFeature,
 )
 from homeassistant.core import HomeAssistant
@@ -69,7 +69,7 @@ SUPPORTED_FEATURES = (
 
 
 @dataclass
-class MieleVacuumDescription(VacuumEntityDescription):
+class MieleVacuumDescription(StateVacuumEntityDescription):
     """Class describing Miele vacuum entities."""
 
     data_tag: str | None = None
