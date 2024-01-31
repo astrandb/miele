@@ -10,6 +10,9 @@
       "missing_configuration": "Il componente non è stato configurato. Seguire la documentazione.",
       "no_url_available": "Nessun URL disponibile. Per ulteriori informazioni riguardo questo errore, [controlla la sezione supporto]({docs_url})",
       "oauth_error": "Token autenticazione invalido.",
+      "oauth_failed": "Errore nell'ottenere il token di autenticazione OAuth.",
+      "oauth_timeout": "Timeout nell'ottnere il token di autenticazione OAuth.",
+      "oauth_unauthorized": "Si è verificato un problema nell'ottenere il token di autenticazione OAuth.",
       "reauth_successful": "Ri-autenticazione avvenuta con successo"
     },
     "create_entry": {
@@ -27,6 +30,46 @@
         "description": "Stai per aggiungere `{name}` e altri elettrodomestici Miele, se presenti, su Home Assistant.\n\n**Per completare il processo, devi inserire le tue credenziali.**",
         "title": "Conferma che stai aggiungendo l'integrazione Miele"
       }
+    }
+  },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} ha un guasto",
+      "idle": "{entity_name} è inattivo",
+      "not_connected": "{entity_name} è non connesso",
+      "off": "{entity_name} è spento",
+      "on": "{entity_name} è acceso",
+      "pause": "{entity_name} è in pausa",
+      "program_ended": "{entity_name} ha finito il programma",
+      "program_interrupted": "{entity_name} ha interrotto il programma",
+      "programmed": "{entity_name} è programmato",
+      "rinse_hold": "{entity_name} è in stop con acqua",
+      "running": "{entity_name} è in funzione",
+      "service": "{entity_name} è nel menu impostazioni",
+      "supercooling": "{entity_name}: SuperRaffreddamento attivo",
+      "supercooling_superfreezing": "{entity_name}: SuperRaffreddamento/SuperFrost attivo",
+      "superfreezing": "{entity_name} SuperFrost attivo",
+      "superheating": "{entity_name} SuperRiscaldamento attivo",
+      "waiting_to_start": "{entity_name} è in attesa di partire"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Guasto",
+      "idle": "{entity_name} Inattivo",
+      "not_connected": "{entity_name} Non connesso",
+      "off": "{entity_name} Off",
+      "on": "{entity_name} On",
+      "pause": "{entity_name} Pausa",
+      "program_ended": "{entity_name} Fine programma",
+      "program_interrupted": "{entity_name} Programma interrotto",
+      "programmed": "{entity_name} Programmato",
+      "rinse_hold": "{entity_name} Stop con acqua",
+      "running": "{entity_name} In funzione",
+      "service": "{entity_name} Impostazioni",
+      "supercooling": "{entity_name} SuperRaffreddamento",
+      "supercooling_superfreezing": "{entity_name} SuperRaffreddamento/SuperFrost",
+      "superfreezing": "{entity_name} SuperFrost",
+      "superheating": "{entity_name} SuperRiscaldamento",
+      "waiting_to_start": "{entity_name} In attesa di partire"
     }
   },
   "entity": {
@@ -162,6 +205,7 @@
           "check_appliance": "Verificare elettrodomestico",
           "clean_machine": "Pulizia macchina",
           "coffee": "Caffè",
+          "coffee_pot": "Caffettiera",
           "conventional_heat": "Calore superiore/inferiore",
           "cool_air": "Aria fresca",
           "cottons": "Cotone",
@@ -198,6 +242,7 @@
           "gentle_smoothing": "Pre-stiratura",
           "glasses_warm": "Bicchieri Birra",
           "green_tea": "Tè verde",
+          "heat_crockery": "Riscaldare stoviglie",
           "herbal_tea": "Tè alle erbe",
           "hot_milk": "Latte caldo",
           "hot_water": "Acqua calda",
@@ -205,6 +250,8 @@
           "intensive": "Intenso",
           "intensive_bake": "Cottura intensa",
           "japanese_tea": "Tè giapponese",
+          "keeping_warm": "Tenere in caldo",
+          "large_pillows": "Cuscini grandi",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Caffè lungo",
           "maintenance": "Manutenzione macchina",
@@ -213,12 +260,18 @@
           "milk_pipework_clean": "Pulizia condotti latte",
           "milk_pipework_rinse": "Risciacquo condotti latte",
           "minimum_iron": "Lava/Indossa",
+          "moisture_plus_auto_roast": "Cottura con vapore + Arrostire",
+          "moisture_plus_conventional_heat": "Cottura con vapore + Calore sup./inf.",
           "moisture_plus_fan_plus": "Cottura con vapore",
+          "moisture_plus_intensive_bake": "Cottura con vapore + Cottura intensa",
           "no_program": "Nessun programma",
           "normal": "Normale",
           "outerwear": "Capi outdoor",
           "pillows": "Cuscini",
           "proofing": "Impermeabilizzare",
+          "prove_15_min": "Lievitazione impasto 15 minuti",
+          "prove_30_min": "Lievitazione impasto 30 minuti",
+          "prove_45_min": "Lievitazione impasto 45 minuti",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Solo risciacquo",
           "rinse_out_lint": "Autopulizia cesto",
@@ -439,6 +492,12 @@
           }
         }
       }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "L'elettrodomestico {tech_type} non è pienamente supportato dall'integrazione Miele. Alcune entità potrebbero essere mancanti o non funzionanti.\n\nPer favore, segnala questo problema allo [sviluppatore su Github]({issue_url})",
+      "title": "L'elettrodomestico {tech_type} non è pienamente supportato."
     }
   },
   "selector": {
