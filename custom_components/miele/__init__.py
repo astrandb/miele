@@ -275,13 +275,14 @@ async def get_coordinator(
                     raise ConfigEntryAuthFailed(
                         "Authentication failure when fetching data"
                     )
-                else:
-                    raise UpdateFailed(
-                        f"HTTP status 401: {hass.data[DOMAIN][entry.entry_id]['retries_401']}"
-                    )
+                raise UpdateFailed(
+                    f"HTTP status 401: Retry {hass.data[DOMAIN][entry.entry_id]['retries_401']}"
+                )
+            if res.status != 200:
+                raise UpdateFailed(f"HTTP Status {res.status}: fetching {DOMAIN} data")
             result = await res.json()
         except JSONDecodeError as error:
-            _LOGGER.warning("Could not decode json from coordinator fetch")
+            _LOGGER.error("Could not decode json from coordinator fetch")
             raise UpdateFailed(error) from error
 
         hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
@@ -308,6 +309,7 @@ async def get_coordinator(
                     flatdict.FlatterDict(result[ent], delimiter="|")
                 )
         except TypeError as ex:
+            _LOGGER.error("Error flattening data")
             raise UpdateFailed(ex) from ex
 
         # _LOGGER.debug("Data: %s", flat_result)
