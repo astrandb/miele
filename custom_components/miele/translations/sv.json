@@ -335,6 +335,7 @@
           "hot_milk": "Varm mjölk",
           "hygiene": "Hygien",
           "interim_rinse": "Mellansköljning",
+          "keep_warm": "Varmhållning",
           "machine_iron": "Maskinstykning",
           "main_dishwash": "Diskar",
           "main_wash": "Huvudtvätt",
@@ -359,6 +360,7 @@
           "rinses": "Sköljer",
           "safety_cooling": "Säkerhetskylning",
           "slightly_dry": "Lätt torr",
+          "slow_roasting": "Långsam tillagning",
           "smoothing": "Slätar ut",
           "soak": "Blötläggning",
           "spin": "Centrifugering",
@@ -371,6 +373,8 @@
           "vacuum_internal_fault": "Internt fel - starta om",
           "venting": "Ventilerar",
           "warm_air": "Varmluft",
+          "warm_cups_glasses": "Värma koppar/glas",
+          "warm_dishes_plates": "Värma tallrikar",
           "wheel_lifted": "Hjul upplyft"
         }
       },
