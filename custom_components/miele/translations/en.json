@@ -335,6 +335,7 @@
           "hot_milk": "Hot milk",
           "hygiene": "Hygiene",
           "interim_rinse": "Interim rinse",
+          "keep_warm": "Keep warm",
           "machine_iron": "Machine iron",
           "main_dishwash": "Cleaning",
           "main_wash": "Main wash",
@@ -359,6 +360,7 @@
           "rinses": "Rinses",
           "safety_cooling": "Safety cooling",
           "slightly_dry": "Slightly dry",
+          "slow_roasting": "Slow roasting",
           "smoothing": "Smoothing",
           "soak": "Soak",
           "spin": "Spin",
@@ -371,6 +373,8 @@
           "vacuum_internal_fault": "Internal fault - reboot",
           "venting": "Venting",
           "warm_air": "Warm air",
+          "warm_cups_glasses": "Warm cups/glasses",
+          "warm_dishes_plates": "Warm dishes/plates",
           "wheel_lifted": "Wheel lifted"
         }
       },

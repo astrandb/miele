@@ -393,6 +393,14 @@ OVEN_PROGRAM_ID = {
     "unmapped_1": "steam_bake",
     17003: "no_program",
 }
+DISH_WARMER_PROGRAM_ID = {
+    -1: "no_program",
+    0: "no_program",
+    1: "warm_cups_glasses",
+    2: "warm_dishes_plates",
+    3: "keep_warm",
+    4: "slow_roasting",
+}
 ROBOT_VACUUM_CLEANER_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types
     0: "no_program",  # Extrapolated from other device types
@@ -582,6 +590,7 @@ STATE_PROGRAM_ID = {
     WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
     TUMBLE_DRYER: TUMBLE_DRYER_PROGRAM_ID,
     DISHWASHER: DISHWASHER_PROGRAM_ID,
+    DISH_WARMER: DISH_WARMER_PROGRAM_ID,
     OVEN: OVEN_PROGRAM_ID,
     OVEN_MICROWAVE: OVEN_PROGRAM_ID,
     STEAM_OVEN_MK2: OVEN_PROGRAM_ID,
