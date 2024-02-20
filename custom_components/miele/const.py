@@ -1,7 +1,7 @@
 """Constants for the Miele integration."""
 
 DOMAIN = "miele"
-VERSION = "2024.2.0b1"
+VERSION = "2024.2.0b2"
 API_READ_TIMEOUT = 20
 MANUFACTURER = "Miele"
 
