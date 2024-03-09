@@ -5,11 +5,14 @@
   "config": {
     "abort": {
       "already_configured": "Account is al geconfigureerd",
-      "already_in_progress": "Er is al een configuratie bezig",
-      "authorize_url_timeout": "Timeout bij het genereren van een authorisatie URL.",
+      "already_in_progress": "Er is al een ander configuratie-proces bezig",
+      "authorize_url_timeout": "Het genereren van een authorisatie URL duurde te lang.",
       "missing_configuration": "Het component is niet correct geconfigureerd. Raadpleeg de documentatie.",
       "no_url_available": "Geen URL beschikbaar. Voor meer informatie over deze error, [raadpleeg de hulp sectie]({docs_url}).",
       "oauth_error": "Ongeldige token data ontvangen.",
+      "oauth_failed": "Er is iets fout gegaan het ophalen van het access token.",
+      "oauth_timeout": "Ophalen OAuth token duurde te lang.",
+      "oauth_unauthorized": "Er is een OAuth autorisatiefout opgetreden bij het ophalen van het access token.",
       "reauth_successful": "Her-authenticatie was succesvol"
     },
     "create_entry": {
@@ -36,7 +39,7 @@
       "not_connected": "{entity_name} is niet verbonden",
       "off": "{entity_name} is uitgeschakeld",
       "on": "{entity_name} is ingeschakeld",
-      "pause": "{entity_name} wordt onderbroken",
+      "pause": "{entity_name} is gepauzeerd",
       "program_ended": "{entity_name} heeft het programma beëindigd",
       "program_interrupted": "{entity_name} heeft het programma onderbroken",
       "programmed": "{entity_name} is geprogrammeerd",
@@ -46,7 +49,7 @@
       "supercooling": "{entity_name} is aan het superkoelen",
       "supercooling_superfreezing": "{entity_name} is aan het superkoelen/supervriezen",
       "superfreezing": "{entity_name} is aan het supervriezen",
-      "superheating": "{entity_name} is aan het oververhitten",
+      "superheating": "{entity_name} is aan het superverwarmen",
       "waiting_to_start": "{entity_name} wacht om te starten"
     },
     "trigger_type": {
@@ -65,8 +68,8 @@
       "supercooling": "{entity_name} Superkoelen",
       "supercooling_superfreezing": "{entity_name} Superkoelen/supervriezen",
       "superfreezing": "{entity_name} Supervriezen",
-      "superheating": "{entity_name} Oververhitting",
-      "waiting_to_start": "{entity_name} Wachten om te starten"
+      "superheating": "{entity_name} Superverwarmen",
+      "waiting_to_start": "{entity_name} wacht om te starten"
     }
   },
   "entity": {
@@ -121,25 +124,25 @@
     },
     "number": {
       "plate_0": {
-        "name": "Plate 0"
+        "name": "Plaat 0"
       },
       "plate_1": {
-        "name": "Plate 1"
+        "name": "Plaat 1"
       },
       "plate_2": {
-        "name": "Plate 2"
+        "name": "Plaat 2"
       },
       "plate_3": {
-        "name": "Plate 3"
+        "name": "Plaat 3"
       },
       "plate_4": {
-        "name": "Plate 4"
+        "name": "Plaat 4"
       },
       "plate_5": {
-        "name": "Plate 5"
+        "name": "Plaat 5"
       },
       "plate_6": {
-        "name": "Plate 6"
+        "name": "Plaat 6"
       }
     },
     "sensor": {
@@ -187,13 +190,13 @@
           "auto": "Auto",
           "auto_roast": "Automatisch roosteren",
           "automatic": "Automatisch",
-          "automatic_plus": "Automatic extra",
+          "automatic_plus": "Automatisch extra",
           "baking_tray": "Bakplaat",
           "barista_assistant": "BaristaAssistant",
           "basket_program": "Wasmand programma",
           "bed_linen": "Bedlinnen",
           "black_tea": "Zwarte thee",
-          "bottom_heat": "Onder warmte",
+          "bottom_heat": "Onderwarmte",
           "brewing_unit_degrease": "Filtersysteem ontvetten",
           "cafe_au_lait": "Café au lait",
           "caffe_latte": "Caffè latte",
@@ -202,7 +205,8 @@
           "check_appliance": "Controleer apparaat",
           "clean_machine": "Apparaat reinigen",
           "coffee": "Koffie",
-          "conventional_heat": "Boven/onder warmte",
+          "coffee_pot": "Koffiekan",
+          "conventional_heat": "Boven-/onderwarmte",
           "cool_air": "Koud luchten",
           "cottons": "Katoen",
           "cottons_eco": "Katoen ECO",
@@ -219,7 +223,7 @@
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
           "eco_fan_heat": "Hete lucht ECO",
-          "economy_grill": "Economische grill",
+          "economy_grill": "Zuinige grill",
           "espresso": "Espresso",
           "espresso_macchiato": "Espresso macchiato",
           "express": "Express",
@@ -238,6 +242,7 @@
           "gentle_smoothing": "Behoedzaam gladstrijken",
           "glasses_warm": "Warme glazen",
           "green_tea": "Groene thee",
+          "heat_crockery": "Servies verwarmen",
           "herbal_tea": "Kruidenthee",
           "hot_milk": "Hete melk",
           "hot_water": "Warm water",
@@ -245,6 +250,8 @@
           "intensive": "Intensief",
           "intensive_bake": "Intensief bakken",
           "japanese_tea": "Japanse thee",
+          "keeping_warm": "Warmhouden",
+          "large_pillows": "Grote kussens",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Long black",
           "maintenance": "Onderhoudsprogramma",
@@ -253,12 +260,18 @@
           "milk_pipework_clean": "Melkleiding reinigen",
           "milk_pipework_rinse": "Melkleiding spoelen",
           "minimum_iron": "Kreukherstellend",
+          "moisture_plus_auto_roast": "Vocht plus en auto roosteren",
+          "moisture_plus_conventional_heat": "Vocht plus en verwarmen",
           "moisture_plus_fan_plus": "Moisture Plus + Fan Plus",
+          "moisture_plus_intensive_bake": "Vocht plus en intensief bakken",
           "no_program": "Geen programma",
           "normal": "Normaal",
           "outerwear": "Outdoor",
           "pillows": "Hoofdkussens",
           "proofing": "Impregneren",
+          "prove_15_min": "15 min. rijzen",
+          "prove_30_min": "30 min. rijzen",
+          "prove_45_min": "45 min. rijzen",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Spoelen",
           "rinse_out_lint": "Pluisjes uitspoelen",
@@ -267,7 +280,7 @@
           "shirts": "Overhemden",
           "silent": "Stil",
           "silks": "Zijde",
-          "silks_handcare": "Zijde handverzorging",
+          "silks_handcare": "Zijde handwas",
           "smoothing": "Gladstrijken",
           "solar_save": "SolarSave",
           "sportswear": "Sportkleding",
@@ -277,14 +290,14 @@
           "steam_care": "Stoom verzorging",
           "steam_smoothing": "Gladstrijken met stoom",
           "tall_items": "Grote items",
-          "top_heat": "Boven warmte",
+          "top_heat": "Bovenwarmte",
           "trainers": "Sportschoenen",
           "turbo": "Turbo",
           "very_hot_water": "Heet water",
           "warm_air": "Warm luchten",
           "white_tea": "Witte thee",
           "woollens": "Wol",
-          "woollens_handcare": "Wollen handverzorging"
+          "woollens_handcare": "Wol handwas"
         }
       },
       "program_phase": {
@@ -304,6 +317,7 @@
           "disinfecting": "Desinfecteren",
           "dispensing": "Doseren",
           "docked": "Gedokt",
+          "door_open": "Deur open",
           "drain": "Afwatering",
           "drying": "Drogen",
           "dust_box_missing": "Stofreservoir ontbreekt",
@@ -319,9 +333,12 @@
           "hand_iron_1": "Handgestreken 1",
           "hand_iron_2": "Handgestreken 2",
           "heating": "Verwarmen",
+          "heating_up": "Opwarmen",
           "hot_milk": "Hete melk",
           "hygiene": "Hygiëne",
           "interim_rinse": "Tussendoor spoelen",
+          "keep_warm": "Warmhouden",
+          "keeping_warm": "Warmhouden",
           "machine_iron": "Machine gestreken",
           "main_dishwash": "Schoonmaken",
           "main_wash": "Wassen",
@@ -346,6 +363,7 @@
           "rinses": "Spoelcycli",
           "safety_cooling": "Veiligheidskoeling",
           "slightly_dry": "Lichtelijk droog",
+          "slow_roasting": "Langzaam roosteren",
           "smoothing": "Gladstrijken",
           "soak": "Inweken",
           "spin": "Centrifugeren",
@@ -358,6 +376,8 @@
           "vacuum_internal_fault": "Interne fout - Herstarten",
           "venting": "Luchten",
           "warm_air": "Warme lucht",
+          "warm_cups_glasses": "Koppen/glazen verwarmen",
+          "warm_dishes_plates": "Borden verwarmen",
           "wheel_lifted": "Wiel los van de grond"
         }
       },
@@ -401,9 +421,9 @@
           "rinse_hold": "Spoelstop",
           "running": "Bezig",
           "service": "Onderhoud",
-          "supercooling": "Super koelen",
-          "supercooling_superfreezing": "Super koelen / verwarmen",
-          "superfreezing": "Superbevriezing",
+          "supercooling": "Superkoelen",
+          "supercooling_superfreezing": "Superkoelen/supervriezen",
+          "superfreezing": "Supervriezen",
           "superheating": "Super verwarmen",
           "waiting_to_start": "Start ingepland"
         },
@@ -452,10 +472,10 @@
         "name": "Schakel in"
       },
       "supercooling": {
-        "name": "Super koelen"
+        "name": "Superkoelen"
       },
       "superfreezing": {
-        "name": "Superbevriezing"
+        "name": "Supervriezen"
       }
     },
     "vacuum": {
@@ -481,16 +501,22 @@
       }
     }
   },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Het apparaattype {tech_type} wordt niet volledig ondersteund door de Miele integratie. Daarom kunnen sommige entiteiten ontbreken of niet goed werken.\n\nJe kunt dit probleem melden op [Github]({issue_url})",
+      "title": "Het apparaat {tech_type} wordt niet volledig ondersteund"
+    }
+  },
   "selector": {
     "process_action_options": {
       "options": {
         "pause": "Pauze",
         "start": "Start",
-        "start_supercooling": "Start superkoeling",
-        "start_superfreezing": "Start superfreezing",
+        "start_supercooling": "Start superkoelen",
+        "start_superfreezing": "Start supervriezen",
         "stop": "Stop",
-        "stop_supercooling": "Stop superkoeling",
-        "stop_superfreezing": "Stop superfreezing"
+        "stop_supercooling": "Stop superkoelen",
+        "stop_superfreezing": "Stop supervriezen"
       }
     }
   },

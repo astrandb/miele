@@ -1,0 +1,337 @@
+{
+  "application_credentials": {
+    "description": "Mene osoitteeseen [\"Get involved\" Mielen kehittäjäsivustolla]({register_url}) pyytääksesi tunnuksia. Kirjoita ne sitten alle."
+  },
+  "config": {
+    "abort": {
+      "already_configured": "Käyttäjätili on jo määritetty",
+      "missing_configuration": "Komponenttia ei ole määritetty. Seuraa ohjeita.",
+      "oauth_failed": "Virhe haettaessa pääsytokenia",
+      "oauth_timeout": "Aikakatkaisu haettaessa OAuth-tokenia.",
+      "oauth_unauthorized": "OAuth-kirjautumisongelma haettaesssa pääsytokenia.",
+      "reauth_successful": "Uudelleenkirjautuminen onnistui"
+    },
+    "create_entry": {
+      "default": "Kirjautuminen onnistui"
+    },
+    "step": {
+      "pick_implementation": {
+        "title": "Valitse kirjautumistapa"
+      },
+      "reauth_confirm": {
+        "description": "Miele-integraation täytyy kirjautua uudelleen käyttäjätiliisi: {account}",
+        "title": "Uudelleenkirjaudu integraatioon"
+      },
+      "zeroconf_confirm": {
+        "description": "Olet lisäämässä `{name}` ja muita Miele-kodinkoneita Home Assistantiin.\n\n**Jatkaaksesi sinun on annettava kirjautumistietosi**",
+        "title": "Vahvista, että olet lisäämässä Miele-integraatiota"
+      }
+    }
+  },
+  "device_automation": {
+    "condition_type": {
+      "failure": "{entity_name} on epäonnistuu",
+      "not_connected": "{entity_name} ei ole yhteydessä",
+      "off": "{entity_name} on pois päältä",
+      "on": "{entity_name} on päällä",
+      "program_ended": "{entity_name} on lopettanut ohjelman",
+      "program_interrupted": "{entity_name} on keskeyttänyt ohjelman",
+      "programmed": "{entity_name} on ohjelmoitu",
+      "running": "{entity_name} on käynnissä",
+      "service": "{entity_name} on huollossa",
+      "superfreezing": "{entity_name}: Pikapakastus on käynnissä",
+      "waiting_to_start": "{entity_name} Odotetaan alkamista"
+    },
+    "trigger_type": {
+      "failure": "{entity_name} Virhetilanne",
+      "not_connected": "{entity_name} Ei yhdistetty",
+      "off": "{entity_name} Pois päältä",
+      "on": "{entity_name} Päällä",
+      "pause": "{entity_name} Tauko",
+      "program_ended": "{entity_name} Ohjelma päättyi",
+      "program_interrupted": "{entity_name} Ohjelma keskeytetty",
+      "programmed": "{entity_name} Ohjelmoitu",
+      "running": "{entity_name} Käynnissä",
+      "service": "{entity_name} Huolto",
+      "superfreezing": "{entity_name} Pikapakastus",
+      "waiting_to_start": "{entity_name} Odotetaan alkamista"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door": {
+        "name": "Ovi"
+      },
+      "info": {
+        "name": "Tiedot"
+      },
+      "mobile_start": {
+        "name": "Etäkäynnistys"
+      },
+      "remote_control": {
+        "name": "Kauko-ohjaus"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Käynnistä"
+      },
+      "stop": {
+        "name": "Lopeta"
+      }
+    },
+    "climate": {
+      "freezer": {
+        "name": "Pakastin"
+      },
+      "fridge": {
+        "name": "Jääkaappi"
+      }
+    },
+    "fan": {
+      "fan": {
+        "name": "Tuuletin"
+      }
+    },
+    "light": {
+      "ambient_light": {
+        "name": "Taustavalo"
+      },
+      "light": {
+        "name": "Valo"
+      }
+    },
+    "sensor": {
+      "battery": {
+        "name": "Akku"
+      },
+      "elapsed_time": {
+        "name": "Kulunut aika"
+      },
+      "energy_consumption": {
+        "name": "Energiankulutus"
+      },
+      "energy_forecast": {
+        "name": "Energiankulutuksen ennuste"
+      },
+      "finish_at": {
+        "name": "Lopetusaika"
+      },
+      "program_id": {
+        "name": "Ohjelma",
+        "state": {
+          "appliance_rinse": "Huuhtelu",
+          "appliance_settings": "Asetusvalikko",
+          "barista_assistant": "Barista-avustaja",
+          "black_tea": "Musta tee",
+          "bottom_heat": "Alalämpö",
+          "brewing_unit_degrease": "Keittoyksikön rasvanpoisto",
+          "cafe_au_lait": "Café au lait",
+          "caffe_latte": "Caffè latte",
+          "cappuccino": "Cappuccino",
+          "cappuccino_italiano": "italialainen Cappuccino",
+          "check_appliance": "Tarkista laite",
+          "coffee": "Kahvi",
+          "coffee_pot": "Kahvikannu",
+          "defrost": "Sulatus",
+          "descaling": "Kalkinpoisto",
+          "espresso": "Espresso",
+          "espresso_macchiato": "Espresso macchiato",
+          "flat_white": "Flat white",
+          "fruit_tea": "Hedelmätee",
+          "green_tea": "Vihreä tee",
+          "herbal_tea": "Yrttitee",
+          "hot_milk": "Kuuma maito",
+          "hot_water": "Kuuma vesi",
+          "japanese_tea": "Japanilainen tee",
+          "latte_macchiato": "Latte macchiato",
+          "long_coffee": "Iso kahvi",
+          "maintenance": "Huolto-ohjelma",
+          "milk_foam": "Maitovaahto",
+          "milk_pipework_clean": "Maitoputkien puhdistus",
+          "milk_pipework_rinse": "Maitoputkiston huuhtelu",
+          "no_program": "Ei ohjelmaa",
+          "ristretto": "Ristretto",
+          "silent": "Hiljainen",
+          "top_heat": "Ylälämpö",
+          "turbo": "Turbo",
+          "very_hot_water": "Erittäin kuuma vesi",
+          "white_tea": "Valkoinen tee"
+        }
+      },
+      "program_phase": {
+        "name": "Ohjelman vaihe",
+        "state": {
+          "2nd_espresso": "Toinen espresso",
+          "2nd_grinding": "Toinen jauhatus",
+          "2nd_pre_brewing": "Toinen esiuutto",
+          "blocked_drive_wheels": "Vetopyörissä on este",
+          "blocked_front_wheel": "Etupyörässä este",
+          "dirty_sensors": "Likaiset anturit",
+          "dispensing": "Annostelu",
+          "docked": "Telakoituna",
+          "door_open": "Ovi auki",
+          "drying": "Kuivaus",
+          "dust_box_missing": "Pölysäiliö pois paikaltaan",
+          "energy_save": "Virransäästö",
+          "espresso": "Espressokahvi",
+          "final_rinse": "Viimeinen huuhtelu",
+          "going_to_target_area": "Menossa kohdealueelle",
+          "grinding": "Jauhatus",
+          "heating": "Lämmitys",
+          "hot_milk": "Kuuma maito",
+          "main_dishwash": "Puhdistus",
+          "milk_foam": "Maidon vaahdotus",
+          "motor_overload": "Tarkista pölysäiliö ja -suodatin",
+          "normal": "Normaali",
+          "not_running": "Ei käynnissä",
+          "pre_brewing": "Esiuutto",
+          "pre_dishwash": "Esipuhdistus",
+          "pre_wash": "Esipesu",
+          "program_running": "Ohjelma käynnissä",
+          "remote_controlled": "Etäohjattu",
+          "returning": "Palaamassa",
+          "rinse": "Huuhtelu",
+          "soak": "Liotus",
+          "vacuum_cleaning": "Puhdistus",
+          "vacuum_cleaning_paused": "Puhdistus keskeytetty",
+          "vacuum_internal_fault": "Sisäinen vika - uudelleenkäynnistys",
+          "wheel_lifted": "Pyörä nostettu"
+        }
+      },
+      "program_type": {
+        "state": {
+          "automatic_program": "Automaattinen ohjelma",
+          "maintenance_program": "Huolto-ohjelma"
+        }
+      },
+      "remaining_time": {
+        "name": "Jäljellä oleva aika"
+      },
+      "start_at": {
+        "name": "Aloita klo"
+      },
+      "start_time": {
+        "name": "Aloitusaika"
+      },
+      "status": {
+        "name": "Tila",
+        "state": {
+          "failure": "Virhetilanne",
+          "not_connected": "Ei yhdistetty",
+          "off": "Pois päältä",
+          "on": "Päällä",
+          "program_ended": "Ohjelma päättynyt",
+          "program_interrupted": "Ohjelma keskeytetty",
+          "programmed": "Ohjelmoitu",
+          "running": "Käynnissä",
+          "service": "Huolto",
+          "superfreezing": "Pikapakastus",
+          "waiting_to_start": "Odottaa aloitusta"
+        },
+        "state_attributes": {
+          "appliance": {
+            "name": "Kodinkone"
+          },
+          "manufacturer": {
+            "name": "Valmistaja"
+          },
+          "model": {
+            "name": "Malli"
+          },
+          "serial_no": {
+            "name": "Sarjanumero"
+          }
+        }
+      },
+      "target_temperature": {
+        "name": "Kohdelämpötila"
+      },
+      "target_temperature_zone_2": {
+        "name": "Kohdelämpötila-alue 2"
+      },
+      "target_temperature_zone_3": {
+        "name": "Kohdelämpötila-alue 3"
+      },
+      "temperature": {
+        "name": "Lämpötila"
+      },
+      "temperature_zone_2": {
+        "name": "Lämpötila-alue 2"
+      },
+      "temperature_zone_3": {
+        "name": "Lämpötila-alue 3"
+      },
+      "water_consumption": {
+        "name": "Vedenkulutus"
+      },
+      "water_forecast": {
+        "name": "Vedenkulutuksen ennuste"
+      }
+    },
+    "switch": {
+      "power_on": {
+        "name": "Virta päälle"
+      },
+      "superfreezing": {
+        "name": "Pikapakastus"
+      }
+    },
+    "vacuum": {
+      "vacuum": {
+        "name": "Pölynimuri",
+        "state_attributes": {
+          "status": {
+            "name": "Tila",
+            "state": {
+              "blocked_drive_wheels": "Vetopyörissä on este",
+              "blocked_front_wheel": "Etupyörässä on este",
+              "check_dust_box_and_filter": "Tarkista pölysäiliö ja -suodatin",
+              "dirty_sensors": "Likaiset anturit",
+              "dust_box_missing": "Pölysäiliö pois paikaltaan",
+              "going_to_target_area": "Menossa kohdealueelle",
+              "internal_fault_reboot": "Sisäinen virhe - uudelleenkäynnistys",
+              "remote_controlled": "Etäohjattu",
+              "wheel_lifted": "Pyörä nostettu"
+            }
+          }
+        }
+      }
+    }
+  },
+  "issues": {
+    "hob_not_supported": {
+      "description": "Laitetyyppiä {tech_type} ei tueta kaikilta osin Miele-integraatiossa. Tämän takia osa muuttujista voi olla hukassa tai toimia väärin.\n\nRaportoithan ongelman [ylläpitäjälle Githubissa]({issue_url})",
+      "title": "Laite {tech_type} ei ole täysin tuettu"
+    }
+  },
+  "selector": {
+    "process_action_options": {
+      "options": {
+        "start": "Käynnistä",
+        "start_superfreezing": "Käynnistä pikapakastus",
+        "stop": "Lopeta",
+        "stop_superfreezing": "Lopeta pikapakastus"
+      }
+    }
+  },
+  "services": {
+    "raw": {
+      "fields": {
+        "serialno": {
+          "description": "Laitteen sarjanumero",
+          "name": "Sarjanumero"
+        }
+      }
+    },
+    "set_program": {
+      "description": "Aseta ja aloita ohjelma valinnaisilla parametreilla",
+      "name": "Aseta ohjelma"
+    }
+  },
+  "system_health": {
+    "info": {
+      "component_version": "Versio"
+    }
+  }
+}
