@@ -8,7 +8,11 @@ from typing import Any, Final
 
 import aiohttp
 
-from homeassistant.components.light import LightEntity, LightEntityDescription
+from homeassistant.components.light import (
+    ColorMode,
+    LightEntity,
+    LightEntityDescription,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -130,6 +134,9 @@ class MieleLight(CoordinatorEntity, LightEntity):
     """Representation of a Light."""
 
     entity_description: MieleLightDescription
+    _attr_color_mode = ColorMode.ONOFF
+    _attr_supported_color_modes = {ColorMode.ONOFF}
+    _attr_has_entity_name = True
 
     def __init__(
         self,
@@ -153,7 +160,6 @@ class MieleLight(CoordinatorEntity, LightEntity):
             appl_type = self.coordinator.data[self._ent][
                 "ident|deviceIdentLabel|techType"
             ]
-        self._attr_has_entity_name = True
         self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_supported_features = self.entity_description.supported_features
         self._attr_device_info = DeviceInfo(
