@@ -1,0 +1,8 @@
+{
+    "services": {
+        "generic_action": "mdi:script-outline",
+        "process_action": "mdi:script-text-outline",
+        "raw": "mdi:raw",
+        "set_program": "mdi:progress-check"
+    }
+}
