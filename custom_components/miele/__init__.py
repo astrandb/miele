@@ -1,4 +1,5 @@
 """The Miele integration."""
+
 from __future__ import annotations
 
 import asyncio
@@ -25,6 +26,7 @@ from homeassistant.helpers.config_entry_oauth2_flow import (
     OAuth2Session,
     async_get_config_entry_implementation,
 )
+from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
     ConfigEntryAuthFailed,
@@ -188,7 +190,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                     )
             result = await res.json()
             hass.data[DOMAIN][entry.entry_id][ACTIONS][serial] = result
-        except asyncio.TimeoutError as error:
+        except TimeoutError as error:
             raise ConfigEntryNotReady from error
         except JSONDecodeError:
             _LOGGER.warning(
@@ -363,3 +365,15 @@ async def _setup_sensor_config(hass: HomeAssistant, config: ConfigType):
                     ][program_id_definition[CONF_VALUE_RAW]] = program_id_definition[
                         CONF_VALUE
                     ]
+
+
+async def async_remove_config_entry_device(
+    hass: HomeAssistant, config_entry: ConfigEntry, device_entry: DeviceEntry
+) -> bool:
+    """Remove config entry from a device."""
+    api_data = hass.data[DOMAIN][config_entry.entry_id]["coordinator"].data
+    return not any(
+        identifier
+        for _, identifier in device_entry.identifiers
+        if identifier in api_data
+    )
