@@ -1,4 +1,5 @@
 """Platform for Miele vacuum integration."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -107,20 +108,26 @@ async def async_setup_entry(
     """Set up the vacuum platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    entities = []
-    for idx, ent in enumerate(coordinator.data):
-        for definition in VACUUM_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-                entities.append(
-                    MieleVacuum(
-                        coordinator,
-                        idx,
-                        ent,
-                        definition.description,
-                        hass,
-                        config_entry,
-                    )
-                )
+    entities = [
+        MieleVacuum(coordinator, idx, ent, definition.description, hass, config_entry)
+        for idx, ent in enumerate(coordinator.data)
+        for definition in VACUUM_TYPES
+        if coordinator.data[ent]["ident|type|value_raw"] in definition.types
+    ]
+    # entities = []
+    # for idx, ent in enumerate(coordinator.data):
+    #     for definition in VACUUM_TYPES:
+    #         if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+    #             entities.append(
+    #                 MieleVacuum(
+    #                     coordinator,
+    #                     idx,
+    #                     ent,
+    #                     definition.description,
+    #                     hass,
+    #                     config_entry,
+    #                 )
+    #             )
 
     async_add_entities(entities)
 
@@ -229,9 +236,11 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
     @property
     def fan_speed(self):
         """Return the fan speed."""
-        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
-            return "normal"
-        elif self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SPOT:
+        if (
+            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO
+            or self.coordinator.data[self._ent]["state|ProgramID|value_raw"]
+            == PROG_SPOT
+        ):
             return "normal"
         elif (
             self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO

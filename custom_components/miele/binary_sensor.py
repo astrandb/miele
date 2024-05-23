@@ -1,4 +1,5 @@
 """Platform for Miele binary_sensor integration."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -298,13 +299,19 @@ async def async_setup_entry(
     """Set up the sensor platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    entities = []
-    for idx, ent in enumerate(coordinator.data):
-        for definition in BINARY_SENSOR_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-                entities.append(
-                    MieleBinarySensor(coordinator, idx, ent, definition.description)
-                )
+    entities = [
+        MieleBinarySensor(coordinator, idx, ent, definition.description)
+        for idx, ent in enumerate(coordinator.data)
+        for definition in BINARY_SENSOR_TYPES
+        if coordinator.data[ent]["ident|type|value_raw"] in definition.types
+    ]
+    # entities = []
+    # for idx, ent in enumerate(coordinator.data):
+    #     for definition in BINARY_SENSOR_TYPES:
+    #         if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+    #             entities.append(
+    #                 MieleBinarySensor(coordinator, idx, ent, definition.description)
+    #             )
 
     async_add_entities(entities)
 

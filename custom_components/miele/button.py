@@ -1,4 +1,5 @@
 """Platform for Miele button integration."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -120,20 +121,26 @@ async def async_setup_entry(
     """Set up the button platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    entities = []
-    for idx, ent in enumerate(coordinator.data):
-        for definition in BUTTON_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-                entities.append(
-                    MieleButton(
-                        coordinator,
-                        idx,
-                        ent,
-                        definition.description,
-                        hass,
-                        config_entry,
-                    )
-                )
+    entities = [
+        MieleButton(coordinator, idx, ent, definition.description, hass, config_entry)
+        for idx, ent in enumerate(coordinator.data)
+        for definition in BUTTON_TYPES
+        if coordinator.data[ent]["ident|type|value_raw"] in definition.types
+    ]
+    # entities = []
+    # for idx, ent in enumerate(coordinator.data):
+    #     for definition in BUTTON_TYPES:
+    #         if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
+    #             entities.append(
+    #                 MieleButton(
+    #                     coordinator,
+    #                     idx,
+    #                     ent,
+    #                     definition.description,
+    #                     hass,
+    #                     config_entry,
+    #                 )
+    #             )
 
     async_add_entities(entities)
 
