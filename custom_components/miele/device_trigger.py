@@ -1,4 +1,5 @@
 """Provides device triggers for miele integration."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -49,7 +50,7 @@ async def async_get_triggers(
                 CONF_ENTITY_ID: entry.entity_id,
             }
             for state_value in TRIGGER_TYPES:
-                triggers.append({**base_trigger, CONF_TYPE: state_value})
+                triggers += [{**base_trigger, CONF_TYPE: state_value}]
 
     return triggers
 

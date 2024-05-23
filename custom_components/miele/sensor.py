@@ -742,13 +742,12 @@ async def async_setup_entry(
     """Set up the sensor platform."""
     coordinator = await get_coordinator(hass, config_entry)
 
-    entities = []
-    for idx, ent in enumerate(coordinator.data):
-        for definition in SENSOR_TYPES:
-            if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-                entities.append(
-                    MieleSensor(coordinator, idx, ent, definition.description)
-                )
+    entities = [
+        MieleSensor(coordinator, idx, ent, definition.description)
+        for idx, ent in enumerate(coordinator.data)
+        for definition in SENSOR_TYPES
+        if coordinator.data[ent]["ident|type|value_raw"] in definition.types
+    ]
 
     async_add_entities(entities)
 

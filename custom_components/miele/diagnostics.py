@@ -1,4 +1,5 @@
 """Diagnostics support for Miele."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -34,12 +35,10 @@ async def async_get_config_entry_diagnostics(
 
     device_data = {}
     action_data = {}
-    ino = 0
-    for key in coordinator.data:
-        ino += 1
-        device_data[f"Appliance_{ino}"] = coordinator.data[key]
+    for i, key in enumerate(coordinator.data):
+        device_data[f"Appliance_{i+1}"] = coordinator.data[key]
         if ACTIONS in hass.data[DOMAIN][config_entry.entry_id]:
-            action_data[f"Appliance_{ino}"] = hass.data[DOMAIN][config_entry.entry_id][
+            action_data[f"Appliance_{i+1}"] = hass.data[DOMAIN][config_entry.entry_id][
                 ACTIONS
             ][key]
 
