@@ -22,7 +22,7 @@
     "pymiele==0.1.7"
   ],
   "ssdp": [],
-  "version": "2024.3.0",
+  "version": "2024.5.0",
   "zeroconf": [
     "_mieleathome._tcp.local."
   ]
