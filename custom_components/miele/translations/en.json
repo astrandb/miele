@@ -123,6 +123,9 @@
       }
     },
     "number": {
+      "plate": {
+        "name": "Plate {plate_no}"
+      },
       "plate_0": {
         "name": "Plate 0"
       },
