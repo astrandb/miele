@@ -13,10 +13,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -44,6 +41,7 @@ from .const import (
     WASHER_DRYER,
     WASHING_MACHINE,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -145,7 +143,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleButton(CoordinatorEntity, ButtonEntity):
+class MieleButton(MieleEntity, ButtonEntity):
     """Representation of a Button."""
 
     entity_description: MieleButtonDescription
@@ -160,28 +158,10 @@ class MieleButton(CoordinatorEntity, ButtonEntity):
         entry: ConfigType,
     ):
         """Initialize the button."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._api = hass.data[DOMAIN][entry.entry_id][API]
         self._api_data = hass.data[DOMAIN][entry.entry_id]
-
-        self._idx = idx
-        self._ent = ent
-        self.entity_description = description
         _LOGGER.debug("init button %s", ent)
-        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
-        self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     def _action_available(self, action) -> bool:
         """Check if action is available according to API."""
