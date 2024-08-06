@@ -232,6 +232,7 @@ class MieleClimate(MieleEntity, ClimateEntity):
         self._attr_translation_key = name
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"
+        # deviates from MieleEntity
         self._attr_unique_id = f"{self._ed.key}-{zone}{self._ent}"
         self._attr_temperature_unit = self._ed.temperature_unit
         self._attr_precision = self._ed.precision
