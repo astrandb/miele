@@ -24,7 +24,20 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from . import get_coordinator
-from .const import ACTIONS, API, DOMAIN, MANUFACTURER, TARGET_TEMPERATURE
+from .const import (
+    ACTIONS,
+    API,
+    DOMAIN,
+    FREEZER,
+    FRIDGE,
+    FRIDGE_FREEZER,
+    MANUFACTURER,
+    TARGET_TEMPERATURE,
+    WINE_CABINET,
+    WINE_CABINET_FREEZER,
+    WINE_CONDITIONING_UNIT,
+    WINE_STORAGE_CONDITIONING_UNIT,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,7 +70,15 @@ class MieleClimateDefinition:
 
 CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
     MieleClimateDefinition(
-        types=[19, 20, 21, 32, 33, 34, 68],
+        types=[
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            WINE_CABINET_FREEZER,
+        ],
         description=MieleClimateDescription(
             key="thermostat",
             current_temperature_tag="state|temperature|0|value_raw",
@@ -72,7 +93,15 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
         ),
     ),
     MieleClimateDefinition(
-        types=[19, 20, 21, 32, 33, 34, 68],
+        types=[
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            WINE_CABINET_FREEZER,
+        ],
         description=MieleClimateDescription(
             key="thermostat",
             current_temperature_tag="state|temperature|1|value_raw",
@@ -87,7 +116,15 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
         ),
     ),
     MieleClimateDefinition(
-        types=[19, 20, 21, 32, 33, 34, 68],
+        types=[
+            FRIDGE,
+            FREEZER,
+            FRIDGE_FREEZER,
+            WINE_CABINET,
+            WINE_CONDITIONING_UNIT,
+            WINE_STORAGE_CONDITIONING_UNIT,
+            WINE_CABINET_FREEZER,
+        ],
         description=MieleClimateDescription(
             key="thermostat",
             current_temperature_tag="state|temperature|2|value_raw",
