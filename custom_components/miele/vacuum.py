@@ -24,10 +24,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -37,13 +34,13 @@ from .const import (
     ACTIONS,
     API,
     DOMAIN,
-    MANUFACTURER,
     POWER_OFF,
     POWER_ON,
     PROCESS_ACTION,
     PROGRAM_ID,
     ROBOT_VACUUM_CLEANER,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -132,7 +129,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
+class MieleVacuum(MieleEntity, StateVacuumEntity):
     """Representation of a Vacuum."""
 
     entity_description: MieleVacuumDescription
@@ -147,31 +144,14 @@ class MieleVacuum(CoordinatorEntity, StateVacuumEntity):
         entry: ConfigType,
     ):
         """Initialize the vacuum."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._api = hass.data[DOMAIN][entry.entry_id][API]
         self._api_data = hass.data[DOMAIN][entry.entry_id]
 
-        self._idx = idx
-        self._ent = ent
         self._phase = None
-        self.entity_description = description
         _LOGGER.debug("init vacuum %s", ent)
-        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
         self._attr_supported_features = SUPPORTED_FEATURES
         self._attr_fan_speed_list = FAN_SPEEDS
-        self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     @property
     def state(self):
