@@ -46,6 +46,7 @@ from .const import (
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
+    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
