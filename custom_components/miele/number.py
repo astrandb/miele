@@ -161,7 +161,7 @@ async def async_setup_entry(
                     key="plate",
                     data_tag=f"state|plateStep|{plate_no}|value_raw",
                     icon="mdi:stove",
-                    translation_key="plate_{plate_no}",
+                    translation_key="plate",
                     translation_placeholders={"plate_no": f"{plate_no+1}"}
                     zone=plate_no,
                     native_min_value=0.0,
