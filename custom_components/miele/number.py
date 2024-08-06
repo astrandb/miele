@@ -17,10 +17,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -31,6 +28,7 @@ from .const import (
     HOB_INDUCTION,
     MANUFACTURER,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
