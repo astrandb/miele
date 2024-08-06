@@ -46,7 +46,6 @@ from .const import (
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
-    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -765,23 +764,6 @@ class MieleSensor(MieleEntity, SensorEntity):
         """Initialize the sensor."""
         super().__init__(coordinator, idx, ent, description)
         _LOGGER.debug("init sensor %s", ent)
-        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
-        # deviates from MieleEntity
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-            hw_version=self.coordinator.data[self._ent]["ident|xkmIdentLabel|techType"],
-            sw_version=self.coordinator.data[self._ent][
-                "ident|xkmIdentLabel|releaseVersion"
-            ],
-        )
         if self.entity_description.convert_icon is not None:
             self._attr_icon = self.entity_description.convert_icon(
                 self.coordinator.data[self._ent][self.entity_description.type_key_raw],
