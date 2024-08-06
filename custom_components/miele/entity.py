@@ -39,4 +39,8 @@ class MieleEntity(CoordinatorEntity):
             name=appl_type,
             manufacturer=MANUFACTURER,
             model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
+            hw_version=self.coordinator.data[self._ent]["ident|xkmIdentLabel|techType"],
+            sw_version=self.coordinator.data[self._ent][
+                "ident|xkmIdentLabel|releaseVersion"
+            ],
         )
