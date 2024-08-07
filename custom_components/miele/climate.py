@@ -18,10 +18,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -38,6 +35,7 @@ from .const import (
     WINE_CONDITIONING_UNIT,
     WINE_STORAGE_CONDITIONING_UNIT,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -183,7 +181,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleClimate(CoordinatorEntity, ClimateEntity):
+class MieleClimate(MieleEntity, ClimateEntity):
     """Representation of a climate entity."""
 
     entity_description: MieleClimateDescription
@@ -198,23 +196,16 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         entry,
     ):
         """Initialize the climate entity."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._eid = hass.data[DOMAIN][entry.entry_id]
         self._api = self._eid[API]
 
-        self._idx = idx
-        self._ent = ent
         self._ed = description
         _LOGGER.debug("init climate %s", ent)
         # _LOGGER.debug(
         #   "Type: %s, Zone: %s",
         #   self.coordinator.data[self._ent]["ident|type|value_raw"], self._ed.zone,
         # )
-        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
 
         if (
             self.coordinator.data[self._ent]["ident|type|value_raw"] == 21
@@ -239,9 +230,9 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         else:
             name = self._ed.name
         self._attr_translation_key = name
-        self._attr_has_entity_name = True
 
         zone = "" if self._ed.zone == 0 else f"{self._ed.zone}-"
+        # deviates from MieleEntity
         self._attr_unique_id = f"{self._ed.key}-{zone}{self._ent}"
         self._attr_temperature_unit = self._ed.temperature_unit
         self._attr_precision = self._ed.precision
@@ -264,13 +255,6 @@ class MieleClimate(CoordinatorEntity, ClimateEntity):
         self._attr_hvac_modes = self._ed.hvac_modes
         self._attr_hvac_mode = HVACMode.COOL
         self._attr_supported_features = self._ed.supported_features
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     @property
     def current_temperature(self):

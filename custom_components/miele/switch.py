@@ -13,10 +13,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -35,7 +32,6 @@ from .const import (
     FRIDGE,
     FRIDGE_FREEZER,
     HOOD,
-    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,
@@ -52,6 +48,7 @@ from .const import (
     WASHING_MACHINE,
     WINE_CABINET_FREEZER,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -165,7 +162,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleSwitch(CoordinatorEntity, SwitchEntity):
+class MieleSwitch(MieleEntity, SwitchEntity):
     """Representation of a Switch."""
 
     entity_description: MieleSwitchDescription
@@ -180,28 +177,10 @@ class MieleSwitch(CoordinatorEntity, SwitchEntity):
         entry: ConfigType,
     ):
         """Initialize the switch."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._api = hass.data[DOMAIN][entry.entry_id][API]
         self._api_data = hass.data[DOMAIN][entry.entry_id]
-
-        self._idx = idx
-        self._ent = ent
-        self.entity_description = description
         _LOGGER.debug("init switch %s", ent)
-        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
-        self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     @property
     def is_on(self):

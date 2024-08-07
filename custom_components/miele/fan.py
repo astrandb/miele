@@ -19,10 +19,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util.percentage import (
     int_states_in_range,
     percentage_to_ranged_value,
@@ -35,11 +32,11 @@ from .const import (
     DOMAIN,
     HOB_INDUCT_EXTR,
     HOOD,
-    MANUFACTURER,
     POWER_OFF,
     POWER_ON,
     VENTILATION_STEP,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -127,7 +124,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleFan(CoordinatorEntity, FanEntity):
+class MieleFan(MieleEntity, FanEntity):
     """Representation of a Fan."""
 
     entity_description: MieleFanDescription
@@ -142,28 +139,11 @@ class MieleFan(CoordinatorEntity, FanEntity):
         entry: ConfigType,
     ):
         """Initialize the fan."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._api = hass.data[DOMAIN][entry.entry_id][API]
 
-        self._idx = idx
-        self._ent = ent
-        self.entity_description = description
         _LOGGER.debug("Init fan %s", ent)
-        appl_type = self.coordinator.data[self._ent][self.entity_description.type_key]
-        if appl_type == "":
-            appl_type = self.coordinator.data[self._ent][
-                "ident|deviceIdentLabel|techType"
-            ]
-        self._attr_has_entity_name = True
-        self._attr_unique_id = f"{self.entity_description.key}-{self._ent}"
         self._attr_supported_features = self.entity_description.supported_features
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     @property
     def is_on(self):

@@ -17,10 +17,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
@@ -31,6 +28,7 @@ from .const import (
     HOB_INDUCTION,
     MANUFACTURER,
 )
+from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -174,7 +172,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class MieleNumber(CoordinatorEntity, NumberEntity):
+class MieleNumber(MieleEntity, NumberEntity):
     """Representation of a Number."""
 
     entity_description: MieleNumberDescription
@@ -189,28 +187,13 @@ class MieleNumber(CoordinatorEntity, NumberEntity):
         entry: ConfigType,
     ):
         """Initialize the number."""
-        super().__init__(coordinator)
+        super().__init__(coordinator, idx, ent, description)
         self._api = hass.data[DOMAIN][entry.entry_id][API]
-
-        self._idx = idx
-        self._ent = ent
-        self.entity_description = description
         self._ed = description
         _LOGGER.debug("Init number %s", ent)
-        appl_type = self.coordinator.data[self._ent][self._ed.type_key]
-        tech_type = self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"]
-        if appl_type == "":
-            appl_type = tech_type
-        self._attr_has_entity_name = True
+        # deviates from MieleEntity
         self._attr_unique_id = f"{self._ed.key}-{self._ed.zone}{self._ent}"
         self._attr_mode = NumberMode.SLIDER
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self._ent)},
-            serial_number=self._ent,
-            name=appl_type,
-            manufacturer=MANUFACTURER,
-            model=self.coordinator.data[self._ent]["ident|deviceIdentLabel|techType"],
-        )
 
     @property
     def native_value(self):
