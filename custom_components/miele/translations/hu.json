@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Zóna 0"
-      },
-      "plate_1": {
-        "name": "Zóna 1"
-      },
-      "plate_2": {
-        "name": "Zóna 2"
-      },
-      "plate_3": {
-        "name": "Zóna 3"
-      },
-      "plate_4": {
-        "name": "Zóna 4"
-      },
-      "plate_5": {
-        "name": "Zóna 5"
-      },
-      "plate_6": {
-        "name": "Zóna 6"
+      "plate": {
+        "name": "Zóna {plate_no}"
       }
     },
     "sensor": {

@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Piastra 0"
-      },
-      "plate_1": {
-        "name": "Piastra 1"
-      },
-      "plate_2": {
-        "name": "Piastra 2"
-      },
-      "plate_3": {
-        "name": "Piastra 3"
-      },
-      "plate_4": {
-        "name": "Piastra 4"
-      },
-      "plate_5": {
-        "name": "Piastra 5"
-      },
-      "plate_6": {
-        "name": "Piastra 6"
+      "plate": {
+        "name": "Piastra {plate_no}"
       }
     },
     "sensor": {

@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Keittoalue 0"
-      },
-      "plate_1": {
-        "name": "Keittoalue 1"
-      },
-      "plate_2": {
-        "name": "Keittoalue 2"
-      },
-      "plate_3": {
-        "name": "Keittoalue 3"
-      },
-      "plate_4": {
-        "name": "Keittoalue 4"
-      },
-      "plate_5": {
-        "name": "Keittoalue 5"
-      },
-      "plate_6": {
-        "name": "Keittoalue 6"
+      "plate": {
+        "name": "Keittoalue {plate_no}"
       }
     },
     "sensor": {
