@@ -13,7 +13,7 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntityDescription,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity import DeviceInfo, EntityCategory
+from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
@@ -26,7 +26,6 @@ from .const import (
     DIALOG_OVEN,
     DISH_WARMER,
     DISHWASHER,
-    DOMAIN,
     FREEZER,
     FRIDGE,
     FRIDGE_FREEZER,
@@ -34,7 +33,6 @@ from .const import (
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
     HOOD,
-    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,

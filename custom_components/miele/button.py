@@ -10,7 +10,6 @@ import aiohttp
 
 from homeassistant.components.button import ButtonEntity, ButtonEntityDescription
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
@@ -25,7 +24,6 @@ from .const import (
     DISHWASHER,
     DOMAIN,
     HOOD,
-    MANUFACTURER,
     MICROWAVE,
     OVEN,
     OVEN_MICROWAVE,

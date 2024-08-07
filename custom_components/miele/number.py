@@ -1,4 +1,5 @@
 """Platform for Miele number entity."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -14,7 +15,6 @@ from homeassistant.components.number import (
 from homeassistant.core import HomeAssistant
 
 # from homeassistant.helpers import issue_registry as ir
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
@@ -26,7 +26,6 @@ from .const import (
     HOB_HIGHLIGHT,
     HOB_INDUCT_EXTR,
     HOB_INDUCTION,
-    MANUFACTURER,
 )
 from .entity import MieleEntity
 
