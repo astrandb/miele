@@ -122,26 +122,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Plade 0"
-      },
-      "plate_1": {
-        "name": "Plade 1"
-      },
-      "plate_2": {
-        "name": "Plade 2"
-      },
-      "plate_3": {
-        "name": "Plade 3"
-      },
-      "plate_4": {
-        "name": "Plade 4"
-      },
-      "plate_5": {
-        "name": "Plade 5"
-      },
-      "plate_6": {
-        "name": "Plade 6"
+      "plate": {
+        "name": "Plade {plate_no}"
       }
     },
     "sensor": {

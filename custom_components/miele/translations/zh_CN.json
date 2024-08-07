@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "碟 0"
-      },
-      "plate_1": {
-        "name": "碟 1"
-      },
-      "plate_2": {
-        "name": "碟 2"
-      },
-      "plate_3": {
-        "name": "碟 3"
-      },
-      "plate_4": {
-        "name": "碟 4"
-      },
-      "plate_5": {
-        "name": "碟 5"
-      },
-      "plate_6": {
-        "name": "碟 6"
+      "plate": {
+        "name": "碟 {plate_no}"
       }
     },
     "sensor": {

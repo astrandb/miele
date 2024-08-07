@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Doska 0"
-      },
-      "plate_1": {
-        "name": "Doska 1"
-      },
-      "plate_2": {
-        "name": "Doska 2"
-      },
-      "plate_3": {
-        "name": "Doska 3"
-      },
-      "plate_4": {
-        "name": "Doska 4"
-      },
-      "plate_5": {
-        "name": "Doska 5"
-      },
-      "plate_6": {
-        "name": "Doska 6"
+      "plate": {
+        "name": "Doska {plate_no}"
       }
     },
     "sensor": {

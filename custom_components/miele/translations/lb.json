@@ -123,26 +123,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Plack 0"
-      },
-      "plate_1": {
-        "name": "Plack 1"
-      },
-      "plate_2": {
-        "name": "Plack 2"
-      },
-      "plate_3": {
-        "name": "Plack 3"
-      },
-      "plate_4": {
-        "name": "Plack 4"
-      },
-      "plate_5": {
-        "name": "Plack 5"
-      },
-      "plate_6": {
-        "name": "Plack 6"
+      "plate": {
+        "name": "Plack {plate_no}"
       }
     },
     "sensor": {

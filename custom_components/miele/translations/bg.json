@@ -99,26 +99,8 @@
       }
     },
     "number": {
-      "plate_0": {
-        "name": "Плоча 0"
-      },
-      "plate_1": {
-        "name": "Плоча 1"
-      },
-      "plate_2": {
-        "name": "Плоча 2"
-      },
-      "plate_3": {
-        "name": "Плоча 3"
-      },
-      "plate_4": {
-        "name": "Плоча 4"
-      },
-      "plate_5": {
-        "name": "Плоча 5"
-      },
-      "plate_6": {
-        "name": "Плоча 6"
+      "plate": {
+        "name": "Плоча {plate_no}"
       }
     },
     "sensor": {
