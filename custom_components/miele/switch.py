@@ -22,30 +22,11 @@ from .const import (
     ACT_STOP_SUPERFREEZE,
     ACTIONS,
     API,
-    COFFEE_SYSTEM,
-    DIALOG_OVEN,
-    DISH_WARMER,
-    DISHWASHER,
     DOMAIN,
-    FREEZER,
-    FRIDGE,
-    FRIDGE_FREEZER,
-    HOOD,
-    MICROWAVE,
-    OVEN,
-    OVEN_MICROWAVE,
     POWER_OFF,
     POWER_ON,
     PROCESS_ACTION,
-    STEAM_OVEN,
-    STEAM_OVEN_COMBI,
-    STEAM_OVEN_MICRO,
-    STEAM_OVEN_MK2,
-    TUMBLE_DRYER,
-    TUMBLE_DRYER_SEMI_PROFESSIONAL,
-    WASHER_DRYER,
-    WASHING_MACHINE,
-    WINE_CABINET_FREEZER,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
@@ -68,13 +49,13 @@ class MieleSwitchDescription(SwitchEntityDescription):
 class MieleSwitchDefinition:
     """Class for defining switch entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleSwitchDescription = None
 
 
 SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
     MieleSwitchDefinition(
-        types=[FRIDGE, FRIDGE_FREEZER],
+        types=[MieleAppliance.FRIDGE, MieleAppliance.FRIDGE_FREEZER],
         description=MieleSwitchDescription(
             key="supercooling",
             data_tag="state|status|value_raw",
@@ -86,7 +67,11 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
         ),
     ),
     MieleSwitchDefinition(
-        types=[FREEZER, FRIDGE_FREEZER, WINE_CABINET_FREEZER],
+        types=[
+            MieleAppliance.FREEZER,
+            MieleAppliance.FRIDGE_FREEZER,
+            MieleAppliance.WINE_CABINET_FREEZER,
+        ],
         description=MieleSwitchDescription(
             key="superfreezing",
             data_tag="state|status|value_raw",
@@ -99,22 +84,22 @@ SWITCH_TYPES: Final[tuple[MieleSwitchDefinition, ...]] = (
     ),
     MieleSwitchDefinition(
         types=[
-            WASHING_MACHINE,
-            TUMBLE_DRYER,
-            TUMBLE_DRYER_SEMI_PROFESSIONAL,
-            DISHWASHER,
-            DISH_WARMER,
-            OVEN,
-            OVEN_MICROWAVE,
-            STEAM_OVEN,
-            MICROWAVE,
-            COFFEE_SYSTEM,
-            HOOD,
-            WASHER_DRYER,
-            STEAM_OVEN_COMBI,
-            STEAM_OVEN_MICRO,
-            DIALOG_OVEN,
-            STEAM_OVEN_MK2,
+            MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.TUMBLE_DRYER,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER,
+            MieleAppliance.DISH_WARMER,
+            MieleAppliance.OVEN,
+            MieleAppliance.OVEN_MICROWAVE,
+            MieleAppliance.STEAM_OVEN,
+            MieleAppliance.MICROWAVE,
+            MieleAppliance.COFFEE_SYSTEM,
+            MieleAppliance.HOOD,
+            MieleAppliance.WASHER_DRYER,
+            MieleAppliance.STEAM_OVEN_COMBI,
+            MieleAppliance.STEAM_OVEN_MICRO,
+            MieleAppliance.DIALOG_OVEN,
+            MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSwitchDescription(
             key="poweronoff",

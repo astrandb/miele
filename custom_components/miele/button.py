@@ -20,24 +20,11 @@ from .const import (
     ACT_STOP,
     ACTIONS,
     API,
-    DIALOG_OVEN,
-    DISHWASHER,
     DOMAIN,
-    HOOD,
-    MICROWAVE,
-    OVEN,
-    OVEN_MICROWAVE,
     POWER_OFF,
     POWER_ON,
     PROCESS_ACTION,
-    STEAM_OVEN,
-    STEAM_OVEN_COMBI,
-    STEAM_OVEN_MICRO,
-    STEAM_OVEN_MK2,
-    TUMBLE_DRYER,
-    TUMBLE_DRYER_SEMI_PROFESSIONAL,
-    WASHER_DRYER,
-    WASHING_MACHINE,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
@@ -56,26 +43,26 @@ class MieleButtonDescription(ButtonEntityDescription):
 class MieleButtonDefinition:
     """Class for defining button entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleButtonDescription = None
 
 
 BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
     MieleButtonDefinition(
         types=[
-            WASHING_MACHINE,
-            TUMBLE_DRYER,
-            TUMBLE_DRYER_SEMI_PROFESSIONAL,
-            DISHWASHER,
-            OVEN,
-            OVEN_MICROWAVE,
-            STEAM_OVEN,
-            MICROWAVE,
-            WASHER_DRYER,
-            STEAM_OVEN_COMBI,
-            STEAM_OVEN_MICRO,
-            STEAM_OVEN_MK2,
-            DIALOG_OVEN,
+            MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.TUMBLE_DRYER,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER,
+            MieleAppliance.OVEN,
+            MieleAppliance.OVEN_MICROWAVE,
+            MieleAppliance.STEAM_OVEN,
+            MieleAppliance.MICROWAVE,
+            MieleAppliance.WASHER_DRYER,
+            MieleAppliance.STEAM_OVEN_COMBI,
+            MieleAppliance.STEAM_OVEN_MICRO,
+            MieleAppliance.STEAM_OVEN_MK2,
+            MieleAppliance.DIALOG_OVEN,
         ],
         description=MieleButtonDescription(
             key="start",
@@ -85,20 +72,20 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
     ),
     MieleButtonDefinition(
         types=[
-            WASHING_MACHINE,
-            TUMBLE_DRYER,
-            TUMBLE_DRYER_SEMI_PROFESSIONAL,
-            DISHWASHER,
-            OVEN,
-            OVEN_MICROWAVE,
-            STEAM_OVEN,
-            MICROWAVE,
-            HOOD,
-            WASHER_DRYER,
-            STEAM_OVEN_COMBI,
-            STEAM_OVEN_MICRO,
-            STEAM_OVEN_MK2,
-            DIALOG_OVEN,
+            MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.TUMBLE_DRYER,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER,
+            MieleAppliance.OVEN,
+            MieleAppliance.OVEN_MICROWAVE,
+            MieleAppliance.STEAM_OVEN,
+            MieleAppliance.MICROWAVE,
+            MieleAppliance.HOOD,
+            MieleAppliance.WASHER_DRYER,
+            MieleAppliance.STEAM_OVEN_COMBI,
+            MieleAppliance.STEAM_OVEN_MICRO,
+            MieleAppliance.STEAM_OVEN_MK2,
+            MieleAppliance.DIALOG_OVEN,
         ],
         description=MieleButtonDescription(
             key="stop",

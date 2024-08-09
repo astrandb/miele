@@ -23,15 +23,17 @@ from . import get_coordinator
 from .const import (
     API,
     DOMAIN,
-    HOB_HIGHLIGHT,
-    HOB_INDUCT_EXTR,
-    HOB_INDUCTION,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
-HOB_TYPES = (HOB_INDUCT_EXTR, HOB_HIGHLIGHT, HOB_INDUCTION)
+HOB_TYPES = (
+    MieleAppliance.HOB_INDUCT_EXTR,
+    MieleAppliance.HOB_HIGHLIGHT,
+    MieleAppliance.HOB_INDUCTION,
+)
 
 PLATE_MAP = {
     0: 0,
@@ -102,7 +104,7 @@ class MieleNumberDescription(NumberEntityDescription, MieleNumberDescriptionMixi
 class MieleNumberDefinition:
     """Class for defining number entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleNumberDescription = None
 
 

@@ -1,5 +1,7 @@
 """Constants for the Miele integration."""
 
+from enum import IntEnum
+
 DOMAIN = "miele"
 VERSION = "2024.8.0"
 API_READ_TIMEOUT = 20
@@ -12,102 +14,106 @@ CONF_ID = "id"
 CONF_VALUE_RAW = "value_raw"
 CONF_VALUE = "value"
 
-# Define appliance types
-WASHING_MACHINE = 1
-TUMBLE_DRYER = 2
-WASHING_MACHINE_SEMI_PROFESSIONAL = 3
-TUMBLE_DRYER_SEMI_PROFESSIONAL = 4
-WASHING_MACHINE_PROFESSIONAL = 5
-DRYER_PROFESSIONAL = 6
-DISHWASHER = 7
-DISHWASHER_SEMI_PROFESSIONAL = 8
-DISHWASHER_PROFESSIONAL = 9
-OVEN = 12
-OVEN_MICROWAVE = 13
-HOB_HIGHLIGHT = 14
-STEAM_OVEN = 15
-MICROWAVE = 16
-COFFEE_SYSTEM = 17
-HOOD = 18
-FRIDGE = 19
-FREEZER = 20
-FRIDGE_FREEZER = 21
-ROBOT_VACUUM_CLEANER = 23
-WASHER_DRYER = 24
-DISH_WARMER = 25
-HOB_INDUCTION = 27
-STEAM_OVEN_COMBI = 31
-WINE_CABINET = 32
-WINE_CONDITIONING_UNIT = 33
-WINE_STORAGE_CONDITIONING_UNIT = 34
-STEAM_OVEN_MICRO = 45
-DIALOG_OVEN = 67
-WINE_CABINET_FREEZER = 68
-STEAM_OVEN_MK2 = 73
-HOB_INDUCT_EXTR = 74
+
+class MieleAppliance(IntEnum):
+    """Define appliance types."""
+
+    WASHING_MACHINE = 1
+    TUMBLE_DRYER = 2
+    WASHING_MACHINE_SEMI_PROFESSIONAL = 3
+    TUMBLE_DRYER_SEMI_PROFESSIONAL = 4
+    WASHING_MACHINE_PROFESSIONAL = 5
+    DRYER_PROFESSIONAL = 6
+    DISHWASHER = 7
+    DISHWASHER_SEMI_PROFESSIONAL = 8
+    DISHWASHER_PROFESSIONAL = 9
+    OVEN = 12
+    OVEN_MICROWAVE = 13
+    HOB_HIGHLIGHT = 14
+    STEAM_OVEN = 15
+    MICROWAVE = 16
+    COFFEE_SYSTEM = 17
+    HOOD = 18
+    FRIDGE = 19
+    FREEZER = 20
+    FRIDGE_FREEZER = 21
+    ROBOT_VACUUM_CLEANER = 23
+    WASHER_DRYER = 24
+    DISH_WARMER = 25
+    HOB_INDUCTION = 27
+    STEAM_OVEN_COMBI = 31
+    WINE_CABINET = 32
+    WINE_CONDITIONING_UNIT = 33
+    WINE_STORAGE_CONDITIONING_UNIT = 34
+    STEAM_OVEN_MICRO = 45
+    DIALOG_OVEN = 67
+    WINE_CABINET_FREEZER = 68
+    STEAM_OVEN_MK2 = 73
+    HOB_INDUCT_EXTR = 74
+
 
 APPLIANCE_TYPES = {
-    WASHING_MACHINE: "washing_machine",
-    TUMBLE_DRYER: "tumble_dryer",
-    WASHING_MACHINE_SEMI_PROFESSIONAL: "washing_machine_semi_pro",
-    TUMBLE_DRYER_SEMI_PROFESSIONAL: "tumble_dryer_semi_pro",
-    WASHING_MACHINE_PROFESSIONAL: "washing_machine_pro",
-    DRYER_PROFESSIONAL: "dryer_pro",
-    DISHWASHER: "dishwasher",
-    DISHWASHER_SEMI_PROFESSIONAL: "dish_washer_semi_pro",
-    DISHWASHER_PROFESSIONAL: "dishwasher_pro",
-    OVEN: "oven",
-    OVEN_MICROWAVE: "oven_microwave",
-    HOB_HIGHLIGHT: "hob_highlight",
-    STEAM_OVEN: "steam_oven",
-    MICROWAVE: "microwave",
-    COFFEE_SYSTEM: "coffee_system",
-    HOOD: "hood",
-    FRIDGE: "fridge",
-    FREEZER: "freezer",
-    FRIDGE_FREEZER: "fridge_freezer",
-    ROBOT_VACUUM_CLEANER: "robot_vacuum_cleaner",
-    WASHER_DRYER: "washer_dryer",
-    DISH_WARMER: "dish_warmer",
-    HOB_INDUCTION: "hob_induction",
-    STEAM_OVEN_COMBI: "steam_oven_combi",
-    WINE_CABINET: "wine_cabinet",
-    WINE_CONDITIONING_UNIT: "wine_conditioning_unit",
-    WINE_STORAGE_CONDITIONING_UNIT: "wine_storage_conditioning_unit",
-    STEAM_OVEN_MICRO: "steam_oven_micro",
-    DIALOG_OVEN: "dialog_oven",
-    WINE_CABINET_FREEZER: "wine_cabinet_freezer",
-    STEAM_OVEN_MK2: "steam_oven",
-    HOB_INDUCT_EXTR: "hob_induct_extr",
+    MieleAppliance.WASHING_MACHINE: "washing_machine",
+    MieleAppliance.TUMBLE_DRYER: "tumble_dryer",
+    MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL: "washing_machine_semi_pro",
+    MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL: "tumble_dryer_semi_pro",
+    MieleAppliance.WASHING_MACHINE_PROFESSIONAL: "washing_machine_pro",
+    MieleAppliance.DRYER_PROFESSIONAL: "dryer_pro",
+    MieleAppliance.DISHWASHER: "dishwasher",
+    MieleAppliance.DISHWASHER_SEMI_PROFESSIONAL: "dish_washer_semi_pro",
+    MieleAppliance.DISHWASHER_PROFESSIONAL: "dishwasher_pro",
+    MieleAppliance.OVEN: "oven",
+    MieleAppliance.OVEN_MICROWAVE: "oven_microwave",
+    MieleAppliance.HOB_HIGHLIGHT: "hob_highlight",
+    MieleAppliance.STEAM_OVEN: "steam_oven",
+    MieleAppliance.MICROWAVE: "microwave",
+    MieleAppliance.COFFEE_SYSTEM: "coffee_system",
+    MieleAppliance.HOOD: "hood",
+    MieleAppliance.FRIDGE: "fridge",
+    MieleAppliance.FREEZER: "freezer",
+    MieleAppliance.FRIDGE_FREEZER: "fridge_freezer",
+    MieleAppliance.ROBOT_VACUUM_CLEANER: "robot_vacuum_cleaner",
+    MieleAppliance.WASHER_DRYER: "washer_dryer",
+    MieleAppliance.DISH_WARMER: "dish_warmer",
+    MieleAppliance.HOB_INDUCTION: "hob_induction",
+    MieleAppliance.STEAM_OVEN_COMBI: "steam_oven_combi",
+    MieleAppliance.WINE_CABINET: "wine_cabinet",
+    MieleAppliance.WINE_CONDITIONING_UNIT: "wine_conditioning_unit",
+    MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT: "wine_storage_conditioning_unit",
+    MieleAppliance.STEAM_OVEN_MICRO: "steam_oven_micro",
+    MieleAppliance.DIALOG_OVEN: "dialog_oven",
+    MieleAppliance.WINE_CABINET_FREEZER: "wine_cabinet_freezer",
+    MieleAppliance.STEAM_OVEN_MK2: "steam_oven",
+    MieleAppliance.HOB_INDUCT_EXTR: "hob_induct_extr",
 }
 
 APPLIANCE_ICONS = {
-    WASHING_MACHINE: "mdi:washing-machine",
-    TUMBLE_DRYER: "mdi:tumble-dryer",
-    TUMBLE_DRYER_SEMI_PROFESSIONAL: "mdi:tumble-dryer",
-    DISHWASHER: "mdi:dishwasher",
-    OVEN: "mdi:chef-hat",
-    OVEN_MICROWAVE: "mdi:chef-hat",
-    HOB_HIGHLIGHT: "mdi:pot-steam-outline",
-    STEAM_OVEN: "mdi:chef-hat",
-    MICROWAVE: "mdi:microwave",
-    COFFEE_SYSTEM: "mdi:coffee-maker",
-    HOOD: "mdi:turbine",
-    FRIDGE: "mdi:fridge-industrial-outline",
-    FREEZER: "mdi:fridge-industrial-outline",
-    FRIDGE_FREEZER: "mdi:fridge-outline",
-    ROBOT_VACUUM_CLEANER: "mdi:robot-vacuum",
-    WASHER_DRYER: "mdi:washing-machine",
-    DISH_WARMER: "mdi:heat-wave",
-    HOB_INDUCTION: "mdi:pot-steam-outline",
-    STEAM_OVEN_COMBI: "mdi:chef-hat",
-    WINE_CABINET: "mdi:glass-wine",
-    WINE_CONDITIONING_UNIT: "mdi:glass-wine",
-    WINE_STORAGE_CONDITIONING_UNIT: "mdi:glass-wine",
-    STEAM_OVEN_MICRO: "mdi:chef-hat",
-    DIALOG_OVEN: "mdi:chef-hat",
-    WINE_CABINET_FREEZER: "mdi:glass-wine",
-    HOB_INDUCT_EXTR: "mdi:pot-steam-outline",
+    MieleAppliance.WASHING_MACHINE: "mdi:washing-machine",
+    MieleAppliance.TUMBLE_DRYER: "mdi:tumble-dryer",
+    MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL: "mdi:tumble-dryer",
+    MieleAppliance.DISHWASHER: "mdi:dishwasher",
+    MieleAppliance.OVEN: "mdi:chef-hat",
+    MieleAppliance.OVEN_MICROWAVE: "mdi:chef-hat",
+    MieleAppliance.HOB_HIGHLIGHT: "mdi:pot-steam-outline",
+    MieleAppliance.STEAM_OVEN: "mdi:chef-hat",
+    MieleAppliance.MICROWAVE: "mdi:microwave",
+    MieleAppliance.COFFEE_SYSTEM: "mdi:coffee-maker",
+    MieleAppliance.HOOD: "mdi:turbine",
+    MieleAppliance.FRIDGE: "mdi:fridge-industrial-outline",
+    MieleAppliance.FREEZER: "mdi:fridge-industrial-outline",
+    MieleAppliance.FRIDGE_FREEZER: "mdi:fridge-outline",
+    MieleAppliance.ROBOT_VACUUM_CLEANER: "mdi:robot-vacuum",
+    MieleAppliance.WASHER_DRYER: "mdi:washing-machine",
+    MieleAppliance.DISH_WARMER: "mdi:heat-wave",
+    MieleAppliance.HOB_INDUCTION: "mdi:pot-steam-outline",
+    MieleAppliance.STEAM_OVEN_COMBI: "mdi:chef-hat",
+    MieleAppliance.WINE_CABINET: "mdi:glass-wine",
+    MieleAppliance.WINE_CONDITIONING_UNIT: "mdi:glass-wine",
+    MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT: "mdi:glass-wine",
+    MieleAppliance.STEAM_OVEN_MICRO: "mdi:chef-hat",
+    MieleAppliance.DIALOG_OVEN: "mdi:chef-hat",
+    MieleAppliance.WINE_CABINET_FREEZER: "mdi:glass-wine",
+    MieleAppliance.HOB_INDUCT_EXTR: "mdi:pot-steam-outline",
 }
 
 STATE_STATUS_OFF = 1
@@ -591,19 +597,19 @@ COFFEE_SYSTEM_PROGRAM_ID = {
 }
 
 STATE_PROGRAM_ID = {
-    WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
-    TUMBLE_DRYER: TUMBLE_DRYER_PROGRAM_ID,
-    DISHWASHER: DISHWASHER_PROGRAM_ID,
-    DISH_WARMER: DISH_WARMER_PROGRAM_ID,
-    OVEN: OVEN_PROGRAM_ID,
-    OVEN_MICROWAVE: OVEN_PROGRAM_ID,
-    STEAM_OVEN_MK2: OVEN_PROGRAM_ID,
-    STEAM_OVEN: OVEN_PROGRAM_ID,
-    STEAM_OVEN_COMBI: OVEN_PROGRAM_ID,
-    STEAM_OVEN_MICRO: OVEN_PROGRAM_ID,
-    WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
-    ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
-    COFFEE_SYSTEM: COFFEE_SYSTEM_PROGRAM_ID,
+    MieleAppliance.WASHING_MACHINE: WASHING_MACHINE_PROGRAM_ID,
+    MieleAppliance.TUMBLE_DRYER: TUMBLE_DRYER_PROGRAM_ID,
+    MieleAppliance.DISHWASHER: DISHWASHER_PROGRAM_ID,
+    MieleAppliance.DISH_WARMER: DISH_WARMER_PROGRAM_ID,
+    MieleAppliance.OVEN: OVEN_PROGRAM_ID,
+    MieleAppliance.OVEN_MICROWAVE: OVEN_PROGRAM_ID,
+    MieleAppliance.STEAM_OVEN_MK2: OVEN_PROGRAM_ID,
+    MieleAppliance.STEAM_OVEN: OVEN_PROGRAM_ID,
+    MieleAppliance.STEAM_OVEN_COMBI: OVEN_PROGRAM_ID,
+    MieleAppliance.STEAM_OVEN_MICRO: OVEN_PROGRAM_ID,
+    MieleAppliance.WASHER_DRYER: WASHING_MACHINE_PROGRAM_ID,
+    MieleAppliance.ROBOT_VACUUM_CLEANER: ROBOT_VACUUM_CLEANER_PROGRAM_ID,
+    MieleAppliance.COFFEE_SYSTEM: COFFEE_SYSTEM_PROGRAM_ID,
 }
 
 STATE_DRYING_STEP = {
