@@ -155,26 +155,6 @@ async def async_setup_entry(
         )
         != -32768
     ]
-    # entities = []
-    # for idx, ent in enumerate(coordinator.data):
-    #     for definition in CLIMATE_TYPES:
-    #         if (
-    #             coordinator.data[ent]["ident|type|value_raw"] in definition.types
-    #             and coordinator.data[ent].get(
-    #                 definition.description.target_temperature_tag, -32768
-    #             )
-    #             != -32768
-    #         ):
-    #             entities.append(
-    #                 MieleClimate(
-    #                     coordinator,
-    #                     idx,
-    #                     ent,
-    #                     definition.description,
-    #                     hass,
-    #                     config_entry,
-    #                 )
-    #             )
 
     async_add_entities(entities)
 

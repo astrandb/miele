@@ -116,26 +116,6 @@ async def async_setup_entry(
 
     entities = []
     for idx, ent in enumerate(coordinator.data):
-        # if (
-        #     coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES
-        #     and coordinator.data[ent]["ident|deviceIdentLabel|techType"]
-        #     not in PLATE_COUNT
-        # ):
-        #     ir.async_create_issue(
-        #         hass,
-        #         DOMAIN,
-        #         "hob_not_supported",
-        #         is_fixable=False,
-        #         severity=ir.IssueSeverity.WARNING,
-        #         translation_key="hob_not_supported",
-        #         translation_placeholders={
-        #             "tech_type": coordinator.data[ent][
-        #                 "ident|deviceIdentLabel|techType"
-        #             ],
-        #             "issue_url": "https://github.com/astrandb/miele/issues",
-        #         },
-        #     )
-
         if coordinator.data[ent]["ident|type|value_raw"] in HOB_TYPES:
             tech_type = coordinator.data[ent]["ident|deviceIdentLabel|techType"]
             api_plates = 0
