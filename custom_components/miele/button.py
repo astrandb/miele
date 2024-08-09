@@ -123,20 +123,6 @@ async def async_setup_entry(
         for definition in BUTTON_TYPES
         if coordinator.data[ent]["ident|type|value_raw"] in definition.types
     ]
-    # entities = []
-    # for idx, ent in enumerate(coordinator.data):
-    #     for definition in BUTTON_TYPES:
-    #         if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-    #             entities.append(
-    #                 MieleButton(
-    #                     coordinator,
-    #                     idx,
-    #                     ent,
-    #                     definition.description,
-    #                     hass,
-    #                     config_entry,
-    #                 )
-    #             )
 
     async_add_entities(entities)
 
