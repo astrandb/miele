@@ -23,23 +23,11 @@ from . import get_coordinator
 from .const import (
     AMBIENT_LIGHT,
     API,
-    COFFEE_SYSTEM,
     DOMAIN,
-    HOOD,
     LIGHT,
     LIGHT_OFF,
     LIGHT_ON,
-    MICROWAVE,
-    OVEN,
-    OVEN_MICROWAVE,
-    STEAM_OVEN,
-    STEAM_OVEN_COMBI,
-    STEAM_OVEN_MICRO,
-    STEAM_OVEN_MK2,
-    WINE_CABINET,
-    WINE_CABINET_FREEZER,
-    WINE_CONDITIONING_UNIT,
-    WINE_STORAGE_CONDITIONING_UNIT,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
@@ -61,26 +49,26 @@ class MieleLightDescription(LightEntityDescription):
 class MieleLightDefinition:
     """Class for defining light entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleLightDescription = None
 
 
 LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
     MieleLightDefinition(
         types=[
-            OVEN,
-            OVEN_MICROWAVE,
-            STEAM_OVEN,
-            MICROWAVE,
-            COFFEE_SYSTEM,
-            HOOD,
-            STEAM_OVEN_COMBI,
-            WINE_CABINET,
-            WINE_CONDITIONING_UNIT,
-            WINE_STORAGE_CONDITIONING_UNIT,
-            STEAM_OVEN_MICRO,
-            WINE_CABINET_FREEZER,
-            STEAM_OVEN_MK2,
+            MieleAppliance.OVEN,
+            MieleAppliance.OVEN_MICROWAVE,
+            MieleAppliance.STEAM_OVEN,
+            MieleAppliance.MICROWAVE,
+            MieleAppliance.COFFEE_SYSTEM,
+            MieleAppliance.HOOD,
+            MieleAppliance.STEAM_OVEN_COMBI,
+            MieleAppliance.WINE_CABINET,
+            MieleAppliance.WINE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT,
+            MieleAppliance.STEAM_OVEN_MICRO,
+            MieleAppliance.WINE_CABINET_FREEZER,
+            MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleLightDescription(
             key="light",
@@ -90,7 +78,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
     ),
     MieleLightDefinition(
         types=[
-            HOOD,
+            MieleAppliance.HOOD,
         ],
         description=MieleLightDescription(
             key="ambientlight",

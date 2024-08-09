@@ -29,11 +29,10 @@ from . import get_coordinator
 from .const import (
     API,
     DOMAIN,
-    HOB_INDUCT_EXTR,
-    HOOD,
     POWER_OFF,
     POWER_ON,
     VENTILATION_STEP,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
@@ -41,7 +40,7 @@ _LOGGER = logging.getLogger(__name__)
 
 SPEED_RANGE = (1, 4)
 
-FAN_READ_ONLY = [HOB_INDUCT_EXTR]
+FAN_READ_ONLY = [MieleAppliance.HOB_INDUCT_EXTR]
 
 
 @dataclass
@@ -59,14 +58,14 @@ class MieleFanDescription(FanEntityDescription):
 class MieleFanDefinition:
     """Class for defining fan entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleFanDescription = None
 
 
 FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
     MieleFanDefinition(
         types=[
-            HOOD,
+            MieleAppliance.HOOD,
         ],
         description=MieleFanDescription(
             key="fan",
@@ -78,7 +77,7 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
     ),
     MieleFanDefinition(
         types=[
-            HOB_INDUCT_EXTR,
+            MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleFanDescription(
             key="fan",

@@ -24,14 +24,8 @@ from .const import (
     ACTIONS,
     API,
     DOMAIN,
-    FREEZER,
-    FRIDGE,
-    FRIDGE_FREEZER,
     TARGET_TEMPERATURE,
-    WINE_CABINET,
-    WINE_CABINET_FREEZER,
-    WINE_CONDITIONING_UNIT,
-    WINE_STORAGE_CONDITIONING_UNIT,
+    MieleAppliance,
 )
 from .entity import MieleEntity
 
@@ -60,20 +54,20 @@ class MieleClimateDescription(ClimateEntityDescription):
 class MieleClimateDefinition:
     """Class for defining climate entities."""
 
-    types: tuple[int, ...]
+    types: tuple[MieleAppliance, ...]
     description: MieleClimateDescription = None
 
 
 CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
     MieleClimateDefinition(
         types=[
-            FRIDGE,
-            FREEZER,
-            FRIDGE_FREEZER,
-            WINE_CABINET,
-            WINE_CONDITIONING_UNIT,
-            WINE_STORAGE_CONDITIONING_UNIT,
-            WINE_CABINET_FREEZER,
+            MieleAppliance.FRIDGE,
+            MieleAppliance.FREEZER,
+            MieleAppliance.FRIDGE_FREEZER,
+            MieleAppliance.WINE_CABINET,
+            MieleAppliance.WINE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_CABINET_FREEZER,
         ],
         description=MieleClimateDescription(
             key="thermostat",
@@ -90,13 +84,13 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
     ),
     MieleClimateDefinition(
         types=[
-            FRIDGE,
-            FREEZER,
-            FRIDGE_FREEZER,
-            WINE_CABINET,
-            WINE_CONDITIONING_UNIT,
-            WINE_STORAGE_CONDITIONING_UNIT,
-            WINE_CABINET_FREEZER,
+            MieleAppliance.FRIDGE,
+            MieleAppliance.FREEZER,
+            MieleAppliance.FRIDGE_FREEZER,
+            MieleAppliance.WINE_CABINET,
+            MieleAppliance.WINE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_CABINET_FREEZER,
         ],
         description=MieleClimateDescription(
             key="thermostat",
@@ -113,13 +107,13 @@ CLIMATE_TYPES: Final[tuple[MieleClimateDefinition, ...]] = (
     ),
     MieleClimateDefinition(
         types=[
-            FRIDGE,
-            FREEZER,
-            FRIDGE_FREEZER,
-            WINE_CABINET,
-            WINE_CONDITIONING_UNIT,
-            WINE_STORAGE_CONDITIONING_UNIT,
-            WINE_CABINET_FREEZER,
+            MieleAppliance.FRIDGE,
+            MieleAppliance.FREEZER,
+            MieleAppliance.FRIDGE_FREEZER,
+            MieleAppliance.WINE_CABINET,
+            MieleAppliance.WINE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_STORAGE_CONDITIONING_UNIT,
+            MieleAppliance.WINE_CABINET_FREEZER,
         ],
         description=MieleClimateDescription(
             key="thermostat",
