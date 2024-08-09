@@ -73,7 +73,9 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
             ventilation_step_tag="state|ventilationStep|value_raw",
             translation_key="fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
-            supported_features=FanEntityFeature.SET_SPEED,
+            supported_features=FanEntityFeature.SET_SPEED
+            | FanEntityFeature.TURN_ON
+            | FanEntityFeature.TURN_OFF,
         ),
     ),
     MieleFanDefinition(
@@ -85,7 +87,9 @@ FAN_TYPES: Final[tuple[MieleFanDefinition, ...]] = (
             ventilation_step_tag="state|ventilationStep|value_raw",
             translation_key="fan",
             preset_modes=list(range(SPEED_RANGE[0], SPEED_RANGE[1] + 1)),
-            supported_features=FanEntityFeature.SET_SPEED,
+            supported_features=FanEntityFeature.SET_SPEED
+            | FanEntityFeature.TURN_ON
+            | FanEntityFeature.TURN_OFF,
         ),
     ),
 )
@@ -105,20 +109,6 @@ async def async_setup_entry(
         for definition in FAN_TYPES
         if coordinator.data[ent]["ident|type|value_raw"] in definition.types
     ]
-    # entities = []
-    # for idx, ent in enumerate(coordinator.data):
-    #     for definition in FAN_TYPES:
-    #         if coordinator.data[ent]["ident|type|value_raw"] in definition.types:
-    #             entities.append(
-    #                 MieleFan(
-    #                     coordinator,
-    #                     idx,
-    #                     ent,
-    #                     definition.description,
-    #                     hass,
-    #                     config_entry,
-    #                 )
-    #             )
 
     async_add_entities(entities)
 
