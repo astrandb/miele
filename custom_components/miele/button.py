@@ -16,6 +16,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import get_coordinator
 from .const import (
+    ACT_PAUSE,
     ACT_START,
     ACT_STOP,
     ACTIONS,
@@ -91,6 +92,20 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
             key="stop",
             translation_key="stop",
             press_data={PROCESS_ACTION: ACT_STOP},
+        ),
+    ),
+    MieleButtonDefinition(
+        types=[
+            MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.TUMBLE_DRYER,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER,
+            MieleAppliance.WASHER_DRYER,
+        ],
+        description=MieleButtonDescription(
+            key="pause",
+            translation_key="pause",
+            press_data={PROCESS_ACTION: ACT_PAUSE},
         ),
     ),
 )

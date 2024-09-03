@@ -94,6 +94,9 @@
       }
     },
     "button": {
+      "pause": {
+        "name": "Pause"
+      },
       "start": {
         "name": "Start"
       },
