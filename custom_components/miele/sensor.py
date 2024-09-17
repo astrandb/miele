@@ -268,6 +268,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -315,6 +316,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -345,6 +347,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -375,6 +378,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -404,6 +408,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
@@ -435,6 +440,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -462,6 +468,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -492,6 +499,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -519,6 +527,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -613,6 +622,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -649,6 +659,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
     MieleSensorDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,

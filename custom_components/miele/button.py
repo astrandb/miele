@@ -51,6 +51,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
     MieleButtonDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
@@ -73,6 +74,7 @@ BUTTON_TYPES: Final[tuple[MieleButtonDefinition, ...]] = (
     MieleButtonDefinition(
         types=[
             MieleAppliance.WASHING_MACHINE,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
             MieleAppliance.TUMBLE_DRYER,
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
             MieleAppliance.DISHWASHER,
