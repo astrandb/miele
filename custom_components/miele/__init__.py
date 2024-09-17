@@ -175,6 +175,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     serialnumbers = list(coordinator.data.keys())
+    if len(serialnumbers) == 0:
+        _LOGGER.warning("No devices found in API for this account")
+    else:
+        _LOGGER.debug("Miele devices in API account: %s", serialnumbers)
 
     miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
