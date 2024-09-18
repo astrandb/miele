@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} in automatisches Pflegeprogramm",
       "failure": "{entity_name} schlägt fehl",
       "idle": "{entity_name} ist inaktiv",
       "not_connected": "{entity_name} ist nicht verbunden",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} wartet auf den Start"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatisches Pflegeprogramm",
       "failure": "{entity_name} Fehler",
       "idle": "{entity_name} Leerlauf",
       "not_connected": "{entity_name} nicht verbunden",
@@ -391,6 +393,7 @@
       "status": {
         "name": "Status",
         "state": {
+          "autocleaning": "Automatisches Pflegeprogramm",
           "failure": "Fehler",
           "idle": "Untätig",
           "not_connected": "Nicht verbunden",
