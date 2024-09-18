@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} is autocleaning",
       "failure": "{entity_name} is failing",
       "idle": "{entity_name} is idle",
       "not_connected": "{entity_name} is not connected",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} is waiting to start"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatic cleaning",
       "failure": "{entity_name} Failure",
       "idle": "{entity_name} Idle",
       "not_connected": "{entity_name} Not connected",
@@ -391,6 +393,7 @@
       "status": {
         "name": "Status",
         "state": {
+          "autocleaning": "Automatic cleaning",
           "failure": "Failure",
           "idle": "Idle",
           "not_connected": "Not connected",
