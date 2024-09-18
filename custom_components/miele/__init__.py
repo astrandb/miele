@@ -48,6 +48,7 @@ from .const import (
     DOMAIN,
     MANUFACTURER,
     VERSION,
+    MieleAppliance,
 )
 from .devcap import (  # noqa: F401
     TEST_ACTION_19,
@@ -179,7 +180,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         _LOGGER.warning("No devices found in API for this account")
     else:
         _LOGGER.debug("Miele devices in API account: %s", serialnumbers)
-
+    for appliance in coordinator.data.values():
+        if appliance["ident|type|value_raw"] in [
+            MieleAppliance.DISHWASHER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER_PROFESSIONAL,
+            MieleAppliance.WASHING_MACHINE_PROFESSIONAL,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
+            MieleAppliance.DRYER_PROFESSIONAL,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+        ]:
+            _LOGGER.warning(
+                "Appliances in (semi-)professional series are not supported by Miele 3rd party API (Type: %s)",
+                appliance["ident|type|value_raw"],
+            )
+        if appliance["ident|type|value_raw"] not in MieleAppliance:
+            _LOGGER.warning(
+                "Appliance type %s is not supported by integration",
+                appliance["ident|type|value_raw"],
+            )
     miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
         try:
