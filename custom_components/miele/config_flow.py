@@ -36,7 +36,7 @@ class OAuth2FlowHandler(
     def extra_authorize_data(self) -> dict:
         """Extra data that needs to be appended to the authorize url."""
         return {
-            "vg": "sv_SE",
+            "vg": "sv-SE",
         }
 
     async def async_step_reauth(
