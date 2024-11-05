@@ -2,9 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio.timeouts
 from typing import Any
-
-import async_timeout
 
 from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.config_entries import ConfigEntry
@@ -76,7 +75,7 @@ async def async_get_device_diagnostics(
                     key, {}
                 )
             miele_api = hass.data[DOMAIN][config_entry.entry_id][API]
-            async with async_timeout.timeout(API_READ_TIMEOUT):
+            async with asyncio.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
                     f"/devices/{key}/programs",
