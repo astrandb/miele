@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} Nettoyage automatique en cours",
       "failure": "{entity_name} est en erreur",
       "idle": "{entity_name} est inactif",
       "not_connected": "{entity_name} n'est pas connecté",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} est en attente de démarrage"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Nettoyage Automatique",
       "failure": "{entity_name} Erreur",
       "idle": "{entity_name} Inactif",
       "not_connected": "{entity_name} Non connecté",
@@ -367,7 +369,7 @@
         "name": "Type de programme",
         "state": {
           "automatic_program": "Mode auto",
-          "cleaning_care_program": "Prog. nettoyage",
+          "cleaning_care_program": "Programme nettoyage",
           "maintenance_program": "Programme maintenance",
           "normal_operation_mode": "Mode normal",
           "own_program": "Programme personnel"
@@ -391,6 +393,7 @@
       "status": {
         "name": "Statut",
         "state": {
+          "autocleaning": "Nettoyage Automatique",
           "failure": "Erreur",
           "idle": "Inactif",
           "not_connected": "Non connecté",
