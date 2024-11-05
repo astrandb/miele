@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import asyncio
+import asyncio.timeouts
 from datetime import timedelta
 from http import HTTPStatus
 from json.decoder import JSONDecodeError
 import logging
 
 from aiohttp import ClientResponseError
-import async_timeout
 import flatdict
 import voluptuous as vol
 
@@ -201,7 +201,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
         try:
-            async with async_timeout.timeout(API_READ_TIMEOUT):
+            async with asyncio.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
                     f"/devices/{serial}/actions",
@@ -289,7 +289,7 @@ async def get_coordinator(
     async def async_fetch():
         miele_api = hass.data[DOMAIN][entry.entry_id][API]
         try:
-            async with async_timeout.timeout(API_READ_TIMEOUT):
+            async with asyncio.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
                     f"/devices?language={hass.config.language}",
