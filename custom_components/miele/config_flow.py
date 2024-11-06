@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import logging
 from typing import Any
 
 import voluptuous as vol
 
 from homeassistant.components import persistent_notification, zeroconf
+from homeassistant.config_entries import SOURCE_REAUTH, ConfigFlowResult
 from homeassistant.const import CONF_NAME
-from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers import config_entry_oauth2_flow
 
 from .const import DOMAIN
@@ -24,7 +25,6 @@ class OAuth2FlowHandler(
 
     DOMAIN = DOMAIN
 
-    entry = None
     name = None
 
     @property
@@ -40,14 +40,13 @@ class OAuth2FlowHandler(
         }
 
     async def async_step_reauth(
-        self, entry: dict[str, Any] | None = None
-    ) -> FlowResult:
+        self, entry_data: Mapping[str, Any]
+    ) -> ConfigFlowResult:
         """Perform reauth upon an API authentication error."""
-        self.entry = entry
         persistent_notification.async_create(
             self.hass,
             (
-                f"Miele integration for account {entry['auth_implementation']} needs to ",
+                f"Miele integration for account {entry_data['auth_implementation']} needs to ",
                 "be re-authenticated. Please go to the integrations page to re-configure it.",
             ),
             "Miele re-authentication",
@@ -57,12 +56,14 @@ class OAuth2FlowHandler(
 
     async def async_step_reauth_confirm(
         self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
+    ) -> ConfigFlowResult:
         """Dialog that informs the user that reauth is required."""
         if user_input is None:
             return self.async_show_form(
                 step_id="reauth_confirm",
-                description_placeholders={"account": self.entry["auth_implementation"]},
+                description_placeholders={
+                    "account": self._get_reauth_entry().data["auth_implementation"]
+                },
                 data_schema=vol.Schema({}),
                 errors={},
             )
@@ -70,25 +71,27 @@ class OAuth2FlowHandler(
         persistent_notification.async_dismiss(self.hass, "miele_reauth")
         return await self.async_step_user()
 
-    async def async_oauth_create_entry(self, data: dict) -> FlowResult:
+    async def async_oauth_create_entry(self, data: dict) -> ConfigFlowResult:
         """Create an oauth config entry or update existing entry for reauth."""
-        existing_entry = await self.async_set_unique_id(DOMAIN)
-        if existing_entry:
-            self.hass.config_entries.async_update_entry(existing_entry, data=data)
-            await self.hass.config_entries.async_reload(existing_entry.entry_id)
-            return self.async_abort(reason="reauth_successful")
+        self.async_set_unique_id(DOMAIN)
+        if self.source == SOURCE_REAUTH:
+            self._abort_if_unique_id_mismatch()
+            return self.async_update_reload_and_abort(
+                self._get_reauth_entry(), data_updates=data
+            )
+        self._abort_if_unique_id_configured()
         return await super().async_oauth_create_entry(data)
 
     async def async_step_zeroconf(
         self, discovery_info: zeroconf.ZeroconfServiceInfo
-    ) -> FlowResult:
+    ) -> ConfigFlowResult:
         """Prepare configuration for a Zeroconf discovered Miele device."""
         self.name = discovery_info.name.split(".", 1)[0]
         return await self.async_step_zeroconf_confirm()
 
     async def async_step_zeroconf_confirm(
         self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
+    ) -> ConfigFlowResult:
         """Handle a flow initiated by zeroconf."""
 
         await self.async_set_unique_id(DOMAIN)
