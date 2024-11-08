@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} in pulizia automatica",
       "failure": "{entity_name} ha un guasto",
       "idle": "{entity_name} è inattivo",
       "not_connected": "{entity_name} è non connesso",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} è in attesa di partire"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Pulizia automatica",
       "failure": "{entity_name} Guasto",
       "idle": "{entity_name} Inattivo",
       "not_connected": "{entity_name} Non connesso",
@@ -391,6 +393,7 @@
       "status": {
         "name": "Stato",
         "state": {
+          "autocleaning": "Pulizia automatica",
           "failure": "Guasto",
           "idle": "Inattivo",
           "not_connected": "Non connesso",

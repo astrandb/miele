@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} sa automaticky čistí",
       "failure": "{entity_name} zlyháva",
       "idle": "{entity_name} je nečinný",
       "not_connected": "{entity_name} nie je pripojený",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} čaká na spustenie"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatické čistenie",
       "failure": "{entity_name} zlyhanie",
       "idle": "{entity_name} nečinný",
       "not_connected": "{entity_name} nepripojený",
@@ -391,6 +393,7 @@
       "status": {
         "name": "Stav",
         "state": {
+          "autocleaning": "Automatické čistenie",
           "failure": "Neúspech",
           "idle": "Nečinné",
           "not_connected": "Nepripojené",
