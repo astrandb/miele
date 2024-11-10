@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} kör automatisk rengöring",
       "failure": "{entity_name} i felläge",
       "idle": "{entity_name} i viloläge",
       "not_connected": "{entity_name} är inte ansluten",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} väntar på start"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatisk rengöring",
       "failure": "{entity_name} Felläge",
       "idle": "{entity_name} Viloläge",
       "not_connected": "{entity_name} Inte ansluten",
@@ -391,6 +393,7 @@
       "status": {
         "name": "Status",
         "state": {
+          "autocleaning": "Automatisk rengöring",
           "failure": "Misslyckades",
           "idle": "Vänteläge",
           "not_connected": "Ej ansluten",

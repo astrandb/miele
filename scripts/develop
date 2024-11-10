@@ -16,6 +16,7 @@ logger:
     logs:
         custom_components.miele: debug
         pymiele: debug
+isal:
 " >> config/configuration.yaml
 fi
 if ! grep -R "debugpy:" config/configuration.yaml >> /dev/null;then

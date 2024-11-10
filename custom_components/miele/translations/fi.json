@@ -140,7 +140,8 @@
           "machine_iron": "Konesilitettävä",
           "normal": "Normaali",
           "normal_plus": "Normaali Plus",
-          "slightly_dry": "Hieman kuiva"
+          "slightly_dry": "Hieman kuiva",
+          "smoothing": "Sileytys"
         }
       },
       "elapsed_time": {
@@ -164,12 +165,17 @@
       "program_id": {
         "name": "Ohjelma",
         "state": {
+          "1_tray": "1 pelti",
+          "2_trays": "2 peltiä",
           "appliance_rinse": "Huuhtelu",
           "appliance_settings": "Asetusvalikko",
           "auto": "Automaattinen",
+          "auto_roast": "Automaattinen paisto",
           "automatic": "Automaattinen",
           "automatic_plus": "Automaattinen Plus",
+          "baking_tray": "Paistopelti",
           "barista_assistant": "Barista-avustaja",
+          "basket_program": "Koriohjelma",
           "bed_linen": "Liinavaatteet",
           "black_tea": "Musta tee",
           "bottom_heat": "Alalämpö",
@@ -183,8 +189,10 @@
           "coffee": "Kahvi",
           "coffee_pot": "Kahvikannu",
           "conventional_heat": "Peruslämpö",
+          "cool_air": "Viileä ilma",
           "cottons": "Puuvilla",
           "cottons_eco": "Puuvilla ECO",
+          "cottons_hygiene": "Puuvillan hygieniapesu",
           "curtains": "Verhot",
           "dark_garments": "Tummat pyykki",
           "defrost": "Sulatus",
@@ -192,27 +200,40 @@
           "denim": "Farkku",
           "descaling": "Kalkinpoisto",
           "down_duvets": "Untuvapeitot",
+          "down_filled_items": "Untuvatäytteiset tuotteet",
           "drain_spin": "Tyhjennys/linkous",
           "eco": "ECO",
           "eco_40_60": "ECO 40-60",
+          "eco_fan_heat": "Eco kiertoilmalämpö",
+          "economy_grill": "Energiatehokas grillaus",
           "espresso": "Espresso",
           "espresso_macchiato": "Espresso macchiato",
           "express": "Pika",
           "express_20": "Pika 20'",
           "extra_quiet": "Erittäin hiljainen",
+          "fan_grill": "Kiertoilma-grilli",
+          "fan_plus": "Kiertoilma",
           "first_wash": "Ensimmäinen pesu",
           "flat_white": "Flat white",
           "freshen_up": "Kohennus",
           "fruit_tea": "Hedelmätee",
+          "full_grill": "Tehogrillaus",
           "gentle": "Hellävarainen",
           "gentle_denim": "Farkut hellävarainen",
+          "gentle_minimum_iron": "Hellävarainen vähäinen silittämistarve",
+          "gentle_smoothing": "Hellävarainen sileytys",
+          "glasses_warm": "Lasien lämmitys",
           "green_tea": "Vihreä tee",
+          "heat_crockery": "Lämmitä astiat",
           "herbal_tea": "Yrttitee",
           "hot_milk": "Kuuma maito",
           "hot_water": "Kuuma vesi",
           "hygiene": "Hygienia",
+          "intensive": "Tehopesu",
+          "intensive_bake": "Tehopaisto",
           "japanese_tea": "Japanilainen tee",
           "keeping_warm": "Lämpimänä pitäminen",
+          "large_pillows": "Suuret tyynyt",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Iso kahvi",
           "maintenance": "Huolto-ohjelma",
@@ -220,26 +241,45 @@
           "milk_foam": "Maitovaahto",
           "milk_pipework_clean": "Maitoputkien puhdistus",
           "milk_pipework_rinse": "Maitoputkien huuhtelu",
+          "minimum_iron": "Vähäinen silittämistarve",
           "moisture_plus_auto_roast": "Kostutus + automaattinen paisto",
+          "moisture_plus_conventional_heat": "Kosteus + tavallinen lämpö",
+          "moisture_plus_fan_plus": "Kosteus + kiertoilma",
+          "moisture_plus_intensive_bake": "Kosteus + tehopaisto",
           "no_program": "Ei ohjelmaa",
           "normal": "Normaali",
           "outerwear": "Ulkovaatteet",
           "pillows": "Tyynyt",
           "proofing": "Kyllästys",
+          "prove_15_min": "Kohota 15 min",
+          "prove_30_min": "Kohota 30 min",
+          "prove_45_min": "Kohota 45 min",
           "quick_power_wash": "QuickPowerWash",
           "rinse": "Huuhtelu",
+          "rinse_out_lint": "Irronneiden kuitujen huuhtelu",
           "ristretto": "Ristretto",
           "separate_rinse_starch": "Erillinen huuhtelu/tärkkäys",
           "shirts": "Paidat",
           "silent": "Hiljainen",
           "silks": "Silkki",
+          "silks_handcare": "Silkkivaatteiden hellävarainen käsittely",
+          "smoothing": "Sileytys",
           "solar_save": "SolarSave",
           "sportswear": "Urheiluvaatteet",
+          "spot": "Tahrojen käsittely",
+          "standard_pillows": "Tavalliset tyynyt",
           "starch": "Tärkkäys",
+          "steam_care": "Höyrysuojaus",
+          "steam_smoothing": "Höyrysilotus",
+          "tall_items": "Korkeat astiat",
           "top_heat": "Ylälämpö",
+          "trainers": "Lenkkarit",
           "turbo": "Turbo",
           "very_hot_water": "Erittäin kuuma vesi",
-          "white_tea": "Valkoinen tee"
+          "warm_air": "Lämmin ilma",
+          "white_tea": "Valkoinen tee",
+          "woollens": "Villavaatteet",
+          "woollens_handcare": "Villavaatteiden hellävarainen käsittely"
         }
       },
       "program_phase": {
@@ -253,6 +293,7 @@
           "blocked_drive_wheels": "Vetopyörissä on este",
           "blocked_front_wheel": "Etupyörässä este",
           "cleaning": "Puhdistus",
+          "comfort_cooling": "Mukavuusjäähdytys",
           "cooling_down": "Jäähdytys",
           "dirty_sensors": "Likaiset anturit",
           "disinfecting": "Desinfiointi",
@@ -302,16 +343,21 @@
           "rinse_hold": "Huuhtelut päättyneet",
           "rinse_out_lint": "Nukan pois huuhtelu",
           "rinses": "Huuhtelut",
+          "safety_cooling": "Turvajäähdytys",
           "slightly_dry": "Hieman kuiva",
           "slow_roasting": "Hidas paahtaminen",
+          "smoothing": "Sileytys",
           "soak": "Liotus",
           "spin": "Linkous",
+          "starch_stop": "Tärkkäyksen lopetus",
           "steam_smoothing": "Höyrysilitys",
+          "thermo_spin": "Lämpimän ilman kierrätys",
           "timed_drying": "Ajoitettu kuivaus",
           "vacuum_cleaning": "Puhdistus",
           "vacuum_cleaning_paused": "Puhdistus keskeytetty",
           "vacuum_internal_fault": "Sisäinen vika - uudelleenkäynnistys",
           "venting": "Tuuletus",
+          "warm_air": "Lämmin ilma",
           "warm_cups_glasses": "Kuppien / lasien lämmitys",
           "warm_dishes_plates": "Astioiden / lautasten lämmitys",
           "wheel_lifted": "Pyörä nostettu"
@@ -346,6 +392,7 @@
         "name": "Tila",
         "state": {
           "failure": "Virhetilanne",
+          "idle": "Odotustila",
           "not_connected": "Ei yhdistetty",
           "off": "Pois päältä",
           "on": "Päällä",
@@ -456,24 +503,33 @@
     }
   },
   "services": {
+    "generic_action": {
+      "description": "Suorita yksi toiminto laitteessa",
+      "name": "Suorita yleinen toiminto"
+    },
     "process_action": {
+      "description": "Suorita toiminto jos ehdot täyttyvät",
       "fields": {
         "action": {
           "description": "Valitse yksi suoritettava toiminto",
           "name": "Toiminto"
         }
-      }
+      },
+      "name": "Suorita toiminto"
     },
     "raw": {
+      "description": "Suorita vähäisellä tarkistuksella",
       "fields": {
         "extra": {
+          "description": "Parametrien selitykset",
           "name": "Lisätoiminnot"
         },
         "serialno": {
           "description": "Laitteen sarjanumero",
           "name": "Sarjanumero"
         }
-      }
+      },
+      "name": "Suorita toiminto"
     },
     "set_program": {
       "description": "Aseta ja aloita ohjelma valinnaisilla parametreilla",

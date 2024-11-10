@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import asyncio
+import asyncio.timeouts
 from datetime import timedelta
 from http import HTTPStatus
 from json.decoder import JSONDecodeError
 import logging
 
 from aiohttp import ClientResponseError
-import async_timeout
 import flatdict
 import voluptuous as vol
 
@@ -48,12 +48,14 @@ from .const import (
     DOMAIN,
     MANUFACTURER,
     VERSION,
+    MieleAppliance,
 )
 from .devcap import (  # noqa: F401
     TEST_ACTION_19,
     TEST_ACTION_21,
     TEST_ACTION_23,
     TEST_DATA_1,
+    TEST_DATA_3,
     TEST_DATA_4,
     TEST_DATA_7,
     TEST_DATA_12,
@@ -174,11 +176,32 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
     serialnumbers = list(coordinator.data.keys())
-
+    if len(serialnumbers) == 0:
+        _LOGGER.warning("No devices found in API for this account")
+    else:
+        _LOGGER.debug("Miele devices in API account: %s", serialnumbers)
+    for appliance in coordinator.data.values():
+        if appliance["ident|type|value_raw"] in [
+            MieleAppliance.DISHWASHER_SEMI_PROFESSIONAL,
+            MieleAppliance.DISHWASHER_PROFESSIONAL,
+            MieleAppliance.WASHING_MACHINE_PROFESSIONAL,
+            MieleAppliance.WASHING_MACHINE_SEMI_PROFESSIONAL,
+            MieleAppliance.DRYER_PROFESSIONAL,
+            MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
+        ]:
+            _LOGGER.warning(
+                "Appliances in (semi-)professional series are not supported by Miele 3rd party API (Type: %s)",
+                appliance["ident|type|value_raw"],
+            )
+        if appliance["ident|type|value_raw"] not in MieleAppliance:
+            _LOGGER.warning(
+                "Appliance type %s is not supported by integration",
+                appliance["ident|type|value_raw"],
+            )
     miele_api = hass.data[DOMAIN][entry.entry_id][API]
     for serial in serialnumbers:
         try:
-            async with async_timeout.timeout(API_READ_TIMEOUT):
+            async with asyncio.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
                     f"/devices/{serial}/actions",
@@ -204,6 +227,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     async def _callback_update_data(data) -> None:
         # data["1223001"] = TEST_DATA_1
+        # data["1223003"] = TEST_DATA_3
         # data["1223004"] = TEST_DATA_4
         # data["1223007"] = TEST_DATA_7
         # data["1223012"] = TEST_DATA_12
@@ -265,7 +289,7 @@ async def get_coordinator(
     async def async_fetch():
         miele_api = hass.data[DOMAIN][entry.entry_id][API]
         try:
-            async with async_timeout.timeout(API_READ_TIMEOUT):
+            async with asyncio.timeout(API_READ_TIMEOUT):
                 res = await miele_api.request(
                     "GET",
                     f"/devices?language={hass.config.language}",
@@ -290,6 +314,7 @@ async def get_coordinator(
         hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
+        # result["1223003"] = TEST_DATA_3
         # result["1223004"] = TEST_DATA_4
         # result["1223007"] = TEST_DATA_7
         # result["1223012"] = TEST_DATA_12
