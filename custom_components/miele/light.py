@@ -13,6 +13,7 @@ from homeassistant.components.light import (
     ColorMode,
     LightEntity,
     LightEntityDescription,
+    LightEntityFeature,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -42,7 +43,7 @@ class MieleLightDescription(LightEntityDescription):
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     preset_modes: list | None = None
-    supported_features: int = 0
+    supported_features = LightEntityFeature(0)
 
 
 @dataclass
