@@ -51,7 +51,7 @@ class MieleFanDescription(FanEntityDescription):
     type_key: str = "ident|type|value_localized"
     convert: Callable[[Any], Any] | None = None
     preset_modes: list | None = None
-    supported_features: int = 0
+    supported_features = FanEntityFeature(0)
 
 
 @dataclass
