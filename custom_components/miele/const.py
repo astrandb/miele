@@ -327,9 +327,9 @@ DISHWASHER_PROGRAM_ID = {
     11: "extra_quiet",
     12: "hygiene",
     13: "quick_power_wash",
-    14: "pasta_paela",  # new item 14.08.2024
-    17: "tall_items",  # new item 14.08.2024
-    19: "glasses_warm",  # new item 14.08.2024
+    14: "pasta_paela",
+    17: "tall_items",
+    19: "glasses_warm",
     26: "intensive",
     27: "maintenance",  # or maintenance_program?
     28: "eco",
@@ -341,8 +341,8 @@ DISHWASHER_PROGRAM_ID = {
     36: "extra_quiet",
     37: "hygiene",
     38: "quick_power_wash",
-#    42: "tall_items",   # removed item 14.08.2024
-    44: "power_wash",  # updated item 14.08.2024
+    42: "tall_items",
+    44: "power_wash",
 }
 TUMBLE_DRYER_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
