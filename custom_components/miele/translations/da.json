@@ -11,6 +11,7 @@
       "no_url_available": "Ingen URL tilgængelig. For oplysninger om denne fejl, [tjek hjælpesektionen]( {docs_url} )",
       "oauth_error": "Modtog ugyldige tokendata.",
       "oauth_failed": "Fejl under indhentning af adgangstoken.",
+      "oauth_timeout": "Der opstod en timeout under anskaffelsen af OAuth token.",
       "oauth_unauthorized": "OAuth-autorisationsfejl under indhentning af adgangstoken.",
       "reauth_successful": "Gengodkendelse lykkedes"
     },
@@ -33,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} udfører automatisk rengøring",
       "failure": "{entity_name} fejler",
       "idle": "{entity_name} er inaktiv",
       "not_connected": "{entity_name} er ikke tilsluttet",
@@ -52,6 +54,7 @@
       "waiting_to_start": "{entity_name} venter på at starte"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatisk rengøring",
       "failure": "{entity_name} Fejl",
       "idle": "{entity_name} Inaktiv",
       "not_connected": "{entity_name} Ikke forbundet",
@@ -186,6 +189,7 @@
           "check_appliance": "Kontroller apparatet",
           "clean_machine": "Rengør maskinen",
           "coffee": "Kaffe",
+          "coffee_pot": "Kaffekande",
           "conventional_heat": "Konventionel varme",
           "cool_air": "Kold luft",
           "cottons": "Bomuld",
@@ -222,6 +226,7 @@
           "gentle_smoothing": "Skånsom udglatning",
           "glasses_warm": "Ølglas",
           "green_tea": "Grøn te",
+          "heat_crockery": "Opvarm service",
           "herbal_tea": "Urtete",
           "hot_milk": "Varm mælk",
           "hot_water": "Varmt vand",
@@ -230,6 +235,7 @@
           "intensive_bake": "Intensiv bagning",
           "japanese_tea": "Japansk te",
           "keeping_warm": "Holder varmen",
+          "large_pillows": "Store puder",
           "latte_macchiato": "Latte macchiato",
           "long_coffee": "Long Coffee",
           "maintenance": "Vedligeholdelsesprogram",
@@ -238,7 +244,10 @@
           "milk_pipework_clean": "Rensning af mælkerør",
           "milk_pipework_rinse": "Skylning af mælkerør",
           "minimum_iron": "Minimum strygning",
+          "moisture_plus_auto_roast": "Damp plus + auto stegning",
+          "moisture_plus_conventional_heat": "Damp plus + Konventionel varme",
           "moisture_plus_fan_plus": "Fugt Plus + Ventilator Plus",
+          "moisture_plus_intensive_bake": "Damp plus + Intensiv bagning",
           "no_program": "Intet program",
           "normal": "Normal",
           "outerwear": "Overtøj",
@@ -292,6 +301,7 @@
           "disinfecting": "Desinficering",
           "dispensing": "Dispensering",
           "docked": "Dokket",
+          "door_open": "Døren er åben",
           "drain": "Afløb",
           "drying": "Tørring",
           "dust_box_missing": "Mangler støvboks",
@@ -307,9 +317,12 @@
           "hand_iron_1": "Strygejern 1",
           "hand_iron_2": "Strygejern 2",
           "heating": "Opvarmning",
+          "heating_up": "Varmer op",
           "hot_milk": "Varm mælk",
           "hygiene": "Hygiejne",
           "interim_rinse": "Mellemliggende skylning",
+          "keep_warm": "Hold varm",
+          "keeping_warm": "Hold varm",
           "machine_iron": "Maskinstrygning",
           "main_dishwash": "Rensning",
           "main_wash": "Hovedvask",
@@ -334,6 +347,7 @@
           "rinses": "Skylninger",
           "safety_cooling": "Sikkerhedskøling",
           "slightly_dry": "Lidt tør",
+          "slow_roasting": "Langsom stegning",
           "smoothing": "Udglatning",
           "soak": "Iblødsætning",
           "spin": "Centrifugering",
@@ -346,6 +360,8 @@
           "vacuum_internal_fault": "Intern fejl - genstart",
           "venting": "Udluftning",
           "warm_air": "Varm luft",
+          "warm_cups_glasses": "Varm kopper/glas",
+          "warm_dishes_plates": "Varm fade/tallerkener",
           "wheel_lifted": "Hjulet løftet"
         }
       },
@@ -377,6 +393,7 @@
       "status": {
         "name": "Status",
         "state": {
+          "autocleaning": "Automatisk rengøring",
           "failure": "Fejl",
           "idle": "Inaktiv",
           "not_connected": "Ikke tilsluttet",
