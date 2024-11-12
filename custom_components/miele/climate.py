@@ -47,7 +47,7 @@ class MieleClimateDescription(ClimateEntityDescription):
     target_temperature_step: float | None = None
     hvac_modes: list | None = None
     zone: int = 0
-    supported_features: int = 0
+    supported_features: ClimateEntityFeature = ClimateEntityFeature(0)
 
 
 @dataclass
