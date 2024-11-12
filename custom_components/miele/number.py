@@ -71,6 +71,7 @@ PLATE_COUNT = {
     "KM7897": 6,
     "KMDA7633": 5,
     "KMDA7634": 5,
+    "KMX": 6,
 }
 
 
