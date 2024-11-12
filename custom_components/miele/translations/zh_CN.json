@@ -1,545 +1,545 @@
 {
-  "application_credentials": {
-    "description": "请到 [Miele 开发者网站的\"Get involved\"]( {register_url} ) 申请 credentials ，然后在下方输入它们。"
-  },
-  "config": {
-    "abort": {
-      "already_configured": "帐户已配置",
-      "already_in_progress": "配置流程已在进行中",
-      "authorize_url_timeout": "生成授权 URL 超时。",
-      "missing_configuration": "该组件未配置，请按照文档进行操作。",
-      "no_url_available": "无可用 URL。有关此错误的信息，[查看帮助部分]({docs_url})",
-      "oauth_error": "收到无效的令牌数据。",
-      "oauth_failed": "获取访问令牌时出错。",
-      "oauth_timeout": "解析 OAuth 令牌超时。",
-      "oauth_unauthorized": "获取访问令牌时发生 OAuth 授权错误。",
-      "reauth_successful": "重新验证成功"
+    "application_credentials": {
+        "description": "请到 [Miele 开发者网站的\"Get involved\"]( {register_url} ) 申请 credentials ，然后在下方输入它们。"
     },
-    "create_entry": {
-      "default": "验证成功"
-    },
-    "step": {
-      "pick_implementation": {
-        "title": "选择验证方法"
-      },
-      "reauth_confirm": {
-        "description": "Miele 集成需要重新验证您的帐户：{account}",
-        "title": "重新验证集成"
-      },
-      "zeroconf_confirm": {
-        "description": "您即将在 Home Assistant 中添加 `{name}` 和其他 Miele 设备（如果有）。\n\n**要完成此过程，您必须输入您的 credentials 。**",
-        "title": "确认您正在添加 Miele 集成"
-      }
-    }
-  },
-  "device_automation": {
-    "condition_type": {
-      "failure": "{entity_name} 失败",
-      "idle": "{entity_name} 空闲中",
-      "not_connected": "{entity_name} 未连接",
-      "off": "{entity_name} 关闭",
-      "on": "{entity_name} 开启",
-      "pause": "{entity_name} 暂停",
-      "program_ended": "{entity_name} 已结束程序",
-      "program_interrupted": "{entity_name} 已中断程序",
-      "programmed": "{entity_name} 已被设置程序",
-      "rinse_hold": "{entity_name} 漂洗暂停中",
-      "running": "{entity_name} 正在运行",
-      "service": "{entity_name} 使用中",
-      "supercooling": "{entity_name}：快速制冷已激活",
-      "supercooling_superfreezing": "{entity_name}：快速制冷/快速冷冻已激活",
-      "superfreezing": "{entity_name}：快速冷冻已激活",
-      "superheating": "{entity_name}：快速加热已激活",
-      "waiting_to_start": "{entity_name} 正在等待启动"
-    },
-    "trigger_type": {
-      "failure": "{entity_name} 失败",
-      "idle": "{entity_name} 空闲",
-      "not_connected": "{entity_name} 未连接",
-      "off": "{entity_name} 关闭",
-      "on": "{entity_name} 开启",
-      "pause": "{entity_name} 暂停",
-      "program_ended": "{entity_name} 程序结束",
-      "program_interrupted": "{entity_name} 程序中断",
-      "programmed": "{entity_name} 设置程序中/已被设置程序",
-      "rinse_hold": "{entity_name} 暂停漂洗",
-      "running": "{entity_name} 正在运行",
-      "service": "{entity_name} 服务",
-      "supercooling": "{entity_name} 快速制冷",
-      "supercooling_superfreezing": "{entity_name} 快速制冷/快速冷冻",
-      "superfreezing": "{entity_name} 快速冷冻",
-      "superheating": "{entity_name} 快速加热",
-      "waiting_to_start": "{entity_name} 等待启动"
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "door": {
-        "name": "门"
-      },
-      "failure": {
-        "name": "失败"
-      },
-      "info": {
-        "name": "信息"
-      },
-      "mobile_start": {
-        "name": "Mobile Start"
-      },
-      "remote_control": {
-        "name": "远程控制"
-      },
-      "smart_grid": {
-        "name": "智能电网 / 智慧用电"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "开始"
-      },
-      "stop": {
-        "name": "停止"
-      }
-    },
-    "climate": {
-      "freezer": {
-        "name": "冷冻室"
-      },
-      "fridge": {
-        "name": "冷藏室"
-      }
-    },
-    "fan": {
-      "fan": {
-        "name": "风扇"
-      }
-    },
-    "light": {
-      "ambient_light": {
-        "name": "环境灯光"
-      },
-      "light": {
-        "name": "灯光"
-      }
-    },
-    "number": {
-      "plate": {
-        "name": "碟 {plate_no}"
-      }
-    },
-    "sensor": {
-      "battery": {
-        "name": "电量"
-      },
-      "drying_step": {
-        "name": "烘干程度",
-        "state": {
-          "extra_dry": "特干",
-          "hand_iron_1": "手熨 1",
-          "hand_iron_2": "手熨 2",
-          "machine_iron": "机熨",
-          "normal": "普通干",
-          "normal_plus": "普通干 +",
-          "slightly_dry": "轻微干",
-          "smoothing": "平整"
-        }
-      },
-      "elapsed_time": {
-        "name": "已用时间"
-      },
-      "energy_consumption": {
-        "name": "能源消耗"
-      },
-      "energy_forecast": {
-        "name": "能源预测"
-      },
-      "finish_at": {
-        "name": "结束于"
-      },
-      "food_core_target_temperature": {
-        "name": "食物中心目标温度"
-      },
-      "food_core_temperature": {
-        "name": "食物中心温度"
-      },
-      "program_id": {
-        "name": "程序",
-        "state": {
-          "1_tray": "1 个托盘",
-          "2_trays": "2 个托盘",
-          "appliance_rinse": "器具冲洗",
-          "appliance_settings": "电器设置菜单",
-          "auto": "自动",
-          "auto_roast": "自动烘烤",
-          "automatic": "自动",
-          "automatic_plus": "自动感应",
-          "baking_tray": "烤盘",
-          "barista_assistant": "咖啡师助理",
-          "basket_program": "干衣篮程序",
-          "bed_linen": "床单被套",
-          "black_tea": "红茶",
-          "bottom_heat": "底部加热",
-          "brewing_unit_degrease": "调制装置除油",
-          "cafe_au_lait": "牛奶咖啡",
-          "caffe_latte": "拿铁咖啡",
-          "cappuccino": "卡布奇诺",
-          "cappuccino_italiano": "意式卡布奇诺",
-          "check_appliance": "检查电器",
-          "clean_machine": "机器清洁",
-          "coffee": "咖啡",
-          "coffee_pot": "咖啡壶",
-          "conventional_heat": "常规加热",
-          "cool_air": "冷风",
-          "cottons": "棉质衣物",
-          "cottons_eco": "棉质节能",
-          "cottons_hygiene": "棉质卫生",
-          "curtains": "窗帘",
-          "dark_garments": "深色/牛仔衣物",
-          "defrost": "除霜",
-          "delicates": "纤柔衣物",
-          "denim": "牛仔衣物",
-          "descaling": "电器除垢",
-          "down_duvets": "羽绒被",
-          "down_filled_items": "羽绒衣物",
-          "drain_spin": "排水/脱水",
-          "eco": "节能",
-          "eco_40_60": "节护洗",
-          "eco_fan_heat": "节能风扇加热",
-          "economy_grill": "节能烧烤",
-          "espresso": "浓缩",
-          "espresso_macchiato": "浓缩咖啡玛奇朵",
-          "express": "超快",
-          "express_20": "超快 20",
-          "extra_quiet": "夜静洗",
-          "fan_grill": "风扇烧烤",
-          "fan_plus": "风扇加强",
-          "first_wash": "新衣物首洗",
-          "flat_white": "馥芮白",
-          "freshen_up": "清新护理",
-          "fruit_tea": "果茶",
-          "full_grill": "全面烧烤",
-          "gentle": "晶璀洗",
-          "gentle_denim": "牛仔衣物",
-          "gentle_minimum_iron": "免熨衣物",
-          "gentle_smoothing": "纤柔衣物",
-          "glasses_warm": "啤酒杯",
-          "green_tea": "绿茶",
-          "heat_crockery": "加热餐具",
-          "herbal_tea": "凉茶",
-          "hot_milk": "热牛奶",
-          "hot_water": "热水",
-          "hygiene": "卫生洗",
-          "intensive": "强净洗",
-          "intensive_bake": "增强烘焙",
-          "japanese_tea": "日本茶",
-          "keeping_warm": "保温",
-          "large_pillows": "大枕头",
-          "latte_macchiato": "拿铁玛奇朵",
-          "long_coffee": "长黑咖啡",
-          "maintenance": "自清洁",
-          "microwave": "微波",
-          "milk_foam": "奶泡",
-          "milk_pipework_clean": "牛奶管道清洁",
-          "milk_pipework_rinse": "牛奶管道冲洗",
-          "minimum_iron": "免熨衣物",
-          "moisture_plus_auto_roast": "加湿 + 自动烘烤",
-          "moisture_plus_conventional_heat": "加湿 + 常规加热",
-          "moisture_plus_fan_plus": "蒸汽加强 + 风扇加强",
-          "moisture_plus_intensive_bake": "加湿 + 强力烘焙",
-          "no_program": "无程序",
-          "normal": "普通",
-          "outerwear": "户外衣物",
-          "pillows": "枕头",
-          "proofing": "涂层护理",
-          "prove_15_min": "发酵 15 分钟",
-          "prove_30_min": "发酵 30 分钟",
-          "prove_45_min": "发酵45分钟",
-          "quick_power_wash": "快强洗",
-          "rinse": "漂洗",
-          "rinse_out_lint": "冲掉绒毛",
-          "ristretto": "芮斯崔朵",
-          "separate_rinse_starch": "单独漂洗/上浆",
-          "shirts": "衬衫",
-          "silent": "静音",
-          "silks": "丝质衣物",
-          "silks_handcare": "丝织衣物",
-          "smoothing": "平整",
-          "solar_save": "Solar Save",
-          "sportswear": "运动衣物",
-          "spot": "Spot",
-          "standard_pillows": "标准枕头",
-          "starch": "上浆",
-          "steam_care": "蒸汽护理",
-          "steam_smoothing": "蒸汽护理",
-          "tall_items": "较高的物品",
-          "top_heat": "顶部加热",
-          "trainers": "运动鞋",
-          "turbo": "Turbo",
-          "very_hot_water": "非常热的水",
-          "warm_air": "暖风干衣",
-          "white_tea": "白茶",
-          "woollens": "羊毛衣物",
-          "woollens_handcare": "羊毛衣物"
-        }
-      },
-      "program_phase": {
-        "name": "程序阶段",
-        "state": {
-          "2nd_espresso": "第 2 杯浓缩咖啡",
-          "2nd_grinding": "第 2 次研磨",
-          "2nd_pre_brewing": "第 2 次预调制",
-          "anti_crease": "防皱",
-          "blocked_brushes": "毛刷被卡住",
-          "blocked_drive_wheels": "驱动轮被卡住",
-          "blocked_front_wheel": "前轮被卡住",
-          "cleaning": "清洗",
-          "comfort_cooling": "舒适冷却",
-          "cooling_down": "冷却",
-          "dirty_sensors": "传感器变脏",
-          "disinfecting": "消毒",
-          "dispensing": "配发",
-          "docked": "停靠",
-          "door_open": "门打开了",
-          "drain": "排水",
-          "drying": "烘干",
-          "dust_box_missing": "缺少集尘盒",
-          "energy_save": "节能",
-          "espresso": "浓缩咖啡",
-          "extra_dry": "特干",
-          "final_rinse": "最终漂洗",
-          "finished": "完成",
-          "freshen_up_and_moisten": "清新 & 加湿",
-          "going_to_target_area": "前往目标区域",
-          "grinding": "研磨",
-          "hand_iron": "手熨",
-          "hand_iron_1": "手熨 1",
-          "hand_iron_2": "手熨 2",
-          "heating": "加热",
-          "heating_up": "正在升温",
-          "hot_milk": "热牛奶",
-          "hygiene": "卫生",
-          "interim_rinse": "中间漂洗",
-          "keep_warm": "保温",
-          "keeping_warm": "正在保温",
-          "machine_iron": "机熨",
-          "main_dishwash": "清洗",
-          "main_wash": "主洗",
-          "milk_foam": "奶泡",
-          "moisten": "加湿",
-          "motor_overload": "检查集尘盒和过滤器",
-          "normal": "普通干",
-          "normal_plus": "普通干 +",
-          "not_running": "未运行",
-          "pre_brewing": "预调制",
-          "pre_dishwash": "预清洗",
-          "pre_wash": "预洗",
-          "process_finished": "流程完成",
-          "process_running": "流程正在运行",
-          "program_running": "程序运行中",
-          "reactivating": "重新激活",
-          "remote_controlled": "远程控制中",
-          "returning": "返回",
-          "rinse": "漂洗",
-          "rinse_hold": "暂停漂洗",
-          "rinse_out_lint": "冲掉绒毛",
-          "rinses": "漂洗",
-          "safety_cooling": "安全冷却",
-          "slightly_dry": "轻微干",
-          "slow_roasting": "慢烤",
-          "smoothing": "平整",
-          "soak": "浸泡",
-          "spin": "旋转",
-          "starch_stop": "停止上浆",
-          "steam_smoothing": "蒸汽熨平",
-          "thermo_spin": "热力烘干",
-          "timed_drying": "定时烘干",
-          "vacuum_cleaning": "清洁中",
-          "vacuum_cleaning_paused": "清洁已暂停",
-          "vacuum_internal_fault": "内部故障 - 重新启动",
-          "venting": "通风",
-          "warm_air": "暖风",
-          "warm_cups_glasses": "暖杯/暖玻璃杯",
-          "warm_dishes_plates": "暖碟/盘",
-          "wheel_lifted": "轮子过高"
-        }
-      },
-      "program_type": {
-        "name": "程序类型",
-        "state": {
-          "automatic_program": "自动程序",
-          "cleaning_care_program": "清洁/护理程序",
-          "maintenance_program": "自清洁",
-          "normal_operation_mode": "正常操作模式",
-          "own_program": "自定义程序"
-        }
-      },
-      "remaining_time": {
-        "name": "剩余时间"
-      },
-      "spin_speed": {
-        "name": "转速"
-      },
-      "start_at": {
-        "name": "将开始于"
-      },
-      "start_time": {
-        "name": "距开始还剩"
-      },
-      "started_at": {
-        "name": "已开始于"
-      },
-      "status": {
-        "name": "状态",
-        "state": {
-          "failure": "失败",
-          "idle": "空闲",
-          "not_connected": "未连接",
-          "off": "关闭",
-          "on": "开启",
-          "pause": "暂停",
-          "program_ended": "程序结束",
-          "program_interrupted": "程序中断",
-          "programmed": "设置程序中",
-          "rinse_hold": "暂停漂洗",
-          "running": "运行中",
-          "service": "服务",
-          "supercooling": "快速制冷",
-          "supercooling_superfreezing": "快速制冷/快速冷冻",
-          "superfreezing": "快速冷冻",
-          "superheating": "快速加热",
-          "waiting_to_start": "等待开始"
+    "config": {
+        "abort": {
+            "already_configured": "帐户已配置",
+            "already_in_progress": "配置流程已在进行中",
+            "authorize_url_timeout": "生成授权 URL 超时。",
+            "missing_configuration": "该组件未配置，请按照文档进行操作。",
+            "no_url_available": "无可用 URL。有关此错误的信息，[查看帮助部分]({docs_url})",
+            "oauth_error": "收到无效的令牌数据。",
+            "oauth_failed": "获取访问令牌时出错。",
+            "oauth_timeout": "解析 OAuth 令牌超时。",
+            "oauth_unauthorized": "获取访问令牌时发生 OAuth 授权错误。",
+            "reauth_successful": "重新验证成功"
         },
-        "state_attributes": {
-          "appliance": {
-            "name": "电器"
-          },
-          "manufacturer": {
-            "name": "制造商"
-          },
-          "model": {
-            "name": "型号"
-          },
-          "serial_no": {
-            "name": "序列号"
-          }
-        }
-      },
-      "target_temperature": {
-        "name": "目标温度"
-      },
-      "target_temperature_zone_2": {
-        "name": "目标温度区 2"
-      },
-      "target_temperature_zone_3": {
-        "name": "目标温度区 3"
-      },
-      "temperature": {
-        "name": "温度"
-      },
-      "temperature_zone_2": {
-        "name": "温度区 2"
-      },
-      "temperature_zone_3": {
-        "name": "温度区 3"
-      },
-      "water_consumption": {
-        "name": "用水量"
-      },
-      "water_forecast": {
-        "name": "用水量预测"
-      }
-    },
-    "switch": {
-      "power_on": {
-        "name": "开机"
-      },
-      "supercooling": {
-        "name": "快速制冷"
-      },
-      "superfreezing": {
-        "name": "快速冷冻"
-      }
-    },
-    "vacuum": {
-      "vacuum": {
-        "name": "真空吸尘器",
-        "state_attributes": {
-          "status": {
-            "name": "状态",
-            "state": {
-              "blocked_brushes": "毛刷被卡住",
-              "blocked_drive_wheels": "驱动轮被卡住",
-              "blocked_front_wheel": "前轮被卡住",
-              "check_dust_box_and_filter": "检查集尘盒和过滤器",
-              "dirty_sensors": "传感器变脏",
-              "dust_box_missing": "缺少集尘盒",
-              "going_to_target_area": "前往目标区域",
-              "internal_fault_reboot": "内部故障 - 重新启动",
-              "remote_controlled": "远程控制中",
-              "wheel_lifted": "轮子过高"
+        "create_entry": {
+            "default": "验证成功"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "选择验证方法"
+            },
+            "reauth_confirm": {
+                "description": "Miele 集成需要重新验证您的帐户：{account}",
+                "title": "重新验证集成"
+            },
+            "zeroconf_confirm": {
+                "description": "您即将在 Home Assistant 中添加 `{name}` 和其他 Miele 设备（如果有）。\n\n**要完成此过程，您必须输入您的 credentials 。**",
+                "title": "确认您正在添加 Miele 集成"
             }
-          }
         }
-      }
-    }
-  },
-  "issues": {
-    "hob_not_supported": {
-      "description": "Miele 集成不完全支持电器类型{tech_type} 。因此某些实体可能缺失或出现故障。 \n\n请将此问题报告给 [Github上的维护者]({issue_url})",
-      "title": "不完全支持电器{tech_type}"
-    }
-  },
-  "selector": {
-    "process_action_options": {
-      "options": {
-        "pause": "暂停",
-        "start": "开始",
-        "start_supercooling": "开始快速制冷",
-        "start_superfreezing": "开始快速冷冻",
-        "stop": "停止",
-        "stop_supercooling": "停止快速制冷",
-        "stop_superfreezing": "停止快速冷冻"
-      }
-    }
-  },
-  "services": {
-    "generic_action": {
-      "description": "在设备上执行一项操作",
-      "name": "执行通用操作"
     },
-    "process_action": {
-      "description": "如果满足前提条件，则执行流程操作。",
-      "fields": {
-        "action": {
-          "description": "选择一个要执行的流程操作。",
-          "name": "操作"
-        }
-      },
-      "name": "执行流程操作"
-    },
-    "raw": {
-      "description": "以最少的验证执行服务。",
-      "fields": {
-        "extra": {
-          "description": "带参数的字典",
-          "name": "额外的"
+    "device_automation": {
+        "condition_type": {
+            "failure": "{entity_name} 失败",
+            "idle": "{entity_name} 空闲中",
+            "not_connected": "{entity_name} 未连接",
+            "off": "{entity_name} 关闭",
+            "on": "{entity_name} 开启",
+            "pause": "{entity_name} 暂停",
+            "program_ended": "{entity_name} 已结束程序",
+            "program_interrupted": "{entity_name} 已中断程序",
+            "programmed": "{entity_name} 已被设置程序",
+            "rinse_hold": "{entity_name} 漂洗暂停中",
+            "running": "{entity_name} 正在运行",
+            "service": "{entity_name} 使用中",
+            "supercooling": "{entity_name}：快速制冷已激活",
+            "supercooling_superfreezing": "{entity_name}：快速制冷/快速冷冻已激活",
+            "superfreezing": "{entity_name}：快速冷冻已激活",
+            "superheating": "{entity_name}：快速加热已激活",
+            "waiting_to_start": "{entity_name} 正在等待启动"
         },
-        "serialno": {
-          "description": "电器的序列号",
-          "name": "序列号"
+        "trigger_type": {
+            "failure": "{entity_name} 失败",
+            "idle": "{entity_name} 空闲",
+            "not_connected": "{entity_name} 未连接",
+            "off": "{entity_name} 关闭",
+            "on": "{entity_name} 开启",
+            "pause": "{entity_name} 暂停",
+            "program_ended": "{entity_name} 程序结束",
+            "program_interrupted": "{entity_name} 程序中断",
+            "programmed": "{entity_name} 设置程序中/已被设置程序",
+            "rinse_hold": "{entity_name} 暂停漂洗",
+            "running": "{entity_name} 正在运行",
+            "service": "{entity_name} 服务",
+            "supercooling": "{entity_name} 快速制冷",
+            "supercooling_superfreezing": "{entity_name} 快速制冷/快速冷冻",
+            "superfreezing": "{entity_name} 快速冷冻",
+            "superheating": "{entity_name} 快速加热",
+            "waiting_to_start": "{entity_name} 等待启动"
         }
-      },
-      "name": "执行原始操作"
     },
-    "set_program": {
-      "description": "设置并启动带有可选参数的程序。",
-      "name": "设置程序"
+    "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "门"
+            },
+            "failure": {
+                "name": "失败"
+            },
+            "info": {
+                "name": "信息"
+            },
+            "mobile_start": {
+                "name": "Mobile Start"
+            },
+            "remote_control": {
+                "name": "远程控制"
+            },
+            "smart_grid": {
+                "name": "智能电网 / 智慧用电"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "开始"
+            },
+            "stop": {
+                "name": "停止"
+            }
+        },
+        "climate": {
+            "freezer": {
+                "name": "冷冻室"
+            },
+            "fridge": {
+                "name": "冷藏室"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "风扇"
+            }
+        },
+        "light": {
+            "ambient_light": {
+                "name": "环境灯光"
+            },
+            "light": {
+                "name": "灯光"
+            }
+        },
+        "number": {
+            "plate": {
+                "name": "碟 {plate_no}"
+            }
+        },
+        "sensor": {
+            "battery": {
+                "name": "电量"
+            },
+            "drying_step": {
+                "name": "烘干程度",
+                "state": {
+                    "extra_dry": "特干",
+                    "hand_iron_1": "手熨 1",
+                    "hand_iron_2": "手熨 2",
+                    "machine_iron": "机熨",
+                    "normal": "普通干",
+                    "normal_plus": "普通干 +",
+                    "slightly_dry": "轻微干",
+                    "smoothing": "平整"
+                }
+            },
+            "elapsed_time": {
+                "name": "已用时间"
+            },
+            "energy_consumption": {
+                "name": "能源消耗"
+            },
+            "energy_forecast": {
+                "name": "能源预测"
+            },
+            "finish_at": {
+                "name": "结束于"
+            },
+            "food_core_target_temperature": {
+                "name": "食物中心目标温度"
+            },
+            "food_core_temperature": {
+                "name": "食物中心温度"
+            },
+            "program_id": {
+                "name": "程序",
+                "state": {
+                    "1_tray": "1 个托盘",
+                    "2_trays": "2 个托盘",
+                    "appliance_rinse": "器具冲洗",
+                    "appliance_settings": "电器设置菜单",
+                    "auto": "自动",
+                    "auto_roast": "自动烘烤",
+                    "automatic": "自动",
+                    "automatic_plus": "自动感应",
+                    "baking_tray": "烤盘",
+                    "barista_assistant": "咖啡师助理",
+                    "basket_program": "干衣篮程序",
+                    "bed_linen": "床单被套",
+                    "black_tea": "红茶",
+                    "bottom_heat": "底部加热",
+                    "brewing_unit_degrease": "调制装置除油",
+                    "cafe_au_lait": "牛奶咖啡",
+                    "caffe_latte": "拿铁咖啡",
+                    "cappuccino": "卡布奇诺",
+                    "cappuccino_italiano": "意式卡布奇诺",
+                    "check_appliance": "检查电器",
+                    "clean_machine": "机器清洁",
+                    "coffee": "咖啡",
+                    "coffee_pot": "咖啡壶",
+                    "conventional_heat": "常规加热",
+                    "cool_air": "冷风",
+                    "cottons": "棉质衣物",
+                    "cottons_eco": "棉质节能",
+                    "cottons_hygiene": "棉质卫生",
+                    "curtains": "窗帘",
+                    "dark_garments": "深色/牛仔衣物",
+                    "defrost": "除霜",
+                    "delicates": "纤柔衣物",
+                    "denim": "牛仔衣物",
+                    "descaling": "电器除垢",
+                    "down_duvets": "羽绒被",
+                    "down_filled_items": "羽绒衣物",
+                    "drain_spin": "排水/脱水",
+                    "eco": "节能",
+                    "eco_40_60": "节护洗",
+                    "eco_fan_heat": "节能风扇加热",
+                    "economy_grill": "节能烧烤",
+                    "espresso": "浓缩",
+                    "espresso_macchiato": "浓缩咖啡玛奇朵",
+                    "express": "超快",
+                    "express_20": "超快 20",
+                    "extra_quiet": "夜静洗",
+                    "fan_grill": "风扇烧烤",
+                    "fan_plus": "风扇加强",
+                    "first_wash": "新衣物首洗",
+                    "flat_white": "馥芮白",
+                    "freshen_up": "清新护理",
+                    "fruit_tea": "果茶",
+                    "full_grill": "全面烧烤",
+                    "gentle": "晶璀洗",
+                    "gentle_denim": "牛仔衣物",
+                    "gentle_minimum_iron": "免熨衣物",
+                    "gentle_smoothing": "纤柔衣物",
+                    "glasses_warm": "啤酒杯",
+                    "green_tea": "绿茶",
+                    "heat_crockery": "加热餐具",
+                    "herbal_tea": "凉茶",
+                    "hot_milk": "热牛奶",
+                    "hot_water": "热水",
+                    "hygiene": "卫生洗",
+                    "intensive": "强净洗",
+                    "intensive_bake": "增强烘焙",
+                    "japanese_tea": "日本茶",
+                    "keeping_warm": "保温",
+                    "large_pillows": "大枕头",
+                    "latte_macchiato": "拿铁玛奇朵",
+                    "long_coffee": "长黑咖啡",
+                    "maintenance": "自清洁",
+                    "microwave": "微波",
+                    "milk_foam": "奶泡",
+                    "milk_pipework_clean": "牛奶管道清洁",
+                    "milk_pipework_rinse": "牛奶管道冲洗",
+                    "minimum_iron": "免熨衣物",
+                    "moisture_plus_auto_roast": "加湿 + 自动烘烤",
+                    "moisture_plus_conventional_heat": "加湿 + 常规加热",
+                    "moisture_plus_fan_plus": "蒸汽加强 + 风扇加强",
+                    "moisture_plus_intensive_bake": "加湿 + 强力烘焙",
+                    "no_program": "无程序",
+                    "normal": "普通",
+                    "outerwear": "户外衣物",
+                    "pillows": "枕头",
+                    "proofing": "涂层护理",
+                    "prove_15_min": "发酵 15 分钟",
+                    "prove_30_min": "发酵 30 分钟",
+                    "prove_45_min": "发酵45分钟",
+                    "quick_power_wash": "快强洗",
+                    "rinse": "漂洗",
+                    "rinse_out_lint": "冲掉绒毛",
+                    "ristretto": "芮斯崔朵",
+                    "separate_rinse_starch": "单独漂洗/上浆",
+                    "shirts": "衬衫",
+                    "silent": "静音",
+                    "silks": "丝质衣物",
+                    "silks_handcare": "丝织衣物",
+                    "smoothing": "平整",
+                    "solar_save": "Solar Save",
+                    "sportswear": "运动衣物",
+                    "spot": "Spot",
+                    "standard_pillows": "标准枕头",
+                    "starch": "上浆",
+                    "steam_care": "蒸汽护理",
+                    "steam_smoothing": "蒸汽护理",
+                    "tall_items": "较高的物品",
+                    "top_heat": "顶部加热",
+                    "trainers": "运动鞋",
+                    "turbo": "Turbo",
+                    "very_hot_water": "非常热的水",
+                    "warm_air": "暖风干衣",
+                    "white_tea": "白茶",
+                    "woollens": "羊毛衣物",
+                    "woollens_handcare": "羊毛衣物"
+                }
+            },
+            "program_phase": {
+                "name": "程序阶段",
+                "state": {
+                    "2nd_espresso": "第 2 杯浓缩咖啡",
+                    "2nd_grinding": "第 2 次研磨",
+                    "2nd_pre_brewing": "第 2 次预调制",
+                    "anti_crease": "防皱",
+                    "blocked_brushes": "毛刷被卡住",
+                    "blocked_drive_wheels": "驱动轮被卡住",
+                    "blocked_front_wheel": "前轮被卡住",
+                    "cleaning": "清洗",
+                    "comfort_cooling": "舒适冷却",
+                    "cooling_down": "冷却",
+                    "dirty_sensors": "传感器变脏",
+                    "disinfecting": "消毒",
+                    "dispensing": "配发",
+                    "docked": "停靠",
+                    "door_open": "门打开了",
+                    "drain": "排水",
+                    "drying": "烘干",
+                    "dust_box_missing": "缺少集尘盒",
+                    "energy_save": "节能",
+                    "espresso": "浓缩咖啡",
+                    "extra_dry": "特干",
+                    "final_rinse": "最终漂洗",
+                    "finished": "完成",
+                    "freshen_up_and_moisten": "清新 & 加湿",
+                    "going_to_target_area": "前往目标区域",
+                    "grinding": "研磨",
+                    "hand_iron": "手熨",
+                    "hand_iron_1": "手熨 1",
+                    "hand_iron_2": "手熨 2",
+                    "heating": "加热",
+                    "heating_up": "正在升温",
+                    "hot_milk": "热牛奶",
+                    "hygiene": "卫生",
+                    "interim_rinse": "中间漂洗",
+                    "keep_warm": "保温",
+                    "keeping_warm": "正在保温",
+                    "machine_iron": "机熨",
+                    "main_dishwash": "清洗",
+                    "main_wash": "主洗",
+                    "milk_foam": "奶泡",
+                    "moisten": "加湿",
+                    "motor_overload": "检查集尘盒和过滤器",
+                    "normal": "普通干",
+                    "normal_plus": "普通干 +",
+                    "not_running": "未运行",
+                    "pre_brewing": "预调制",
+                    "pre_dishwash": "预清洗",
+                    "pre_wash": "预洗",
+                    "process_finished": "流程完成",
+                    "process_running": "流程正在运行",
+                    "program_running": "程序运行中",
+                    "reactivating": "重新激活",
+                    "remote_controlled": "远程控制中",
+                    "returning": "返回",
+                    "rinse": "漂洗",
+                    "rinse_hold": "暂停漂洗",
+                    "rinse_out_lint": "冲掉绒毛",
+                    "rinses": "漂洗",
+                    "safety_cooling": "安全冷却",
+                    "slightly_dry": "轻微干",
+                    "slow_roasting": "慢烤",
+                    "smoothing": "平整",
+                    "soak": "浸泡",
+                    "spin": "旋转",
+                    "starch_stop": "停止上浆",
+                    "steam_smoothing": "蒸汽熨平",
+                    "thermo_spin": "热力烘干",
+                    "timed_drying": "定时烘干",
+                    "vacuum_cleaning": "清洁中",
+                    "vacuum_cleaning_paused": "清洁已暂停",
+                    "vacuum_internal_fault": "内部故障 - 重新启动",
+                    "venting": "通风",
+                    "warm_air": "暖风",
+                    "warm_cups_glasses": "暖杯/暖玻璃杯",
+                    "warm_dishes_plates": "暖碟/盘",
+                    "wheel_lifted": "轮子过高"
+                }
+            },
+            "program_type": {
+                "name": "程序类型",
+                "state": {
+                    "automatic_program": "自动程序",
+                    "cleaning_care_program": "清洁/护理程序",
+                    "maintenance_program": "自清洁",
+                    "normal_operation_mode": "正常操作模式",
+                    "own_program": "自定义程序"
+                }
+            },
+            "remaining_time": {
+                "name": "剩余时间"
+            },
+            "spin_speed": {
+                "name": "转速"
+            },
+            "start_at": {
+                "name": "将开始于"
+            },
+            "start_time": {
+                "name": "距开始还剩"
+            },
+            "started_at": {
+                "name": "已开始于"
+            },
+            "status": {
+                "name": "状态",
+                "state": {
+                    "failure": "失败",
+                    "idle": "空闲",
+                    "not_connected": "未连接",
+                    "off": "关闭",
+                    "on": "开启",
+                    "pause": "暂停",
+                    "program_ended": "程序结束",
+                    "program_interrupted": "程序中断",
+                    "programmed": "设置程序中",
+                    "rinse_hold": "暂停漂洗",
+                    "running": "运行中",
+                    "service": "服务",
+                    "supercooling": "快速制冷",
+                    "supercooling_superfreezing": "快速制冷/快速冷冻",
+                    "superfreezing": "快速冷冻",
+                    "superheating": "快速加热",
+                    "waiting_to_start": "等待开始"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "电器"
+                    },
+                    "manufacturer": {
+                        "name": "制造商"
+                    },
+                    "model": {
+                        "name": "型号"
+                    },
+                    "serial_no": {
+                        "name": "序列号"
+                    }
+                }
+            },
+            "target_temperature": {
+                "name": "目标温度"
+            },
+            "target_temperature_zone_2": {
+                "name": "目标温度区 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "目标温度区 3"
+            },
+            "temperature": {
+                "name": "温度"
+            },
+            "temperature_zone_2": {
+                "name": "温度区 2"
+            },
+            "temperature_zone_3": {
+                "name": "温度区 3"
+            },
+            "water_consumption": {
+                "name": "用水量"
+            },
+            "water_forecast": {
+                "name": "用水量预测"
+            }
+        },
+        "switch": {
+            "power_on": {
+                "name": "开机"
+            },
+            "supercooling": {
+                "name": "快速制冷"
+            },
+            "superfreezing": {
+                "name": "快速冷冻"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "真空吸尘器",
+                "state_attributes": {
+                    "status": {
+                        "name": "状态",
+                        "state": {
+                            "blocked_brushes": "毛刷被卡住",
+                            "blocked_drive_wheels": "驱动轮被卡住",
+                            "blocked_front_wheel": "前轮被卡住",
+                            "check_dust_box_and_filter": "检查集尘盒和过滤器",
+                            "dirty_sensors": "传感器变脏",
+                            "dust_box_missing": "缺少集尘盒",
+                            "going_to_target_area": "前往目标区域",
+                            "internal_fault_reboot": "内部故障 - 重新启动",
+                            "remote_controlled": "远程控制中",
+                            "wheel_lifted": "轮子过高"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "hob_not_supported": {
+            "description": "Miele 集成不完全支持电器类型{tech_type} 。因此某些实体可能缺失或出现故障。 \n\n请将此问题报告给 [Github上的维护者]({issue_url})",
+            "title": "不完全支持电器{tech_type}"
+        }
+    },
+    "selector": {
+        "process_action_options": {
+            "options": {
+                "pause": "暂停",
+                "start": "开始",
+                "start_supercooling": "开始快速制冷",
+                "start_superfreezing": "开始快速冷冻",
+                "stop": "停止",
+                "stop_supercooling": "停止快速制冷",
+                "stop_superfreezing": "停止快速冷冻"
+            }
+        }
+    },
+    "services": {
+        "generic_action": {
+            "description": "在设备上执行一项操作",
+            "name": "执行通用操作"
+        },
+        "process_action": {
+            "description": "如果满足前提条件，则执行流程操作。",
+            "fields": {
+                "action": {
+                    "description": "选择一个要执行的流程操作。",
+                    "name": "操作"
+                }
+            },
+            "name": "执行流程操作"
+        },
+        "raw": {
+            "description": "以最少的验证执行服务。",
+            "fields": {
+                "extra": {
+                    "description": "带参数的字典",
+                    "name": "额外的"
+                },
+                "serialno": {
+                    "description": "电器的序列号",
+                    "name": "序列号"
+                }
+            },
+            "name": "执行原始操作"
+        },
+        "set_program": {
+            "description": "设置并启动带有可选参数的程序。",
+            "name": "设置程序"
+        }
+    },
+    "system_health": {
+        "info": {
+            "component_version": "版本",
+            "reach_miele_cloud": "访问 Miele Cloud"
+        }
     }
-  },
-  "system_health": {
-    "info": {
-      "component_version": "版本",
-      "reach_miele_cloud": "访问 Miele Cloud"
-    }
-  }
 }

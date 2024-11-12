@@ -1,545 +1,545 @@
 {
-  "application_credentials": {
-    "description": "Navigéiert op [\"Get involved\" op der Miele Entwéckler Websäit]( {register_url} ) fir Umeldungsdetailer unzefroen a gitt se hei ënnen un."
-  },
-  "config": {
-    "abort": {
-      "already_configured": "Konto ass scho konfiguréiert",
-      "already_in_progress": "Konfiguratioun leeft schonn",
-      "authorize_url_timeout": "Zäitiwwerschreidung bei der Generéierung vun der Autoriséierungs-URL",
-      "missing_configuration": "De Komponent ass net konfiguréiert. Follegt w.e.g. der Beschreiwung.",
-      "no_url_available": "Keng URL verfügbar. Fir Informatiounen iwwer dëse Feeler, [kuckt d'Hëllefsektioun]( {docs_url} )",
-      "oauth_error": "Ongülteg Tokendaten kritt.",
-      "oauth_failed": "Allgemenge Feeler beim Siche vum Zougrëffstoken.",
-      "oauth_timeout": "Zäitiwwerschreidung beim Opléisen vum OAuth-Token",
-      "oauth_unauthorized": "OAuth Autorisatiounsfehler beim Empfänken vun Zougangstoken.",
-      "reauth_successful": "Neiauthentifizéierung war erfollegräich"
+    "application_credentials": {
+        "description": "Navigéiert op [\"Get involved\" op der Miele Entwéckler Websäit]( {register_url} ) fir Umeldungsdetailer unzefroen a gitt se hei ënnen un."
     },
-    "create_entry": {
-      "default": "Erfollegräich authentifizéiert"
-    },
-    "step": {
-      "pick_implementation": {
-        "title": "Authentifikatiounsmethod auswielen"
-      },
-      "reauth_confirm": {
-        "description": "D'Miele Integratioun muss däi Kont nei authentifizéieren: {account}",
-        "title": "Integratioun nei authentifizéieren"
-      },
-      "zeroconf_confirm": {
-        "description": "Du bass amgaang \" {name} \" an eventuell aner Miele Apparater an den Home Assistant bäizesetzen. \n\n **Fir de Prozess ofzeschléissen, muss du deng Zougangsinformatiounen aginn.**",
-        "title": "Bestäteg, dass du d'Miele-Integratioun bäisetze wëlls"
-      }
-    }
-  },
-  "device_automation": {
-    "condition_type": {
-      "failure": "{entity_name} ass feelgeschloen",
-      "idle": "{entity_name} ass inaktiv",
-      "not_connected": "{entity_name} ass net verbonnen",
-      "off": "{entity_name} ass ausgeschalt",
-      "on": "{entity_name} ass ageschalt",
-      "pause": "{entity_name} pauséiert",
-      "program_ended": "{entity_name} huet de Programm fäerdeg",
-      "program_interrupted": "{entity_name} huet de Programm ënnerbrach",
-      "programmed": "{entity_name} ass programméiert",
-      "rinse_hold": "{entity_name} ass am Spullstop",
-      "running": "{entity_name} gëtt ausgefouert",
-      "service": "{entity_name} ass a Betrieb",
-      "supercooling": "{entity_name} huet SuperKillen aktivéiert",
-      "supercooling_superfreezing": "{entity_name} huet SuperKillen/SuperFrost aktivéiert",
-      "superfreezing": "{entity_name} huet SuperFrost aktivéiert",
-      "superheating": "{entity_name} Hëtzt séier op",
-      "waiting_to_start": "{entity_name} waart op de Start"
-    },
-    "trigger_type": {
-      "failure": "{entity_name} Feeler",
-      "idle": "{entity_name} Leerlaf",
-      "not_connected": "{entity_name} net verbonnen",
-      "off": "{entity_name} aus",
-      "on": "{entity_name} un",
-      "pause": "{entity_name} Paus",
-      "program_ended": "{entity_name} Programm fäerdeg",
-      "program_interrupted": "{entity_name} Programm ënnerbrach",
-      "programmed": "{entity_name} programméiert",
-      "rinse_hold": "{entity_name} Spullstop",
-      "running": "{entity_name} a Betrieb",
-      "service": "{entity_name} Service",
-      "supercooling": "{entity_name} SuperKillen",
-      "supercooling_superfreezing": "{entity_name} SuperKillen/Superfrost",
-      "superfreezing": "{entity_name} SuperFrost",
-      "superheating": "{entity_name} Séier opwiermen",
-      "waiting_to_start": "{entity_name} waart op de Start"
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "door": {
-        "name": "Dier"
-      },
-      "failure": {
-        "name": "Feeler"
-      },
-      "info": {
-        "name": "Info"
-      },
-      "mobile_start": {
-        "name": "MobileStart"
-      },
-      "remote_control": {
-        "name": "Fernsteierung"
-      },
-      "smart_grid": {
-        "name": "Smart Grid"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "Start"
-      },
-      "stop": {
-        "name": "Stop"
-      }
-    },
-    "climate": {
-      "freezer": {
-        "name": "Tiefkühler"
-      },
-      "fridge": {
-        "name": "Frigo"
-      }
-    },
-    "fan": {
-      "fan": {
-        "name": "Ventilator"
-      }
-    },
-    "light": {
-      "ambient_light": {
-        "name": "Ambientebeliichtung"
-      },
-      "light": {
-        "name": "Luucht"
-      }
-    },
-    "number": {
-      "plate": {
-        "name": "Plack {plate_no}"
-      }
-    },
-    "sensor": {
-      "battery": {
-        "name": "Batterie"
-      },
-      "drying_step": {
-        "name": "Dréchestuf",
-        "state": {
-          "extra_dry": "Extra dréchen",
-          "hand_iron_1": "Streckdréchen 1",
-          "hand_iron_2": "Streckdréchen 2",
-          "machine_iron": "Mangelfiicht",
-          "normal": "Schafdréchen",
-          "normal_plus": "Schafdréchen+",
-          "slightly_dry": "Liicht dréchen",
-          "smoothing": "Glätten"
-        }
-      },
-      "elapsed_time": {
-        "name": "Vergaangen Zäit"
-      },
-      "energy_consumption": {
-        "name": "Stroumverbrauch"
-      },
-      "energy_forecast": {
-        "name": "Geschate Stroumverbrauch"
-      },
-      "finish_at": {
-        "name": "Fäerdeg um"
-      },
-      "food_core_target_temperature": {
-        "name": "Ziel-Kärtemperatur Liewensmëttel"
-      },
-      "food_core_temperature": {
-        "name": "Kärtemperatur Liewensmëttel"
-      },
-      "program_id": {
-        "name": "Programm",
-        "state": {
-          "1_tray": "1 Blech",
-          "2_trays": "2 Blecher",
-          "appliance_rinse": "Apparat botzt",
-          "appliance_settings": "Astellungen",
-          "auto": "Auto",
-          "auto_roast": "Brodautomatik",
-          "automatic": "Automatik",
-          "automatic_plus": "Automatik plus",
-          "baking_tray": "Bakblech",
-          "barista_assistant": "BaristaAssistant",
-          "basket_program": "Maandelprogramm",
-          "bed_linen": "Bettwäsch",
-          "black_tea": "Schwaarzen Téi",
-          "bottom_heat": "Ënnerhëtzt",
-          "brewing_unit_degrease": "Bréieenheet entfetten",
-          "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffè latte",
-          "cappuccino": "Cappuccino",
-          "cappuccino_italiano": "Cappuccino Italiano",
-          "check_appliance": "Apparat kontrolléieren",
-          "clean_machine": "Maschinn botzen",
-          "coffee": "Kaffi",
-          "coffee_pot": "Kaffisbiitz",
-          "conventional_heat": "Uewe-/Ënnerhëtzt",
-          "cool_air": "Lëften kal",
-          "cottons": "Kotteng",
-          "cottons_eco": "Kotteng ECO",
-          "cottons_hygiene": "Kotteng Hygiène",
-          "curtains": "Riddoen",
-          "dark_garments": "Donkel Wäsch",
-          "defrost": "Entdeeën",
-          "delicates": "Feinwäsch",
-          "denim": "Jeans",
-          "descaling": "Apparat entkalleken",
-          "down_duvets": "Daunendecken",
-          "down_filled_items": "Daunen",
-          "drain_spin": "Pompelen/Schleideren",
-          "eco": "ECO",
-          "eco_40_60": "ECO 40-60",
-          "eco_fan_heat": "Eco-Waarmloft",
-          "economy_grill": "Grill kleng",
-          "espresso": "Espresso",
-          "espresso_macchiato": "Espresso macchiato",
-          "express": "Express",
-          "express_20": "Express 20",
-          "extra_quiet": "Extra roueg",
-          "fan_grill": "Ëmloftgrill",
-          "fan_plus": "Waarmloft plus",
-          "first_wash": "Nei Textilien",
-          "flat_white": "Flat white",
-          "freshen_up": "Opfrëschen",
-          "fruit_tea": "Friischtentéi",
-          "full_grill": "Grill grouss",
-          "gentle": "Fein",
-          "gentle_denim": "Jeans fein",
-          "gentle_minimum_iron": "Pflegeleicht fein",
-          "gentle_smoothing": "Glätten fein",
-          "glasses_warm": "Glieser waarm",
-          "green_tea": "Gringen Téi",
-          "heat_crockery": "Geschier wiermen",
-          "herbal_tea": "Kraidertéi",
-          "hot_milk": "Waarm Mëllech",
-          "hot_water": "Waarmt Waasser",
-          "hygiene": "Hygiène",
-          "intensive": "In",
-          "intensive_bake": "Intensivbaken",
-          "japanese_tea": "Japaneschen Téi",
-          "keeping_warm": "Waarm halen",
-          "large_pillows": "Grouss Këssen",
-          "latte_macchiato": "Latte macchiato",
-          "long_coffee": "Kaffi grouss",
-          "maintenance": "Apparatepfleeg",
-          "microwave": "Mikrowell",
-          "milk_foam": "Mëllechschaum",
-          "milk_pipework_clean": "Mëllechleitung botzen",
-          "milk_pipework_rinse": "Mëllechleitung schwenken",
-          "minimum_iron": "Pflegeleicht",
-          "moisture_plus_auto_roast": "Fiichtegkeet + Automatik broden",
-          "moisture_plus_conventional_heat": "Fiichtegkeet + Hëtzen",
-          "moisture_plus_fan_plus": "Klimagaren + Waarmloft plus",
-          "moisture_plus_intensive_bake": "Fiichtegkeet + Intensiv baken",
-          "no_program": "Kee Programm",
-          "normal": "Normal",
-          "outerwear": "Outdoor",
-          "pillows": "Këssen",
-          "proofing": "Imprägnéieren",
-          "prove_15_min": "15 Minutten opgoen",
-          "prove_30_min": "30 Minutten opgoen",
-          "prove_45_min": "45 Minutten opgoen",
-          "quick_power_wash": "QuickPowerWash",
-          "rinse": "Schwenken",
-          "rinse_out_lint": "Fisem ausschwenken",
-          "ristretto": "Ristretto",
-          "separate_rinse_starch": "Nëmmen Schwenken/Stäerken",
-          "shirts": "Hiemer",
-          "silent": "Silent",
-          "silks": "Seid",
-          "silks_handcare": "Finish Seid",
-          "smoothing": "Glätten",
-          "solar_save": "Solar spueren",
-          "sportswear": "Sportsgezei",
-          "spot": "Spot",
-          "standard_pillows": "Këssen normal",
-          "starch": "Stäerken",
-          "steam_care": "Finish Damp",
-          "steam_smoothing": "Finish Damp",
-          "tall_items": "Ouni ieweschte Kuerf",
-          "top_heat": "Uewerhëtzt",
-          "trainers": "Sportsschung",
-          "turbo": "Turbo",
-          "very_hot_water": "Ganz waarmt Waasser",
-          "warm_air": "Lëften waarm",
-          "white_tea": "Wäissen Téi",
-          "woollens": "Woll",
-          "woollens_handcare": "Finish Woll"
-        }
-      },
-      "program_phase": {
-        "name": "Programmabschnitt",
-        "state": {
-          "2nd_espresso": "2. Taass Espresso",
-          "2nd_grinding": "Muelen 2. Taass",
-          "2nd_pre_brewing": "Preparéieren 2. Taass",
-          "anti_crease": "Kniwwelschutz",
-          "blocked_brushes": "Biischte blockéiert",
-          "blocked_drive_wheels": "Undriffsrieder blockéiert",
-          "blocked_front_wheel": "Viischt Rad blockéiert",
-          "cleaning": "Botzen",
-          "comfort_cooling": "Confortkillen",
-          "cooling_down": "Ofkillen",
-          "dirty_sensors": "Knaschteg Sensoren",
-          "disinfecting": "Desinfizéieren",
-          "dispensing": "Zerwéieren",
-          "docked": "An der Basisstatioun",
-          "door_open": "Dier op",
-          "drain": "Oflafen",
-          "drying": "Dréchnen",
-          "dust_box_missing": "Stëbsbehälter feelt",
-          "energy_save": "Energie spueren",
-          "espresso": "Espresso",
-          "extra_dry": "Extradréchen",
-          "final_rinse": "Kloer ofschwenken",
-          "finished": "Fäerdeg",
-          "freshen_up_and_moisten": "Opfrëschen + Fiicht maachen",
-          "going_to_target_area": "Géi an den Zilberäich",
-          "grinding": "Muelen",
-          "hand_iron": "Streckdréchen",
-          "hand_iron_1": "Streckdréchen 1",
-          "hand_iron_2": "Streckdréchen 2",
-          "heating": "Hëtzt",
-          "heating_up": "Opwiermen",
-          "hot_milk": "Waarm Mëllech",
-          "hygiene": "Hygiène",
-          "interim_rinse": "Tëscheschwenken",
-          "keep_warm": "Waarm halen",
-          "keeping_warm": "Waarm halen",
-          "machine_iron": "Mangelfiicht",
-          "main_dishwash": "Schwenken",
-          "main_wash": "Wäschen",
-          "milk_foam": "Mëllechschaum",
-          "moisten": "Fiicht maachen",
-          "motor_overload": "Stëbsbehälter a Filter kontrolléieren",
-          "normal": "Schafdréchen",
-          "normal_plus": "Schafdréchen+",
-          "not_running": "Net a Betrieb",
-          "pre_brewing": "Preparéieren",
-          "pre_dishwash": "Virschwenken",
-          "pre_wash": "Virwäsch",
-          "process_finished": "Prozess fäerdeg",
-          "process_running": "Prozess leeft",
-          "program_running": "Programm leeft",
-          "reactivating": "Reaktivéieren",
-          "remote_controlled": "Ferngesteiert",
-          "returning": "Zréck op d'Basisstatioun",
-          "rinse": "Schwenken",
-          "rinse_hold": "Spullstop",
-          "rinse_out_lint": "Fisem ausschwenken",
-          "rinses": "Spullgäng",
-          "safety_cooling": "Sécherheetskillen",
-          "slightly_dry": "Liicht dréchen",
-          "slow_roasting": "Lues broden",
-          "smoothing": "Glätten",
-          "soak": "Aweechen",
-          "spin": "Schleideren",
-          "starch_stop": "Stäerkstopp",
-          "steam_smoothing": "Dampglätten",
-          "thermo_spin": "Thermoschleideren",
-          "timed_drying": "Zäitgesteiert Dréchnen",
-          "vacuum_cleaning": "Saugen",
-          "vacuum_cleaning_paused": "Saugen gepaust",
-          "vacuum_internal_fault": "Interne Feeler - Neistart",
-          "venting": "Entlëften",
-          "warm_air": "Lëften waarm",
-          "warm_cups_glasses": "Glieser wiermen",
-          "warm_dishes_plates": "Telleren wiermen",
-          "wheel_lifted": "Rad ugehuewen"
-        }
-      },
-      "program_type": {
-        "name": "Modus",
-        "state": {
-          "automatic_program": "Automatik-Programm",
-          "cleaning_care_program": "Botz-/Pfleegprogramm",
-          "maintenance_program": "Entretiensprogramm",
-          "normal_operation_mode": "Normalbetrieb",
-          "own_program": "Eegene Programm"
-        }
-      },
-      "remaining_time": {
-        "name": "Rescht Zäit"
-      },
-      "spin_speed": {
-        "name": "Schleidervitesse"
-      },
-      "start_at": {
-        "name": "Start um"
-      },
-      "start_time": {
-        "name": "Startzäit"
-      },
-      "started_at": {
-        "name": "Gestart um"
-      },
-      "status": {
-        "name": "Status",
-        "state": {
-          "failure": "Feeler",
-          "idle": "Leerlaf",
-          "not_connected": "Net verbonnen",
-          "off": "Aus",
-          "on": "Un",
-          "pause": "Paus",
-          "program_ended": "Enn",
-          "program_interrupted": "Programm ënnerbrach",
-          "programmed": "Programméiert",
-          "rinse_hold": "Spullstop",
-          "running": "A Betrieb",
-          "service": "Service",
-          "supercooling": "SuperKillen",
-          "supercooling_superfreezing": "SuperKillen/SuperFrost",
-          "superfreezing": "SuperFrost",
-          "superheating": "Séier opwiermen",
-          "waiting_to_start": "Start verspéit"
+    "config": {
+        "abort": {
+            "already_configured": "Konto ass scho konfiguréiert",
+            "already_in_progress": "Konfiguratioun leeft schonn",
+            "authorize_url_timeout": "Zäitiwwerschreidung bei der Generéierung vun der Autoriséierungs-URL",
+            "missing_configuration": "De Komponent ass net konfiguréiert. Follegt w.e.g. der Beschreiwung.",
+            "no_url_available": "Keng URL verfügbar. Fir Informatiounen iwwer dëse Feeler, [kuckt d'Hëllefsektioun]( {docs_url} )",
+            "oauth_error": "Ongülteg Tokendaten kritt.",
+            "oauth_failed": "Allgemenge Feeler beim Siche vum Zougrëffstoken.",
+            "oauth_timeout": "Zäitiwwerschreidung beim Opléisen vum OAuth-Token",
+            "oauth_unauthorized": "OAuth Autorisatiounsfehler beim Empfänken vun Zougangstoken.",
+            "reauth_successful": "Neiauthentifizéierung war erfollegräich"
         },
-        "state_attributes": {
-          "appliance": {
-            "name": "Apparat"
-          },
-          "manufacturer": {
-            "name": "Hiersteller"
-          },
-          "model": {
-            "name": "Modell"
-          },
-          "serial_no": {
-            "name": "Seriennummer"
-          }
-        }
-      },
-      "target_temperature": {
-        "name": "Ziltemperatur"
-      },
-      "target_temperature_zone_2": {
-        "name": "Ziltemperatur Beräich 2"
-      },
-      "target_temperature_zone_3": {
-        "name": "Ziltemperatur Beräich 3"
-      },
-      "temperature": {
-        "name": "Temperatur"
-      },
-      "temperature_zone_2": {
-        "name": "Temperatur Beräich 2"
-      },
-      "temperature_zone_3": {
-        "name": "Temperatur Beräich 3"
-      },
-      "water_consumption": {
-        "name": "Waasserverbrauch"
-      },
-      "water_forecast": {
-        "name": "Geschate Waasserverbrauch"
-      }
-    },
-    "switch": {
-      "power_on": {
-        "name": "Ageschalt"
-      },
-      "supercooling": {
-        "name": "SuperKillen"
-      },
-      "superfreezing": {
-        "name": "SuperFrost"
-      }
-    },
-    "vacuum": {
-      "vacuum": {
-        "name": "Staubsauger",
-        "state_attributes": {
-          "status": {
-            "name": "Status",
-            "state": {
-              "blocked_brushes": "Biischte blockéiert",
-              "blocked_drive_wheels": "Undriffsrieder blockéiert",
-              "blocked_front_wheel": "Viischt Rad ass blockéiert",
-              "check_dust_box_and_filter": "Stëbsbehälter a Filter kontrolléieren",
-              "dirty_sensors": "Knaschteg Sensoren",
-              "dust_box_missing": "Stëbsbehälter feelt",
-              "going_to_target_area": "Géi an den Zilberäich",
-              "internal_fault_reboot": "Interne Feeler - Neistart",
-              "remote_controlled": "Ferngesteiert",
-              "wheel_lifted": "Rad ass fräi"
+        "create_entry": {
+            "default": "Erfollegräich authentifizéiert"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Authentifikatiounsmethod auswielen"
+            },
+            "reauth_confirm": {
+                "description": "D'Miele Integratioun muss däi Kont nei authentifizéieren: {account}",
+                "title": "Integratioun nei authentifizéieren"
+            },
+            "zeroconf_confirm": {
+                "description": "Du bass amgaang \" {name} \" an eventuell aner Miele Apparater an den Home Assistant bäizesetzen. \n\n **Fir de Prozess ofzeschléissen, muss du deng Zougangsinformatiounen aginn.**",
+                "title": "Bestäteg, dass du d'Miele-Integratioun bäisetze wëlls"
             }
-          }
         }
-      }
-    }
-  },
-  "issues": {
-    "hob_not_supported": {
-      "description": "Den Apparat Typ {tech_type} gëtt net voll vun der Miele Integratioun ënnerstëtzt. Dofir kënnen e puer Entitéite fehlen oder falsch funktionnéieren. \n\nMellt w.e.g. dëst Thema un [the maintainer on Github]( {issue_url} )",
-      "title": "Den Apparat {tech_type} gëtt net voll ënnerstëtzt"
-    }
-  },
-  "selector": {
-    "process_action_options": {
-      "options": {
-        "pause": "Paus",
-        "start": "Start",
-        "start_supercooling": "SuperKillen starten",
-        "start_superfreezing": "SuperFrost starten",
-        "stop": "Stopp",
-        "stop_supercooling": "SuperKillen stoppen",
-        "stop_superfreezing": "SuperFrost stoppen"
-      }
-    }
-  },
-  "services": {
-    "generic_action": {
-      "description": "Féier eng Aktioun op engem Apparat aus",
-      "name": "Generesch Aktioun ausféieren"
     },
-    "process_action": {
-      "description": "Féiert Prozessaktiounen aus wann d'Konditiounen erfëllt sinn.",
-      "fields": {
-        "action": {
-          "description": "Wiel eng Prozessaktioun aus.",
-          "name": "Aktioun"
-        }
-      },
-      "name": "Prozessaktioun ausféieren"
-    },
-    "raw": {
-      "description": "Dingscht mat minimaler Validatioun ausféieren.",
-      "fields": {
-        "extra": {
-          "description": "En Dictionnaire mat Parameter",
-          "name": "Extra"
+    "device_automation": {
+        "condition_type": {
+            "failure": "{entity_name} ass feelgeschloen",
+            "idle": "{entity_name} ass inaktiv",
+            "not_connected": "{entity_name} ass net verbonnen",
+            "off": "{entity_name} ass ausgeschalt",
+            "on": "{entity_name} ass ageschalt",
+            "pause": "{entity_name} pauséiert",
+            "program_ended": "{entity_name} huet de Programm fäerdeg",
+            "program_interrupted": "{entity_name} huet de Programm ënnerbrach",
+            "programmed": "{entity_name} ass programméiert",
+            "rinse_hold": "{entity_name} ass am Spullstop",
+            "running": "{entity_name} gëtt ausgefouert",
+            "service": "{entity_name} ass a Betrieb",
+            "supercooling": "{entity_name} huet SuperKillen aktivéiert",
+            "supercooling_superfreezing": "{entity_name} huet SuperKillen/SuperFrost aktivéiert",
+            "superfreezing": "{entity_name} huet SuperFrost aktivéiert",
+            "superheating": "{entity_name} Hëtzt séier op",
+            "waiting_to_start": "{entity_name} waart op de Start"
         },
-        "serialno": {
-          "description": "D'Seriennummer vum Apparat",
-          "name": "Seriennummer"
+        "trigger_type": {
+            "failure": "{entity_name} Feeler",
+            "idle": "{entity_name} Leerlaf",
+            "not_connected": "{entity_name} net verbonnen",
+            "off": "{entity_name} aus",
+            "on": "{entity_name} un",
+            "pause": "{entity_name} Paus",
+            "program_ended": "{entity_name} Programm fäerdeg",
+            "program_interrupted": "{entity_name} Programm ënnerbrach",
+            "programmed": "{entity_name} programméiert",
+            "rinse_hold": "{entity_name} Spullstop",
+            "running": "{entity_name} a Betrieb",
+            "service": "{entity_name} Service",
+            "supercooling": "{entity_name} SuperKillen",
+            "supercooling_superfreezing": "{entity_name} SuperKillen/Superfrost",
+            "superfreezing": "{entity_name} SuperFrost",
+            "superheating": "{entity_name} Séier opwiermen",
+            "waiting_to_start": "{entity_name} waart op de Start"
         }
-      },
-      "name": "Ongefiltert Aktioun ausféieren"
     },
-    "set_program": {
-      "description": "Programm astellen a mat optionale Parameter starten.",
-      "name": "Programm astellen"
+    "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Dier"
+            },
+            "failure": {
+                "name": "Feeler"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "mobile_start": {
+                "name": "MobileStart"
+            },
+            "remote_control": {
+                "name": "Fernsteierung"
+            },
+            "smart_grid": {
+                "name": "Smart Grid"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stop"
+            }
+        },
+        "climate": {
+            "freezer": {
+                "name": "Tiefkühler"
+            },
+            "fridge": {
+                "name": "Frigo"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Ventilator"
+            }
+        },
+        "light": {
+            "ambient_light": {
+                "name": "Ambientebeliichtung"
+            },
+            "light": {
+                "name": "Luucht"
+            }
+        },
+        "number": {
+            "plate": {
+                "name": "Plack {plate_no}"
+            }
+        },
+        "sensor": {
+            "battery": {
+                "name": "Batterie"
+            },
+            "drying_step": {
+                "name": "Dréchestuf",
+                "state": {
+                    "extra_dry": "Extra dréchen",
+                    "hand_iron_1": "Streckdréchen 1",
+                    "hand_iron_2": "Streckdréchen 2",
+                    "machine_iron": "Mangelfiicht",
+                    "normal": "Schafdréchen",
+                    "normal_plus": "Schafdréchen+",
+                    "slightly_dry": "Liicht dréchen",
+                    "smoothing": "Glätten"
+                }
+            },
+            "elapsed_time": {
+                "name": "Vergaangen Zäit"
+            },
+            "energy_consumption": {
+                "name": "Stroumverbrauch"
+            },
+            "energy_forecast": {
+                "name": "Geschate Stroumverbrauch"
+            },
+            "finish_at": {
+                "name": "Fäerdeg um"
+            },
+            "food_core_target_temperature": {
+                "name": "Ziel-Kärtemperatur Liewensmëttel"
+            },
+            "food_core_temperature": {
+                "name": "Kärtemperatur Liewensmëttel"
+            },
+            "program_id": {
+                "name": "Programm",
+                "state": {
+                    "1_tray": "1 Blech",
+                    "2_trays": "2 Blecher",
+                    "appliance_rinse": "Apparat botzt",
+                    "appliance_settings": "Astellungen",
+                    "auto": "Auto",
+                    "auto_roast": "Brodautomatik",
+                    "automatic": "Automatik",
+                    "automatic_plus": "Automatik plus",
+                    "baking_tray": "Bakblech",
+                    "barista_assistant": "BaristaAssistant",
+                    "basket_program": "Maandelprogramm",
+                    "bed_linen": "Bettwäsch",
+                    "black_tea": "Schwaarzen Téi",
+                    "bottom_heat": "Ënnerhëtzt",
+                    "brewing_unit_degrease": "Bréieenheet entfetten",
+                    "cafe_au_lait": "Café au lait",
+                    "caffe_latte": "Caffè latte",
+                    "cappuccino": "Cappuccino",
+                    "cappuccino_italiano": "Cappuccino Italiano",
+                    "check_appliance": "Apparat kontrolléieren",
+                    "clean_machine": "Maschinn botzen",
+                    "coffee": "Kaffi",
+                    "coffee_pot": "Kaffisbiitz",
+                    "conventional_heat": "Uewe-/Ënnerhëtzt",
+                    "cool_air": "Lëften kal",
+                    "cottons": "Kotteng",
+                    "cottons_eco": "Kotteng ECO",
+                    "cottons_hygiene": "Kotteng Hygiène",
+                    "curtains": "Riddoen",
+                    "dark_garments": "Donkel Wäsch",
+                    "defrost": "Entdeeën",
+                    "delicates": "Feinwäsch",
+                    "denim": "Jeans",
+                    "descaling": "Apparat entkalleken",
+                    "down_duvets": "Daunendecken",
+                    "down_filled_items": "Daunen",
+                    "drain_spin": "Pompelen/Schleideren",
+                    "eco": "ECO",
+                    "eco_40_60": "ECO 40-60",
+                    "eco_fan_heat": "Eco-Waarmloft",
+                    "economy_grill": "Grill kleng",
+                    "espresso": "Espresso",
+                    "espresso_macchiato": "Espresso macchiato",
+                    "express": "Express",
+                    "express_20": "Express 20",
+                    "extra_quiet": "Extra roueg",
+                    "fan_grill": "Ëmloftgrill",
+                    "fan_plus": "Waarmloft plus",
+                    "first_wash": "Nei Textilien",
+                    "flat_white": "Flat white",
+                    "freshen_up": "Opfrëschen",
+                    "fruit_tea": "Friischtentéi",
+                    "full_grill": "Grill grouss",
+                    "gentle": "Fein",
+                    "gentle_denim": "Jeans fein",
+                    "gentle_minimum_iron": "Pflegeleicht fein",
+                    "gentle_smoothing": "Glätten fein",
+                    "glasses_warm": "Glieser waarm",
+                    "green_tea": "Gringen Téi",
+                    "heat_crockery": "Geschier wiermen",
+                    "herbal_tea": "Kraidertéi",
+                    "hot_milk": "Waarm Mëllech",
+                    "hot_water": "Waarmt Waasser",
+                    "hygiene": "Hygiène",
+                    "intensive": "In",
+                    "intensive_bake": "Intensivbaken",
+                    "japanese_tea": "Japaneschen Téi",
+                    "keeping_warm": "Waarm halen",
+                    "large_pillows": "Grouss Këssen",
+                    "latte_macchiato": "Latte macchiato",
+                    "long_coffee": "Kaffi grouss",
+                    "maintenance": "Apparatepfleeg",
+                    "microwave": "Mikrowell",
+                    "milk_foam": "Mëllechschaum",
+                    "milk_pipework_clean": "Mëllechleitung botzen",
+                    "milk_pipework_rinse": "Mëllechleitung schwenken",
+                    "minimum_iron": "Pflegeleicht",
+                    "moisture_plus_auto_roast": "Fiichtegkeet + Automatik broden",
+                    "moisture_plus_conventional_heat": "Fiichtegkeet + Hëtzen",
+                    "moisture_plus_fan_plus": "Klimagaren + Waarmloft plus",
+                    "moisture_plus_intensive_bake": "Fiichtegkeet + Intensiv baken",
+                    "no_program": "Kee Programm",
+                    "normal": "Normal",
+                    "outerwear": "Outdoor",
+                    "pillows": "Këssen",
+                    "proofing": "Imprägnéieren",
+                    "prove_15_min": "15 Minutten opgoen",
+                    "prove_30_min": "30 Minutten opgoen",
+                    "prove_45_min": "45 Minutten opgoen",
+                    "quick_power_wash": "QuickPowerWash",
+                    "rinse": "Schwenken",
+                    "rinse_out_lint": "Fisem ausschwenken",
+                    "ristretto": "Ristretto",
+                    "separate_rinse_starch": "Nëmmen Schwenken/Stäerken",
+                    "shirts": "Hiemer",
+                    "silent": "Silent",
+                    "silks": "Seid",
+                    "silks_handcare": "Finish Seid",
+                    "smoothing": "Glätten",
+                    "solar_save": "Solar spueren",
+                    "sportswear": "Sportsgezei",
+                    "spot": "Spot",
+                    "standard_pillows": "Këssen normal",
+                    "starch": "Stäerken",
+                    "steam_care": "Finish Damp",
+                    "steam_smoothing": "Finish Damp",
+                    "tall_items": "Ouni ieweschte Kuerf",
+                    "top_heat": "Uewerhëtzt",
+                    "trainers": "Sportsschung",
+                    "turbo": "Turbo",
+                    "very_hot_water": "Ganz waarmt Waasser",
+                    "warm_air": "Lëften waarm",
+                    "white_tea": "Wäissen Téi",
+                    "woollens": "Woll",
+                    "woollens_handcare": "Finish Woll"
+                }
+            },
+            "program_phase": {
+                "name": "Programmabschnitt",
+                "state": {
+                    "2nd_espresso": "2. Taass Espresso",
+                    "2nd_grinding": "Muelen 2. Taass",
+                    "2nd_pre_brewing": "Preparéieren 2. Taass",
+                    "anti_crease": "Kniwwelschutz",
+                    "blocked_brushes": "Biischte blockéiert",
+                    "blocked_drive_wheels": "Undriffsrieder blockéiert",
+                    "blocked_front_wheel": "Viischt Rad blockéiert",
+                    "cleaning": "Botzen",
+                    "comfort_cooling": "Confortkillen",
+                    "cooling_down": "Ofkillen",
+                    "dirty_sensors": "Knaschteg Sensoren",
+                    "disinfecting": "Desinfizéieren",
+                    "dispensing": "Zerwéieren",
+                    "docked": "An der Basisstatioun",
+                    "door_open": "Dier op",
+                    "drain": "Oflafen",
+                    "drying": "Dréchnen",
+                    "dust_box_missing": "Stëbsbehälter feelt",
+                    "energy_save": "Energie spueren",
+                    "espresso": "Espresso",
+                    "extra_dry": "Extradréchen",
+                    "final_rinse": "Kloer ofschwenken",
+                    "finished": "Fäerdeg",
+                    "freshen_up_and_moisten": "Opfrëschen + Fiicht maachen",
+                    "going_to_target_area": "Géi an den Zilberäich",
+                    "grinding": "Muelen",
+                    "hand_iron": "Streckdréchen",
+                    "hand_iron_1": "Streckdréchen 1",
+                    "hand_iron_2": "Streckdréchen 2",
+                    "heating": "Hëtzt",
+                    "heating_up": "Opwiermen",
+                    "hot_milk": "Waarm Mëllech",
+                    "hygiene": "Hygiène",
+                    "interim_rinse": "Tëscheschwenken",
+                    "keep_warm": "Waarm halen",
+                    "keeping_warm": "Waarm halen",
+                    "machine_iron": "Mangelfiicht",
+                    "main_dishwash": "Schwenken",
+                    "main_wash": "Wäschen",
+                    "milk_foam": "Mëllechschaum",
+                    "moisten": "Fiicht maachen",
+                    "motor_overload": "Stëbsbehälter a Filter kontrolléieren",
+                    "normal": "Schafdréchen",
+                    "normal_plus": "Schafdréchen+",
+                    "not_running": "Net a Betrieb",
+                    "pre_brewing": "Preparéieren",
+                    "pre_dishwash": "Virschwenken",
+                    "pre_wash": "Virwäsch",
+                    "process_finished": "Prozess fäerdeg",
+                    "process_running": "Prozess leeft",
+                    "program_running": "Programm leeft",
+                    "reactivating": "Reaktivéieren",
+                    "remote_controlled": "Ferngesteiert",
+                    "returning": "Zréck op d'Basisstatioun",
+                    "rinse": "Schwenken",
+                    "rinse_hold": "Spullstop",
+                    "rinse_out_lint": "Fisem ausschwenken",
+                    "rinses": "Spullgäng",
+                    "safety_cooling": "Sécherheetskillen",
+                    "slightly_dry": "Liicht dréchen",
+                    "slow_roasting": "Lues broden",
+                    "smoothing": "Glätten",
+                    "soak": "Aweechen",
+                    "spin": "Schleideren",
+                    "starch_stop": "Stäerkstopp",
+                    "steam_smoothing": "Dampglätten",
+                    "thermo_spin": "Thermoschleideren",
+                    "timed_drying": "Zäitgesteiert Dréchnen",
+                    "vacuum_cleaning": "Saugen",
+                    "vacuum_cleaning_paused": "Saugen gepaust",
+                    "vacuum_internal_fault": "Interne Feeler - Neistart",
+                    "venting": "Entlëften",
+                    "warm_air": "Lëften waarm",
+                    "warm_cups_glasses": "Glieser wiermen",
+                    "warm_dishes_plates": "Telleren wiermen",
+                    "wheel_lifted": "Rad ugehuewen"
+                }
+            },
+            "program_type": {
+                "name": "Modus",
+                "state": {
+                    "automatic_program": "Automatik-Programm",
+                    "cleaning_care_program": "Botz-/Pfleegprogramm",
+                    "maintenance_program": "Entretiensprogramm",
+                    "normal_operation_mode": "Normalbetrieb",
+                    "own_program": "Eegene Programm"
+                }
+            },
+            "remaining_time": {
+                "name": "Rescht Zäit"
+            },
+            "spin_speed": {
+                "name": "Schleidervitesse"
+            },
+            "start_at": {
+                "name": "Start um"
+            },
+            "start_time": {
+                "name": "Startzäit"
+            },
+            "started_at": {
+                "name": "Gestart um"
+            },
+            "status": {
+                "name": "Status",
+                "state": {
+                    "failure": "Feeler",
+                    "idle": "Leerlaf",
+                    "not_connected": "Net verbonnen",
+                    "off": "Aus",
+                    "on": "Un",
+                    "pause": "Paus",
+                    "program_ended": "Enn",
+                    "program_interrupted": "Programm ënnerbrach",
+                    "programmed": "Programméiert",
+                    "rinse_hold": "Spullstop",
+                    "running": "A Betrieb",
+                    "service": "Service",
+                    "supercooling": "SuperKillen",
+                    "supercooling_superfreezing": "SuperKillen/SuperFrost",
+                    "superfreezing": "SuperFrost",
+                    "superheating": "Séier opwiermen",
+                    "waiting_to_start": "Start verspéit"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Apparat"
+                    },
+                    "manufacturer": {
+                        "name": "Hiersteller"
+                    },
+                    "model": {
+                        "name": "Modell"
+                    },
+                    "serial_no": {
+                        "name": "Seriennummer"
+                    }
+                }
+            },
+            "target_temperature": {
+                "name": "Ziltemperatur"
+            },
+            "target_temperature_zone_2": {
+                "name": "Ziltemperatur Beräich 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Ziltemperatur Beräich 3"
+            },
+            "temperature": {
+                "name": "Temperatur"
+            },
+            "temperature_zone_2": {
+                "name": "Temperatur Beräich 2"
+            },
+            "temperature_zone_3": {
+                "name": "Temperatur Beräich 3"
+            },
+            "water_consumption": {
+                "name": "Waasserverbrauch"
+            },
+            "water_forecast": {
+                "name": "Geschate Waasserverbrauch"
+            }
+        },
+        "switch": {
+            "power_on": {
+                "name": "Ageschalt"
+            },
+            "supercooling": {
+                "name": "SuperKillen"
+            },
+            "superfreezing": {
+                "name": "SuperFrost"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Staubsauger",
+                "state_attributes": {
+                    "status": {
+                        "name": "Status",
+                        "state": {
+                            "blocked_brushes": "Biischte blockéiert",
+                            "blocked_drive_wheels": "Undriffsrieder blockéiert",
+                            "blocked_front_wheel": "Viischt Rad ass blockéiert",
+                            "check_dust_box_and_filter": "Stëbsbehälter a Filter kontrolléieren",
+                            "dirty_sensors": "Knaschteg Sensoren",
+                            "dust_box_missing": "Stëbsbehälter feelt",
+                            "going_to_target_area": "Géi an den Zilberäich",
+                            "internal_fault_reboot": "Interne Feeler - Neistart",
+                            "remote_controlled": "Ferngesteiert",
+                            "wheel_lifted": "Rad ass fräi"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "hob_not_supported": {
+            "description": "Den Apparat Typ {tech_type} gëtt net voll vun der Miele Integratioun ënnerstëtzt. Dofir kënnen e puer Entitéite fehlen oder falsch funktionnéieren. \n\nMellt w.e.g. dëst Thema un [the maintainer on Github]( {issue_url} )",
+            "title": "Den Apparat {tech_type} gëtt net voll ënnerstëtzt"
+        }
+    },
+    "selector": {
+        "process_action_options": {
+            "options": {
+                "pause": "Paus",
+                "start": "Start",
+                "start_supercooling": "SuperKillen starten",
+                "start_superfreezing": "SuperFrost starten",
+                "stop": "Stopp",
+                "stop_supercooling": "SuperKillen stoppen",
+                "stop_superfreezing": "SuperFrost stoppen"
+            }
+        }
+    },
+    "services": {
+        "generic_action": {
+            "description": "Féier eng Aktioun op engem Apparat aus",
+            "name": "Generesch Aktioun ausféieren"
+        },
+        "process_action": {
+            "description": "Féiert Prozessaktiounen aus wann d'Konditiounen erfëllt sinn.",
+            "fields": {
+                "action": {
+                    "description": "Wiel eng Prozessaktioun aus.",
+                    "name": "Aktioun"
+                }
+            },
+            "name": "Prozessaktioun ausféieren"
+        },
+        "raw": {
+            "description": "Dingscht mat minimaler Validatioun ausféieren.",
+            "fields": {
+                "extra": {
+                    "description": "En Dictionnaire mat Parameter",
+                    "name": "Extra"
+                },
+                "serialno": {
+                    "description": "D'Seriennummer vum Apparat",
+                    "name": "Seriennummer"
+                }
+            },
+            "name": "Ongefiltert Aktioun ausféieren"
+        },
+        "set_program": {
+            "description": "Programm astellen a mat optionale Parameter starten.",
+            "name": "Programm astellen"
+        }
+    },
+    "system_health": {
+        "info": {
+            "component_version": "Versioun",
+            "reach_miele_cloud": "Miele-Cloud erreechbar"
+        }
     }
-  },
-  "system_health": {
-    "info": {
-      "component_version": "Versioun",
-      "reach_miele_cloud": "Miele-Cloud erreechbar"
-    }
-  }
 }

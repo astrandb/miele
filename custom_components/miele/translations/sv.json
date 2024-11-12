@@ -1,548 +1,550 @@
 {
-  "application_credentials": {
-    "description": "Gå till [\"Get involved\" på Mieles utvecklar-sajt]({register_url}) för att erhålla behörighetsdata och fyll i dem nedan."
-  },
-  "config": {
-    "abort": {
-      "already_configured": "Kontot är redan autentiserat",
-      "already_in_progress": "Konfigurationsflöde pågår redan",
-      "authorize_url_timeout": "Timeout vid generering av URL för autentisering",
-      "missing_configuration": "Komponenten kunde inte konfigureras. Vänligen följ dokumentationen",
-      "no_url_available": "Ingen URL tillgänglig. För information om detta fel, [se hjälpavsnittet]({docs_url})",
-      "oauth_error": "Tog emot ogiltiga token-data",
-      "oauth_failed": "Fel vid hämtning av åtkomsttoken.",
-      "oauth_timeout": "Timeout vid hämtning av OAuth-token.",
-      "oauth_unauthorized": "OAuth-auktoriseringsfel vid hämtning av åtkomsttoken.",
-      "reauth_successful": "Omautentiseringen lyckades"
+    "application_credentials": {
+        "description": "Gå till [\"Get involved\" på Mieles utvecklar-sajt]({register_url}) för att erhålla behörighetsdata och fyll i dem nedan."
     },
-    "create_entry": {
-      "default": "Autentisering lyckades"
-    },
-    "step": {
-      "pick_implementation": {
-        "title": "Välj metod för autentisering"
-      },
-      "reauth_confirm": {
-        "description": "Miele-integrationen behöver förnyad autentisering för kontot: {account}",
-        "title": "Förnya autentisering"
-      },
-      "zeroconf_confirm": {
-        "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\n\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
-        "title": "Bekräfta att du vill lägga till integration för Miele"
-      }
-    }
-  },
-  "device_automation": {
-    "condition_type": {
-      "autocleaning": "{entity_name} kör automatisk rengöring",
-      "failure": "{entity_name} i felläge",
-      "idle": "{entity_name} i viloläge",
-      "not_connected": "{entity_name} är inte ansluten",
-      "off": "{entity_name} är av",
-      "on": "{entity_name} är på",
-      "pause": "{entity_name} pausar",
-      "program_ended": "{entity_name} har avslutat programmet",
-      "program_interrupted": "{entity_name} har avbrutit programmet",
-      "programmed": "{entity_name}program har valts",
-      "rinse_hold": "{entity_name} i läge sköljstopp",
-      "running": "{entity_name} i drift",
-      "service": "{entity_name} i serviceläge",
-      "supercooling": "{entity_name} i läge snabbkylning",
-      "supercooling_superfreezing": "{entity_name} i läge snabbkylning/snabbinfrysning",
-      "superfreezing": "{entity_name} i läge snabbfrysning",
-      "superheating": "{entity_name} i läge snabbvärmning",
-      "waiting_to_start": "{entity_name} väntar på start"
-    },
-    "trigger_type": {
-      "autocleaning": "{entity_name} Automatisk rengöring",
-      "failure": "{entity_name} Felläge",
-      "idle": "{entity_name} Viloläge",
-      "not_connected": "{entity_name} Inte ansluten",
-      "off": "{entity_name} Av",
-      "on": "{entity_name} På",
-      "pause": "{entity_name} Paus",
-      "program_ended": "{entity_name} Programmet avslutat",
-      "program_interrupted": "{entity_name} Programmet avbrutet",
-      "programmed": "{entity_name} Programmerad",
-      "rinse_hold": "{entity_name} Sköljstopp",
-      "running": "{entity_name} Körs",
-      "service": "{entity_name} Serviceläge",
-      "supercooling": "{entity_name} Snabbkylning",
-      "supercooling_superfreezing": "{entity_name} Snabbkylning/snabbinfrysning",
-      "superfreezing": "{entity_name} Snabbfrysning",
-      "superheating": "{entity_name} Snabbvärmning",
-      "waiting_to_start": "{entity_name} Väntar på att starta"
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "door": {
-        "name": "Dörr"
-      },
-      "failure": {
-        "name": "Problem"
-      },
-      "info": {
-        "name": "Info"
-      },
-      "mobile_start": {
-        "name": "Mobilstart"
-      },
-      "remote_control": {
-        "name": "Fjärrstyrning"
-      },
-      "smart_grid": {
-        "name": "Smart elnät"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "Start"
-      },
-      "stop": {
-        "name": "Stopp"
-      }
-    },
-    "climate": {
-      "freezer": {
-        "name": "Frys"
-      },
-      "fridge": {
-        "name": "Kyl"
-      }
-    },
-    "fan": {
-      "fan": {
-        "name": "Fläkt"
-      }
-    },
-    "light": {
-      "ambient_light": {
-        "name": "Omgivningsbelysning"
-      },
-      "light": {
-        "name": "Belysning"
-      }
-    },
-    "number": {
-      "plate": {
-        "name": "Platta {plate_no}"
-      }
-    },
-    "sensor": {
-      "battery": {
-        "name": "Batteri"
-      },
-      "drying_step": {
-        "name": "Torkningsläge",
-        "state": {
-          "extra_dry": "Extra torrt",
-          "hand_iron_1": "Handstrykning 1",
-          "hand_iron_2": "Handstrykning 2",
-          "machine_iron": "Maskinstrykning",
-          "normal": "Normal",
-          "normal_plus": "Normal Plus",
-          "slightly_dry": "Lätt torrt",
-          "smoothing": "Slätar ut"
-        }
-      },
-      "elapsed_time": {
-        "name": "Förfluten tid"
-      },
-      "energy_consumption": {
-        "name": "Energiförbrukning"
-      },
-      "energy_forecast": {
-        "name": "Energiprognos"
-      },
-      "finish_at": {
-        "name": "Klar kl"
-      },
-      "food_core_target_temperature": {
-        "name": "Mål stektemperatur"
-      },
-      "food_core_temperature": {
-        "name": "Stektemperatur"
-      },
-      "program_id": {
-        "name": "Program",
-        "state": {
-          "1_tray": "1 Plåt",
-          "2_trays": "2 Plåtar",
-          "appliance_rinse": "Sköljning",
-          "appliance_settings": "Inställningsmeny",
-          "auto": "Auto",
-          "auto_roast": "Auto stekning",
-          "automatic": "Automatiskt",
-          "automatic_plus": "Automatic Plus",
-          "baking_tray": "Bakplåt",
-          "barista_assistant": "BaristaAssistant",
-          "basket_program": "Korgprogram",
-          "bed_linen": "Sängkläder",
-          "black_tea": "Svart te",
-          "bottom_heat": "Undervärme",
-          "brewing_unit_degrease": "Avfettning av bryggenhet",
-          "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Kaffe latte",
-          "cappuccino": "Cappuccino",
-          "cappuccino_italiano": "Cappuccino Italiano",
-          "check_appliance": "Kontrollera apparaten",
-          "clean_machine": "Rengör maskin",
-          "coffee": "Kaffe",
-          "coffee_pot": "Kaffekanna",
-          "conventional_heat": "Konventionell värme",
-          "cool_air": "Kall luft",
-          "cottons": "Bomull",
-          "cottons_eco": "Bomull ECO",
-          "cottons_hygiene": "Bomull hygien",
-          "curtains": "Gardiner",
-          "dark_garments": "Mörka plagg",
-          "defrost": "Avfrostning",
-          "delicates": "Fintvätt",
-          "denim": "Jeans",
-          "descaling": "Avkalkning",
-          "down_duvets": "Duntäcken",
-          "down_filled_items": "Dunfyllda plagg",
-          "drain_spin": "Tömning/centrifugering",
-          "eco": "ECO",
-          "eco_40_60": "ECO 40-60",
-          "eco_fan_heat": "Eco varmluft",
-          "economy_grill": "Ekonomi grill",
-          "espresso": "Espresso",
-          "espresso_macchiato": "Espresso macchiato",
-          "express": "Express",
-          "express_20": "Express 20'",
-          "extra_quiet": "Extra tyst",
-          "fan_grill": "Varmluftsgrill",
-          "fan_plus": "Varmluft plus",
-          "first_wash": "Första tvätt",
-          "flat_white": "Flat white",
-          "freshen_up": "Uppfräschning",
-          "fruit_tea": "Fruktte",
-          "full_grill": "Full grill",
-          "gentle": "Ömtåligt",
-          "gentle_denim": "Skonsamt jeans",
-          "gentle_minimum_iron": "Skonsamt lättstruket",
-          "gentle_smoothing": "Skonsam utslätning",
-          "glasses_warm": "Glas",
-          "green_tea": "Grönt te",
-          "heat_crockery": "Värma porslin",
-          "herbal_tea": "Örtte",
-          "hot_milk": "Varm mjölk",
-          "hot_water": "Varmt vatten",
-          "hygiene": "Hygien",
-          "intensive": "Intensiv",
-          "intensive_bake": "Intensivbakning",
-          "japanese_tea": "Japanskt te",
-          "keeping_warm": "Varmhållning",
-          "large_pillows": "Stora kuddar",
-          "latte_macchiato": "Latte macchiato",
-          "long_coffee": "Long coffee",
-          "maintenance": "Underhållsprogram",
-          "microwave": "Mikrovågsfunktion",
-          "milk_foam": "Mjölkskum",
-          "milk_pipework_clean": "Rengör mjölkrör",
-          "milk_pipework_rinse": "Sköljer mjölkrör",
-          "minimum_iron": "Strykfri tvätt",
-          "moisture_plus_auto_roast": "Kombitillagning + Stekautomatik",
-          "moisture_plus_conventional_heat": "Kombitillagning + Över-/undervärme",
-          "moisture_plus_fan_plus": "Kombitillagning + Varmluft plus",
-          "moisture_plus_intensive_bake": "Kombitillagning + Intensivbakning",
-          "no_program": "Inget program",
-          "normal": "Normal",
-          "outerwear": "Ytterkläder",
-          "pillows": "Kuddar",
-          "proofing": "Impregnering",
-          "prove_15_min": "15 min jäsning",
-          "prove_30_min": "30 min jäsning",
-          "prove_45_min": "45 min jäsning",
-          "quick_power_wash": "Snabb powertvätt",
-          "rinse": "Sköljning",
-          "rinse_out_lint": "Spola ut ludd",
-          "ristretto": "Ristretto",
-          "separate_rinse_starch": "Separat sköljning/stärkning",
-          "shirts": "Skjortor",
-          "silent": "Tyst",
-          "silks": "Siden",
-          "silks_handcare": "Siden handtvätt",
-          "smoothing": "Utslätning",
-          "solar_save": "SolarSave",
-          "sportswear": "Sportkläder",
-          "spot": "Spot",
-          "standard_pillows": "Standardkuddar",
-          "starch": "Stärkning",
-          "steam_care": "Ångbehandling",
-          "steam_smoothing": "Utslätning med ånga",
-          "tall_items": "Stora föremål",
-          "top_heat": "Övervärme",
-          "trainers": "Träningsplagg",
-          "turbo": "Turbo",
-          "very_hot_water": "Hett vatten",
-          "warm_air": "Varm luft",
-          "white_tea": "Vitt te",
-          "woollens": "Ylle",
-          "woollens_handcare": "Ylle handtvätt"
-        }
-      },
-      "program_phase": {
-        "name": "Programfas",
-        "state": {
-          "2nd_espresso": "2:a Espresso kaffe",
-          "2nd_grinding": "2:a malning",
-          "2nd_pre_brewing": "2:a För-bryggning",
-          "anti_crease": "Skrynkelskydd",
-          "blocked_brushes": "Borstar blockerade",
-          "blocked_drive_wheels": "Drivhjul blockerade",
-          "blocked_front_wheel": "Framhjul blockerat",
-          "cleaning": "Rengör",
-          "comfort_cooling": "Komfortkylning",
-          "cooling_down": "Nedkylning",
-          "dirty_sensors": "Smuts på sensorer",
-          "disinfecting": "Desinfektion",
-          "dispensing": "Häller upp",
-          "docked": "Dockad",
-          "door_open": "Dörr öppen",
-          "drain": "Tömning",
-          "drying": "Torkar",
-          "dust_box_missing": "Dammbox saknas",
-          "energy_save": "Energisparläge",
-          "espresso": "Espresso kaffe",
-          "extra_dry": "Extra torrt",
-          "final_rinse": "Slutsköljning",
-          "finished": "Klar",
-          "freshen_up_and_moisten": "Fräscha upp & Fukta",
-          "going_to_target_area": "Går till område",
-          "grinding": "Malning",
-          "hand_iron": "Handstrykning",
-          "hand_iron_1": "Handstrykning 1",
-          "hand_iron_2": "Handstrykning 2",
-          "heating": "Värmer",
-          "heating_up": "Värmer upp",
-          "hot_milk": "Varm mjölk",
-          "hygiene": "Hygien",
-          "interim_rinse": "Mellansköljning",
-          "keep_warm": "Varmhållning",
-          "keeping_warm": "Varmhåller",
-          "machine_iron": "Maskinstykning",
-          "main_dishwash": "Diskar",
-          "main_wash": "Huvudtvätt",
-          "milk_foam": "Mjölkskum",
-          "moisten": "Fuktigt",
-          "motor_overload": "Kontrollera dammbox och filter",
-          "normal": "Normal",
-          "normal_plus": "Normal plus",
-          "not_running": "Kör ej",
-          "pre_brewing": "För-bryggning",
-          "pre_dishwash": "Fördisk",
-          "pre_wash": "Förtvätt",
-          "process_finished": "Process klar",
-          "process_running": "Process körs",
-          "program_running": "Program körs",
-          "reactivating": "Reaktiverar",
-          "remote_controlled": "Fjärrstyrd",
-          "returning": "Återvänder",
-          "rinse": "Sköljning",
-          "rinse_hold": "Sköljstopp",
-          "rinse_out_lint": "Spola ut ludd",
-          "rinses": "Sköljer",
-          "safety_cooling": "Säkerhetskylning",
-          "slightly_dry": "Lätt torr",
-          "slow_roasting": "Långsam tillagning",
-          "smoothing": "Slätar ut",
-          "soak": "Blötläggning",
-          "spin": "Centrifugering",
-          "starch_stop": "Stärkning stopp",
-          "steam_smoothing": "Utslätning med ånga",
-          "thermo_spin": "Thermo centrifugering",
-          "timed_drying": "Tidsstyrd torkning",
-          "vacuum_cleaning": "Städar",
-          "vacuum_cleaning_paused": "Städning pausad",
-          "vacuum_internal_fault": "Internt fel - starta om",
-          "venting": "Ventilerar",
-          "warm_air": "Varmluft",
-          "warm_cups_glasses": "Värma koppar/glas",
-          "warm_dishes_plates": "Värma tallrikar",
-          "wheel_lifted": "Hjul upplyft"
-        }
-      },
-      "program_type": {
-        "name": "Programtyp",
-        "state": {
-          "automatic_program": "Automatiskt program",
-          "cleaning_care_program": "Rengöringsprogram",
-          "maintenance_program": "Underhållsprogram",
-          "normal_operation_mode": "Normalläge",
-          "own_program": "Eget program"
-        }
-      },
-      "remaining_time": {
-        "name": "Återstående tid"
-      },
-      "spin_speed": {
-        "name": "Centrifugering"
-      },
-      "start_at": {
-        "name": "Startar kl"
-      },
-      "start_time": {
-        "name": "Start om"
-      },
-      "started_at": {
-        "name": "Startade kl"
-      },
-      "status": {
-        "name": "Status",
-        "state": {
-          "autocleaning": "Automatisk rengöring",
-          "failure": "Misslyckades",
-          "idle": "Vänteläge",
-          "not_connected": "Ej ansluten",
-          "off": "Från",
-          "on": "Till",
-          "pause": "Pause",
-          "program_ended": "Program slut",
-          "program_interrupted": "Program avbrutet",
-          "programmed": "Programmerad",
-          "rinse_hold": "Sköljstopp",
-          "running": "Igång",
-          "service": "Service",
-          "supercooling": "Snabbkylning",
-          "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
-          "superfreezing": "Snabbinfrysning",
-          "superheating": "Supervärmning",
-          "waiting_to_start": "Väntar på start"
+    "config": {
+        "abort": {
+            "already_configured": "Kontot är redan autentiserat",
+            "already_in_progress": "Konfigurationsflöde pågår redan",
+            "authorize_url_timeout": "Timeout vid generering av URL för autentisering",
+            "missing_configuration": "Komponenten kunde inte konfigureras. Vänligen följ dokumentationen",
+            "no_url_available": "Ingen URL tillgänglig. För information om detta fel, [se hjälpavsnittet]({docs_url})",
+            "oauth_error": "Tog emot ogiltiga token-data",
+            "oauth_failed": "Fel vid hämtning av åtkomsttoken.",
+            "oauth_timeout": "Timeout vid hämtning av OAuth-token.",
+            "oauth_unauthorized": "OAuth-auktoriseringsfel vid hämtning av åtkomsttoken.",
+            "reauth_successful": "Omautentiseringen lyckades"
         },
-        "state_attributes": {
-          "appliance": {
-            "name": "Apparat"
-          },
-          "manufacturer": {
-            "name": "Tillverkare"
-          },
-          "model": {
-            "name": "Modell"
-          },
-          "serial_no": {
-            "name": "Serienummer"
-          }
-        }
-      },
-      "target_temperature": {
-        "name": "Måltemperatur"
-      },
-      "target_temperature_zone_2": {
-        "name": "Måltemperatur zon 2"
-      },
-      "target_temperature_zone_3": {
-        "name": "Måltemperatur zon 3"
-      },
-      "temperature": {
-        "name": "Temperatur"
-      },
-      "temperature_zone_2": {
-        "name": "Temperatur zon 2"
-      },
-      "temperature_zone_3": {
-        "name": "Temperatur zon 3"
-      },
-      "water_consumption": {
-        "name": "Vattenförbrukning"
-      },
-      "water_forecast": {
-        "name": "Vatten prognos"
-      }
-    },
-    "switch": {
-      "power_on": {
-        "name": "Till"
-      },
-      "supercooling": {
-        "name": "Snabbkylning"
-      },
-      "superfreezing": {
-        "name": "Snabbinfrysning"
-      }
-    },
-    "vacuum": {
-      "vacuum": {
-        "name": "Dammsugare",
-        "state_attributes": {
-          "status": {
-            "name": "Status",
-            "state": {
-              "blocked_brushes": "Borstar blockerade",
-              "blocked_drive_wheels": "Drivhjul blockerade",
-              "blocked_front_wheel": "Framhjul blockerat",
-              "check_dust_box_and_filter": "Kontrollera dammbehållare och filter",
-              "dirty_sensors": "Smuts på sensorer",
-              "dust_box_missing": "Dammbehållare saknas",
-              "going_to_target_area": "Går till område",
-              "internal_fault_reboot": "Internt fel - starta om",
-              "remote_controlled": "Fjärrstyrd",
-              "wheel_lifted": "Hjul upplyft"
+        "create_entry": {
+            "default": "Autentisering lyckades"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Välj metod för autentisering"
+            },
+            "reauth_confirm": {
+                "description": "Miele-integrationen behöver förnyad autentisering för kontot: {account}",
+                "title": "Förnya autentisering"
+            },
+            "zeroconf_confirm": {
+                "description": "Du kommer lägga till `{name}` och eventuella ytterligare Miele-enheter i Home Assistant.\n\n**För att fullfölja behöver du ange dina behörighets- och inloggningsuppgifter.**",
+                "title": "Bekräfta att du vill lägga till integration för Miele"
             }
-          }
         }
-      }
-    }
-  },
-  "issues": {
-    "hob_not_supported": {
-      "description": "Apparattypen {tech_type} stöds inte fullt ut av Miele-integrationen. Därför kan vissa entiteter saknas eller inte fungera. \n\nRapportera problemet till [den ansvarige på Github]({issue_url})",
-      "title": "Enheten {tech_type} stöds inte fullt ut"
-    }
-  },
-  "selector": {
-    "process_action_options": {
-      "options": {
-        "pause": "Pausa",
-        "start": "Starta",
-        "start_supercooling": "Starta snabbkylning",
-        "start_superfreezing": "Starta snabbinfrysning",
-        "stop": "Stoppa",
-        "stop_supercooling": "Stoppa snabbkylning",
-        "stop_superfreezing": "Stoppa snabbinfrysning"
-      }
-    }
-  },
-  "services": {
-    "generic_action": {
-      "description": "Utför en åtgärd på en enhet.",
-      "name": "Utför generisk åtgärd"
     },
-    "process_action": {
-      "description": "Utför processAction om alla förutsättningar är uppfyllda.",
-      "fields": {
-        "action": {
-          "description": "Välj en processåtgärd att utföra.",
-          "name": "Åtgärd"
-        }
-      },
-      "name": "Utför processAction"
-    },
-    "raw": {
-      "description": "Utför tjänst med minimal validering.",
-      "fields": {
-        "extra": {
-          "description": "Ett dict med parametrar",
-          "name": "Extra"
+    "device_automation": {
+        "condition_type": {
+            "autocleaning": "{entity_name} kör automatisk rengöring",
+            "failure": "{entity_name} i felläge",
+            "idle": "{entity_name} i viloläge",
+            "not_connected": "{entity_name} är inte ansluten",
+            "off": "{entity_name} är av",
+            "on": "{entity_name} är på",
+            "pause": "{entity_name} pausar",
+            "program_ended": "{entity_name} har avslutat programmet",
+            "program_interrupted": "{entity_name} har avbrutit programmet",
+            "programmed": "{entity_name}program har valts",
+            "rinse_hold": "{entity_name} i läge sköljstopp",
+            "running": "{entity_name} i drift",
+            "service": "{entity_name} i serviceläge",
+            "supercooling": "{entity_name} i läge snabbkylning",
+            "supercooling_superfreezing": "{entity_name} i läge snabbkylning/snabbinfrysning",
+            "superfreezing": "{entity_name} i läge snabbfrysning",
+            "superheating": "{entity_name} i läge snabbvärmning",
+            "waiting_to_start": "{entity_name} väntar på start"
         },
-        "serialno": {
-          "description": "Apparatens serienummer",
-          "name": "Serienummer"
+        "trigger_type": {
+            "autocleaning": "{entity_name} Automatisk rengöring",
+            "failure": "{entity_name} Felläge",
+            "idle": "{entity_name} Viloläge",
+            "not_connected": "{entity_name} Inte ansluten",
+            "off": "{entity_name} Av",
+            "on": "{entity_name} På",
+            "pause": "{entity_name} Paus",
+            "program_ended": "{entity_name} Programmet avslutat",
+            "program_interrupted": "{entity_name} Programmet avbrutet",
+            "programmed": "{entity_name} Programmerad",
+            "rinse_hold": "{entity_name} Sköljstopp",
+            "running": "{entity_name} Körs",
+            "service": "{entity_name} Serviceläge",
+            "supercooling": "{entity_name} Snabbkylning",
+            "supercooling_superfreezing": "{entity_name} Snabbkylning/snabbinfrysning",
+            "superfreezing": "{entity_name} Snabbfrysning",
+            "superheating": "{entity_name} Snabbvärmning",
+            "waiting_to_start": "{entity_name} Väntar på att starta"
         }
-      },
-      "name": "Utför rakt kommando"
     },
-    "set_program": {
-      "description": "Ställ in och starta program med valfria parametrar.",
-      "name": "Ställ in program"
+    "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Dörr"
+            },
+            "failure": {
+                "name": "Problem"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "mobile_start": {
+                "name": "Mobilstart"
+            },
+            "remote_control": {
+                "name": "Fjärrstyrning"
+            },
+            "smart_grid": {
+                "name": "Smart elnät"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            },
+            "stop": {
+                "name": "Stopp"
+            }
+        },
+        "climate": {
+            "freezer": {
+                "name": "Frys"
+            },
+            "fridge": {
+                "name": "Kyl"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Fläkt"
+            }
+        },
+        "light": {
+            "ambient_light": {
+                "name": "Omgivningsbelysning"
+            },
+            "light": {
+                "name": "Belysning"
+            }
+        },
+        "number": {
+            "plate": {
+                "name": "Platta {plate_no}"
+            }
+        },
+        "sensor": {
+            "battery": {
+                "name": "Batteri"
+            },
+            "drying_step": {
+                "name": "Torkningsläge",
+                "state": {
+                    "extra_dry": "Extra torrt",
+                    "hand_iron_1": "Handstrykning 1",
+                    "hand_iron_2": "Handstrykning 2",
+                    "machine_iron": "Maskinstrykning",
+                    "normal": "Normal",
+                    "normal_plus": "Normal Plus",
+                    "slightly_dry": "Lätt torrt",
+                    "smoothing": "Slätar ut"
+                }
+            },
+            "elapsed_time": {
+                "name": "Förfluten tid"
+            },
+            "energy_consumption": {
+                "name": "Energiförbrukning"
+            },
+            "energy_forecast": {
+                "name": "Energiprognos"
+            },
+            "finish_at": {
+                "name": "Klar kl"
+            },
+            "food_core_target_temperature": {
+                "name": "Mål stektemperatur"
+            },
+            "food_core_temperature": {
+                "name": "Stektemperatur"
+            },
+            "program_id": {
+                "name": "Program",
+                "state": {
+                    "1_tray": "1 Plåt",
+                    "2_trays": "2 Plåtar",
+                    "appliance_rinse": "Sköljning",
+                    "appliance_settings": "Inställningsmeny",
+                    "auto": "Auto",
+                    "auto_roast": "Auto stekning",
+                    "automatic": "Automatiskt",
+                    "automatic_plus": "Automatic Plus",
+                    "baking_tray": "Bakplåt",
+                    "barista_assistant": "BaristaAssistant",
+                    "basket_program": "Korgprogram",
+                    "bed_linen": "Sängkläder",
+                    "black_tea": "Svart te",
+                    "bottom_heat": "Undervärme",
+                    "brewing_unit_degrease": "Avfettning av bryggenhet",
+                    "cafe_au_lait": "Café au lait",
+                    "caffe_latte": "Kaffe latte",
+                    "cappuccino": "Cappuccino",
+                    "cappuccino_italiano": "Cappuccino Italiano",
+                    "check_appliance": "Kontrollera apparaten",
+                    "clean_machine": "Rengör maskin",
+                    "coffee": "Kaffe",
+                    "coffee_pot": "Kaffekanna",
+                    "conventional_heat": "Konventionell värme",
+                    "cool_air": "Kall luft",
+                    "cottons": "Bomull",
+                    "cottons_eco": "Bomull ECO",
+                    "cottons_hygiene": "Bomull hygien",
+                    "curtains": "Gardiner",
+                    "dark_garments": "Mörka plagg",
+                    "defrost": "Avfrostning",
+                    "delicates": "Fintvätt",
+                    "denim": "Jeans",
+                    "descaling": "Avkalkning",
+                    "down_duvets": "Duntäcken",
+                    "down_filled_items": "Dunfyllda plagg",
+                    "drain_spin": "Tömning/centrifugering",
+                    "eco": "ECO",
+                    "eco_40_60": "ECO 40-60",
+                    "eco_fan_heat": "Eco varmluft",
+                    "economy_grill": "Ekonomi grill",
+                    "espresso": "Espresso",
+                    "espresso_macchiato": "Espresso macchiato",
+                    "express": "Express",
+                    "express_20": "Express 20'",
+                    "extra_quiet": "Extra tyst",
+                    "fan_grill": "Varmluftsgrill",
+                    "fan_plus": "Varmluft plus",
+                    "first_wash": "Första tvätt",
+                    "flat_white": "Flat white",
+                    "freshen_up": "Uppfräschning",
+                    "fruit_tea": "Fruktte",
+                    "full_grill": "Full grill",
+                    "gentle": "Ömtåligt",
+                    "gentle_denim": "Skonsamt jeans",
+                    "gentle_minimum_iron": "Skonsamt lättstruket",
+                    "gentle_smoothing": "Skonsam utslätning",
+                    "glasses_warm": "Glas",
+                    "green_tea": "Grönt te",
+                    "heat_crockery": "Värma porslin",
+                    "herbal_tea": "Örtte",
+                    "hot_milk": "Varm mjölk",
+                    "hot_water": "Varmt vatten",
+                    "hygiene": "Hygien",
+                    "intensive": "Intensiv",
+                    "intensive_bake": "Intensivbakning",
+                    "japanese_tea": "Japanskt te",
+                    "keeping_warm": "Varmhållning",
+                    "large_pillows": "Stora kuddar",
+                    "latte_macchiato": "Latte macchiato",
+                    "long_coffee": "Long coffee",
+                    "maintenance": "Underhållsprogram",
+                    "microwave": "Mikrovågsfunktion",
+                    "milk_foam": "Mjölkskum",
+                    "milk_pipework_clean": "Rengör mjölkrör",
+                    "milk_pipework_rinse": "Sköljer mjölkrör",
+                    "minimum_iron": "Strykfri tvätt",
+                    "moisture_plus_auto_roast": "Kombitillagning + Stekautomatik",
+                    "moisture_plus_conventional_heat": "Kombitillagning + Över-/undervärme",
+                    "moisture_plus_fan_plus": "Kombitillagning + Varmluft plus",
+                    "moisture_plus_intensive_bake": "Kombitillagning + Intensivbakning",
+                    "no_program": "Inget program",
+                    "normal": "Normal",
+                    "outerwear": "Ytterkläder",
+                    "pasta_paela": "Pasta/Paella",
+                    "pillows": "Kuddar",
+                    "power_wash": "PowerWash",
+                    "proofing": "Impregnering",
+                    "prove_15_min": "15 min jäsning",
+                    "prove_30_min": "30 min jäsning",
+                    "prove_45_min": "45 min jäsning",
+                    "quick_power_wash": "Snabb powertvätt",
+                    "rinse": "Sköljning",
+                    "rinse_out_lint": "Spola ut ludd",
+                    "ristretto": "Ristretto",
+                    "separate_rinse_starch": "Separat sköljning/stärkning",
+                    "shirts": "Skjortor",
+                    "silent": "Tyst",
+                    "silks": "Siden",
+                    "silks_handcare": "Siden handtvätt",
+                    "smoothing": "Utslätning",
+                    "solar_save": "SolarSave",
+                    "sportswear": "Sportkläder",
+                    "spot": "Spot",
+                    "standard_pillows": "Standardkuddar",
+                    "starch": "Stärkning",
+                    "steam_care": "Ångbehandling",
+                    "steam_smoothing": "Utslätning med ånga",
+                    "tall_items": "Stora föremål",
+                    "top_heat": "Övervärme",
+                    "trainers": "Träningsplagg",
+                    "turbo": "Turbo",
+                    "very_hot_water": "Hett vatten",
+                    "warm_air": "Varm luft",
+                    "white_tea": "Vitt te",
+                    "woollens": "Ylle",
+                    "woollens_handcare": "Ylle handtvätt"
+                }
+            },
+            "program_phase": {
+                "name": "Programfas",
+                "state": {
+                    "2nd_espresso": "2:a Espresso kaffe",
+                    "2nd_grinding": "2:a malning",
+                    "2nd_pre_brewing": "2:a För-bryggning",
+                    "anti_crease": "Skrynkelskydd",
+                    "blocked_brushes": "Borstar blockerade",
+                    "blocked_drive_wheels": "Drivhjul blockerade",
+                    "blocked_front_wheel": "Framhjul blockerat",
+                    "cleaning": "Rengör",
+                    "comfort_cooling": "Komfortkylning",
+                    "cooling_down": "Nedkylning",
+                    "dirty_sensors": "Smuts på sensorer",
+                    "disinfecting": "Desinfektion",
+                    "dispensing": "Häller upp",
+                    "docked": "Dockad",
+                    "door_open": "Dörr öppen",
+                    "drain": "Tömning",
+                    "drying": "Torkar",
+                    "dust_box_missing": "Dammbox saknas",
+                    "energy_save": "Energisparläge",
+                    "espresso": "Espresso kaffe",
+                    "extra_dry": "Extra torrt",
+                    "final_rinse": "Slutsköljning",
+                    "finished": "Klar",
+                    "freshen_up_and_moisten": "Fräscha upp & Fukta",
+                    "going_to_target_area": "Går till område",
+                    "grinding": "Malning",
+                    "hand_iron": "Handstrykning",
+                    "hand_iron_1": "Handstrykning 1",
+                    "hand_iron_2": "Handstrykning 2",
+                    "heating": "Värmer",
+                    "heating_up": "Värmer upp",
+                    "hot_milk": "Varm mjölk",
+                    "hygiene": "Hygien",
+                    "interim_rinse": "Mellansköljning",
+                    "keep_warm": "Varmhållning",
+                    "keeping_warm": "Varmhåller",
+                    "machine_iron": "Maskinstykning",
+                    "main_dishwash": "Diskar",
+                    "main_wash": "Huvudtvätt",
+                    "milk_foam": "Mjölkskum",
+                    "moisten": "Fuktigt",
+                    "motor_overload": "Kontrollera dammbox och filter",
+                    "normal": "Normal",
+                    "normal_plus": "Normal plus",
+                    "not_running": "Kör ej",
+                    "pre_brewing": "För-bryggning",
+                    "pre_dishwash": "Fördisk",
+                    "pre_wash": "Förtvätt",
+                    "process_finished": "Process klar",
+                    "process_running": "Process körs",
+                    "program_running": "Program körs",
+                    "reactivating": "Reaktiverar",
+                    "remote_controlled": "Fjärrstyrd",
+                    "returning": "Återvänder",
+                    "rinse": "Sköljning",
+                    "rinse_hold": "Sköljstopp",
+                    "rinse_out_lint": "Spola ut ludd",
+                    "rinses": "Sköljer",
+                    "safety_cooling": "Säkerhetskylning",
+                    "slightly_dry": "Lätt torr",
+                    "slow_roasting": "Långsam tillagning",
+                    "smoothing": "Slätar ut",
+                    "soak": "Blötläggning",
+                    "spin": "Centrifugering",
+                    "starch_stop": "Stärkning stopp",
+                    "steam_smoothing": "Utslätning med ånga",
+                    "thermo_spin": "Thermo centrifugering",
+                    "timed_drying": "Tidsstyrd torkning",
+                    "vacuum_cleaning": "Städar",
+                    "vacuum_cleaning_paused": "Städning pausad",
+                    "vacuum_internal_fault": "Internt fel - starta om",
+                    "venting": "Ventilerar",
+                    "warm_air": "Varmluft",
+                    "warm_cups_glasses": "Värma koppar/glas",
+                    "warm_dishes_plates": "Värma tallrikar",
+                    "wheel_lifted": "Hjul upplyft"
+                }
+            },
+            "program_type": {
+                "name": "Programtyp",
+                "state": {
+                    "automatic_program": "Automatiskt program",
+                    "cleaning_care_program": "Rengöringsprogram",
+                    "maintenance_program": "Underhållsprogram",
+                    "normal_operation_mode": "Normalläge",
+                    "own_program": "Eget program"
+                }
+            },
+            "remaining_time": {
+                "name": "Återstående tid"
+            },
+            "spin_speed": {
+                "name": "Centrifugering"
+            },
+            "start_at": {
+                "name": "Startar kl"
+            },
+            "start_time": {
+                "name": "Start om"
+            },
+            "started_at": {
+                "name": "Startade kl"
+            },
+            "status": {
+                "name": "Status",
+                "state": {
+                    "autocleaning": "Automatisk rengöring",
+                    "failure": "Misslyckades",
+                    "idle": "Vänteläge",
+                    "not_connected": "Ej ansluten",
+                    "off": "Från",
+                    "on": "Till",
+                    "pause": "Pause",
+                    "program_ended": "Program slut",
+                    "program_interrupted": "Program avbrutet",
+                    "programmed": "Programmerad",
+                    "rinse_hold": "Sköljstopp",
+                    "running": "Igång",
+                    "service": "Service",
+                    "supercooling": "Snabbkylning",
+                    "supercooling_superfreezing": "Snabbkylning/snabbinfrysning",
+                    "superfreezing": "Snabbinfrysning",
+                    "superheating": "Supervärmning",
+                    "waiting_to_start": "Väntar på start"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Apparat"
+                    },
+                    "manufacturer": {
+                        "name": "Tillverkare"
+                    },
+                    "model": {
+                        "name": "Modell"
+                    },
+                    "serial_no": {
+                        "name": "Serienummer"
+                    }
+                }
+            },
+            "target_temperature": {
+                "name": "Måltemperatur"
+            },
+            "target_temperature_zone_2": {
+                "name": "Måltemperatur zon 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Måltemperatur zon 3"
+            },
+            "temperature": {
+                "name": "Temperatur"
+            },
+            "temperature_zone_2": {
+                "name": "Temperatur zon 2"
+            },
+            "temperature_zone_3": {
+                "name": "Temperatur zon 3"
+            },
+            "water_consumption": {
+                "name": "Vattenförbrukning"
+            },
+            "water_forecast": {
+                "name": "Vatten prognos"
+            }
+        },
+        "switch": {
+            "power_on": {
+                "name": "Till"
+            },
+            "supercooling": {
+                "name": "Snabbkylning"
+            },
+            "superfreezing": {
+                "name": "Snabbinfrysning"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Dammsugare",
+                "state_attributes": {
+                    "status": {
+                        "name": "Status",
+                        "state": {
+                            "blocked_brushes": "Borstar blockerade",
+                            "blocked_drive_wheels": "Drivhjul blockerade",
+                            "blocked_front_wheel": "Framhjul blockerat",
+                            "check_dust_box_and_filter": "Kontrollera dammbehållare och filter",
+                            "dirty_sensors": "Smuts på sensorer",
+                            "dust_box_missing": "Dammbehållare saknas",
+                            "going_to_target_area": "Går till område",
+                            "internal_fault_reboot": "Internt fel - starta om",
+                            "remote_controlled": "Fjärrstyrd",
+                            "wheel_lifted": "Hjul upplyft"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "hob_not_supported": {
+            "description": "Apparattypen {tech_type} stöds inte fullt ut av Miele-integrationen. Därför kan vissa entiteter saknas eller inte fungera. \n\nRapportera problemet till [den ansvarige på Github]({issue_url})",
+            "title": "Enheten {tech_type} stöds inte fullt ut"
+        }
+    },
+    "selector": {
+        "process_action_options": {
+            "options": {
+                "pause": "Pausa",
+                "start": "Starta",
+                "start_supercooling": "Starta snabbkylning",
+                "start_superfreezing": "Starta snabbinfrysning",
+                "stop": "Stoppa",
+                "stop_supercooling": "Stoppa snabbkylning",
+                "stop_superfreezing": "Stoppa snabbinfrysning"
+            }
+        }
+    },
+    "services": {
+        "generic_action": {
+            "description": "Utför en åtgärd på en enhet.",
+            "name": "Utför generisk åtgärd"
+        },
+        "process_action": {
+            "description": "Utför processAction om alla förutsättningar är uppfyllda.",
+            "fields": {
+                "action": {
+                    "description": "Välj en processåtgärd att utföra.",
+                    "name": "Åtgärd"
+                }
+            },
+            "name": "Utför processAction"
+        },
+        "raw": {
+            "description": "Utför tjänst med minimal validering.",
+            "fields": {
+                "extra": {
+                    "description": "Ett dict med parametrar",
+                    "name": "Extra"
+                },
+                "serialno": {
+                    "description": "Apparatens serienummer",
+                    "name": "Serienummer"
+                }
+            },
+            "name": "Utför rakt kommando"
+        },
+        "set_program": {
+            "description": "Ställ in och starta program med valfria parametrar.",
+            "name": "Ställ in program"
+        }
+    },
+    "system_health": {
+        "info": {
+            "component_version": "Version",
+            "reach_miele_cloud": "Kan nå Mieles molntjänst"
+        }
     }
-  },
-  "system_health": {
-    "info": {
-      "component_version": "Version",
-      "reach_miele_cloud": "Kan nå Mieles molntjänst"
-    }
-  }
 }

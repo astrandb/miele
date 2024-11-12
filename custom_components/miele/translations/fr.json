@@ -1,548 +1,548 @@
 {
-  "application_credentials": {
-    "description": "Accédez à [« Get involved » sur le site des développeurs Miele]({register_url}) pour demander des informations d'identification, puis saisissez-les ci-dessous."
-  },
-  "config": {
-    "abort": {
-      "already_configured": "Compte déjà configuré",
-      "already_in_progress": "Processus de configuration en cours",
-      "authorize_url_timeout": "Délai d'expiration atteint pour l'authentification OAuth.",
-      "missing_configuration": "Le composant n'est pas configuré. Merci de suivre la documentation.",
-      "no_url_available": "URL non disponible. Pour information sur cette erreur, [check the help section]({docs_url})",
-      "oauth_error": "Jeton OAuth invalide.",
-      "oauth_failed": "Erreur lors de l'obtention du jeton d'accès.",
-      "oauth_timeout": "Délai d'expiration atteint pour la résolution du jeton OAuth.",
-      "oauth_unauthorized": "Erreur d'autorisation OAuth lors de l'obtention du jeton d'accès.",
-      "reauth_successful": "Ré-authentification réussie"
+    "application_credentials": {
+        "description": "Accédez à [« Get involved » sur le site des développeurs Miele]({register_url}) pour demander des informations d'identification, puis saisissez-les ci-dessous."
     },
-    "create_entry": {
-      "default": "Correctement authentifié"
-    },
-    "step": {
-      "pick_implementation": {
-        "title": "Sélectionner une méthode d'authentification"
-      },
-      "reauth_confirm": {
-        "description": "L'intégration Miele doit de nouveau authentifier votre compte: {account}",
-        "title": "Authentifier de nouveau l'intégration"
-      },
-      "zeroconf_confirm": {
-        "description": "Vous êtes sur le point d'ajouter `{name}` et d'autres appareils Miele, le cas échéant, à Home Assistant.\n\n**Pour terminer le processus, vous devez saisir vos informations d'identification.**",
-        "title": "Confirmez que vous ajoutez l'intégration Miele"
-      }
-    }
-  },
-  "device_automation": {
-    "condition_type": {
-      "autocleaning": "{entity_name} Nettoyage automatique en cours",
-      "failure": "{entity_name} est en erreur",
-      "idle": "{entity_name} est inactif",
-      "not_connected": "{entity_name} n'est pas connecté",
-      "off": "{entity_name} est éteint",
-      "on": "{entity_name} est activé",
-      "pause": "{entity_name} est en pause",
-      "program_ended": "{entity_name} a terminé le programme",
-      "program_interrupted": "{entity_name} a interrompu le programme",
-      "programmed": "{entity_name} est programmé",
-      "rinse_hold": "{entity_name} est en attente de rinçage",
-      "running": "{entity_name} est en fonctionnement",
-      "service": "{entity_name} est en service",
-      "supercooling": "{entity_name} : Supercooling actif",
-      "supercooling_superfreezing": "{entity_name}: Supercooling/Superfreezing actif",
-      "superfreezing": "{entity_name}: Superfreezing actif",
-      "superheating": "{entity_name}: Superheating actif",
-      "waiting_to_start": "{entity_name} est en attente de démarrage"
-    },
-    "trigger_type": {
-      "autocleaning": "{entity_name} Nettoyage Automatique",
-      "failure": "{entity_name} Erreur",
-      "idle": "{entity_name} Inactif",
-      "not_connected": "{entity_name} Non connecté",
-      "off": "{entity_name} Éteindre",
-      "on": "{entity_name} Allumer",
-      "pause": "{entity_name} Pause",
-      "program_ended": "{entity_name} Programme terminé",
-      "program_interrupted": "{entity_name} Programme interrompu",
-      "programmed": "{entity_name} Programmé",
-      "rinse_hold": "{entity_name} Rinçage en pause",
-      "running": "{entity_name} En fonctionnement",
-      "service": "{entity_name} Service",
-      "supercooling": "{entity_name} Supercooling",
-      "supercooling_superfreezing": "{entity_name} Supercooling/superfreezing",
-      "superfreezing": "{entity_name} Superfreezing",
-      "superheating": "{entity_name} Superheating",
-      "waiting_to_start": "{entity_name} En attente de démarrage"
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "door": {
-        "name": "Porte"
-      },
-      "failure": {
-        "name": "Erreur"
-      },
-      "info": {
-        "name": "Info"
-      },
-      "mobile_start": {
-        "name": "Démarrage mobile"
-      },
-      "remote_control": {
-        "name": "Contrôle à distance"
-      },
-      "smart_grid": {
-        "name": "Réseau intelligent"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "Démarrer"
-      },
-      "stop": {
-        "name": "Arrêter"
-      }
-    },
-    "climate": {
-      "freezer": {
-        "name": "Congélateur"
-      },
-      "fridge": {
-        "name": "Réfrigérateur"
-      }
-    },
-    "fan": {
-      "fan": {
-        "name": "Ventilateur"
-      }
-    },
-    "light": {
-      "ambient_light": {
-        "name": "Lumière d'ambiance"
-      },
-      "light": {
-        "name": "Lumière"
-      }
-    },
-    "number": {
-      "plate": {
-        "name": "Zone {plate_no}"
-      }
-    },
-    "sensor": {
-      "battery": {
-        "name": "Batterie"
-      },
-      "drying_step": {
-        "name": "Étape de séchage",
-        "state": {
-          "extra_dry": "Extra sec",
-          "hand_iron_1": "Repassage manuel 1",
-          "hand_iron_2": "Repassage manuel 2",
-          "machine_iron": "Repassage machine",
-          "normal": "Normal",
-          "normal_plus": "Normal plus",
-          "slightly_dry": "Légèrement sec",
-          "smoothing": "Assouplissement"
-        }
-      },
-      "elapsed_time": {
-        "name": "Temps écoulé"
-      },
-      "energy_consumption": {
-        "name": "Consommation d'énergie"
-      },
-      "energy_forecast": {
-        "name": "Prévisions énergétiques"
-      },
-      "finish_at": {
-        "name": "Se termine à"
-      },
-      "food_core_target_temperature": {
-        "name": "Température à cœur cible"
-      },
-      "food_core_temperature": {
-        "name": "Température à cœur"
-      },
-      "program_id": {
-        "name": "Programme",
-        "state": {
-          "1_tray": "1 plaque",
-          "2_trays": "2 plaques",
-          "appliance_rinse": "Rinçage machine",
-          "appliance_settings": "Menu des paramètres de l'appareil",
-          "auto": "Auto",
-          "auto_roast": "Rôtisserie auto",
-          "automatic": "Automatique",
-          "automatic_plus": "Automatique Plus",
-          "baking_tray": "Plaque de cuisson",
-          "barista_assistant": "Assistant Barista",
-          "basket_program": "Baskets",
-          "bed_linen": "Draps",
-          "black_tea": "Thé noir",
-          "bottom_heat": "Chaleur par le bas",
-          "brewing_unit_degrease": "Dégraissage moulin",
-          "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffe latte",
-          "cappuccino": "Cappuccino",
-          "cappuccino_italiano": "Cappuccino Italien",
-          "check_appliance": "Vérifier appareil",
-          "clean_machine": "Nettoyer machine",
-          "coffee": "Café",
-          "coffee_pot": "Machine à café",
-          "conventional_heat": "Cuisson standard",
-          "cool_air": "Air frais",
-          "cottons": "Coton",
-          "cottons_eco": "Coton ECO",
-          "cottons_hygiene": "Coton hygiénique",
-          "curtains": "Rideaux",
-          "dark_garments": "Vêtements sombres",
-          "defrost": "Décongélation",
-          "delicates": "Fragile",
-          "denim": "Jeans",
-          "descaling": "Détartrage",
-          "down_duvets": "Duvet d'oie",
-          "down_filled_items": "Vêtements garnis de duvet d'oie",
-          "drain_spin": "Vidange/essorage",
-          "eco": "Eco 50°",
-          "eco_40_60": "ECO 40-60",
-          "eco_fan_heat": "Cuisson air eco",
-          "economy_grill": "Grill eco",
-          "espresso": "Expresso",
-          "espresso_macchiato": "Expresso macchiato",
-          "express": "Express",
-          "express_20": "Express 20'",
-          "extra_quiet": "Extra silencieux",
-          "fan_grill": "Grill ventilé",
-          "fan_plus": "Chaleur tournante +",
-          "first_wash": "Pré lavage",
-          "flat_white": "Blanc plat",
-          "freshen_up": "Rafraichir",
-          "fruit_tea": "Thé fruité",
-          "full_grill": "Grill intense",
-          "gentle": "Fragile 45°",
-          "gentle_denim": "Jean doux",
-          "gentle_minimum_iron": "Doux mini repassage",
-          "gentle_smoothing": "Assouplissement doux",
-          "glasses_warm": "Verres tiède",
-          "green_tea": "Thé vert",
-          "heat_crockery": "Chauffe plat",
-          "herbal_tea": "Tisane",
-          "hot_milk": "Lait chaud",
-          "hot_water": "Eau chaude",
-          "hygiene": "Hygiène",
-          "intensive": "Intensif 75°",
-          "intensive_bake": "Cuisson intense",
-          "japanese_tea": "Thé Japonais",
-          "keeping_warm": "Garder au chaud",
-          "large_pillows": "Gros oreillers",
-          "latte_macchiato": "Latte macchiato",
-          "long_coffee": "Café long",
-          "maintenance": "Maintenance",
-          "microwave": "Micro-ondes",
-          "milk_foam": "Mousse de lait",
-          "milk_pipework_clean": "Nettoyage circuit lait",
-          "milk_pipework_rinse": "Rinçage circuit lait",
-          "minimum_iron": "Repassage mini",
-          "moisture_plus_auto_roast": "Humidité plus + Rôtissage automatique",
-          "moisture_plus_conventional_heat": "Humidité plus + Chaleur conventionnelle",
-          "moisture_plus_fan_plus": "Cuisson tempérée + Chaleur tournante",
-          "moisture_plus_intensive_bake": "Humidité plus + Cuisson intensive",
-          "no_program": "Aucun programme",
-          "normal": "Normal",
-          "outerwear": "Vêtements extérieurs",
-          "pillows": "Oreillers",
-          "proofing": "Essai",
-          "prove_15_min": "Faire lever 15 min",
-          "prove_30_min": "Faire lever 30 min",
-          "prove_45_min": "Faire lever 45 min",
-          "quick_power_wash": "QuickPowerWash",
-          "rinse": "Rinçage",
-          "rinse_out_lint": "Rinçage peluche",
-          "ristretto": "Ristretto",
-          "separate_rinse_starch": "Rinçage/amidon séparé",
-          "shirts": "Chemises",
-          "silent": "Silence",
-          "silks": "Soie",
-          "silks_handcare": "Soie à la main",
-          "smoothing": "Adoucissement",
-          "solar_save": "SolarSave (eau chaude solaire)",
-          "sportswear": "Sportswear",
-          "spot": "Spot",
-          "standard_pillows": "Oreillers standard",
-          "starch": "Amidonnage",
-          "steam_care": "Soin vapeur",
-          "steam_smoothing": "Assouplissement vapeur",
-          "tall_items": "Grands objets",
-          "top_heat": "Chaleur par le haut",
-          "trainers": "Vêtements sport",
-          "turbo": "Turbo",
-          "very_hot_water": "Eau très chaude",
-          "warm_air": "Air tiède",
-          "white_tea": "Thé blanc",
-          "woollens": "Laine",
-          "woollens_handcare": "Laine (lavage à la main)"
-        }
-      },
-      "program_phase": {
-        "name": "Phase de programme",
-        "state": {
-          "2nd_espresso": "2e Espresso",
-          "2nd_grinding": "2e mouture",
-          "2nd_pre_brewing": "2e Pé mélange",
-          "anti_crease": "Anti-froissage",
-          "blocked_brushes": "Brushes blocked",
-          "blocked_drive_wheels": "Drive wheels blocked",
-          "blocked_front_wheel": "Front wheel blocked",
-          "cleaning": "Nettoyage",
-          "comfort_cooling": "Refroidissement comfort",
-          "cooling_down": "Refroidissement",
-          "dirty_sensors": "Capteurs encrassés",
-          "disinfecting": "Désinfection",
-          "dispensing": "Distribution",
-          "docked": "Sur sa base",
-          "door_open": "Porte ouverte",
-          "drain": "Vidange",
-          "drying": "Séchage",
-          "dust_box_missing": "Missing dust box",
-          "energy_save": "Économiser de l'énergie",
-          "espresso": "Espresso",
-          "extra_dry": "Extra sec",
-          "final_rinse": "Rinçage final",
-          "finished": "Terminé",
-          "freshen_up_and_moisten": "Rafraîchir et humidifier",
-          "going_to_target_area": "Aller vers destination",
-          "grinding": "Mouture",
-          "hand_iron": "Repassage manuel",
-          "hand_iron_1": "Repassage manuel 1",
-          "hand_iron_2": "Repassage manuel 2",
-          "heating": "Chauffage",
-          "heating_up": "Chauffe",
-          "hot_milk": "Lait chaud",
-          "hygiene": "Hygiène",
-          "interim_rinse": "Rinçage intermédiaire",
-          "keep_warm": "Garde chaud",
-          "keeping_warm": "Garder chaud",
-          "machine_iron": "Repassage auto",
-          "main_dishwash": "Lavage",
-          "main_wash": "Lavage principal",
-          "milk_foam": "Mousse de lait",
-          "moisten": "Humidificateur",
-          "motor_overload": "Check dust box and filter",
-          "normal": "Normal",
-          "normal_plus": "Normal plus",
-          "not_running": "Arrêté",
-          "pre_brewing": "Pré mélange",
-          "pre_dishwash": "Prélavage",
-          "pre_wash": "Pré-lavage",
-          "process_finished": "Cycle terminé",
-          "process_running": "Cycle en cours",
-          "program_running": "Programme en cours",
-          "reactivating": "Réactivation",
-          "remote_controlled": "Remote controlled",
-          "returning": "Retour à la base",
-          "rinse": "Rinçage",
-          "rinse_hold": "Pause rinçage",
-          "rinse_out_lint": "Rincer les peluches",
-          "rinses": "Rinçage",
-          "safety_cooling": "Refroidissement sécurisé",
-          "slightly_dry": "Léégèrement sec",
-          "slow_roasting": "Rôtissage lent",
-          "smoothing": "Assouplissement",
-          "soak": "Trempage",
-          "spin": "Essorage",
-          "starch_stop": "Fin amidonnage",
-          "steam_smoothing": "Adoucissement vapeur",
-          "thermo_spin": "Réchauffage tournant",
-          "timed_drying": "Séchage retardé",
-          "vacuum_cleaning": "Nettoyage",
-          "vacuum_cleaning_paused": "Cleaning paused",
-          "vacuum_internal_fault": "Internal fault - reboot",
-          "venting": "Aération",
-          "warm_air": "Air chaud",
-          "warm_cups_glasses": "Chauffer des tasses",
-          "warm_dishes_plates": "Chauffer des assiettes",
-          "wheel_lifted": "Roues levées"
-        }
-      },
-      "program_type": {
-        "name": "Type de programme",
-        "state": {
-          "automatic_program": "Mode auto",
-          "cleaning_care_program": "Programme nettoyage",
-          "maintenance_program": "Programme maintenance",
-          "normal_operation_mode": "Mode normal",
-          "own_program": "Programme personnel"
-        }
-      },
-      "remaining_time": {
-        "name": "Temps restant"
-      },
-      "spin_speed": {
-        "name": "Vitesse de rotation"
-      },
-      "start_at": {
-        "name": "Démarre à"
-      },
-      "start_time": {
-        "name": "Heure de démarrage"
-      },
-      "started_at": {
-        "name": "Démarré à"
-      },
-      "status": {
-        "name": "Statut",
-        "state": {
-          "autocleaning": "Nettoyage Automatique",
-          "failure": "Erreur",
-          "idle": "Inactif",
-          "not_connected": "Non connecté",
-          "off": "Off",
-          "on": "On",
-          "pause": "Pause",
-          "program_ended": "Programme terminé",
-          "program_interrupted": "Programme interrompu",
-          "programmed": "Programmé",
-          "rinse_hold": "Pause rinçage",
-          "running": "En cours",
-          "service": "Service",
-          "supercooling": "Supercooling",
-          "supercooling_superfreezing": "Supercooling/superfreezing",
-          "superfreezing": "Superfreezing",
-          "superheating": "Superheating",
-          "waiting_to_start": "Attente de départ"
+    "config": {
+        "abort": {
+            "already_configured": "Compte déjà configuré",
+            "already_in_progress": "Processus de configuration en cours",
+            "authorize_url_timeout": "Délai d'expiration atteint pour l'authentification OAuth.",
+            "missing_configuration": "Le composant n'est pas configuré. Merci de suivre la documentation.",
+            "no_url_available": "URL non disponible. Pour information sur cette erreur, [check the help section]({docs_url})",
+            "oauth_error": "Jeton OAuth invalide.",
+            "oauth_failed": "Erreur lors de l'obtention du jeton d'accès.",
+            "oauth_timeout": "Délai d'expiration atteint pour la résolution du jeton OAuth.",
+            "oauth_unauthorized": "Erreur d'autorisation OAuth lors de l'obtention du jeton d'accès.",
+            "reauth_successful": "Ré-authentification réussie"
         },
-        "state_attributes": {
-          "appliance": {
-            "name": "Matériel"
-          },
-          "manufacturer": {
-            "name": "Fabricant"
-          },
-          "model": {
-            "name": "Modèle"
-          },
-          "serial_no": {
-            "name": "N° de série"
-          }
-        }
-      },
-      "target_temperature": {
-        "name": "Température cible"
-      },
-      "target_temperature_zone_2": {
-        "name": "Température cible zone 2"
-      },
-      "target_temperature_zone_3": {
-        "name": "Température cible zone 3"
-      },
-      "temperature": {
-        "name": "Température"
-      },
-      "temperature_zone_2": {
-        "name": "Température zone 2"
-      },
-      "temperature_zone_3": {
-        "name": "Température zone 3"
-      },
-      "water_consumption": {
-        "name": "Consommation d'eau"
-      },
-      "water_forecast": {
-        "name": "Prévisions d'eau"
-      }
-    },
-    "switch": {
-      "power_on": {
-        "name": "Allumer"
-      },
-      "supercooling": {
-        "name": "Supercooling"
-      },
-      "superfreezing": {
-        "name": "Superfreezing"
-      }
-    },
-    "vacuum": {
-      "vacuum": {
-        "name": "Aspirateur",
-        "state_attributes": {
-          "status": {
-            "name": "Statut",
-            "state": {
-              "blocked_brushes": "Brosses bloquées",
-              "blocked_drive_wheels": "Roues motrices bloquées",
-              "blocked_front_wheel": "Roue avant bloquée",
-              "check_dust_box_and_filter": "Vérifier le bac à poussières et le filtre",
-              "dirty_sensors": "Capteurs encrassés",
-              "dust_box_missing": "Bac à poussières manquant",
-              "going_to_target_area": "Aller à la zone cible",
-              "internal_fault_reboot": "Erreur interne - Redémarrer",
-              "remote_controlled": "Contrôlé à distance",
-              "wheel_lifted": "Roue levée"
+        "create_entry": {
+            "default": "Correctement authentifié"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Sélectionner une méthode d'authentification"
+            },
+            "reauth_confirm": {
+                "description": "L'intégration Miele doit de nouveau authentifier votre compte: {account}",
+                "title": "Authentifier de nouveau l'intégration"
+            },
+            "zeroconf_confirm": {
+                "description": "Vous êtes sur le point d'ajouter `{name}` et d'autres appareils Miele, le cas échéant, à Home Assistant.\n\n**Pour terminer le processus, vous devez saisir vos informations d'identification.**",
+                "title": "Confirmez que vous ajoutez l'intégration Miele"
             }
-          }
         }
-      }
-    }
-  },
-  "issues": {
-    "hob_not_supported": {
-      "description": "Le type d'appareil {tech_type} n'est pas entièrement pris en charge par l'intégration Miele. Par conséquent, certaines entités peuvent manquer ou mal fonctionner.\n\nVeuillez signaler ce problème au [responsable de GitHub]({issue_url})",
-      "title": "Le matériel {tech_type} n'est pas entièrement prise en charge"
-    }
-  },
-  "selector": {
-    "process_action_options": {
-      "options": {
-        "pause": "Pause",
-        "start": "Démarrer",
-        "start_supercooling": "Démarrer supercooling",
-        "start_superfreezing": "Démarrer superfreezing",
-        "stop": "Arrêter",
-        "stop_supercooling": "Arrêter le supercooling",
-        "stop_superfreezing": "Arrêtez Superfreezing"
-      }
-    }
-  },
-  "services": {
-    "generic_action": {
-      "description": "Exécuter une action sur un appareil",
-      "name": "Exécuter une action générique"
     },
-    "process_action": {
-      "description": "Exécute les actions si les conditions préalables sont remplies.",
-      "fields": {
-        "action": {
-          "description": "Sélectionnez une action à exécuter.",
-          "name": "Action"
-        }
-      },
-      "name": "Exécuter l'action"
-    },
-    "raw": {
-      "description": "Exécutez le service avec un minimum de validation.",
-      "fields": {
-        "extra": {
-          "description": "Un dictionnaire de paramètres",
-          "name": "Extra"
+    "device_automation": {
+        "condition_type": {
+            "autocleaning": "{entity_name} Nettoyage automatique en cours",
+            "failure": "{entity_name} est en erreur",
+            "idle": "{entity_name} est inactif",
+            "not_connected": "{entity_name} n'est pas connecté",
+            "off": "{entity_name} est éteint",
+            "on": "{entity_name} est activé",
+            "pause": "{entity_name} est en pause",
+            "program_ended": "{entity_name} a terminé le programme",
+            "program_interrupted": "{entity_name} a interrompu le programme",
+            "programmed": "{entity_name} est programmé",
+            "rinse_hold": "{entity_name} est en attente de rinçage",
+            "running": "{entity_name} est en fonctionnement",
+            "service": "{entity_name} est en service",
+            "supercooling": "{entity_name} : Supercooling actif",
+            "supercooling_superfreezing": "{entity_name}: Supercooling/Superfreezing actif",
+            "superfreezing": "{entity_name}: Superfreezing actif",
+            "superheating": "{entity_name}: Superheating actif",
+            "waiting_to_start": "{entity_name} est en attente de démarrage"
         },
-        "serialno": {
-          "description": "Le numéro de série de l'appareil",
-          "name": "Numéro de série"
+        "trigger_type": {
+            "autocleaning": "{entity_name} Nettoyage Automatique",
+            "failure": "{entity_name} Erreur",
+            "idle": "{entity_name} Inactif",
+            "not_connected": "{entity_name} Non connecté",
+            "off": "{entity_name} Éteindre",
+            "on": "{entity_name} Allumer",
+            "pause": "{entity_name} Pause",
+            "program_ended": "{entity_name} Programme terminé",
+            "program_interrupted": "{entity_name} Programme interrompu",
+            "programmed": "{entity_name} Programmé",
+            "rinse_hold": "{entity_name} Rinçage en pause",
+            "running": "{entity_name} En fonctionnement",
+            "service": "{entity_name} Service",
+            "supercooling": "{entity_name} Supercooling",
+            "supercooling_superfreezing": "{entity_name} Supercooling/superfreezing",
+            "superfreezing": "{entity_name} Superfreezing",
+            "superheating": "{entity_name} Superheating",
+            "waiting_to_start": "{entity_name} En attente de démarrage"
         }
-      },
-      "name": "Exécuter une action"
     },
-    "set_program": {
-      "description": "Définir et démarrer le programme avec des paramètres facultatifs.",
-      "name": "Définir le programme"
+    "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Porte"
+            },
+            "failure": {
+                "name": "Erreur"
+            },
+            "info": {
+                "name": "Info"
+            },
+            "mobile_start": {
+                "name": "Démarrage mobile"
+            },
+            "remote_control": {
+                "name": "Contrôle à distance"
+            },
+            "smart_grid": {
+                "name": "Réseau intelligent"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Démarrer"
+            },
+            "stop": {
+                "name": "Arrêter"
+            }
+        },
+        "climate": {
+            "freezer": {
+                "name": "Congélateur"
+            },
+            "fridge": {
+                "name": "Réfrigérateur"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Ventilateur"
+            }
+        },
+        "light": {
+            "ambient_light": {
+                "name": "Lumière d'ambiance"
+            },
+            "light": {
+                "name": "Lumière"
+            }
+        },
+        "number": {
+            "plate": {
+                "name": "Zone {plate_no}"
+            }
+        },
+        "sensor": {
+            "battery": {
+                "name": "Batterie"
+            },
+            "drying_step": {
+                "name": "Étape de séchage",
+                "state": {
+                    "extra_dry": "Extra sec",
+                    "hand_iron_1": "Repassage manuel 1",
+                    "hand_iron_2": "Repassage manuel 2",
+                    "machine_iron": "Repassage machine",
+                    "normal": "Normal",
+                    "normal_plus": "Normal plus",
+                    "slightly_dry": "Légèrement sec",
+                    "smoothing": "Assouplissement"
+                }
+            },
+            "elapsed_time": {
+                "name": "Temps écoulé"
+            },
+            "energy_consumption": {
+                "name": "Consommation d'énergie"
+            },
+            "energy_forecast": {
+                "name": "Prévisions énergétiques"
+            },
+            "finish_at": {
+                "name": "Se termine à"
+            },
+            "food_core_target_temperature": {
+                "name": "Température à cœur cible"
+            },
+            "food_core_temperature": {
+                "name": "Température à cœur"
+            },
+            "program_id": {
+                "name": "Programme",
+                "state": {
+                    "1_tray": "1 plaque",
+                    "2_trays": "2 plaques",
+                    "appliance_rinse": "Rinçage machine",
+                    "appliance_settings": "Menu des paramètres de l'appareil",
+                    "auto": "Auto",
+                    "auto_roast": "Rôtisserie auto",
+                    "automatic": "Automatique",
+                    "automatic_plus": "Automatique Plus",
+                    "baking_tray": "Plaque de cuisson",
+                    "barista_assistant": "Assistant Barista",
+                    "basket_program": "Baskets",
+                    "bed_linen": "Draps",
+                    "black_tea": "Thé noir",
+                    "bottom_heat": "Chaleur par le bas",
+                    "brewing_unit_degrease": "Dégraissage moulin",
+                    "cafe_au_lait": "Café au lait",
+                    "caffe_latte": "Caffe latte",
+                    "cappuccino": "Cappuccino",
+                    "cappuccino_italiano": "Cappuccino Italien",
+                    "check_appliance": "Vérifier appareil",
+                    "clean_machine": "Nettoyer machine",
+                    "coffee": "Café",
+                    "coffee_pot": "Machine à café",
+                    "conventional_heat": "Cuisson standard",
+                    "cool_air": "Air frais",
+                    "cottons": "Coton",
+                    "cottons_eco": "Coton ECO",
+                    "cottons_hygiene": "Coton hygiénique",
+                    "curtains": "Rideaux",
+                    "dark_garments": "Vêtements sombres",
+                    "defrost": "Décongélation",
+                    "delicates": "Fragile",
+                    "denim": "Jeans",
+                    "descaling": "Détartrage",
+                    "down_duvets": "Duvet d'oie",
+                    "down_filled_items": "Vêtements garnis de duvet d'oie",
+                    "drain_spin": "Vidange/essorage",
+                    "eco": "Eco 50°",
+                    "eco_40_60": "ECO 40-60",
+                    "eco_fan_heat": "Cuisson air eco",
+                    "economy_grill": "Grill eco",
+                    "espresso": "Expresso",
+                    "espresso_macchiato": "Expresso macchiato",
+                    "express": "Express",
+                    "express_20": "Express 20'",
+                    "extra_quiet": "Extra silencieux",
+                    "fan_grill": "Grill ventilé",
+                    "fan_plus": "Chaleur tournante +",
+                    "first_wash": "Pré lavage",
+                    "flat_white": "Blanc plat",
+                    "freshen_up": "Rafraichir",
+                    "fruit_tea": "Thé fruité",
+                    "full_grill": "Grill intense",
+                    "gentle": "Fragile 45°",
+                    "gentle_denim": "Jean doux",
+                    "gentle_minimum_iron": "Doux mini repassage",
+                    "gentle_smoothing": "Assouplissement doux",
+                    "glasses_warm": "Verres tiède",
+                    "green_tea": "Thé vert",
+                    "heat_crockery": "Chauffe plat",
+                    "herbal_tea": "Tisane",
+                    "hot_milk": "Lait chaud",
+                    "hot_water": "Eau chaude",
+                    "hygiene": "Hygiène",
+                    "intensive": "Intensif 75°",
+                    "intensive_bake": "Cuisson intense",
+                    "japanese_tea": "Thé Japonais",
+                    "keeping_warm": "Garder au chaud",
+                    "large_pillows": "Gros oreillers",
+                    "latte_macchiato": "Latte macchiato",
+                    "long_coffee": "Café long",
+                    "maintenance": "Maintenance",
+                    "microwave": "Micro-ondes",
+                    "milk_foam": "Mousse de lait",
+                    "milk_pipework_clean": "Nettoyage circuit lait",
+                    "milk_pipework_rinse": "Rinçage circuit lait",
+                    "minimum_iron": "Repassage mini",
+                    "moisture_plus_auto_roast": "Humidité plus + Rôtissage automatique",
+                    "moisture_plus_conventional_heat": "Humidité plus + Chaleur conventionnelle",
+                    "moisture_plus_fan_plus": "Cuisson tempérée + Chaleur tournante",
+                    "moisture_plus_intensive_bake": "Humidité plus + Cuisson intensive",
+                    "no_program": "Aucun programme",
+                    "normal": "Normal",
+                    "outerwear": "Vêtements extérieurs",
+                    "pillows": "Oreillers",
+                    "proofing": "Essai",
+                    "prove_15_min": "Faire lever 15 min",
+                    "prove_30_min": "Faire lever 30 min",
+                    "prove_45_min": "Faire lever 45 min",
+                    "quick_power_wash": "QuickPowerWash",
+                    "rinse": "Rinçage",
+                    "rinse_out_lint": "Rinçage peluche",
+                    "ristretto": "Ristretto",
+                    "separate_rinse_starch": "Rinçage/amidon séparé",
+                    "shirts": "Chemises",
+                    "silent": "Silence",
+                    "silks": "Soie",
+                    "silks_handcare": "Soie à la main",
+                    "smoothing": "Adoucissement",
+                    "solar_save": "SolarSave (eau chaude solaire)",
+                    "sportswear": "Sportswear",
+                    "spot": "Spot",
+                    "standard_pillows": "Oreillers standard",
+                    "starch": "Amidonnage",
+                    "steam_care": "Soin vapeur",
+                    "steam_smoothing": "Assouplissement vapeur",
+                    "tall_items": "Grands objets",
+                    "top_heat": "Chaleur par le haut",
+                    "trainers": "Vêtements sport",
+                    "turbo": "Turbo",
+                    "very_hot_water": "Eau très chaude",
+                    "warm_air": "Air tiède",
+                    "white_tea": "Thé blanc",
+                    "woollens": "Laine",
+                    "woollens_handcare": "Laine (lavage à la main)"
+                }
+            },
+            "program_phase": {
+                "name": "Phase de programme",
+                "state": {
+                    "2nd_espresso": "2e Espresso",
+                    "2nd_grinding": "2e mouture",
+                    "2nd_pre_brewing": "2e Pé mélange",
+                    "anti_crease": "Anti-froissage",
+                    "blocked_brushes": "Brushes blocked",
+                    "blocked_drive_wheels": "Drive wheels blocked",
+                    "blocked_front_wheel": "Front wheel blocked",
+                    "cleaning": "Nettoyage",
+                    "comfort_cooling": "Refroidissement comfort",
+                    "cooling_down": "Refroidissement",
+                    "dirty_sensors": "Capteurs encrassés",
+                    "disinfecting": "Désinfection",
+                    "dispensing": "Distribution",
+                    "docked": "Sur sa base",
+                    "door_open": "Porte ouverte",
+                    "drain": "Vidange",
+                    "drying": "Séchage",
+                    "dust_box_missing": "Missing dust box",
+                    "energy_save": "Économiser de l'énergie",
+                    "espresso": "Espresso",
+                    "extra_dry": "Extra sec",
+                    "final_rinse": "Rinçage final",
+                    "finished": "Terminé",
+                    "freshen_up_and_moisten": "Rafraîchir et humidifier",
+                    "going_to_target_area": "Aller vers destination",
+                    "grinding": "Mouture",
+                    "hand_iron": "Repassage manuel",
+                    "hand_iron_1": "Repassage manuel 1",
+                    "hand_iron_2": "Repassage manuel 2",
+                    "heating": "Chauffage",
+                    "heating_up": "Chauffe",
+                    "hot_milk": "Lait chaud",
+                    "hygiene": "Hygiène",
+                    "interim_rinse": "Rinçage intermédiaire",
+                    "keep_warm": "Garde chaud",
+                    "keeping_warm": "Garder chaud",
+                    "machine_iron": "Repassage auto",
+                    "main_dishwash": "Lavage",
+                    "main_wash": "Lavage principal",
+                    "milk_foam": "Mousse de lait",
+                    "moisten": "Humidificateur",
+                    "motor_overload": "Check dust box and filter",
+                    "normal": "Normal",
+                    "normal_plus": "Normal plus",
+                    "not_running": "Arrêté",
+                    "pre_brewing": "Pré mélange",
+                    "pre_dishwash": "Prélavage",
+                    "pre_wash": "Pré-lavage",
+                    "process_finished": "Cycle terminé",
+                    "process_running": "Cycle en cours",
+                    "program_running": "Programme en cours",
+                    "reactivating": "Réactivation",
+                    "remote_controlled": "Remote controlled",
+                    "returning": "Retour à la base",
+                    "rinse": "Rinçage",
+                    "rinse_hold": "Pause rinçage",
+                    "rinse_out_lint": "Rincer les peluches",
+                    "rinses": "Rinçage",
+                    "safety_cooling": "Refroidissement sécurisé",
+                    "slightly_dry": "Léégèrement sec",
+                    "slow_roasting": "Rôtissage lent",
+                    "smoothing": "Assouplissement",
+                    "soak": "Trempage",
+                    "spin": "Essorage",
+                    "starch_stop": "Fin amidonnage",
+                    "steam_smoothing": "Adoucissement vapeur",
+                    "thermo_spin": "Réchauffage tournant",
+                    "timed_drying": "Séchage retardé",
+                    "vacuum_cleaning": "Nettoyage",
+                    "vacuum_cleaning_paused": "Cleaning paused",
+                    "vacuum_internal_fault": "Internal fault - reboot",
+                    "venting": "Aération",
+                    "warm_air": "Air chaud",
+                    "warm_cups_glasses": "Chauffer des tasses",
+                    "warm_dishes_plates": "Chauffer des assiettes",
+                    "wheel_lifted": "Roues levées"
+                }
+            },
+            "program_type": {
+                "name": "Type de programme",
+                "state": {
+                    "automatic_program": "Mode auto",
+                    "cleaning_care_program": "Programme nettoyage",
+                    "maintenance_program": "Programme maintenance",
+                    "normal_operation_mode": "Mode normal",
+                    "own_program": "Programme personnel"
+                }
+            },
+            "remaining_time": {
+                "name": "Temps restant"
+            },
+            "spin_speed": {
+                "name": "Vitesse de rotation"
+            },
+            "start_at": {
+                "name": "Démarre à"
+            },
+            "start_time": {
+                "name": "Heure de démarrage"
+            },
+            "started_at": {
+                "name": "Démarré à"
+            },
+            "status": {
+                "name": "Statut",
+                "state": {
+                    "autocleaning": "Nettoyage Automatique",
+                    "failure": "Erreur",
+                    "idle": "Inactif",
+                    "not_connected": "Non connecté",
+                    "off": "Off",
+                    "on": "On",
+                    "pause": "Pause",
+                    "program_ended": "Programme terminé",
+                    "program_interrupted": "Programme interrompu",
+                    "programmed": "Programmé",
+                    "rinse_hold": "Pause rinçage",
+                    "running": "En cours",
+                    "service": "Service",
+                    "supercooling": "Supercooling",
+                    "supercooling_superfreezing": "Supercooling/superfreezing",
+                    "superfreezing": "Superfreezing",
+                    "superheating": "Superheating",
+                    "waiting_to_start": "Attente de départ"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Matériel"
+                    },
+                    "manufacturer": {
+                        "name": "Fabricant"
+                    },
+                    "model": {
+                        "name": "Modèle"
+                    },
+                    "serial_no": {
+                        "name": "N° de série"
+                    }
+                }
+            },
+            "target_temperature": {
+                "name": "Température cible"
+            },
+            "target_temperature_zone_2": {
+                "name": "Température cible zone 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Température cible zone 3"
+            },
+            "temperature": {
+                "name": "Température"
+            },
+            "temperature_zone_2": {
+                "name": "Température zone 2"
+            },
+            "temperature_zone_3": {
+                "name": "Température zone 3"
+            },
+            "water_consumption": {
+                "name": "Consommation d'eau"
+            },
+            "water_forecast": {
+                "name": "Prévisions d'eau"
+            }
+        },
+        "switch": {
+            "power_on": {
+                "name": "Allumer"
+            },
+            "supercooling": {
+                "name": "Supercooling"
+            },
+            "superfreezing": {
+                "name": "Superfreezing"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Aspirateur",
+                "state_attributes": {
+                    "status": {
+                        "name": "Statut",
+                        "state": {
+                            "blocked_brushes": "Brosses bloquées",
+                            "blocked_drive_wheels": "Roues motrices bloquées",
+                            "blocked_front_wheel": "Roue avant bloquée",
+                            "check_dust_box_and_filter": "Vérifier le bac à poussières et le filtre",
+                            "dirty_sensors": "Capteurs encrassés",
+                            "dust_box_missing": "Bac à poussières manquant",
+                            "going_to_target_area": "Aller à la zone cible",
+                            "internal_fault_reboot": "Erreur interne - Redémarrer",
+                            "remote_controlled": "Contrôlé à distance",
+                            "wheel_lifted": "Roue levée"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "hob_not_supported": {
+            "description": "Le type d'appareil {tech_type} n'est pas entièrement pris en charge par l'intégration Miele. Par conséquent, certaines entités peuvent manquer ou mal fonctionner.\n\nVeuillez signaler ce problème au [responsable de GitHub]({issue_url})",
+            "title": "Le matériel {tech_type} n'est pas entièrement prise en charge"
+        }
+    },
+    "selector": {
+        "process_action_options": {
+            "options": {
+                "pause": "Pause",
+                "start": "Démarrer",
+                "start_supercooling": "Démarrer supercooling",
+                "start_superfreezing": "Démarrer superfreezing",
+                "stop": "Arrêter",
+                "stop_supercooling": "Arrêter le supercooling",
+                "stop_superfreezing": "Arrêtez Superfreezing"
+            }
+        }
+    },
+    "services": {
+        "generic_action": {
+            "description": "Exécuter une action sur un appareil",
+            "name": "Exécuter une action générique"
+        },
+        "process_action": {
+            "description": "Exécute les actions si les conditions préalables sont remplies.",
+            "fields": {
+                "action": {
+                    "description": "Sélectionnez une action à exécuter.",
+                    "name": "Action"
+                }
+            },
+            "name": "Exécuter l'action"
+        },
+        "raw": {
+            "description": "Exécutez le service avec un minimum de validation.",
+            "fields": {
+                "extra": {
+                    "description": "Un dictionnaire de paramètres",
+                    "name": "Extra"
+                },
+                "serialno": {
+                    "description": "Le numéro de série de l'appareil",
+                    "name": "Numéro de série"
+                }
+            },
+            "name": "Exécuter une action"
+        },
+        "set_program": {
+            "description": "Définir et démarrer le programme avec des paramètres facultatifs.",
+            "name": "Définir le programme"
+        }
+    },
+    "system_health": {
+        "info": {
+            "component_version": "Version",
+            "reach_miele_cloud": "Atteint le cloud Miele"
+        }
     }
-  },
-  "system_health": {
-    "info": {
-      "component_version": "Version",
-      "reach_miele_cloud": "Atteint le cloud Miele"
-    }
-  }
 }

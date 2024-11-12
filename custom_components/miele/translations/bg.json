@@ -1,503 +1,503 @@
 {
-  "application_credentials": {
-    "description": "Отидете на [\"Get involved\" в сайта за разработчици на Miele]({register_url}), за да поискате идентификационни данни, след което ги въведете по-долу."
-  },
-  "config": {
-    "abort": {
-      "already_configured": "Акаунтът вече е конфигуриран",
-      "already_in_progress": "Конфигурацията е вече в ход",
-      "authorize_url_timeout": "Времето за генериране на URL адрес за оторизация изтече.",
-      "missing_configuration": "Компонентът не е конфигуриран. Моля, следвайте документацията.",
-      "no_url_available": "Няма наличен URL адрес. За информация относно тази грешка проверете [раздела за помощ]( {docs_url} )",
-      "oauth_error": "Получени невалидни данни за токена.",
-      "reauth_successful": "Повторното удостоверяване е успешно"
+    "application_credentials": {
+        "description": "Отидете на [\"Get involved\" в сайта за разработчици на Miele]({register_url}), за да поискате идентификационни данни, след което ги въведете по-долу."
     },
-    "create_entry": {
-      "default": "Успешно удостоверяване"
-    },
-    "step": {
-      "pick_implementation": {
-        "title": "Изберете метод за удостоверяване"
-      },
-      "reauth_confirm": {
-        "description": "Интеграцията на Miele трябва да удостовери повторно вашия акаунт: {account}",
-        "title": "Повторно удостоверяване на интеграцията"
-      },
-      "zeroconf_confirm": {
-        "description": "На път сте да добавите „ {name} “ и други уреди Miele, ако има такива, към Home Assistant. \n\n **За да завършите процеса, трябва да въведете вашите идентификационни данни.**",
-        "title": "Потвърдете, че добавяте интеграция на Miele"
-      }
-    }
-  },
-  "device_automation": {
-    "condition_type": {
-      "waiting_to_start": "{entity_name} Очаква стартиране"
-    },
-    "trigger_type": {
-      "not_connected": "{entity_name} Няма връзка",
-      "on": "{entity_name} Вкл.",
-      "pause": "{entity_name} Пауза",
-      "program_ended": "{entity_name} Програмата е приключила",
-      "program_interrupted": "{entity_name} Програмата е прекъсната",
-      "programmed": "{entity_name} Програмиран",
-      "rinse_hold": "{entity_name} Спиране на изплакването",
-      "supercooling": "{entity_name} Супер охлаждане",
-      "supercooling_superfreezing": "{entity_name} Супер охлаждане/супер замразяване",
-      "superfreezing": "{entity_name} Супер замразяване",
-      "superheating": "{entity_name} Супер загряване",
-      "waiting_to_start": "{entity_name} Очаква стартиране"
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "door": {
-        "name": "Врата"
-      },
-      "failure": {
-        "name": "Проблем"
-      },
-      "info": {
-        "name": "Информация"
-      },
-      "mobile_start": {
-        "name": "Мобилен старт"
-      },
-      "remote_control": {
-        "name": "Отдалечен  контрол"
-      },
-      "smart_grid": {
-        "name": "Smart grid"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "Старт"
-      },
-      "stop": {
-        "name": "Стоп"
-      }
-    },
-    "climate": {
-      "freezer": {
-        "name": "Фризер"
-      },
-      "fridge": {
-        "name": "Хладилник"
-      }
-    },
-    "fan": {
-      "fan": {
-        "name": "Вентилатор"
-      }
-    },
-    "light": {
-      "ambient_light": {
-        "name": "Амбиентно осветление"
-      },
-      "light": {
-        "name": "Осветление"
-      }
-    },
-    "number": {
-      "plate": {
-        "name": "Плоча {plate_no}"
-      }
-    },
-    "sensor": {
-      "battery": {
-        "name": "Батерия"
-      },
-      "drying_step": {
-        "name": "Етап на сушене",
-        "state": {
-          "extra_dry": "Екстра сухо",
-          "hand_iron_1": "Ръчно гладене 1",
-          "hand_iron_2": "Ръчно гладене 2",
-          "machine_iron": "Машинно гладене",
-          "normal": "Нормално",
-          "normal_plus": "Нормално плюс",
-          "slightly_dry": "Леко сухо",
-          "smoothing": "Изглаждане"
-        }
-      },
-      "elapsed_time": {
-        "name": "Изминало време"
-      },
-      "energy_consumption": {
-        "name": "Консумация на енергия"
-      },
-      "energy_forecast": {
-        "name": "Прогноза за консумация на енергия"
-      },
-      "finish_at": {
-        "name": "Ще приключи в"
-      },
-      "food_core_target_temperature": {
-        "name": "Целева температура на храната"
-      },
-      "food_core_temperature": {
-        "name": "Температура на храната"
-      },
-      "program_id": {
-        "name": "Програма",
-        "state": {
-          "1_tray": "1 тава",
-          "2_trays": "2 тави",
-          "appliance_rinse": "Изплакване на уреда",
-          "appliance_settings": "Меню за настройки на уреда",
-          "auto": "Авто",
-          "auto_roast": "Автоматично печене",
-          "automatic": "Автоматична",
-          "automatic_plus": "Автоматична плюс",
-          "baking_tray": "Тава за печене",
-          "barista_assistant": "Бариста асистент",
-          "basket_program": "Програма кошница",
-          "bed_linen": "Чаршафи",
-          "black_tea": "Черен чай",
-          "bottom_heat": "Долно нагряване",
-          "brewing_unit_degrease": "Обезмасляване",
-          "cafe_au_lait": "Café au lait",
-          "caffe_latte": "Caffè latte",
-          "cappuccino": "Капучино",
-          "cappuccino_italiano": "Cappuccino Italiano",
-          "check_appliance": "Проверете уреда",
-          "clean_machine": "Почистване на машината",
-          "coffee": "Кафе",
-          "conventional_heat": "Стандартно нагряване",
-          "cool_air": "Студен въздух",
-          "cottons": "Памук",
-          "cottons_eco": "Памук ЕКО",
-          "cottons_hygiene": "Памук хигиеничен",
-          "curtains": "Пердета",
-          "dark_garments": "Тъмно пране",
-          "defrost": "Размразяване",
-          "delicates": "Фино пране",
-          "denim": "Дънки",
-          "descaling": "Отстраняване на котлен камък от уреда",
-          "down_duvets": "Пухени завивки",
-          "down_filled_items": "Пух",
-          "drain_spin": "Изпомпване/центрофугиране",
-          "eco": "ЕКО",
-          "eco_40_60": "ЕКО 40-60",
-          "eco_fan_heat": "Еко вентилаторна топлина",
-          "economy_grill": "Икономичен грил",
-          "espresso": "Еспресо",
-          "espresso_macchiato": "Espresso macchiato",
-          "express": "Експресна програма",
-          "express_20": "Експресна програма 20",
-          "extra_quiet": "Изключително тихо",
-          "fan_grill": "Грил с вентилатор",
-          "fan_plus": "Вентилатор Плюс",
-          "first_wash": "Нови изделия от текстил",
-          "flat_white": "Flat white",
-          "freshen_up": "Освежаване",
-          "fruit_tea": "Плодов чай",
-          "full_grill": "Пълен грил",
-          "gentle": "Много щадяща програма",
-          "gentle_denim": "Нежен деним",
-          "gentle_minimum_iron": "Нежна лесна поддръжка",
-          "gentle_smoothing": "Нежно изглаждане",
-          "glasses_warm": "Бирени чаши",
-          "green_tea": "Зелен чай",
-          "herbal_tea": "Билков чай",
-          "hot_milk": "Топло мляко",
-          "hot_water": "Гореща вода",
-          "hygiene": "Хигиена",
-          "intensive": "Интензивна",
-          "intensive_bake": "Интензивно печене",
-          "japanese_tea": "Японски чай",
-          "latte_macchiato": "Latte macchiato",
-          "long_coffee": "Дълго кафе",
-          "maintenance": "Програма за поддръжка",
-          "microwave": "Микровълнова",
-          "milk_foam": "Млечна пяна",
-          "milk_pipework_clean": "Почистване на тръбата за мляко",
-          "milk_pipework_rinse": "Изплакване на тръбата за мляко",
-          "minimum_iron": "Лесна поддръжка",
-          "moisture_plus_fan_plus": "Пара плюс и вентилатор плюс",
-          "no_program": "Няма избрана програма",
-          "normal": "Нормална",
-          "outerwear": "Туристически екипи",
-          "pillows": "Възглавници",
-          "proofing": "Импрегниране",
-          "quick_power_wash": "QuickPowerWash",
-          "rinse": "Изплакване",
-          "rinse_out_lint": "Само изплакване",
-          "ristretto": "Ristretto",
-          "separate_rinse_starch": "Отделно изплакване/колосване",
-          "shirts": "Ризи",
-          "silent": "Безшумен",
-          "silks": "Коприна",
-          "silks_handcare": "Коприна ръчно пране",
-          "smoothing": "Изглаждане",
-          "solar_save": "SolarSave",
-          "sportswear": "Спортни екипи",
-          "spot": "Цел",
-          "standard_pillows": "Стандартни възглавници",
-          "starch": "Колосване",
-          "steam_care": "Steam care",
-          "steam_smoothing": "Изглаждане с пара",
-          "tall_items": "Високи съдове",
-          "top_heat": "Горно нагряване",
-          "trainers": "Маратонки",
-          "turbo": "Турбо",
-          "very_hot_water": "Вряла вода",
-          "warm_air": "Горещ въздух",
-          "white_tea": "Бял чай",
-          "woollens": "Вълна",
-          "woollens_handcare": "Вълна ръчно пране"
-        }
-      },
-      "program_phase": {
-        "name": "Програмна фаза",
-        "state": {
-          "2nd_espresso": "2-ро еспресо кафе",
-          "2nd_grinding": "2-ро смилане",
-          "2nd_pre_brewing": "2-ро предварително варене",
-          "anti_crease": "Защитата против намачкване",
-          "blocked_brushes": "Четките са блокирани",
-          "blocked_drive_wheels": "Задвижващите колела са блокирани",
-          "blocked_front_wheel": "Предното колело е блокирало",
-          "cleaning": "Почистване",
-          "comfort_cooling": "Комфортно охлаждане",
-          "cooling_down": "Охлаждане",
-          "dirty_sensors": "Замърсени сензори",
-          "disinfecting": "Дезинфекциране",
-          "dispensing": "Дозиране",
-          "docked": "Докинг",
-          "drain": "Изцеждане",
-          "drying": "Сушене",
-          "dust_box_missing": "Липсваща кутия за прах",
-          "energy_save": "Пестене на енергия",
-          "espresso": "Кафе еспресо",
-          "extra_dry": "Екстра сухо",
-          "final_rinse": "Последно изплакване",
-          "finished": "Готово",
-          "freshen_up_and_moisten": "Освежаване и овлажняване",
-          "going_to_target_area": "Отиване към целевата зона",
-          "grinding": "Смилане",
-          "hand_iron": "Ръчно гладене",
-          "hand_iron_1": "Ръчно гладене 1",
-          "hand_iron_2": "Ръчно гладене 2",
-          "heating": "Загряване",
-          "hot_milk": "Топло мляко",
-          "hygiene": "Хигиена",
-          "interim_rinse": "Междинно изплакване",
-          "machine_iron": "Машинно гладене",
-          "main_dishwash": "Почистване",
-          "main_wash": "Основно пране",
-          "milk_foam": "Млечна пяна",
-          "moisten": "Овлажняване",
-          "motor_overload": "Проверете кутията за прах и филтъра",
-          "normal": "Нормално",
-          "normal_plus": "Нормално плюс",
-          "not_running": "Не се изпълнява",
-          "pre_brewing": "Предварително варене",
-          "pre_dishwash": "Предварително почистване",
-          "pre_wash": "Предпране",
-          "process_finished": "Процесът завърши",
-          "process_running": "В процес на изпълнение",
-          "program_running": "Програмата се изпълнява",
-          "reactivating": "Повторно активиране",
-          "remote_controlled": "Контролира се отдалечено",
-          "returning": "Завръщане",
-          "rinse": "Изплакване",
-          "rinse_hold": "Спиране на изплакването",
-          "rinse_out_lint": "Само изплакване",
-          "rinses": "Изплаквания",
-          "safety_cooling": "Безопасно охлаждане",
-          "slightly_dry": "Леко сухо",
-          "smoothing": "Изглаждане",
-          "soak": "Накисване",
-          "spin": "Центрофугиране",
-          "starch_stop": "Спиране на колосването",
-          "steam_smoothing": "Изглаждане с пара",
-          "thermo_spin": "Гореща центрофуга",
-          "timed_drying": "Сушене за време",
-          "vacuum_cleaning": "Почистване",
-          "vacuum_cleaning_paused": "Почистването е на пауза",
-          "vacuum_internal_fault": "Вътрешна грешка - рестартиране",
-          "venting": "Обдухване",
-          "warm_air": "Горещ въздух",
-          "wheel_lifted": "Колелото е повдигнато"
-        }
-      },
-      "program_type": {
-        "name": "Вид на програмата",
-        "state": {
-          "automatic_program": "Автоматична програма",
-          "cleaning_care_program": "Програма за почистване и грижа",
-          "maintenance_program": "Програма за поддръжка",
-          "normal_operation_mode": "Нормален режим на работа",
-          "own_program": "Собствена програма"
-        }
-      },
-      "remaining_time": {
-        "name": "Оставащо време"
-      },
-      "spin_speed": {
-        "name": "Обороти на центрофугиране"
-      },
-      "start_at": {
-        "name": "Ще стартира в"
-      },
-      "start_time": {
-        "name": "Начален час"
-      },
-      "started_at": {
-        "name": "Започна в"
-      },
-      "status": {
-        "name": "Статус",
-        "state": {
-          "failure": "Проблем",
-          "idle": "Неактивен",
-          "not_connected": "Няма връзка",
-          "off": "Изкл.",
-          "on": "Вкл.",
-          "pause": "Пауза",
-          "program_ended": "Програмата е приключила",
-          "program_interrupted": "Програмата е прекъсната",
-          "programmed": "Програмиран",
-          "rinse_hold": "Спиране на изплакването",
-          "running": "Работещ",
-          "service": "Обслужване",
-          "supercooling": "Супер охлаждане",
-          "supercooling_superfreezing": "Супер охлаждане/супер замразяване",
-          "superfreezing": "Супер замразяване",
-          "superheating": "Супер загряване",
-          "waiting_to_start": "Очаква стартиране"
+    "config": {
+        "abort": {
+            "already_configured": "Акаунтът вече е конфигуриран",
+            "already_in_progress": "Конфигурацията е вече в ход",
+            "authorize_url_timeout": "Времето за генериране на URL адрес за оторизация изтече.",
+            "missing_configuration": "Компонентът не е конфигуриран. Моля, следвайте документацията.",
+            "no_url_available": "Няма наличен URL адрес. За информация относно тази грешка проверете [раздела за помощ]( {docs_url} )",
+            "oauth_error": "Получени невалидни данни за токена.",
+            "reauth_successful": "Повторното удостоверяване е успешно"
         },
-        "state_attributes": {
-          "appliance": {
-            "name": "Уред"
-          },
-          "manufacturer": {
-            "name": "Производител"
-          },
-          "model": {
-            "name": "Модел"
-          },
-          "serial_no": {
-            "name": "Сериен номер"
-          }
-        }
-      },
-      "target_temperature": {
-        "name": "Целева температура"
-      },
-      "target_temperature_zone_2": {
-        "name": "Целева температура зона 2"
-      },
-      "target_temperature_zone_3": {
-        "name": "Целева температура зона 3"
-      },
-      "temperature": {
-        "name": "Температура"
-      },
-      "temperature_zone_2": {
-        "name": "Температура зона 2"
-      },
-      "temperature_zone_3": {
-        "name": "Температура зона 3"
-      },
-      "water_consumption": {
-        "name": "Консумация на вода"
-      },
-      "water_forecast": {
-        "name": "Прогноза за консумация на вода"
-      }
-    },
-    "switch": {
-      "power_on": {
-        "name": "Вкл./Изкл."
-      },
-      "supercooling": {
-        "name": "Супер охлаждане"
-      },
-      "superfreezing": {
-        "name": "Супер замразяване"
-      }
-    },
-    "vacuum": {
-      "vacuum": {
-        "name": "Прахосмукачка",
-        "state_attributes": {
-          "status": {
-            "name": "Статус",
-            "state": {
-              "blocked_brushes": "Четките са блокирани",
-              "blocked_drive_wheels": "Задвижващите колела са блокирани",
-              "blocked_front_wheel": "Предното колело е блокирало",
-              "check_dust_box_and_filter": "Проверете кутията за прах и филтъра",
-              "dirty_sensors": "Замърсени сензори",
-              "dust_box_missing": "Липсваща кутия за прах",
-              "going_to_target_area": "Отиване към целевата зона",
-              "internal_fault_reboot": "Вътрешна грешка - рестартиране",
-              "remote_controlled": "Контролира се отдалечено",
-              "wheel_lifted": "Колелото е повдигнато"
+        "create_entry": {
+            "default": "Успешно удостоверяване"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Изберете метод за удостоверяване"
+            },
+            "reauth_confirm": {
+                "description": "Интеграцията на Miele трябва да удостовери повторно вашия акаунт: {account}",
+                "title": "Повторно удостоверяване на интеграцията"
+            },
+            "zeroconf_confirm": {
+                "description": "На път сте да добавите „ {name} “ и други уреди Miele, ако има такива, към Home Assistant. \n\n **За да завършите процеса, трябва да въведете вашите идентификационни данни.**",
+                "title": "Потвърдете, че добавяте интеграция на Miele"
             }
-          }
         }
-      }
-    }
-  },
-  "issues": {
-    "hob_not_supported": {
-      "title": "Уредът {tech_type} не се поддържа напълно"
-    }
-  },
-  "selector": {
-    "process_action_options": {
-      "options": {
-        "pause": "Пауза",
-        "start": "Старт",
-        "start_supercooling": "Пусни супер охлаждането",
-        "start_superfreezing": "Пусни супер замразяването",
-        "stop": "Стоп",
-        "stop_supercooling": "Спри  супер охлаждането",
-        "stop_superfreezing": "Спри  супер замразяването"
-      }
-    }
-  },
-  "services": {
-    "generic_action": {
-      "description": "Изпълнете едно действие на устройство",
-      "name": "Изпълнете общо действие"
     },
-    "process_action": {
-      "description": "Изпълнява действията на процеса, ако са изпълнени предварителните условия.",
-      "fields": {
-        "action": {
-          "description": "Изберете едно действие на процеса за изпълнение.",
-          "name": "Действие"
-        }
-      },
-      "name": "Изпълнете действие на процеса"
-    },
-    "raw": {
-      "description": "Изпълнение на услугата с минимално валидиране.",
-      "fields": {
-        "extra": {
-          "description": "Списък с параметри",
-          "name": "Екстра"
+    "device_automation": {
+        "condition_type": {
+            "waiting_to_start": "{entity_name} Очаква стартиране"
         },
-        "serialno": {
-          "description": "Сериен номер на уреда",
-          "name": "Сериен номер"
+        "trigger_type": {
+            "not_connected": "{entity_name} Няма връзка",
+            "on": "{entity_name} Вкл.",
+            "pause": "{entity_name} Пауза",
+            "program_ended": "{entity_name} Програмата е приключила",
+            "program_interrupted": "{entity_name} Програмата е прекъсната",
+            "programmed": "{entity_name} Програмиран",
+            "rinse_hold": "{entity_name} Спиране на изплакването",
+            "supercooling": "{entity_name} Супер охлаждане",
+            "supercooling_superfreezing": "{entity_name} Супер охлаждане/супер замразяване",
+            "superfreezing": "{entity_name} Супер замразяване",
+            "superheating": "{entity_name} Супер загряване",
+            "waiting_to_start": "{entity_name} Очаква стартиране"
         }
-      },
-      "name": "Изпълнете сурово действие"
     },
-    "set_program": {
-      "description": "Задайте и стартирайте програма с допълнителни параметри.",
-      "name": "Задайте програма"
+    "entity": {
+        "binary_sensor": {
+            "door": {
+                "name": "Врата"
+            },
+            "failure": {
+                "name": "Проблем"
+            },
+            "info": {
+                "name": "Информация"
+            },
+            "mobile_start": {
+                "name": "Мобилен старт"
+            },
+            "remote_control": {
+                "name": "Отдалечен  контрол"
+            },
+            "smart_grid": {
+                "name": "Smart grid"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Старт"
+            },
+            "stop": {
+                "name": "Стоп"
+            }
+        },
+        "climate": {
+            "freezer": {
+                "name": "Фризер"
+            },
+            "fridge": {
+                "name": "Хладилник"
+            }
+        },
+        "fan": {
+            "fan": {
+                "name": "Вентилатор"
+            }
+        },
+        "light": {
+            "ambient_light": {
+                "name": "Амбиентно осветление"
+            },
+            "light": {
+                "name": "Осветление"
+            }
+        },
+        "number": {
+            "plate": {
+                "name": "Плоча {plate_no}"
+            }
+        },
+        "sensor": {
+            "battery": {
+                "name": "Батерия"
+            },
+            "drying_step": {
+                "name": "Етап на сушене",
+                "state": {
+                    "extra_dry": "Екстра сухо",
+                    "hand_iron_1": "Ръчно гладене 1",
+                    "hand_iron_2": "Ръчно гладене 2",
+                    "machine_iron": "Машинно гладене",
+                    "normal": "Нормално",
+                    "normal_plus": "Нормално плюс",
+                    "slightly_dry": "Леко сухо",
+                    "smoothing": "Изглаждане"
+                }
+            },
+            "elapsed_time": {
+                "name": "Изминало време"
+            },
+            "energy_consumption": {
+                "name": "Консумация на енергия"
+            },
+            "energy_forecast": {
+                "name": "Прогноза за консумация на енергия"
+            },
+            "finish_at": {
+                "name": "Ще приключи в"
+            },
+            "food_core_target_temperature": {
+                "name": "Целева температура на храната"
+            },
+            "food_core_temperature": {
+                "name": "Температура на храната"
+            },
+            "program_id": {
+                "name": "Програма",
+                "state": {
+                    "1_tray": "1 тава",
+                    "2_trays": "2 тави",
+                    "appliance_rinse": "Изплакване на уреда",
+                    "appliance_settings": "Меню за настройки на уреда",
+                    "auto": "Авто",
+                    "auto_roast": "Автоматично печене",
+                    "automatic": "Автоматична",
+                    "automatic_plus": "Автоматична плюс",
+                    "baking_tray": "Тава за печене",
+                    "barista_assistant": "Бариста асистент",
+                    "basket_program": "Програма кошница",
+                    "bed_linen": "Чаршафи",
+                    "black_tea": "Черен чай",
+                    "bottom_heat": "Долно нагряване",
+                    "brewing_unit_degrease": "Обезмасляване",
+                    "cafe_au_lait": "Café au lait",
+                    "caffe_latte": "Caffè latte",
+                    "cappuccino": "Капучино",
+                    "cappuccino_italiano": "Cappuccino Italiano",
+                    "check_appliance": "Проверете уреда",
+                    "clean_machine": "Почистване на машината",
+                    "coffee": "Кафе",
+                    "conventional_heat": "Стандартно нагряване",
+                    "cool_air": "Студен въздух",
+                    "cottons": "Памук",
+                    "cottons_eco": "Памук ЕКО",
+                    "cottons_hygiene": "Памук хигиеничен",
+                    "curtains": "Пердета",
+                    "dark_garments": "Тъмно пране",
+                    "defrost": "Размразяване",
+                    "delicates": "Фино пране",
+                    "denim": "Дънки",
+                    "descaling": "Отстраняване на котлен камък от уреда",
+                    "down_duvets": "Пухени завивки",
+                    "down_filled_items": "Пух",
+                    "drain_spin": "Изпомпване/центрофугиране",
+                    "eco": "ЕКО",
+                    "eco_40_60": "ЕКО 40-60",
+                    "eco_fan_heat": "Еко вентилаторна топлина",
+                    "economy_grill": "Икономичен грил",
+                    "espresso": "Еспресо",
+                    "espresso_macchiato": "Espresso macchiato",
+                    "express": "Експресна програма",
+                    "express_20": "Експресна програма 20",
+                    "extra_quiet": "Изключително тихо",
+                    "fan_grill": "Грил с вентилатор",
+                    "fan_plus": "Вентилатор Плюс",
+                    "first_wash": "Нови изделия от текстил",
+                    "flat_white": "Flat white",
+                    "freshen_up": "Освежаване",
+                    "fruit_tea": "Плодов чай",
+                    "full_grill": "Пълен грил",
+                    "gentle": "Много щадяща програма",
+                    "gentle_denim": "Нежен деним",
+                    "gentle_minimum_iron": "Нежна лесна поддръжка",
+                    "gentle_smoothing": "Нежно изглаждане",
+                    "glasses_warm": "Бирени чаши",
+                    "green_tea": "Зелен чай",
+                    "herbal_tea": "Билков чай",
+                    "hot_milk": "Топло мляко",
+                    "hot_water": "Гореща вода",
+                    "hygiene": "Хигиена",
+                    "intensive": "Интензивна",
+                    "intensive_bake": "Интензивно печене",
+                    "japanese_tea": "Японски чай",
+                    "latte_macchiato": "Latte macchiato",
+                    "long_coffee": "Дълго кафе",
+                    "maintenance": "Програма за поддръжка",
+                    "microwave": "Микровълнова",
+                    "milk_foam": "Млечна пяна",
+                    "milk_pipework_clean": "Почистване на тръбата за мляко",
+                    "milk_pipework_rinse": "Изплакване на тръбата за мляко",
+                    "minimum_iron": "Лесна поддръжка",
+                    "moisture_plus_fan_plus": "Пара плюс и вентилатор плюс",
+                    "no_program": "Няма избрана програма",
+                    "normal": "Нормална",
+                    "outerwear": "Туристически екипи",
+                    "pillows": "Възглавници",
+                    "proofing": "Импрегниране",
+                    "quick_power_wash": "QuickPowerWash",
+                    "rinse": "Изплакване",
+                    "rinse_out_lint": "Само изплакване",
+                    "ristretto": "Ristretto",
+                    "separate_rinse_starch": "Отделно изплакване/колосване",
+                    "shirts": "Ризи",
+                    "silent": "Безшумен",
+                    "silks": "Коприна",
+                    "silks_handcare": "Коприна ръчно пране",
+                    "smoothing": "Изглаждане",
+                    "solar_save": "SolarSave",
+                    "sportswear": "Спортни екипи",
+                    "spot": "Цел",
+                    "standard_pillows": "Стандартни възглавници",
+                    "starch": "Колосване",
+                    "steam_care": "Steam care",
+                    "steam_smoothing": "Изглаждане с пара",
+                    "tall_items": "Високи съдове",
+                    "top_heat": "Горно нагряване",
+                    "trainers": "Маратонки",
+                    "turbo": "Турбо",
+                    "very_hot_water": "Вряла вода",
+                    "warm_air": "Горещ въздух",
+                    "white_tea": "Бял чай",
+                    "woollens": "Вълна",
+                    "woollens_handcare": "Вълна ръчно пране"
+                }
+            },
+            "program_phase": {
+                "name": "Програмна фаза",
+                "state": {
+                    "2nd_espresso": "2-ро еспресо кафе",
+                    "2nd_grinding": "2-ро смилане",
+                    "2nd_pre_brewing": "2-ро предварително варене",
+                    "anti_crease": "Защитата против намачкване",
+                    "blocked_brushes": "Четките са блокирани",
+                    "blocked_drive_wheels": "Задвижващите колела са блокирани",
+                    "blocked_front_wheel": "Предното колело е блокирало",
+                    "cleaning": "Почистване",
+                    "comfort_cooling": "Комфортно охлаждане",
+                    "cooling_down": "Охлаждане",
+                    "dirty_sensors": "Замърсени сензори",
+                    "disinfecting": "Дезинфекциране",
+                    "dispensing": "Дозиране",
+                    "docked": "Докинг",
+                    "drain": "Изцеждане",
+                    "drying": "Сушене",
+                    "dust_box_missing": "Липсваща кутия за прах",
+                    "energy_save": "Пестене на енергия",
+                    "espresso": "Кафе еспресо",
+                    "extra_dry": "Екстра сухо",
+                    "final_rinse": "Последно изплакване",
+                    "finished": "Готово",
+                    "freshen_up_and_moisten": "Освежаване и овлажняване",
+                    "going_to_target_area": "Отиване към целевата зона",
+                    "grinding": "Смилане",
+                    "hand_iron": "Ръчно гладене",
+                    "hand_iron_1": "Ръчно гладене 1",
+                    "hand_iron_2": "Ръчно гладене 2",
+                    "heating": "Загряване",
+                    "hot_milk": "Топло мляко",
+                    "hygiene": "Хигиена",
+                    "interim_rinse": "Междинно изплакване",
+                    "machine_iron": "Машинно гладене",
+                    "main_dishwash": "Почистване",
+                    "main_wash": "Основно пране",
+                    "milk_foam": "Млечна пяна",
+                    "moisten": "Овлажняване",
+                    "motor_overload": "Проверете кутията за прах и филтъра",
+                    "normal": "Нормално",
+                    "normal_plus": "Нормално плюс",
+                    "not_running": "Не се изпълнява",
+                    "pre_brewing": "Предварително варене",
+                    "pre_dishwash": "Предварително почистване",
+                    "pre_wash": "Предпране",
+                    "process_finished": "Процесът завърши",
+                    "process_running": "В процес на изпълнение",
+                    "program_running": "Програмата се изпълнява",
+                    "reactivating": "Повторно активиране",
+                    "remote_controlled": "Контролира се отдалечено",
+                    "returning": "Завръщане",
+                    "rinse": "Изплакване",
+                    "rinse_hold": "Спиране на изплакването",
+                    "rinse_out_lint": "Само изплакване",
+                    "rinses": "Изплаквания",
+                    "safety_cooling": "Безопасно охлаждане",
+                    "slightly_dry": "Леко сухо",
+                    "smoothing": "Изглаждане",
+                    "soak": "Накисване",
+                    "spin": "Центрофугиране",
+                    "starch_stop": "Спиране на колосването",
+                    "steam_smoothing": "Изглаждане с пара",
+                    "thermo_spin": "Гореща центрофуга",
+                    "timed_drying": "Сушене за време",
+                    "vacuum_cleaning": "Почистване",
+                    "vacuum_cleaning_paused": "Почистването е на пауза",
+                    "vacuum_internal_fault": "Вътрешна грешка - рестартиране",
+                    "venting": "Обдухване",
+                    "warm_air": "Горещ въздух",
+                    "wheel_lifted": "Колелото е повдигнато"
+                }
+            },
+            "program_type": {
+                "name": "Вид на програмата",
+                "state": {
+                    "automatic_program": "Автоматична програма",
+                    "cleaning_care_program": "Програма за почистване и грижа",
+                    "maintenance_program": "Програма за поддръжка",
+                    "normal_operation_mode": "Нормален режим на работа",
+                    "own_program": "Собствена програма"
+                }
+            },
+            "remaining_time": {
+                "name": "Оставащо време"
+            },
+            "spin_speed": {
+                "name": "Обороти на центрофугиране"
+            },
+            "start_at": {
+                "name": "Ще стартира в"
+            },
+            "start_time": {
+                "name": "Начален час"
+            },
+            "started_at": {
+                "name": "Започна в"
+            },
+            "status": {
+                "name": "Статус",
+                "state": {
+                    "failure": "Проблем",
+                    "idle": "Неактивен",
+                    "not_connected": "Няма връзка",
+                    "off": "Изкл.",
+                    "on": "Вкл.",
+                    "pause": "Пауза",
+                    "program_ended": "Програмата е приключила",
+                    "program_interrupted": "Програмата е прекъсната",
+                    "programmed": "Програмиран",
+                    "rinse_hold": "Спиране на изплакването",
+                    "running": "Работещ",
+                    "service": "Обслужване",
+                    "supercooling": "Супер охлаждане",
+                    "supercooling_superfreezing": "Супер охлаждане/супер замразяване",
+                    "superfreezing": "Супер замразяване",
+                    "superheating": "Супер загряване",
+                    "waiting_to_start": "Очаква стартиране"
+                },
+                "state_attributes": {
+                    "appliance": {
+                        "name": "Уред"
+                    },
+                    "manufacturer": {
+                        "name": "Производител"
+                    },
+                    "model": {
+                        "name": "Модел"
+                    },
+                    "serial_no": {
+                        "name": "Сериен номер"
+                    }
+                }
+            },
+            "target_temperature": {
+                "name": "Целева температура"
+            },
+            "target_temperature_zone_2": {
+                "name": "Целева температура зона 2"
+            },
+            "target_temperature_zone_3": {
+                "name": "Целева температура зона 3"
+            },
+            "temperature": {
+                "name": "Температура"
+            },
+            "temperature_zone_2": {
+                "name": "Температура зона 2"
+            },
+            "temperature_zone_3": {
+                "name": "Температура зона 3"
+            },
+            "water_consumption": {
+                "name": "Консумация на вода"
+            },
+            "water_forecast": {
+                "name": "Прогноза за консумация на вода"
+            }
+        },
+        "switch": {
+            "power_on": {
+                "name": "Вкл./Изкл."
+            },
+            "supercooling": {
+                "name": "Супер охлаждане"
+            },
+            "superfreezing": {
+                "name": "Супер замразяване"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "name": "Прахосмукачка",
+                "state_attributes": {
+                    "status": {
+                        "name": "Статус",
+                        "state": {
+                            "blocked_brushes": "Четките са блокирани",
+                            "blocked_drive_wheels": "Задвижващите колела са блокирани",
+                            "blocked_front_wheel": "Предното колело е блокирало",
+                            "check_dust_box_and_filter": "Проверете кутията за прах и филтъра",
+                            "dirty_sensors": "Замърсени сензори",
+                            "dust_box_missing": "Липсваща кутия за прах",
+                            "going_to_target_area": "Отиване към целевата зона",
+                            "internal_fault_reboot": "Вътрешна грешка - рестартиране",
+                            "remote_controlled": "Контролира се отдалечено",
+                            "wheel_lifted": "Колелото е повдигнато"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "hob_not_supported": {
+            "title": "Уредът {tech_type} не се поддържа напълно"
+        }
+    },
+    "selector": {
+        "process_action_options": {
+            "options": {
+                "pause": "Пауза",
+                "start": "Старт",
+                "start_supercooling": "Пусни супер охлаждането",
+                "start_superfreezing": "Пусни супер замразяването",
+                "stop": "Стоп",
+                "stop_supercooling": "Спри  супер охлаждането",
+                "stop_superfreezing": "Спри  супер замразяването"
+            }
+        }
+    },
+    "services": {
+        "generic_action": {
+            "description": "Изпълнете едно действие на устройство",
+            "name": "Изпълнете общо действие"
+        },
+        "process_action": {
+            "description": "Изпълнява действията на процеса, ако са изпълнени предварителните условия.",
+            "fields": {
+                "action": {
+                    "description": "Изберете едно действие на процеса за изпълнение.",
+                    "name": "Действие"
+                }
+            },
+            "name": "Изпълнете действие на процеса"
+        },
+        "raw": {
+            "description": "Изпълнение на услугата с минимално валидиране.",
+            "fields": {
+                "extra": {
+                    "description": "Списък с параметри",
+                    "name": "Екстра"
+                },
+                "serialno": {
+                    "description": "Сериен номер на уреда",
+                    "name": "Сериен номер"
+                }
+            },
+            "name": "Изпълнете сурово действие"
+        },
+        "set_program": {
+            "description": "Задайте и стартирайте програма с допълнителни параметри.",
+            "name": "Задайте програма"
+        }
+    },
+    "system_health": {
+        "info": {
+            "component_version": "Версия",
+            "reach_miele_cloud": "Свързване с Miele Cloud"
+        }
     }
-  },
-  "system_health": {
-    "info": {
-      "component_version": "Версия",
-      "reach_miele_cloud": "Свързване с Miele Cloud"
-    }
-  }
 }
