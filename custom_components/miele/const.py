@@ -272,6 +272,12 @@ STATE_PROGRAM_PHASE = {
     5903: "docked",
     5904: "docked",
     5910: "remote_controlled",
+    # Steam oven microwave combination
+    3863: "steam_reduction",
+    7938: "process_running",
+    7939: "waiting_for_start",
+    7940: "heating_up_phase",
+    7942: "process_finished",
     # Error conditions/API quirks.
     65535: "not_running",  # Seems to be an API error/default value.
 }
@@ -723,7 +729,7 @@ STEAM_OVEN_MICRO_PROGRAM_ID = {
     2166: "leek_pieces",
     2167: "leek_rings",
     2168: "romanesco_whole_small",
-    2168: "romanesco_whole_medium",
+    2169: "romanesco_whole_medium",
     2170: "romanesco_whole_large",
     2171: "romanesco_florets_small",
     2172: "romanesco_florets_medium",
@@ -781,7 +787,7 @@ STEAM_OVEN_MICRO_PROGRAM_ID = {
     2234: "salmon_fillet_2_cm",
     2235: "salmon_fillet_3_cm",
     2238: "salmon_steak_2_cm",
-    2238: "salmon_steak_3_cm",
+    2239: "salmon_steak_3_cm",
     2240: "salmon_piece",
     2241: "salmon_trout",
     2244: "iridescent_shark_fillet",
