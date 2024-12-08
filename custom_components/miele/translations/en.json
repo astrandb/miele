@@ -780,7 +780,10 @@
           "warm_air": "Warm air",
           "warm_cups_glasses": "Warm cups/glasses",
           "warm_dishes_plates": "Warm dishes/plates",
-          "wheel_lifted": "Wheel lifted"
+          "wheel_lifted": "Wheel lifted",
+          "steam_reduction": "Steam reduction",
+          "waiting_for_start": "Waiting for start",
+          "heating_up_phase": "Heating up phase"
         }
       },
       "program_type": {
