@@ -34,6 +34,7 @@
   },
   "device_automation": {
     "condition_type": {
+      "autocleaning": "{entity_name} automatikus tisztítást végez",
       "failure": "{entity_name} nem működik",
       "idle": "{entity_name} tétlen",
       "not_connected": "{entity_name} nincs csatlakoztatva",
@@ -53,6 +54,7 @@
       "waiting_to_start": "{entity_name} Indításra vár"
     },
     "trigger_type": {
+      "autocleaning": "{entity_name} Automatikus tisztítás",
       "failure": "{entity_name} Hiba",
       "idle": "{entity_name} Tétlen",
       "not_connected": "{entity_name} Nincs csatlakoztatva",
@@ -249,7 +251,9 @@
           "no_program": "Nincs program",
           "normal": "Normál",
           "outerwear": "Felsőruházat",
+          "pasta_paela": "Tészta",
           "pillows": "Párnák",
+          "power_wash": "Erőteljes mosás",
           "proofing": "Vízzáró sport",
           "prove_15_min": "15 perces teszt",
           "prove_30_min": "30 perces teszt",
@@ -391,6 +395,7 @@
       "status": {
         "name": "Status",
         "state": {
+          "autocleaning": "Automatikus tisztítás",
           "failure": "Hiba történt",
           "idle": "Tétlen",
           "not_connected": "Nincs csatlakozva",
