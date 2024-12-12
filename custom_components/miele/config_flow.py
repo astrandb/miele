@@ -9,7 +9,11 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant.components import persistent_notification, zeroconf
-from homeassistant.config_entries import SOURCE_REAUTH, ConfigFlowResult
+from homeassistant.config_entries import (
+    SOURCE_REAUTH,
+    SOURCE_RECONFIGURE,
+    ConfigFlowResult,
+)
 from homeassistant.const import CONF_NAME
 from homeassistant.helpers import config_entry_oauth2_flow
 
@@ -71,14 +75,27 @@ class OAuth2FlowHandler(
         persistent_notification.async_dismiss(self.hass, "miele_reauth")
         return await self.async_step_user()
 
+    async def async_step_reconfigure(
+        self, user_input: Mapping[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """User initiated reconfiguration."""
+        return await self.async_step_user()
+
     async def async_oauth_create_entry(self, data: dict) -> ConfigFlowResult:
         """Create an oauth config entry or update existing entry for reauth."""
-        self.async_set_unique_id(DOMAIN)
+        await self.async_set_unique_id(DOMAIN)
+
         if self.source == SOURCE_REAUTH:
             self._abort_if_unique_id_mismatch()
             return self.async_update_reload_and_abort(
                 self._get_reauth_entry(), data_updates=data
             )
+        if self.source == SOURCE_RECONFIGURE:
+            self._abort_if_unique_id_mismatch()
+            return self.async_update_reload_and_abort(
+                self._get_reconfigure_entry(), data_updates=data
+            )
+
         self._abort_if_unique_id_configured()
         return await super().async_oauth_create_entry(data)
 

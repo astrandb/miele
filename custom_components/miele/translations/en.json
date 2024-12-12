@@ -13,7 +13,8 @@
       "oauth_failed": "Error while obtaining access token.",
       "oauth_timeout": "Timeout resolving OAuth token.",
       "oauth_unauthorized": "OAuth authorization error while obtaining access token.",
-      "reauth_successful": "Re-authentication was successful"
+      "reauth_successful": "Re-authentication was successful",
+      "reconfigure_successful": "Re-configuration was successful."
     },
     "create_entry": {
       "default": "Successfully authenticated"

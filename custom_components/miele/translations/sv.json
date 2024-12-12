@@ -13,7 +13,8 @@
       "oauth_failed": "Fel vid hämtning av åtkomsttoken.",
       "oauth_timeout": "Timeout vid hämtning av OAuth-token.",
       "oauth_unauthorized": "OAuth-auktoriseringsfel vid hämtning av åtkomsttoken.",
-      "reauth_successful": "Omautentiseringen lyckades"
+      "reauth_successful": "Omautentiseringen lyckades",
+      "reconfigure_successful": "Omkonfigurationen lyckades"
     },
     "create_entry": {
       "default": "Autentisering lyckades"
@@ -251,7 +252,9 @@
           "no_program": "Inget program",
           "normal": "Normal",
           "outerwear": "Ytterkläder",
+          "pasta_paela": "Pasta/Paella",
           "pillows": "Kuddar",
+          "power_wash": "PowerWash",
           "proofing": "Impregnering",
           "prove_15_min": "15 min jäsning",
           "prove_30_min": "30 min jäsning",
