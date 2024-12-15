@@ -838,7 +838,7 @@ STEAM_OVEN_MICRO_PROGRAM_ID = {
     2334: "beef_tenderloin_medaillons_2_cm_steam_cooking",
     2335: "beef_tenderloin_medaillons_3_cm_steam_cooking",
     2339: "silverside_5_cm",
-    2342: "silverside_7.5_cm",
+    2342: "silverside_7_5_cm",
     2345: "silverside_10_cm",
     2348: "meat_for_soup_back_or_top_rib",
     2349: "meat_for_soup_leg_steak",
