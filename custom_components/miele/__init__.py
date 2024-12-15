@@ -166,6 +166,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id] = {}
     hass.data[DOMAIN]["id_log"] = []
     hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
+    hass.data[DOMAIN][entry.entry_id]["timeouts"] = 0
     hass.data[DOMAIN][entry.entry_id]["listener"] = None
     hass.data[DOMAIN][entry.entry_id][API] = AsyncConfigEntryAuth(
         aiohttp_client.async_get_clientsession(hass), session
@@ -290,30 +291,44 @@ async def get_coordinator(
 
     async def async_fetch():
         miele_api = hass.data[DOMAIN][entry.entry_id][API]
-        try:
-            async with asyncio.timeout(API_READ_TIMEOUT):
-                res = await miele_api.request(
-                    "GET",
-                    f"/devices?language={hass.config.language}",
-                    agent_suffix=f"Miele for Home Assistant/{VERSION}",
-                )
-            if res.status == 401:
-                hass.data[DOMAIN][entry.entry_id]["retries_401"] += 1
-                if hass.data[DOMAIN][entry.entry_id]["retries_401"] == 5:
-                    raise ConfigEntryAuthFailed(
-                        "Authentication failure when fetching data"
+        while True:
+            try:
+                async with asyncio.timeout(API_READ_TIMEOUT):
+                    res = await miele_api.request(
+                        "GET",
+                        f"/devices?language={hass.config.language}",
+                        agent_suffix=f"Miele for Home Assistant/{VERSION}",
                     )
-                raise UpdateFailed(
-                    f"HTTP status 401: Retry {hass.data[DOMAIN][entry.entry_id]['retries_401']}"
+                if res.status == 401:
+                    hass.data[DOMAIN][entry.entry_id]["retries_401"] += 1
+                    if hass.data[DOMAIN][entry.entry_id]["retries_401"] == 5:
+                        raise ConfigEntryAuthFailed(
+                            "Authentication failure when fetching data"
+                        )
+                    raise UpdateFailed(
+                        f"HTTP status 401: Retry {hass.data[DOMAIN][entry.entry_id]['retries_401']}"
+                    )
+                if res.status != 200:
+                    raise UpdateFailed(
+                        f"HTTP Status {res.status}: fetching {DOMAIN} data"
+                    )
+                result = await res.json()
+                break
+            except JSONDecodeError as error:
+                _LOGGER.error("Could not decode json from coordinator fetch")
+                raise UpdateFailed(error) from error
+            except TimeoutError as error:
+                hass.data[DOMAIN][entry.entry_id]["timeouts"] += 1
+                _LOGGER.debug(
+                    "Timeout #%s fetching data from API",
+                    hass.data[DOMAIN][entry.entry_id]["timeouts"],
                 )
-            if res.status != 200:
-                raise UpdateFailed(f"HTTP Status {res.status}: fetching {DOMAIN} data")
-            result = await res.json()
-        except JSONDecodeError as error:
-            _LOGGER.error("Could not decode json from coordinator fetch")
-            raise UpdateFailed(error) from error
+                if hass.data[DOMAIN][entry.entry_id]["timeouts"] >= 3:
+                    raise TimeoutError(error) from error
+                await asyncio.sleep(10)
 
         hass.data[DOMAIN][entry.entry_id]["retries_401"] = 0
+        hass.data[DOMAIN][entry.entry_id]["timeouts"] = 0
         flat_result: dict = {}
         # result["1223001"] = TEST_DATA_1
         # result["1223003"] = TEST_DATA_3

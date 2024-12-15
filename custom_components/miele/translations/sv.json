@@ -13,7 +13,8 @@
       "oauth_failed": "Fel vid hämtning av åtkomsttoken.",
       "oauth_timeout": "Timeout vid hämtning av OAuth-token.",
       "oauth_unauthorized": "OAuth-auktoriseringsfel vid hämtning av åtkomsttoken.",
-      "reauth_successful": "Omautentiseringen lyckades"
+      "reauth_successful": "Omautentiseringen lyckades",
+      "reconfigure_successful": "Omkonfigurationen lyckades"
     },
     "create_entry": {
       "default": "Autentisering lyckades"
