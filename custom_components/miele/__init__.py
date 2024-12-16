@@ -68,6 +68,7 @@ from .devcap import (  # noqa: F401
     TEST_DATA_24,
     TEST_DATA_27,
     TEST_DATA_27_OFF,
+    TEST_DATA_45,
     TEST_DATA_73,
     TEST_DATA_74,
 )
@@ -241,6 +242,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         # data["1223024"] = TEST_DATA_24
         # data["122A027"] = TEST_DATA_27
         # data["122B027"] = TEST_DATA_27_OFF
+        # data["1223045"] = TEST_DATA_45
         # data["1223073"] = TEST_DATA_73
         # data["1223074"] = TEST_DATA_74
         flat_result: dict = {}
