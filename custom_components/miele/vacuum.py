@@ -137,21 +137,21 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
     def activity(self) -> VacuumActivity | None:
         """Map state."""
         if self.coordinator.data[self._ent]["state|status|value_raw"] == 6:
-            return VacuumActivity.STATE_PAUSED
+            return VacuumActivity.PAUSED
 
         self._phase = self.coordinator.data[self._ent]["state|programPhase|value_raw"]
         if self._phase in (5903, 5904):
-            return VacuumActivity.STATE_DOCKED
+            return VacuumActivity.DOCKED
         if self._phase in (5889, 5892):
-            return VacuumActivity.STATE_CLEANING
+            return VacuumActivity.CLEANING
         if self._phase == 5890:
-            return VacuumActivity.STATE_RETURNING
+            return VacuumActivity.RETURNING
         if self._phase in (5893, 5894, 5895, 5896, 5897, 5898, 5899, 5900):
-            return VacuumActivity.STATE_ERROR
+            return VacuumActivity.ERROR
         if self._phase in (5891, 5910):
-            return VacuumActivity.STATE_PAUSED
+            return VacuumActivity.PAUSED
         if self._phase == 0:
-            return VacuumActivity.STATE_IDLE
+            return VacuumActivity.IDLE
 
         return self._phase
 
