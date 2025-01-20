@@ -104,6 +104,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
         ]
 
     async def send_process_action(call: ServiceCall):
+        serno = ""
         _LOGGER.debug("Call: %s", call)
         if not (our_entry_ids := await extract_our_config_entry_ids(call)):
             raise HomeAssistantError(
@@ -128,6 +129,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
                 ) from ex
 
     async def send_generic_action(call: ServiceCall):
+        serno = ""
         _LOGGER.debug("Call: %s", call)
         if not (our_entry_ids := await extract_our_config_entry_ids(call)):
             raise HomeAssistantError(
@@ -169,6 +171,7 @@ async def async_setup_services(hass: HomeAssistant) -> None:  # noqa: C901
             raise HomeAssistantError(f"Service raw: {ex.status} {ex.message}") from ex
 
     async def set_program(call: ServiceCall):
+        serno = ""
         _LOGGER.debug("Call: %s", call)
         if not (our_entry_ids := await extract_our_config_entry_ids(call)):
             raise HomeAssistantError(
