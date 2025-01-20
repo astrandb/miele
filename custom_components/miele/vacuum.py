@@ -194,7 +194,7 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
         return self.coordinator.data[self._ent]["state|batteryLevel"]
 
     @property
-    def fan_speed(self):
+    def fan_speed(self) -> str:
         """Return the fan speed."""
         if (
             self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO
@@ -202,13 +202,9 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
             == PROG_SPOT
         ):
             return "normal"
-        elif (
-            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO
-        ):
+        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO:
             return "turbo"
-        elif (
-            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SILENT
-        ):
+        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SILENT:
             return "silent"
         return None
 
