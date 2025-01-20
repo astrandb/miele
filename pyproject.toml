@@ -212,7 +212,7 @@ disable = [
     "missing-format-argument-key",
     "missing-format-attribute",
     "missing-kwoa",
-    "no-member",
+    # "no-member",
     "no-value-for-parameter",
     "non-iterator-returned",
     "non-str-assignment-to-dunder-name",
