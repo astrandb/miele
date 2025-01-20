@@ -8,3 +8,4 @@ urllib3>=1.26.5,<2
 
 flatdict==4.0.1
 pymiele
+pytest-homeassistant-custom-component
