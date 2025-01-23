@@ -247,7 +247,7 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
         """Return to base."""
         _LOGGER.debug("return_to_base -> kwargs: %s", kwargs)
         try:
-            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_BASE})
+            await self._api.send_action(self._ent, {PROCESS_ACTION: ACT_STOP})
         except aiohttp.ClientResponseError as ex:
             _LOGGER.error("Return_to_base: %s - %s", ex.status, ex.message)
 
