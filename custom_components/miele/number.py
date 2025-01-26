@@ -142,7 +142,7 @@ async def async_setup_entry(
                     data_tag=f"state|plateStep|{plate_no}|value_raw",
                     icon="mdi:stove",
                     translation_key="plate",
-                    translation_placeholders={"plate_no": f"{plate_no+1}"},
+                    translation_placeholders={"plate_no": f"{plate_no + 1}"},
                     zone=plate_no,
                     native_min_value=0.0,
                     native_max_value=10.0,
@@ -183,7 +183,16 @@ class MieleNumber(MieleEntity, NumberEntity):
         """Return native value."""
         if self.coordinator.data[self._ent].get(self._ed.data_tag) is None:
             return 0
-        return PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
+        try:
+            retval = PLATE_MAP[self.coordinator.data[self._ent][self._ed.data_tag]]
+        except KeyError:
+            _LOGGER.debug(
+                "Unknown state for %s => %s",
+                self._ent,
+                self.coordinator.data[self._ent][self._ed.data_tag],
+            )
+            return None
+        return retval
 
     @property
     def available(self):
