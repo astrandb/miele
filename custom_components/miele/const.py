@@ -365,7 +365,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
     20: "cottons",
     23: "cottons_hygiene",
     30: "minimum_iron",
-    31: "gentle_minimum_iron",
+    31: "bed_linen",
     40: "woollens_handcare",
     50: "delicates",
     60: "warm_air",
