@@ -353,6 +353,7 @@ DISHWASHER_PROGRAM_ID = {
 TUMBLE_DRYER_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Extrapolated from other device types
+    3: "minimum_iron",
     10: "automatic_plus",
     20: "cottons",
     23: "cottons_hygiene",
@@ -361,6 +362,7 @@ TUMBLE_DRYER_PROGRAM_ID = {
     40: "woollens_handcare",
     50: "delicates",
     60: "warm_air",
+    66: "eco",
     70: "cool_air",
     80: "express",
     90: "cottons",
