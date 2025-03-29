@@ -693,7 +693,7 @@ STEAM_OVEN_MICRO_PROGRAM_ID = {
     2129: "potatoes_floury_diced",
     2130: "german_turnip_sliced",
     2131: "german_turnip_cut_into_batons",
-    2132: "german_turnip_sliced",
+    2132: "german_turnip_diced",
     2133: "pumpkin_diced",
     2134: "corn_on_the_cob",
     2135: "mangel_cut",
