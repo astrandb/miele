@@ -634,7 +634,7 @@ STEAM_OVEN_MICRO_PROGRAM_ID = {
     2019: "defrosting_with_steam",
     2020: "blanching",
     2021: "bottling",
-    2022: "heat_crockery",
+    2022: "sterilize_crockery",
     2023: "prove_dough",
     2027: "soak",
     2029: "reheating_with_microwave",
