@@ -19,7 +19,7 @@
   ],
   "requirements": [
     "flatdict==4.0.1",
-    "pymiele==0.2.0"
+    "pymiele==0.3.1"
   ],
   "ssdp": [],
   "version": "2025.1.1",
