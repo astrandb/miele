@@ -2,6 +2,15 @@
 
 # Miele Integration for Home Assistant
 
+# IMPORTANT - Moving to Home Assistant core
+I have got many questions over the years why this integration is not part och Home Assistant cor. The short answer is that the migration would need a more or less total refactoring of the code and I have not had the time needed previously.
+But you can always change your mind...
+ I have now been working hard behind the curtain together with members from the Home Assistant core team and we will soon release the first beta erlease. We hope for 2025.5.0.
+
+ The first release will not be 100% feature complete. The remaining bits will have to wait until next month. There may be compatibility problems with the current custom component and it will be difficult to go back when have installed the new official version, so if you are not prepared for some tweaking of automations and perhaps losing some statistics you should probably wait until the new version is stable. Remeber to backup your HA system before moving to the upcoming official integration.
+
+ ## The custom component (HACS)
+
 The capabilities are based on Miele API version 1.0.7. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some devices lack support and some devices support features that are not marked.
 
 All supported appliances will show a status sensor, some appliances will show more sensors, however only freezers, refridgerators, coffee machines, dishwashers and washer/dryers will have a more complete support. Changes on the appliances will be pushed to HA and displayed immediately. As a backup the status is read from the cloud every 60 seconds.
