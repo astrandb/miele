@@ -45,8 +45,10 @@ from .const import (
     STATE_STATUS_NOT_CONNECTED,
     STATE_STATUS_OFF,
     STATE_STATUS_ON,
+    STATE_STATUS_PAUSE,
     STATE_STATUS_PROGRAM_ENDED,
     STATE_STATUS_PROGRAMMED,
+    STATE_STATUS_RUNNING,
     STATE_STATUS_SERVICE,
     STATE_STATUS_WAITING_TO_START,
     MieleAppliance,
@@ -772,6 +774,7 @@ class MieleSensor(MieleEntity, SensorEntity):
         self._last_elapsed_time_reported = None
         self._last_started_time_reported = None
         self._last_abs_time = {}
+        self._last_consumption_valid = True
 
     @property
     def native_value(self):
@@ -852,23 +855,41 @@ class MieleSensor(MieleEntity, SensorEntity):
                     }
                 )
 
-        # Show 0 consumption when the appliance is not running,
-        # to correctly reset utility meter cycle. Ignore this when
-        # appliance is not connected (it may disconnect while a program
-        # is running causing problems in energy stats).
         state = self.coordinator.data[self._ent][self.entity_description.status_key_raw]
         if self.entity_description.key in [
             "stateCurrentEnergyConsumption",
             "stateCurrentWaterConsumption",
-        ] and state in [
-            STATE_STATUS_ON,
-            STATE_STATUS_OFF,
-            STATE_STATUS_PROGRAMMED,
-            STATE_STATUS_WAITING_TO_START,
-            STATE_STATUS_IDLE,
-            STATE_STATUS_SERVICE,
         ]:
-            return 0
+            current_consumption = self.coordinator.data[self._ent].get(self.entity_description.data_tag)
+            # Show 0 consumption when the appliance is not running,
+            # to correctly reset utility meter cycle. Ignore this when
+            # appliance is not connected (it may disconnect while a program
+            # is running causing problems in energy stats).
+            if state in [
+                STATE_STATUS_ON,
+                STATE_STATUS_OFF,
+                STATE_STATUS_PROGRAMMED,
+                STATE_STATUS_WAITING_TO_START,
+                STATE_STATUS_IDLE,
+                STATE_STATUS_SERVICE,
+            ]:
+                self._last_consumption_valid = False
+                return 0
+            # If running or paused, instead, mark valid the consumption and 
+            # report it only if it starts from 0, otherwise it results as a 
+            # spike due to a glitch in API that is reporting the consumption 
+            # of last cycle for a couple of seconds immediately after starting 
+            # the program
+            elif state in [
+                STATE_STATUS_RUNNING,
+                STATE_STATUS_PAUSE,
+            ] and current_consumption == 0:
+                self._last_consumption_valid = True
+            elif state in [
+                STATE_STATUS_RUNNING,
+                STATE_STATUS_PAUSE,
+            ] and current_consumption is not None and current_consumption > 0 and not self._last_consumption_valid:
+                return 0
 
         if (
             self.coordinator.data[self._ent].get(self.entity_description.data_tag)
