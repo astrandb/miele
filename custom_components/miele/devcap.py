@@ -1334,35 +1334,31 @@ TEST_DATA_45 = {
         "ProgramID": {
             "value_raw": 0,
             "value_localized": "",
-            "key_localized": "Program name"
+            "key_localized": "Program name",
         },
-        "status": {
-            "value_raw": 2,
-            "value_localized": "On",
-            "key_localized": "status"
-        },
+        "status": {"value_raw": 2, "value_localized": "On", "key_localized": "status"},
         "programType": {
             "value_raw": 1,
             "value_localized": "Program",
-            "key_localized": "Program type"
+            "key_localized": "Program type",
         },
         "programPhase": {
             "value_raw": 0,
             "value_localized": "",
-            "key_localized": "Program phase"
+            "key_localized": "Program phase",
         },
         "remainingTime": [0, 0],
         "startTime": [0, 0],
         "targetTemperature": [
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
-            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
         ],
         "coreTargetTemperature": [],
         "temperature": [
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
             {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
-            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"}
+            {"value_raw": -32768, "value_localized": None, "unit": "Celsius"},
         ],
         "coreTemperature": [],
         "signalInfo": False,
@@ -1371,7 +1367,7 @@ TEST_DATA_45 = {
         "remoteEnable": {
             "fullRemoteControl": True,
             "smartGrid": False,
-            "mobileStart": False
+            "mobileStart": False,
         },
         "ambientLight": None,
         "light": 2,
@@ -1380,21 +1376,21 @@ TEST_DATA_45 = {
             "unit": "rpm",
             "value_raw": None,
             "value_localized": None,
-            "key_localized": "Spin speed"
+            "key_localized": "Spin speed",
         },
         "dryingStep": {
             "value_raw": None,
             "value_localized": "",
-            "key_localized": "Drying level"
+            "key_localized": "Drying level",
         },
         "ventilationStep": {
             "value_raw": None,
             "value_localized": "",
-            "key_localized": "Fan level"
+            "key_localized": "Fan level",
         },
         "plateStep": [],
         "ecoFeedback": None,
-        "batteryLevel": None
+        "batteryLevel": None,
     },
 }
 

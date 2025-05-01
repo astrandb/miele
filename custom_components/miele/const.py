@@ -3,7 +3,7 @@
 from enum import IntEnum
 
 DOMAIN = "miele"
-VERSION = "2025.1.1"
+VERSION = "2025.5.0"
 API_READ_TIMEOUT = 20
 MANUFACTURER = "Miele"
 
@@ -354,22 +354,22 @@ TUMBLE_DRYER_PROGRAM_ID = {
     -1: "no_program",  # Extrapolated from other device types.
     0: "no_program",  # Extrapolated from other device types
     2: "cottons",  # TWF760WP
-    3: "minimum_iron", # TWF760WP
-    4: "woollens_handcare", # TWF760WP
-    5: "delicates", # TWF760WP
-    6: "warm_air", # TWF760WP
-    8: "express" # TWF760WP
+    3: "minimum_iron",  # TWF760WP
+    4: "woollens_handcare",  # TWF760WP
+    5: "delicates",  # TWF760WP
+    6: "warm_air",  # TWF760WP
+    8: "express",  # TWF760WP
     10: "automatic_plus",
-    12: "proofing", # TWF760WP
-    14: "shirts", # TWF760WP
+    12: "proofing",  # TWF760WP
+    14: "shirts",  # TWF760WP
     20: "cottons",
     23: "cottons_hygiene",
     30: "minimum_iron",
-    31: "bed_linen", # TWF760WP
+    31: "bed_linen",  # TWF760WP
     40: "woollens_handcare",
     50: "delicates",
     60: "warm_air",
-    66: "eco", # TWF760WP
+    66: "eco",  # TWF760WP
     70: "cool_air",
     80: "express",
     90: "cottons",
@@ -412,7 +412,6 @@ OVEN_PROGRAM_ID = {
     51: "moisture_plus_conventional_heat",
     74: "moisture_plus_intensive_bake",
     76: "moisture_plus_conventional_heat",
-    49: "moisture_plus_fan_plus",
     323: "pyrolytic",
     326: "descale",
     335: "shabbat_program",
