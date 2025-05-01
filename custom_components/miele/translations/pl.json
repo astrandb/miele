@@ -1,0 +1,31 @@
+{
+  "entity": {
+    "sensor": {
+      "drying_step": {
+        "state": {
+          "extra_dry": "Extra suche",
+          "hand_iron_1": "Do prasowania",
+          "normal": "Do szafy",
+          "smoothing": "HygieneDry"
+        }
+      },
+      "program_id": {
+        "state": {
+          "cottons": "Bawełna",
+          "dark_garments": "Ciemne/Jeans",
+          "delicates": "Tkaniny bardzo delikatne",
+          "eco_40_60": "ECO 40-60",
+          "express_20": "Expres 20",
+          "minimum_iron": "Tkaniny delikatne",
+          "proofing": "Impregnacja",
+          "shirts": "Koszule",
+          "silks": "Jedwab",
+          "woollens": "Wełna"
+        }
+      },
+      "remaining_time": {
+        "name": "Pozostały czas"
+      }
+    }
+  }
+}
