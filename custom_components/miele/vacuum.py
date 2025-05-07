@@ -38,13 +38,13 @@ from .entity import MieleEntity
 
 _LOGGER = logging.getLogger(__name__)
 
-FAN_SPEEDS = ["normal", "turbo", "silent"]
+FAN_SPEEDS = ["auto", "spot", "turbo", "silent"]
 PROG_AUTO = 1
 PROG_SPOT = 2
 PROG_TURBO = 3
 PROG_SILENT = 4
 
-PPROGRAM_MAP = {"normal": PROG_AUTO, "turbo": PROG_TURBO, "silent": PROG_SILENT}
+PPROGRAM_MAP = {"auto": PROG_AUTO, "spot": PROG_SPOT, "turbo": PROG_TURBO, "silent": PROG_SILENT}
 
 SUPPORTED_FEATURES = (
     VacuumEntityFeature.TURN_ON
@@ -196,12 +196,10 @@ class MieleVacuum(MieleEntity, StateVacuumEntity):
     @property
     def fan_speed(self) -> str:
         """Return the fan speed."""
-        if (
-            self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO
-            or self.coordinator.data[self._ent]["state|ProgramID|value_raw"]
-            == PROG_SPOT
-        ):
-            return "normal"
+        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_AUTO:
+            return "auto"
+        if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SPOT:
+            return "spot"
         if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_TURBO:
             return "turbo"
         if self.coordinator.data[self._ent]["state|ProgramID|value_raw"] == PROG_SILENT:
