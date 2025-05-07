@@ -9,9 +9,23 @@ But you can always change your mind...
 
 I have now been working hard behind the curtain together with members from the Home Assistant core team and we will soon release the first beta release. We hope for 2025.5.0.
 
+This custom integration will not be actively maintained from now on. However bugfixes and similar fixes will be taken care of until january 2026.
+
 The first release will not be 100% feature complete. The remaining bits will have to wait until next month. There may be compatibility problems with the current custom component and it will be difficult to go back when you have installed the new official version, so if you are not prepared for some tweaking of automations and perhaps losing some statistics you should probably wait until the new version is stable. Remember to backup your HA system before moving to the upcoming official integration.
 
- ## The custom component (HACS)
+Documentation for the new version can be found here: https://home-assistant.io/integrations/miele/ Please read the docs carefully. If you are missing a feature in the documentation, it is probably because it is not ready yet and you should consider if it not better to wait another month before migrating.
+
+## How to migrate to Home Assistant core version
+
+1. Make a backup of your system - You may want to revert.
+1. Delete the integration. Go to Settings->Integration & Devices. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, they are not needed for the new version.
+1. Go to the HACS menu and open the 3-dot menu on the Miele entry. Select Delete.
+1. Restart Home Assistant.
+1. Your Miele devices should be discovered by HA and just click Add on Settings->Integrations & Devices and the installation will take off.
+1. Check all automations, scripts and dashboards. The entity names may have changed internally and in the user interface so an overhaul may be needed.
+
+
+## The custom component (HACS)
 
 The capabilities are based on Miele API version 1.0.7. The official capability overview is here https://www.miele.com/developer/assets/API_V1.x.x_capabilities_by_device.pdf . Note that this matrix is not entirely correct. Some devices lack support and some devices support features that are not marked.
 
