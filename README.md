@@ -11,7 +11,7 @@ I have now been working hard behind the curtain together with members from the H
 
 This custom integration will not be actively maintained from now on. However bugfixes and similar fixes will be taken care of until january 2026.
 
-The first release will not be 100% feature complete. The remaining bits will have to wait until next month. There may be compatibility problems with the current custom component and it will be difficult to go back when you have installed the new official version, so if you are not prepared for some tweaking of automations and perhaps losing some statistics you should probably wait until the new version is stable. Remember to backup your HA system before moving to the upcoming official integration.
+The first release will not be 100% feature complete. The remaining bits will have to wait until next month, or the month after. There may be compatibility problems with the current custom component and it will be difficult to go back when you have installed the new official version, so if you are not prepared for some tweaking of automations and perhaps losing some statistics you should probably wait until the new version is stable. Remember to backup your HA system before moving to the upcoming official integration.
 
 Documentation for the new version can be found here: https://home-assistant.io/integrations/miele/ Please read the docs carefully. If you are missing a feature in the documentation, it is probably because it is not ready yet and you should consider if it not better to wait another month before migrating.
 
