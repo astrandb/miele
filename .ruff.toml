@@ -49,7 +49,6 @@ lint.select = [
     "S317",   # suspicious-xml-sax-usage
     "S318",   # suspicious-xml-mini-dom-usage
     "S319",   # suspicious-xml-pull-dom-usage
-    "S320",   # suspicious-xmle-tree-usage
     "S601",   # paramiko-call
     "S602",   # subprocess-popen-with-shell-equals-true
     "S604",   # call-with-shell-equals-true
@@ -87,7 +86,6 @@ lint.ignore = [
     "UP006",   # keep type annotation style as is
     "UP007",   # keep type annotation style as is
     # Ignored due to performance: https://github.com/charliermarsh/ruff/issues/2923
-    "UP038", # Use `X | Y` in `isinstance` call instead of `(X, Y)`
 
     # May conflict with the formatter, https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
     "W191",
@@ -105,7 +103,6 @@ lint.ignore = [
     "PLE0605",
 
     # temporarily disabled
-    "PT004",
     "PT007",
     "PT011",
     "PT018",
