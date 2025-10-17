@@ -150,7 +150,10 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Miele from a config entry."""
-    implementation = await async_get_config_entry_implementation(hass, entry)
+    try:
+        implementation = await async_get_config_entry_implementation(hass, entry)
+    except ValueError as ex:
+        raise ConfigEntryNotReady("OAuth2 impementation not found, retrying...") from ex
 
     session = OAuth2Session(hass, entry, implementation)
     try:
