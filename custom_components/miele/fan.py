@@ -6,7 +6,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 import logging
 import math
-from typing import Any, Final, Optional
+from typing import Any, Final
 
 import aiohttp
 
@@ -157,7 +157,7 @@ class MieleFan(MieleEntity, FanEntity):
         return int_states_in_range(SPEED_RANGE)
 
     @property
-    def percentage(self) -> Optional[int]:
+    def percentage(self) -> int | None:
         """Return the current speed percentage."""
         return ranged_value_to_percentage(
             SPEED_RANGE,
@@ -214,8 +214,8 @@ class MieleFan(MieleEntity, FanEntity):
 
     async def async_turn_on(
         self,
-        percentage: Optional[int] = None,
-        preset_mode: Optional[str] = None,
+        percentage: int | None = None,
+        preset_mode: str | None = None,
         **kwargs: Any,
     ) -> None:
         """Turn on the fan."""
