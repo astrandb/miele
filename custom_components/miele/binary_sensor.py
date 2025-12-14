@@ -70,7 +70,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleBinarySensorDescription(
-            key="door",
+            key="state_signal_door",
             data_tag="state|signalDoor",
             device_class=BinarySensorDeviceClass.DOOR,
             translation_key="door",
@@ -105,7 +105,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleBinarySensorDescription(
-            key="info",
+            key="state_signal_info",
             data_tag="state|signalInfo",
             device_class=BinarySensorDeviceClass.PROBLEM,
             translation_key="info",
@@ -144,7 +144,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
-            key="failure",
+            key="state_signal_failure",
             data_tag="state|signalFailure",
             device_class=BinarySensorDeviceClass.PROBLEM,
             translation_key="failure",
@@ -182,7 +182,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
-            key="remoteEnable",
+            key="state_full_remote_control",
             data_tag="state|remoteEnable|fullRemoteControl",
             translation_key="remote_control",
             icon="mdi:remote",
@@ -218,7 +218,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
-            key="smartGrid",
+            key="state_smart_grid",
             data_tag="state|remoteEnable|smartGrid",
             translation_key="smart_grid",
             icon="mdi:view-grid-plus-outline",
@@ -256,7 +256,7 @@ BINARY_SENSOR_TYPES: Final[tuple[MieleBinarySensorDefinition, ...]] = (
             MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleBinarySensorDescription(
-            key="mobileStart",
+            key="state_mobile_start",
             data_tag="state|remoteEnable|mobileStart",
             translation_key="mobile_start",
             icon="mdi:cellphone-wireless",

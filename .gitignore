@@ -1,5 +1,6 @@
 # Home Assistant config
 config/
+config_save/
 # !config/configuration.yaml
 
 # Byte-compiled / optimized / DLL files

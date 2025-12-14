@@ -196,7 +196,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="targetTemperature",
+            key="target_temperature",
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature",
@@ -226,7 +226,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="targetTemperature2",
+            key="target_temperature2",
             data_tag="state|targetTemperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature_zone_2",
@@ -257,7 +257,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="targetTemperature3",
+            key="target_temperature3",
             data_tag="state|targetTemperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature_zone_3",
@@ -299,7 +299,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.HOB_INDUCT_EXTR,
         ],
         description=MieleSensorDescription(
-            key="stateStatus",
+            key="state_status",
             data_tag="state|status|value_raw",
             translation_key="status",
             convert=lambda x, t: STATE_STATUS.get(x, x),
@@ -336,7 +336,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="stateProgramId",
+            key="state_program_id",
             data_tag="state|ProgramID|value_raw",
             data_tag_loc="state|ProgramID|value_localized",
             translation_key="program_id",
@@ -367,7 +367,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="stateProgramType",
+            key="state_program_type",
             data_tag="state|programType|value_raw",
             data_tag_loc="state|programType|value_localized",
             translation_key="program_type",
@@ -398,7 +398,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="stateProgramPhase",
+            key="state_program_phase",
             data_tag="state|programPhase|value_raw",
             data_tag_loc="state|programPhase|value_localized",
             translation_key="program_phase",
@@ -414,7 +414,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
-            key="stateSpinningSpeed",
+            key="state_spinning_speed",
             data_tag="state|spinningSpeed|value_raw",
             translation_key="spin_speed",
             icon="mdi:sync",
@@ -429,7 +429,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.TUMBLE_DRYER_SEMI_PROFESSIONAL,
         ],
         description=MieleSensorDescription(
-            key="stateDryingStep",
+            key="state_drying_step",
             data_tag="state|dryingStep|value_raw",
             data_tag_loc="state|dryingStep|value_localized",
             translation_key="drying_step",
@@ -611,7 +611,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
-            key="stateCurrentWaterConsumption",
+            key="state_current_water_consumption",
             data_tag="state|ecoFeedback|currentWaterConsumption|value",
             translation_key="water_consumption",
             device_class=SensorDeviceClass.WATER,
@@ -631,7 +631,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
-            key="stateCurrentEnergyConsumption",
+            key="state_current_energy_consumption",
             data_tag="state|ecoFeedback|currentEnergyConsumption|value",
             translation_key="energy_consumption",
             device_class=SensorDeviceClass.ENERGY,
@@ -648,7 +648,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
-            key="stateWaterForecast",
+            key="state_water_forecast",
             data_tag="state|ecoFeedback|waterForecast",
             translation_key="water_forecast",
             icon="mdi:water-outline",
@@ -668,7 +668,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.WASHER_DRYER,
         ],
         description=MieleSensorDescription(
-            key="stateEnergyForecast",
+            key="state_energy_forecast",
             data_tag="state|ecoFeedback|energyForecast",
             translation_key="energy_forecast",
             icon="mdi:lightning-bolt-outline",
@@ -683,7 +683,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.ROBOT_VACUUM_CLEANER,
         ],
         description=MieleSensorDescription(
-            key="batteryLevel",
+            key="battery_level",
             data_tag="state|batteryLevel",
             translation_key="battery",
             device_class=SensorDeviceClass.BATTERY,
@@ -699,7 +699,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="coreTemperature",
+            key="core_temperature",
             data_tag="state|coreTemperature|0|value_raw",
             translation_key="food_core_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
@@ -716,7 +716,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="coreTargetTemperature",
+            key="core_target_temperature",
             data_tag="state|coreTargetTemperature|0|value_raw",
             translation_key="food_core_target_temperature",
             icon="mdi:thermometer-check",
@@ -860,7 +860,9 @@ class MieleSensor(MieleEntity, SensorEntity):
             "stateCurrentEnergyConsumption",
             "stateCurrentWaterConsumption",
         ]:
-            current_consumption = self.coordinator.data[self._ent].get(self.entity_description.data_tag)
+            current_consumption = self.coordinator.data[self._ent].get(
+                self.entity_description.data_tag
+            )
             # Show 0 consumption when the appliance is not running,
             # to correctly reset utility meter cycle. Ignore this when
             # appliance is not connected (it may disconnect while a program
@@ -875,20 +877,30 @@ class MieleSensor(MieleEntity, SensorEntity):
             ]:
                 self._last_consumption_valid = False
                 return 0
-            # If running or paused, instead, mark valid the consumption and 
-            # report it only if it starts from 0, otherwise it results as a 
-            # spike due to a glitch in API that is reporting the consumption 
-            # of last cycle for a couple of seconds immediately after starting 
+            # If running or paused, instead, mark valid the consumption and
+            # report it only if it starts from 0, otherwise it results as a
+            # spike due to a glitch in API that is reporting the consumption
+            # of last cycle for a couple of seconds immediately after starting
             # the program
-            elif state in [
-                STATE_STATUS_RUNNING,
-                STATE_STATUS_PAUSE,
-            ] and current_consumption == 0:
+            elif (
+                state
+                in [
+                    STATE_STATUS_RUNNING,
+                    STATE_STATUS_PAUSE,
+                ]
+                and current_consumption == 0
+            ):
                 self._last_consumption_valid = True
-            elif state in [
-                STATE_STATUS_RUNNING,
-                STATE_STATUS_PAUSE,
-            ] and current_consumption is not None and current_consumption > 0 and not self._last_consumption_valid:
+            elif (
+                state
+                in [
+                    STATE_STATUS_RUNNING,
+                    STATE_STATUS_PAUSE,
+                ]
+                and current_consumption is not None
+                and current_consumption > 0
+                and not self._last_consumption_valid
+            ):
                 return 0
 
         if (
