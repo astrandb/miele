@@ -903,6 +903,10 @@
     }
   },
   "issues": {
+    "final_migration": {
+      "description": "This integration/custom component is deprecated and will stop working sometime during the spring of 2026. The reason is that Miele will close down the authentication methods used by this integration.\nYou are strongly recommended to move to the official core integration for Miele appliances as soon as possible.\nRead more about the official core integration [here]({info_url}).\nFollow [these instructions]({instructions}) carefully to make the switch.",
+      "title": "The Miele custom component is deprecated"
+    },
     "hob_not_supported": {
       "description": "The appliance type {tech_type} is not fully supported by the Miele integration. Therefore some entities might be missing or malfunctioning. \n\nPlease report this issue to [the maintainer on Github]({issue_url})",
       "title": "The appliance {tech_type} is not fully supported"
