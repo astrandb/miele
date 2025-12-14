@@ -534,6 +534,10 @@
     }
   },
   "issues": {
+    "final_migration": {
+      "description": "Denna integration/anpassade komponent är föråldrad och kommer att sluta fungera någon gång under våren 2026. Anledningen är att Miele kommer att stänga ner de autentiseringsmetoder som används av denna integration. \n Du rekommenderas starkt att gå över till den officiella integrationen för Mieles hushållsmaskiner så snart som möjligt. \n Läs mer om den officiella integrationen [här]({info_url}). \n Följ [dessa instruktioner]({instructions}) noggrant för att göra övergången.",
+      "title": "Den anpassade integrationen för Miele avvecklas"
+    },
     "hob_not_supported": {
       "description": "Apparattypen {tech_type} stöds inte fullt ut av Miele-integrationen. Därför kan vissa entiteter saknas eller inte fungera. \n\nRapportera problemet till [den ansvarige på Github]({issue_url})",
       "title": "Enheten {tech_type} stöds inte fullt ut"

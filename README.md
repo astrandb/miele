@@ -17,16 +17,16 @@ Documentation for the new version can be found here: https://home-assistant.io/i
 
 ## How to migrate to Home Assistant core version
 
-Note that there are some differences in the internal naming of entities and that you will probably lose statistics when upgrading. Don't forget item 6 below.
+Note that there are some differences in the internal naming of entities and that you might lose some statistics when upgrading. Don't forget item 6 below.
 
 Please follow these instructions in detail and do things in the order described. If you take shortcuts you may end up with problems than can be hard to recover from.
 
 1. Make a backup of your system - You may want to revert.
-1. Delete the integration. Go to Settings->Devices & services. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, they are not needed for the new version.
+1. Delete the integration. Go to Settings->Devices & services. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, as they are not needed for the new version.
 1. Go to the HACS menu and open the 3-dot menu on the Miele entry. Select Delete.
 1. Restart Home Assistant.
-1. Your Miele devices should be auto-discovered by HA after a short while, just click "Add" on Settings->Devices & sevrices and the installation will take off.
-1. Check all automations, scripts and dashboards. The entity names may have changed internally and in the user interface so an overhaul may be needed.
+1. Your Miele devices should be auto-discovered by HA after a short while, just click "Add" on Settings->Devices & sevrices and the installation will take off. If you get an error message during account linking, clearing of the browser cache often helps (Ctrl-F5 or Cmd R).
+1. Check all automations, scripts and dashboards. The entity names may have changed internally so an overhaul of your set-up may be needed.
 
 
 ## The custom component (HACS)
