@@ -453,8 +453,8 @@ MIGRATE_KEYS = {
     "stateEnergyForecast": "energy_forecast",
     "stateWaterForecast": "water_forecast",
     "batteryLevel": "state_battery",
-    "coreTemperature": "core_temperature",
-    "coreTargetTemperature": "core_target_temperature",
+    "coreTemperature": "state_core_temperature",
+    "coreTargetTemperature": "state_core_target_temperature",
 }
 
 

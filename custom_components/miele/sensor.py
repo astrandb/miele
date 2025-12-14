@@ -106,7 +106,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="temperature",
+            key="state_temperature_1",
             data_tag="state|temperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="temperature",
@@ -135,7 +135,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="temperature2",
+            key="state_temperature_2",
             data_tag="state|temperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="temperature_zone_2",
@@ -164,7 +164,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="temperature3",
+            key="state_temperature3",
             data_tag="state|temperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="temperature_zone_3",
@@ -196,7 +196,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="target_temperature",
+            key="state_target_temperature_1",
             data_tag="state|targetTemperature|0|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature",
@@ -226,7 +226,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="target_temperature2",
+            key="state_target_temperature_2",
             data_tag="state|targetTemperature|1|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature_zone_2",
@@ -257,7 +257,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="target_temperature3",
+            key="state_target_temperature_3",
             data_tag="state|targetTemperature|2|value_raw",
             device_class=SensorDeviceClass.TEMPERATURE,
             translation_key="target_temperature_zone_3",
@@ -699,7 +699,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="core_temperature",
+            key="state_core_temperature",
             data_tag="state|coreTemperature|0|value_raw",
             translation_key="food_core_temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
@@ -716,7 +716,7 @@ SENSOR_TYPES: Final[tuple[MieleSensorDefinition, ...]] = (
             MieleAppliance.STEAM_OVEN_MK2,
         ],
         description=MieleSensorDescription(
-            key="core_target_temperature",
+            key="state_core_target_temperature",
             data_tag="state|coreTargetTemperature|0|value_raw",
             translation_key="food_core_target_temperature",
             icon="mdi:thermometer-check",
