@@ -22,10 +22,10 @@ Note that there are some differences in the internal naming of entities and that
 Please follow these instructions in detail and do things in the order described. If you take shortcuts you may end up with problems than can be hard to recover from.
 
 1. Make a backup of your system - You may want to revert.
-1. Delete the integration. Go to Settings->Integration & Devices. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, they are not needed for the new version.
+1. Delete the integration. Go to Settings->Devices & services. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, they are not needed for the new version.
 1. Go to the HACS menu and open the 3-dot menu on the Miele entry. Select Delete.
 1. Restart Home Assistant.
-1. Your Miele devices should be auto-discovered by HA after a short while, just click Add on Settings->Integrations & Devices and the installation will take off.
+1. Your Miele devices should be auto-discovered by HA after a short while, just click "Add" on Settings->Devices & sevrices and the installation will take off.
 1. Check all automations, scripts and dashboards. The entity names may have changed internally and in the user interface so an overhaul may be needed.
 
 
