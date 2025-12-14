@@ -8,6 +8,7 @@ from datetime import timedelta
 from http import HTTPStatus
 from json.decoder import JSONDecodeError
 import logging
+from typing import Any
 
 from aiohttp import ClientResponseError
 import flatdict
@@ -28,6 +29,7 @@ from homeassistant.helpers.config_entry_oauth2_flow import (
     async_get_config_entry_implementation,
 )
 from homeassistant.helpers.device_registry import DeviceEntry
+from homeassistant.helpers.entity_registry import RegistryEntry, async_migrate_entries
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
     ConfigEntryAuthFailed,
@@ -423,3 +425,67 @@ async def async_remove_config_entry_device(
         for _, identifier in device_entry.identifiers
         if identifier in api_data
     )
+
+
+MIGRATE_KEYS = {
+    "programPhase": "program_phase",
+    "door": "state_signal_door",
+    "info": "state_signal_info",
+    "failure": "state_signal_failure",
+    "remoteEnable": "state_full_remote_control",
+    "smartGrid": "state_smart_grid",
+    "mobileStart": "state_mobile_start",
+    "ambientlight": "ambient_light",
+    "temperature": "state_temperature_1",
+    "temperature2": "state_temperature_2",
+    "temperature3": "state_temperature_3",
+    "targetTemperature": "state_target_temperature_1",
+    "targetTemperature2": "state_target_temperature_2",
+    "targetTemperature3": "state_target_temperature_3",
+    "stateStatus": "state_status",
+    "stateProgramId": "state_program_id",
+    "stateProgramType": "state_program_type",
+    "stateProgramPhase": "state_program_phase",
+    "stateSpinningSpeed": "state_spinning_speed",
+    "stateDryingStep": "state_drying_step",
+    "stateCurrentEnergyConsumption": "current_energy_consumption",
+    "stateCurrentWaterConsumption": "current_water_consumption",
+    "stateEnergyForecast": "energy_forecast",
+    "stateWaterForecast": "water_forecast",
+    "batteryLevel": "state_battery",
+    "coreTemperature": "state_core_temperature",
+    "coreTargetTemperature": "state_core_target_temperature",
+}
+
+
+async def async_migrate_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    """Handle config entry migration."""
+
+    if entry.version < 2:
+
+        def migrate_entities(entity_entry: RegistryEntry) -> dict[str, Any] | None:
+            if entity_entry.domain in [
+                "binary_sensor",
+                "button",
+                "fan",
+                "light",
+                "sensor",
+                "switch",
+                "vacuum",
+            ]:
+                key, entity_id = entity_entry.unique_id.split("-")
+                new_key = MIGRATE_KEYS.get(key, key)
+                new_unique_id = f"{entity_id}-{new_key}"
+                return {"new_unique_id": new_unique_id}
+
+            return None
+
+        _LOGGER.info("Migrating unique_id to version 2")
+        await async_migrate_entries(hass, entry.entry_id, migrate_entities)
+        hass.config_entries.async_update_entry(
+            entry,
+            version=2,
+        )
+        _LOGGER.info("Migration of unique_id completed")
+
+    return True

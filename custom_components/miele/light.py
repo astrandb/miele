@@ -82,7 +82,7 @@ LIGHT_TYPES: Final[tuple[MieleLightDefinition, ...]] = (
             MieleAppliance.HOOD,
         ],
         description=MieleLightDescription(
-            key="ambientlight",
+            key="ambient_light",
             light_tag="state|ambientLight",
             translation_key="ambient_light",
         ),
