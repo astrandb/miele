@@ -283,7 +283,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         "final_migration",
         breaks_in_ha_version="2025.4.0",
         is_fixable=False,
-        is_persistent=True,
+        is_persistent=False,
         learn_more_url=("https://github.com/astrandb/miele?tab=readme-ov-file"),
         severity=ir.IssueSeverity.WARNING,
         translation_key="final_migration",
