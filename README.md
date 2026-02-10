@@ -1,6 +1,6 @@
 [![Miele](https://img.shields.io/github/v/release/astrandb/miele)](https://github.com/astrandb/miele/releases/latest) [![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/integration) ![Validate with hassfest](https://github.com/astrandb/miele/workflows/Validate%20with%20hassfest/badge.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2025.svg) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/total)](https://github.com/astrandb/miele) [![Miele_downloads](https://img.shields.io/github/downloads/astrandb/miele/latest/total)](https://github.com/astrandb/miele)
 
-# Miele Integration for Home Assistant
+# DEPRECATED, Not supported - Miele Integration for Home Assistant
 
 # IMPORTANT - Moving to Home Assistant core
 I have got many questions over the years why this integration is not part of Home Assistant core. The short answer is that the migration would need a more or less total refactoring of the code and I have not had the time needed previously.
@@ -9,7 +9,7 @@ But you can always change your mind...
 
 I have now been working hard behind the curtain together with members from the Home Assistant core team and we could release the first version in may 2025.
 
-This custom integration will not be actively maintained from now on. However bugfixes and similar fixes will be taken care of until january 2026.
+**This custom integration will not be actively maintained from now on. However bugfixes and similar fixes will be taken care of until january 2026.**
 
 The first release will not be 100% feature complete. The remaining bits will have to wait until next month, or the month after. There are som compatibility issues with the current custom component and it will be difficult to go back when you have installed the new official version. Remember to backup your HA system before moving to the official integration.
 
