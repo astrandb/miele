@@ -25,7 +25,7 @@ Please follow these instructions in detail and do things in the order described.
 1. Delete the integration. Go to Settings->Devices & services. Click on the Miele card and select delete from the 3-dot menu. You will be asked if you want to keep your credentials. You can delete them, as they are not needed for the new version.
 1. Go to the HACS menu and open the 3-dot menu on the Miele entry. Select Delete.
 1. Restart Home Assistant.
-1. Your Miele devices should be auto-discovered by HA after a short while, just click "Add" on Settings->Devices & sevrices and the installation will take off. If you get an error message during account linking, clearing of the browser cache often helps (Ctrl-F5 or Cmd R).
+1. Your Miele devices should be auto-discovered by HA after a short while, just click "Add" on Settings->Devices & services and the installation will take off. If you get an error message during account linking, clearing of the browser cache often helps (Ctrl-F5 or Cmd R).
 1. Check all automations, scripts and dashboards. The entity names may have changed internally so an overhaul of your set-up may be needed.
 
 
